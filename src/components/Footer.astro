@@ -1,0 +1,181 @@
+<footer class="footer" id="contact">
+	<div class="footer__inner">
+		<div class="footer__intro">
+			<div class="footer__identity">
+				<a class="footer__brand" href="/" aria-label="ProSteel Equipment home">PRO<span>STEEL</span><small>Equipment</small></a>
+				<a class="footer__call" href="tel:+19054873472">+1 905 487 3472</a>
+			</div>
+			<div class="footer__about">
+				<h2>About us</h2>
+				<p>ProSteel Equipment designs and fabricates Canadian-made gas cylinder cages, material handling racks, and custom industrial equipment. Our work combines solid metal construction, durable finishing, and application-specific engineering for commercial and industrial sites.</p>
+			</div>
+		</div>
+
+		<div class="footer__links">
+			<div>
+				<h2>Equipment</h2>
+				<a href="/products/?filter=gas-cage#catalogue">Propane & BBQ cages</a>
+				<a href="/products/?filter=gas-cage#catalogue">Forklift tank cages</a>
+				<a href="/products/?filter=gas-cage#catalogue">Welding cylinder cages</a>
+				<a href="/products/pse-al-147-7-16/">Aluminum oxygen cages</a>
+				<a href="/products/?filter=material-rack#catalogue">Material handling racks</a>
+			</div>
+			<div>
+				<h2>Capabilities</h2>
+				<a href="/fabrication/">CNC laser cutting</a>
+				<a href="/fabrication/">Forming & machining</a>
+				<a href="/fabrication/">Welding & assembly</a>
+				<a href="/fabrication/">Powder coating</a>
+				<a href="/fabrication/">Design & prototyping</a>
+			</div>
+			<div>
+				<h2>Get in touch</h2>
+				<address>
+					39 Selby Road<br />Brampton, ON L6W 1K5<br />
+					<a href="tel:+19054873472">+1 905 487 3472 Ext. 302</a><br />
+					<a href="tel:+17055072738">+1 705 507 2738</a><br />
+					<a href="mailto:mju@prosteelequipment.com">mju@prosteelequipment.com</a>
+				</address>
+			</div>
+		</div>
+
+		<div class="footer__bottom">
+			<p>Copyright © 2026 ProSteel. All rights reserved.</p>
+			<p>Proudly made in Canada.</p>
+		</div>
+	</div>
+</footer>
+
+<style>
+	.footer {
+		background: #121317;
+		color: #b9bac1;
+		padding: 76px 24px 30px;
+	}
+
+	.footer__inner {
+		width: min(100%, 1200px);
+		margin: 0 auto;
+	}
+
+	.footer__intro {
+		display: grid;
+		grid-template-columns: 180px minmax(0, 660px);
+		justify-content: space-between;
+		gap: 72px;
+	}
+
+	.footer__identity {
+		display: flex;
+		min-height: 110px;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: space-between;
+	}
+
+	.footer__brand {
+		display: inline-flex;
+		width: auto;
+		align-items: baseline;
+		gap: 1px;
+		color: #fff;
+		font-size: 22px;
+		font-weight: 900;
+		letter-spacing: .015em;
+		text-decoration: none;
+	}
+	.footer__brand span { color: #8b8ee8; }
+	.footer__brand small { margin-left: 8px; color: #8f9098; font-size: 9px; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; }
+	.footer__call { color: #fff; font-size: 12px; font-weight: 900; letter-spacing: .05em; text-decoration: none; }
+
+	.footer h2 {
+		margin: 0 0 18px;
+		color: #fff;
+		font-size: 12px;
+		font-weight: 900;
+		letter-spacing: .09em;
+		line-height: 1.2;
+		text-transform: uppercase;
+	}
+
+	.footer__about p {
+		max-width: 650px;
+		margin: 0;
+		font-size: 13px;
+		line-height: 1.7;
+	}
+
+	.footer__links {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		margin-top: 72px;
+		gap: 72px;
+	}
+
+	.footer__links > div {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.footer__links a,
+	.footer address {
+		color: #b9bac1;
+		font-size: 13px;
+		font-style: normal;
+		line-height: 1.65;
+		text-decoration: none;
+	}
+
+	.footer__links a:hover,
+	.footer__links a:focus-visible {
+		color: #fff;
+	}
+
+	.footer__bottom {
+		display: flex;
+		margin-top: 76px;
+		padding-top: 22px;
+		justify-content: space-between;
+		gap: 24px;
+		border-top: 1px solid #292a30;
+		color: #72737c;
+		font-size: 11px;
+	}
+
+	.footer__bottom p {
+		margin: 0;
+	}
+
+	@media (max-width: 760px) {
+		.footer {
+			padding: 58px 20px 26px;
+		}
+
+		.footer__intro {
+			grid-template-columns: 1fr;
+			gap: 42px;
+		}
+
+		.footer__identity {
+			min-height: 84px;
+		}
+
+		.footer__links {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			margin-top: 52px;
+			gap: 42px 26px;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.footer__links {
+			grid-template-columns: 1fr;
+		}
+
+		.footer__bottom {
+			flex-direction: column;
+			margin-top: 54px;
+		}
+	}
+</style>

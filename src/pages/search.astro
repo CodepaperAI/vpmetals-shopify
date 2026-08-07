@@ -1,0 +1,191 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CatalogCard from '../components/CatalogCard.astro';
+import { catalogProducts } from '../data/catalog';
+
+const searchText = (product: typeof catalogProducts[number]) => [
+	product.name,
+	product.model,
+	product.category,
+	product.collection,
+	product.description,
+	product.application,
+	...product.specs.flatMap((spec) => [spec.label, spec.value]),
+	...product.features,
+	product.collection === 'gas-cage' ? 'gas cage propane cylinder tank bbq forklift welding oxygen medical crane carrier' : 'material rack a frame slab stone glass transport mobile storage',
+].join(' ').toLowerCase();
+---
+
+<BaseLayout title="Search Equipment | ProSteel Equipment" description="Search ProSteel gas cylinder cages, forklift carriers, A-frame racks, slab storage systems, and custom industrial equipment by product, model, application, or specification.">
+	<main>
+		<PageHero
+			eyebrow="Product finder"
+			title="Search ProSteel equipment"
+			copy="Search by product name, model number, cylinder size, capacity, handling method, material, or application."
+		/>
+
+		<section class="search-page" id="results" aria-labelledby="search-results-title">
+			<div class="search-page__inner">
+				<form class="search-page__form" action="/search/" method="get" role="search" data-search-page-form>
+					<label for="equipment-search">What equipment are you looking for?</label>
+					<div>
+						<input id="equipment-search" name="q" type="search" placeholder="Try “forklift cage”, “PSE 20-24”, “12,000 lb” or “slab rack”" autocomplete="off" data-search-page-input />
+						<button type="button" class="search-page__clear" data-search-page-clear hidden>Clear</button>
+						<button type="submit">Search equipment</button>
+					</div>
+				</form>
+
+				<div class="search-page__toolbar">
+					<div class="search-page__filters" aria-label="Filter search results">
+						<button class="is-active" type="button" data-search-filter="all" aria-pressed="true">All equipment</button>
+						<button type="button" data-search-filter="gas-cage" aria-pressed="false">Gas cages & carriers</button>
+						<button type="button" data-search-filter="material-rack" aria-pressed="false">Material racks</button>
+					</div>
+					<p class="search-page__count" id="search-results-title" data-search-page-count aria-live="polite">{catalogProducts.length} products</p>
+				</div>
+
+				<div class="search-page__grid" data-search-page-grid>
+					{catalogProducts.map((product) => (
+						<div
+							class="search-page__item"
+							data-search-page-item
+							data-search-text={searchText(product)}
+							data-search-name={product.name.toLowerCase()}
+							data-search-model={product.model.toLowerCase()}
+							data-search-collection={product.collection}
+						>
+							<CatalogCard product={product} />
+						</div>
+					))}
+				</div>
+
+				<div class="search-page__empty" data-search-page-empty hidden>
+					<p>No matching equipment</p>
+					<h2>Try a broader product or model search.</h2>
+					<span>Search examples: propane cage, forklift, welding, oxygen, A-frame, slab rack, transport rack, or a PSE model number.</span>
+					<div><a href="/products/">Browse the full catalogue</a><a href="/contact/">Ask the ProSteel team</a></div>
+				</div>
+			</div>
+		</section>
+	</main>
+</BaseLayout>
+
+<script>
+	const form = document.querySelector<HTMLFormElement>('[data-search-page-form]');
+	const input = document.querySelector<HTMLInputElement>('[data-search-page-input]');
+	const clear = document.querySelector<HTMLButtonElement>('[data-search-page-clear]');
+	const count = document.querySelector<HTMLElement>('[data-search-page-count]');
+	const grid = document.querySelector<HTMLElement>('[data-search-page-grid]');
+	const empty = document.querySelector<HTMLElement>('[data-search-page-empty]');
+	const filterButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-search-filter]'));
+	const items = Array.from(document.querySelectorAll<HTMLElement>('[data-search-page-item]'));
+	const normalize = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+	let activeCollection = 'all';
+
+	const updateUrl = (query: string, collection: string) => {
+		const url = new URL('/search/', window.location.origin);
+		if (query) url.searchParams.set('q', query);
+		if (collection !== 'all') url.searchParams.set('collection', collection);
+		history.pushState({}, '', `${url.pathname}${url.search}#results`);
+	};
+
+	const applySearch = () => {
+		if (!input || !count || !grid || !empty) return;
+		const rawQuery = input.value.trim();
+		const query = normalize(rawQuery);
+		const tokens = query.split(' ').filter(Boolean);
+		const matched = items
+			.map((item, originalIndex) => {
+				const searchable = normalize(item.dataset.searchText ?? '');
+				const name = normalize(item.dataset.searchName ?? '');
+				const model = normalize(item.dataset.searchModel ?? '');
+				const collectionMatch = activeCollection === 'all' || item.dataset.searchCollection === activeCollection;
+				const textMatch = tokens.every((token) => searchable.includes(token));
+				const score = !query ? -originalIndex : (name === query ? 50 : 0) + (name.startsWith(query) ? 25 : 0) + (name.includes(query) ? 15 : 0) + (model.includes(query) ? 30 : 0) + tokens.filter((token) => name.includes(token)).length * 4;
+				return { item, visible: collectionMatch && textMatch, score, originalIndex };
+			})
+			.sort((a, b) => b.score - a.score || a.originalIndex - b.originalIndex);
+
+		matched.forEach(({ item, visible }) => {
+			item.hidden = !visible;
+			grid.append(item);
+		});
+		const visibleCount = matched.filter((item) => item.visible).length;
+		count.textContent = query ? `${visibleCount} ${visibleCount === 1 ? 'result' : 'results'} for “${rawQuery}”` : `${visibleCount} ${visibleCount === 1 ? 'product' : 'products'}`;
+		empty.hidden = visibleCount !== 0;
+		grid.hidden = visibleCount === 0;
+		if (clear) clear.hidden = !rawQuery;
+		document.title = rawQuery ? `${rawQuery} – Search | ProSteel Equipment` : 'Search Equipment | ProSteel Equipment';
+	};
+
+	const loadFromUrl = () => {
+		const params = new URLSearchParams(window.location.search);
+		if (input) input.value = params.get('q') ?? '';
+		const requestedCollection = params.get('collection') ?? 'all';
+		activeCollection = filterButtons.some((button) => button.dataset.searchFilter === requestedCollection) ? requestedCollection : 'all';
+		filterButtons.forEach((button) => {
+			const active = button.dataset.searchFilter === activeCollection;
+			button.classList.toggle('is-active', active);
+			button.setAttribute('aria-pressed', String(active));
+		});
+		applySearch();
+	};
+
+	form?.addEventListener('submit', (event) => {
+		event.preventDefault();
+		updateUrl(input?.value.trim() ?? '', activeCollection);
+		applySearch();
+	});
+	input?.addEventListener('input', applySearch);
+	clear?.addEventListener('click', () => {
+		if (!input) return;
+		input.value = '';
+		input.focus();
+		updateUrl('', activeCollection);
+		applySearch();
+	});
+	filterButtons.forEach((button) => button.addEventListener('click', () => {
+		activeCollection = button.dataset.searchFilter ?? 'all';
+		filterButtons.forEach((item) => {
+			const active = item === button;
+			item.classList.toggle('is-active', active);
+			item.setAttribute('aria-pressed', String(active));
+		});
+		updateUrl(input?.value.trim() ?? '', activeCollection);
+		applySearch();
+	}));
+	window.addEventListener('popstate', loadFromUrl);
+	loadFromUrl();
+</script>
+
+<style>
+	.search-page { scroll-margin-top: 84px; padding: 76px 24px 104px; background: #f5f5f4; }
+	.search-page__inner { width: min(100%, 1200px); margin: 0 auto; }
+	.search-page__form { padding: 32px; border: 1px solid #e1e1e4; background: #fff; }
+	.search-page__form label { display: block; margin-bottom: 13px; font-size: 11px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+	.search-page__form > div { display: grid; grid-template-columns: minmax(0,1fr) auto auto; border: 1px solid #cfcfd4; }
+	.search-page__form input { width: 100%; height: 54px; min-width: 0; padding: 0 17px; border: 0; outline: 0; color: #17171b; font: inherit; font-size: 14px; }
+	.search-page__form > div:focus-within { border-color: #4a47a4; box-shadow: 0 0 0 3px rgba(74,71,164,.1); }
+	.search-page__form button { height: 54px; border: 0; font: inherit; font-size: 10px; font-weight: 900; letter-spacing: .07em; text-transform: uppercase; }
+	.search-page__form button[type='submit'] { min-width: 176px; padding: 0 24px; background: #4a47a4; color: #fff; }
+	.search-page__form button[type='submit']:hover, .search-page__form button[type='submit']:focus-visible { background: #35327f; outline: none; }
+	.search-page__clear { padding: 0 16px; background: #fff; color: #777880; }
+	.search-page__clear:hover, .search-page__clear:focus-visible { color: #4a47a4; outline: none; }
+	.search-page__toolbar { display: flex; margin: 34px 0 32px; align-items: center; justify-content: space-between; gap: 24px; }
+	.search-page__filters { display: flex; flex-wrap: wrap; gap: 8px; }
+	.search-page__filters button { height: 40px; padding: 0 17px; border: 1px solid #d6d6da; border-radius: 999px; background: #fff; color: #616269; font: inherit; font-size: 9px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; }
+	.search-page__filters button:hover, .search-page__filters button:focus-visible, .search-page__filters button.is-active { border-color: #4a47a4; background: #4a47a4; color: #fff; outline: none; }
+	.search-page__count { margin: 0; color: #63646c; font-size: 12px; font-weight: 700; text-align: right; }
+	.search-page__grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; }
+	.search-page__item[hidden], .search-page__grid[hidden], .search-page__empty[hidden] { display: none; }
+	.search-page__empty { padding: 76px 24px; border: 1px solid #dfdfe2; background: #fff; text-align: center; }
+	.search-page__empty > p { margin: 0 0 10px; color: #4a47a4; font-size: 10px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+	.search-page__empty h2 { margin: 0; font-size: clamp(28px,4vw,42px); letter-spacing: -.035em; line-height: 1.1; text-transform: uppercase; }
+	.search-page__empty > span { display: block; max-width: 650px; margin: 18px auto 0; color: #72737b; font-size: 13px; line-height: 1.65; }
+	.search-page__empty > div { display: flex; margin-top: 28px; justify-content: center; flex-wrap: wrap; gap: 10px; }
+	.search-page__empty a { display: inline-flex; min-width: 170px; height: 44px; padding: 0 20px; align-items: center; justify-content: center; border: 1px solid #4a47a4; border-radius: 999px; color: #4a47a4; font-size: 9px; font-weight: 900; letter-spacing: .07em; text-decoration: none; text-transform: uppercase; }
+	.search-page__empty a:first-child, .search-page__empty a:hover, .search-page__empty a:focus-visible { background: #4a47a4; color: #fff; outline: none; }
+	@media(max-width:900px){.search-page__grid{grid-template-columns:repeat(2,minmax(0,1fr))}.search-page__toolbar{align-items:flex-start;flex-direction:column}.search-page__count{text-align:left}}
+	@media(max-width:600px){.search-page{padding:58px 20px 76px}.search-page__form{padding:20px}.search-page__form>div{grid-template-columns:1fr auto}.search-page__form button[type='submit']{grid-column:1/-1;width:100%}.search-page__grid{grid-template-columns:1fr}.search-page__empty{padding:56px 20px}}
+</style>

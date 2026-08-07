@@ -1,0 +1,245 @@
+---
+import { ShoppingCart, X } from 'lucide-astro';
+import { catalogProducts } from '../data/catalog';
+
+const cartCatalogue = catalogProducts
+	.filter((product) => product.price !== undefined)
+	.map((product) => ({ id: product.slug, name: product.name, model: product.model, price: product.price, image: product.image }));
+---
+
+<script is:inline type="application/json" data-cart-catalog set:html={JSON.stringify(cartCatalogue)}></script>
+<div class="cart-drawer" data-cart-drawer aria-hidden="true">
+	<button class="cart-drawer__backdrop" type="button" data-cart-close aria-label="Close cart"></button>
+	<aside class="cart-drawer__panel" role="dialog" aria-modal="true" aria-labelledby="cart-title" tabindex="-1">
+		<header class="cart-drawer__header">
+			<div>
+				<p>ProSteel order</p>
+				<h2 id="cart-title">Your cart</h2>
+			</div>
+			<button class="cart-drawer__close" type="button" data-cart-close aria-label="Close cart"><X size={22} strokeWidth={2} /></button>
+		</header>
+
+		<p class="cart-drawer__count" data-cart-label aria-live="polite">Your cart is empty</p>
+		<div class="cart-drawer__items" data-cart-items></div>
+
+		<footer class="cart-drawer__footer" data-cart-footer hidden>
+			<div class="cart-drawer__subtotal"><span>Subtotal</span><strong data-cart-subtotal>$0.00</strong></div>
+			<p>Shipping, applicable taxes, and lead time are confirmed with your ProSteel quote.</p>
+			<a class="cart-drawer__checkout" href="/contact/" data-cart-close>Proceed to quote</a>
+			<button class="cart-drawer__continue" type="button" data-cart-close>Continue shopping</button>
+		</footer>
+
+		<div class="cart-drawer__empty" data-cart-empty>
+			<span aria-hidden="true"><ShoppingCart size={34} strokeWidth={1.6} /></span>
+			<h3>Your cart is ready for equipment</h3>
+			<p>Add a product to start a quote-ready order list.</p>
+			<button type="button" data-cart-close>Browse equipment</button>
+		</div>
+	</aside>
+</div>
+
+<script>
+	type Product = { id: string; name: string; model: string; price: number; image: string };
+	type CartItem = Product & { quantity: number };
+
+	const drawer = document.querySelector<HTMLElement>('[data-cart-drawer]');
+	const panel = drawer?.querySelector<HTMLElement>('.cart-drawer__panel');
+	const itemsNode = drawer?.querySelector<HTMLElement>('[data-cart-items]');
+	const emptyNode = drawer?.querySelector<HTMLElement>('[data-cart-empty]');
+	const footerNode = drawer?.querySelector<HTMLElement>('[data-cart-footer]');
+	const subtotalNode = drawer?.querySelector<HTMLElement>('[data-cart-subtotal]');
+	const labelNode = drawer?.querySelector<HTMLElement>('[data-cart-label]');
+	const addButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-add-to-cart]'));
+	const openButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-cart-open]'));
+	const storageKey = 'prosteel-cart-v1';
+	const money = new Intl.NumberFormat('en-CA', { style: 'currency', currency: 'CAD' });
+	let previousFocus: HTMLElement | null = null;
+
+	const catalogue = new Map<string, Product>();
+	try {
+		const catalogueNode = document.querySelector<HTMLScriptElement>('[data-cart-catalog]');
+		const entries = JSON.parse(catalogueNode?.textContent ?? '[]');
+		if (Array.isArray(entries)) entries.forEach((product) => {
+			if (product?.id && product?.name && product?.model && product?.image && Number.isFinite(Number(product?.price))) {
+				catalogue.set(String(product.id), { id: String(product.id), name: String(product.name), model: String(product.model), price: Number(product.price), image: String(product.image) });
+			}
+		});
+	} catch {
+		// The page-level buttons below still provide a safe fallback catalogue.
+	}
+	addButtons.forEach((button) => {
+		const id = button.dataset.productId;
+		const name = button.dataset.productName;
+		const model = button.dataset.productModel;
+		const price = Number(button.dataset.productPrice);
+		const image = button.dataset.productImage;
+		if (id && name && model && image && Number.isFinite(price)) catalogue.set(id, { id, name, model, price, image });
+	});
+
+	let cart: CartItem[] = [];
+	try {
+		const saved = JSON.parse(localStorage.getItem(storageKey) ?? '[]');
+		if (Array.isArray(saved)) {
+			cart = saved.flatMap((entry) => {
+				const product = catalogue.get(String(entry?.id ?? ''));
+				if (!product) return [];
+				const quantity = Math.min(99, Math.max(1, Number(entry?.quantity) || 1));
+				return [{ ...product, quantity }];
+			});
+		}
+	} catch {
+		cart = [];
+	}
+
+	const makeElement = <K extends keyof HTMLElementTagNameMap>(tag: K, className?: string, text?: string) => {
+		const element = document.createElement(tag);
+		if (className) element.className = className;
+		if (text !== undefined) element.textContent = text;
+		return element;
+	};
+
+	const save = () => localStorage.setItem(storageKey, JSON.stringify(cart.map(({ id, quantity }) => ({ id, quantity }))));
+
+	const render = () => {
+		if (!itemsNode || !emptyNode || !footerNode || !subtotalNode || !labelNode) return;
+		itemsNode.replaceChildren();
+		const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+		const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+		document.querySelectorAll<HTMLElement>('[data-cart-count]').forEach((node) => { node.textContent = String(itemCount); });
+		openButtons.forEach((button) => button.setAttribute('aria-label', `Open cart, ${itemCount} ${itemCount === 1 ? 'item' : 'items'}`));
+		labelNode.textContent = itemCount ? `${itemCount} ${itemCount === 1 ? 'item' : 'items'} in your cart` : 'Your cart is empty';
+		subtotalNode.textContent = money.format(subtotal);
+		emptyNode.hidden = itemCount > 0;
+		footerNode.hidden = itemCount === 0;
+
+		cart.forEach((item) => {
+			const article = makeElement('article', 'cart-item');
+			const image = makeElement('img', 'cart-item__image') as HTMLImageElement;
+			image.src = item.image;
+			image.alt = '';
+			const body = makeElement('div', 'cart-item__body');
+			const model = makeElement('p', 'cart-item__model', item.model);
+			const name = makeElement('h3', 'cart-item__name', item.name);
+			const price = makeElement('p', 'cart-item__price', money.format(item.price));
+			const controls = makeElement('div', 'cart-item__controls');
+			const quantity = makeElement('div', 'cart-item__quantity');
+			const decrease = makeElement('button', '', '−') as HTMLButtonElement;
+			const amount = makeElement('span', '', String(item.quantity));
+			const increase = makeElement('button', '', '+') as HTMLButtonElement;
+			const remove = makeElement('button', 'cart-item__remove', 'Remove') as HTMLButtonElement;
+
+			decrease.type = increase.type = remove.type = 'button';
+			decrease.dataset.cartAction = 'decrease';
+			increase.dataset.cartAction = 'increase';
+			remove.dataset.cartAction = 'remove';
+			decrease.dataset.cartId = increase.dataset.cartId = remove.dataset.cartId = item.id;
+			decrease.setAttribute('aria-label', `Decrease ${item.name} quantity`);
+			increase.setAttribute('aria-label', `Increase ${item.name} quantity`);
+			remove.setAttribute('aria-label', `Remove ${item.name} from cart`);
+
+			quantity.append(decrease, amount, increase);
+			controls.append(quantity, remove);
+			body.append(model, name, price, controls);
+			article.append(image, body);
+			itemsNode.append(article);
+		});
+		save();
+	};
+
+	const openCart = () => {
+		if (!drawer) return;
+		previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+		drawer.classList.add('is-open');
+		drawer.setAttribute('aria-hidden', 'false');
+		document.documentElement.classList.add('cart-open');
+		window.setTimeout(() => panel?.focus(), 50);
+	};
+
+	const closeCart = () => {
+		if (!drawer) return;
+		drawer.classList.remove('is-open');
+		drawer.setAttribute('aria-hidden', 'true');
+		document.documentElement.classList.remove('cart-open');
+		previousFocus?.focus();
+	};
+
+	addButtons.forEach((button) => button.addEventListener('click', () => {
+		const product = catalogue.get(button.dataset.productId ?? '');
+		if (!product) return;
+		const existing = cart.find((item) => item.id === product.id);
+		existing ? existing.quantity += 1 : cart.push({ ...product, quantity: 1 });
+		render();
+		openCart();
+	}));
+
+	openButtons.forEach((button) => button.addEventListener('click', openCart));
+	drawer?.querySelectorAll<HTMLElement>('[data-cart-close]').forEach((button) => button.addEventListener('click', closeCart));
+	itemsNode?.addEventListener('click', (event) => {
+		const button = (event.target as Element).closest<HTMLButtonElement>('[data-cart-action]');
+		if (!button) return;
+		const item = cart.find((entry) => entry.id === button.dataset.cartId);
+		if (!item) return;
+		if (button.dataset.cartAction === 'increase') item.quantity = Math.min(99, item.quantity + 1);
+		if (button.dataset.cartAction === 'decrease') item.quantity -= 1;
+		if (button.dataset.cartAction === 'remove' || item.quantity < 1) cart = cart.filter((entry) => entry.id !== item.id);
+		render();
+	});
+	document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && drawer?.classList.contains('is-open')) closeCart(); });
+	render();
+</script>
+
+<style is:global>
+	.cart-drawer { position: fixed; z-index: 80; inset: 0; visibility: hidden; pointer-events: none; }
+	.cart-drawer.is-open { visibility: visible; pointer-events: auto; }
+	.cart-drawer__backdrop { position: absolute; inset: 0; border: 0; background: rgba(10,11,14,.58); opacity: 0; transition: opacity 280ms ease; }
+	.cart-drawer.is-open .cart-drawer__backdrop { opacity: 1; }
+	.cart-drawer__panel { position: absolute; top: 0; right: 0; display: flex; width: min(100%, 470px); height: 100%; flex-direction: column; overflow: auto; background: #fff; color: #17171b; box-shadow: -22px 0 60px rgba(0,0,0,.18); outline: none; transform: translateX(100%); transition: transform 320ms cubic-bezier(.22,.72,.24,1); }
+	.cart-drawer.is-open .cart-drawer__panel { transform: translateX(0); }
+	.cart-drawer__header { display: flex; padding: 29px 28px 24px; align-items: flex-start; justify-content: space-between; gap: 24px; border-bottom: 1px solid #e6e6e8; }
+	.cart-drawer__header p { margin: 0 0 5px; color: #4a47a4; font-size: 10px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+	.cart-drawer__header h2 { margin: 0; font-size: 25px; font-weight: 900; letter-spacing: -.03em; text-transform: uppercase; }
+	.cart-drawer__close { display: grid; width: 38px; height: 38px; place-items: center; border: 1px solid #dadadd; border-radius: 50%; background: #fff; color: #17171b; }
+	.cart-drawer__close:hover, .cart-drawer__close:focus-visible { border-color: #4a47a4; background: #4a47a4; color: #fff; outline: none; }
+	.cart-drawer__count { margin: 0; padding: 15px 28px; border-bottom: 1px solid #ececee; color: #777880; font-size: 12px; }
+	.cart-drawer__items { padding: 0 28px; }
+	.cart-item { display: grid; grid-template-columns: 92px minmax(0,1fr); padding: 22px 0; gap: 18px; border-bottom: 1px solid #ececee; }
+	.cart-item__image { display: block; width: 92px; height: 92px; border: 1px solid #e8e8ea; background: #fafafa; object-fit: contain; padding: 8px; }
+	.cart-item__model { margin: 0 0 4px; color: #4a47a4; font-size: 10px; font-weight: 900; letter-spacing: .06em; }
+	.cart-item__name { margin: 0; font-size: 14px; font-weight: 900; line-height: 1.3; text-transform: uppercase; }
+	.cart-item__price { margin: 7px 0 0; color: #575861; font-size: 13px; font-weight: 700; }
+	.cart-item__controls { display: flex; margin-top: 14px; align-items: center; justify-content: space-between; gap: 12px; }
+	.cart-item__quantity { display: grid; grid-template-columns: 34px 34px 34px; height: 36px; align-items: center; overflow: hidden; border: 1px solid #d8d8db; border-radius: 999px; background: #fff; text-align: center; }
+	.cart-item__quantity button { display: grid; height: 100%; place-items: center; border: 0; background: #f5f5f6; color: #17171b; font: inherit; font-size: 16px; font-weight: 700; line-height: 1; }
+	.cart-item__quantity button:hover, .cart-item__quantity button:focus-visible { background: #4a47a4; color: #fff; outline: none; }
+	.cart-item__quantity span { font-size: 12px; font-weight: 900; }
+	.cart-item__remove { display: inline-flex; height: 34px; padding: 0 13px; align-items: center; justify-content: center; border: 1px solid #dddde1; border-radius: 999px; background: #fff; color: #66676f; font: inherit; font-size: 9px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; }
+	.cart-item__remove:hover, .cart-item__remove:focus-visible { border-color: #4a47a4; background: #f1f1f8; color: #4a47a4; outline: none; }
+	.cart-drawer__footer { margin-top: auto; padding: 24px 28px 30px; border-top: 1px solid #e6e6e8; background: #fafafa; }
+	.cart-drawer__subtotal { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; font-size: 14px; font-weight: 900; text-transform: uppercase; }
+	.cart-drawer__subtotal strong { color: #4a47a4; font-size: 21px; }
+	.cart-drawer__footer p { margin: 13px 0 0; color: #777880; font-size: 11px; line-height: 1.5; }
+	.cart-drawer__checkout { display: flex; height: 49px; margin-top: 19px; align-items: center; justify-content: center; border: 1px solid #4a47a4; border-radius: 999px; background: #4a47a4; color: #fff; font-size: 11px; font-weight: 900; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
+	.cart-drawer__checkout:hover, .cart-drawer__checkout:focus-visible { border-color: #35327f; background: #35327f; color: #fff; outline: none; }
+	.cart-drawer__continue { display: block; margin: 14px auto 0; border: 0; border-bottom: 1px solid #8a8b91; background: transparent; padding: 2px 0; color: #55565d; font: inherit; font-size: 10px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; }
+	.cart-drawer__empty { margin: auto; padding: 50px 38px; text-align: center; }
+	.cart-drawer__empty[hidden] { display: none; }
+	.cart-drawer__empty > span { display: grid; width: 72px; height: 72px; margin: 0 auto 22px; place-items: center; border-radius: 50%; background: #f0f0f8; color: #4a47a4; }
+	.cart-drawer__empty h3 { margin: 0; font-size: 19px; font-weight: 900; line-height: 1.25; text-transform: uppercase; }
+	.cart-drawer__empty p { margin: 12px auto 0; color: #76777e; font-size: 13px; line-height: 1.55; }
+	.cart-drawer__empty button { display: inline-flex; height: 43px; margin-top: 24px; padding: 0 22px; align-items: center; border: 1px solid #4a47a4; border-radius: 999px; background: #4a47a4; color: #fff; font: inherit; font-size: 10px; font-weight: 900; letter-spacing: .07em; text-transform: uppercase; }
+	.cart-drawer__empty button:hover, .cart-drawer__empty button:focus-visible { border-color: #35327f; background: #35327f; outline: none; }
+	@media (max-width: 520px) {
+		.cart-drawer__panel { width: 100%; }
+		.cart-drawer__header, .cart-drawer__footer { padding-right: 20px; padding-left: 20px; }
+		.cart-drawer__count { padding-right: 20px; padding-left: 20px; }
+		.cart-drawer__items { padding: 0 20px; }
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.cart-drawer__backdrop, .cart-drawer__panel { transition: none; }
+	}
+</style>
+
+<style is:global>
+	html.cart-open, html.cart-open body { overflow: hidden; }
+</style>

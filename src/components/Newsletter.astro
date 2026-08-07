@@ -1,0 +1,133 @@
+<section class="newsletter" aria-labelledby="newsletter-title">
+	<div class="newsletter__inner">
+		<h2 id="newsletter-title">Get ProSteel updates</h2>
+		<p>Receive new product releases, specification updates, and availability notices from our Brampton facility.</p>
+		<form class="newsletter__form">
+			<label class="newsletter__label" for="newsletter-email">Email address</label>
+			<input id="newsletter-email" name="email" type="email" autocomplete="email" placeholder="Email address" required />
+			<button type="submit">Subscribe</button>
+		</form>
+		<p class="newsletter__status" role="status" aria-live="polite"></p>
+	</div>
+</section>
+
+<script>
+	const newsletterForm = document.querySelector<HTMLFormElement>('.newsletter__form');
+	const newsletterStatus = document.querySelector<HTMLElement>('.newsletter__status');
+
+	newsletterForm?.addEventListener('submit', (event) => {
+		event.preventDefault();
+		if (!newsletterForm.checkValidity()) return;
+		if (newsletterStatus) newsletterStatus.textContent = "Thanks — you'll hear from us soon.";
+		newsletterForm.reset();
+	});
+</script>
+
+<style>
+	.newsletter {
+		background: #fff;
+		color: #171717;
+		padding: 74px 24px 78px;
+	}
+
+	.newsletter__inner {
+		width: min(100%, 760px);
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.newsletter h2 {
+		margin: 0;
+		font-size: 31px;
+		font-weight: 900;
+		letter-spacing: -.03em;
+		line-height: 1.1;
+		text-transform: uppercase;
+	}
+
+	.newsletter__inner > p:not(.newsletter__status) {
+		margin: 20px 0 0;
+		color: #74757c;
+		font-size: 14px;
+		line-height: 1.55;
+	}
+
+	.newsletter__form {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) 170px;
+		max-width: 620px;
+		margin: 28px auto 0;
+		gap: 10px;
+	}
+
+	.newsletter__label {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		white-space: nowrap;
+	}
+
+	.newsletter input,
+	.newsletter button {
+		height: 46px;
+		border-radius: 0;
+		font: inherit;
+	}
+
+	.newsletter input {
+		min-width: 0;
+		border: 1px solid #d8d8db;
+		background: #fafafa;
+		padding: 0 16px;
+		color: #161616;
+		font-size: 13px;
+	}
+
+	.newsletter input:focus {
+		border-color: #4a47a4;
+		outline: none;
+	}
+
+	.newsletter button {
+		border: 1px solid #4a47a4;
+		background: #4a47a4;
+		color: #fff;
+		font-size: 12px;
+		font-weight: 900;
+		letter-spacing: .08em;
+		text-transform: uppercase;
+		transition: background 180ms ease, color 180ms ease;
+	}
+
+	.newsletter button:hover,
+	.newsletter button:focus-visible {
+		border-color: #35327f;
+		background: #35327f;
+		color: #fff;
+		outline: none;
+	}
+
+	.newsletter__status {
+		min-height: 18px;
+		margin: 13px 0 0;
+		color: #4a47a4;
+		font-size: 12px;
+		font-weight: 700;
+	}
+
+	@media (max-width: 560px) {
+		.newsletter {
+			padding: 60px 20px 62px;
+		}
+
+		.newsletter h2 {
+			font-size: 27px;
+		}
+
+		.newsletter__form {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

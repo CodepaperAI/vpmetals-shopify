@@ -1,0 +1,44 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CartDrawer from '../components/CartDrawer.astro';
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content={description} />
+		<meta name="theme-color" content="#4a47a4" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<Header />
+		<slot />
+		<Footer />
+		<CartDrawer />
+	</body>
+</html>
+
+<style is:global>
+	@font-face { font-family: 'Lato'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/lato-400.ttf') format('truetype'); }
+	@font-face { font-family: 'Lato'; font-style: normal; font-weight: 700; font-display: swap; src: url('/fonts/lato-700.ttf') format('truetype'); }
+	@font-face { font-family: 'Lato'; font-style: normal; font-weight: 900; font-display: swap; src: url('/fonts/lato-900.ttf') format('truetype'); }
+	*, *::before, *::after { box-sizing: border-box; }
+	html { min-width: 320px; scroll-behavior: smooth; }
+	body { min-width: 320px; margin: 0; background: #fff; color: #17171b; font-family: 'Lato', Arial, Helvetica, sans-serif; }
+	img { max-width: 100%; }
+	button, a { -webkit-tap-highlight-color: transparent; }
+	button { cursor: pointer; }
+	::selection { background: #4a47a4; color: #fff; }
+	@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+</style>

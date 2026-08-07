@@ -1,0 +1,170 @@
+---
+import { ArrowLeft, ArrowRight } from 'lucide-astro';
+
+const slides = [
+	{
+		image: '/images/prosteel/hero-crane-carrier.webp',
+		alt: 'ProSteel crane-mounted gas bottle carrier being handled at an industrial site',
+		eyebrow: 'Made in Canada · Built for industry',
+		titleTop: 'Built to secure.',
+		titleBottom: 'Made to endure.',
+		copy: 'Gas cylinder cages, material handling racks, and custom-fabricated equipment engineered for demanding sites.',
+		primary: 'Shop equipment',
+		primaryHref: '/products/',
+		secondary: 'Request a custom build',
+	},
+	{
+		image: '/images/prosteel/category-welding.webp',
+		alt: 'Green ProSteel welding cylinder cage outside an industrial facility',
+		eyebrow: 'Secure cylinder storage',
+		titleTop: 'Protected stock.',
+		titleBottom: 'Ready for work.',
+		copy: 'Purpose-built propane, forklift, welding, and medical-gas cages in sizes for commercial and industrial operations.',
+		primary: 'View gas cages',
+		primaryHref: '/products/?filter=gas-cage#catalogue',
+		secondary: 'Check availability',
+	},
+	{
+		image: '/images/prosteel/feature-transport.webp',
+		alt: 'ProSteel transport rack carrying glass sheets by forklift',
+		eyebrow: 'Material handling systems',
+		titleTop: 'Heavy material.',
+		titleBottom: 'Handled safely.',
+		copy: 'A-frames, slab racks, and transport systems designed around load capacity, handling method, and production flow.',
+		primary: 'Explore material racks',
+		primaryHref: '/products/?filter=material-rack#catalogue',
+		secondary: 'Discuss your application',
+	},
+];
+---
+
+<section class="hero" aria-labelledby="hero-title" data-hero>
+	<div class="hero__slides" aria-live="off">
+		{slides.map((slide, index) => (
+			<article class:list={['hero-slide', { 'is-active': index === 0 }]} data-hero-slide aria-hidden={index === 0 ? 'false' : 'true'}>
+				<img class="hero__image" src={slide.image} alt={slide.alt} />
+				<div class="hero__overlay"></div>
+				<div class="hero__inner">
+					<div class="hero__content">
+						<span class="hero__line" aria-hidden="true"></span>
+						<p class="hero__eyebrow">{slide.eyebrow}</p>
+						{index === 0 ? (
+							<h1 id="hero-title">{slide.titleTop}<br />{slide.titleBottom}</h1>
+						) : (
+							<h2>{slide.titleTop}<br />{slide.titleBottom}</h2>
+						)}
+						<p class="hero__copy">{slide.copy}</p>
+						<div class="hero__actions">
+							<a class="hero__button" href={slide.primaryHref}>{slide.primary}</a>
+							<a class="hero__text-link" href="/contact/">{slide.secondary} <span aria-hidden="true">→</span></a>
+						</div>
+					</div>
+				</div>
+			</article>
+		))}
+	</div>
+
+	<div class="hero__controls" aria-label="Hero carousel controls">
+		<button type="button" class="hero__arrow" data-hero-prev aria-label="Previous slide"><ArrowLeft size={20} strokeWidth={2} aria-hidden="true" /></button>
+		<div class="hero__dots">
+			{slides.map((_, index) => (
+				<button type="button" class:list={['hero__dot', { 'is-active': index === 0 }]} data-hero-dot={index} aria-label={`Show slide ${index + 1}`} aria-current={index === 0 ? 'true' : undefined}></button>
+			))}
+		</div>
+		<button type="button" class="hero__arrow" data-hero-next aria-label="Next slide"><ArrowRight size={20} strokeWidth={2} aria-hidden="true" /></button>
+	</div>
+</section>
+
+<script>
+	const hero = document.querySelector<HTMLElement>('[data-hero]');
+	if (hero) {
+		const slides = Array.from(hero.querySelectorAll<HTMLElement>('[data-hero-slide]'));
+		const dots = Array.from(hero.querySelectorAll<HTMLButtonElement>('[data-hero-dot]'));
+		const previous = hero.querySelector<HTMLButtonElement>('[data-hero-prev]');
+		const next = hero.querySelector<HTMLButtonElement>('[data-hero-next]');
+		const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		let active = 0;
+		let timer: number | undefined;
+
+		const showSlide = (nextIndex: number) => {
+			active = (nextIndex + slides.length) % slides.length;
+			slides.forEach((slide, index) => {
+				const isActive = index === active;
+				slide.classList.toggle('is-active', isActive);
+				slide.setAttribute('aria-hidden', String(!isActive));
+			});
+			dots.forEach((dot, index) => {
+				const isActive = index === active;
+				dot.classList.toggle('is-active', isActive);
+				isActive ? dot.setAttribute('aria-current', 'true') : dot.removeAttribute('aria-current');
+			});
+		};
+
+		const stop = () => { if (timer) window.clearInterval(timer); };
+		const start = () => {
+			stop();
+			if (!reduceMotion) timer = window.setInterval(() => showSlide(active + 1), 2500);
+		};
+
+		previous?.addEventListener('click', () => { showSlide(active - 1); start(); });
+		next?.addEventListener('click', () => { showSlide(active + 1); start(); });
+		dots.forEach((dot, index) => dot.addEventListener('click', () => { showSlide(index); start(); }));
+		hero.addEventListener('mouseenter', stop);
+		hero.addEventListener('mouseleave', start);
+		hero.addEventListener('focusin', stop);
+		hero.addEventListener('focusout', start);
+		start();
+	}
+</script>
+
+<style>
+	.hero { position: relative; height: clamp(620px, 76vh, 760px); overflow: hidden; background: #0d1311; color: #fff; }
+	.hero__slides, .hero-slide { position: absolute; inset: 0; }
+	.hero-slide { visibility: hidden; opacity: 0; pointer-events: none; transition: opacity 700ms ease, visibility 700ms ease; }
+	.hero-slide.is-active { visibility: visible; opacity: 1; pointer-events: auto; }
+	.hero__image { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center center; transform: scale(1.015); transition: transform 3s linear; }
+	.hero-slide.is-active .hero__image { transform: scale(1.055); }
+	.hero__overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(8,10,13,.92) 0%, rgba(8,10,13,.7) 42%, rgba(8,10,13,.16) 74%, rgba(8,10,13,.06) 100%); }
+	.hero__inner { position: relative; z-index: 2; display: flex; width: min(calc(100% - 48px), 1200px); height: 100%; margin: 0 auto; align-items: center; }
+	.hero__content { width: min(100%, 740px); transform: translateY(18px); }
+	.hero__line { display: block; width: 68px; height: 3px; margin-bottom: 28px; background: #fff; }
+	.hero__eyebrow { margin: 0 0 20px !important; color: #c4c6ff !important; font-size: 12px !important; font-weight: 900 !important; letter-spacing: .13em; text-transform: uppercase; }
+	.hero h1, .hero h2 { margin: 0; font-size: clamp(50px, 5.5vw, 74px); font-weight: 900; line-height: 1.06; letter-spacing: -.04em; text-transform: uppercase; }
+	.hero__copy { max-width: 650px; margin: 34px 0 0; color: rgba(255,255,255,.92); font-size: 16px; font-weight: 700; line-height: 1.55; }
+	.hero__actions { display: flex; margin-top: 42px; align-items: center; flex-wrap: wrap; gap: 22px; }
+	.hero__button { display: inline-flex; min-width: 168px; height: 48px; padding: 0 24px; align-items: center; justify-content: center; border: 1px solid #fff; border-radius: 999px; background: #fff; color: #131313; font-size: 12px; font-weight: 900; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; transition: background 180ms ease, border-color 180ms ease, color 180ms ease; }
+	.hero__button:hover, .hero__button:focus-visible { border-color: #4a47a4; background: #4a47a4; color: #fff; outline: none; }
+	.hero__text-link { color: #fff; font-size: 12px; font-weight: 900; letter-spacing: .05em; text-decoration: none; text-transform: uppercase; }
+	.hero__text-link span { display: inline-block; margin-left: 7px; transition: transform 180ms ease; }
+	.hero__text-link:hover span, .hero__text-link:focus-visible span { transform: translateX(4px); }
+	.hero__controls { position: absolute; z-index: 5; right: max(24px, calc((100vw - 1200px) / 2)); bottom: 34px; display: flex; align-items: center; gap: 12px; }
+	.hero__arrow { display: grid; width: 40px; height: 40px; place-items: center; border: 1px solid rgba(255,255,255,.7); border-radius: 50%; background: rgba(8,10,13,.28); color: #fff; padding: 0; line-height: 0; transition: background 180ms ease, border-color 180ms ease; }
+	.hero__arrow:hover, .hero__arrow:focus-visible { border-color: #4a47a4; background: #4a47a4; outline: none; }
+	.hero__dots { display: flex; align-items: center; gap: 7px; }
+	.hero__dot { width: 7px; height: 7px; border: 0; border-radius: 50%; background: rgba(255,255,255,.45); padding: 0; transition: width 180ms ease, border-radius 180ms ease, background 180ms ease; }
+	.hero__dot.is-active { width: 24px; border-radius: 999px; background: #fff; }
+	@media (max-width: 900px) {
+		.hero__overlay { background: linear-gradient(90deg, rgba(5,7,9,.87), rgba(5,7,9,.2) 82%); }
+		.hero__inner { padding-top: 0; }
+		.hero__content { width: min(66%, 580px); transform: none; }
+		.hero__line { margin-bottom: 28px; }
+		.hero h1, .hero h2 { font-size: clamp(46px, 7.5vw, 64px); }
+		.hero__copy { font-size: 15px; }
+	}
+	@media (max-width: 650px) {
+		.hero { height: 680px; min-height: 0; }
+		.hero__image { object-position: 61% center; }
+		.hero__overlay { background: linear-gradient(0deg, rgba(5,11,9,.92) 0%, rgba(5,11,9,.2) 74%, rgba(5,11,9,.12) 100%); }
+		.hero__inner { width: calc(100% - 40px); height: 100%; min-height: 0; align-items: flex-end; padding: 0 0 102px; }
+		.hero__content { width: 100%; }
+		.hero__line { width: 54px; margin-bottom: 22px; }
+		.hero h1, .hero h2 { font-size: clamp(40px, 11.5vw, 54px); line-height: 1.03; }
+		.hero__copy { max-width: 440px; margin-top: 22px; font-size: 15px; font-weight: 400; }
+		.hero__actions { margin-top: 30px; gap: 18px; }
+		.hero__button { min-width: 152px; height: 46px; }
+		.hero__controls { right: 20px; bottom: 30px; }
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.hero-slide, .hero__image { transition: none; }
+	}
+</style>

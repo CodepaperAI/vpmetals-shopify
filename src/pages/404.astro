@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Page Not Found | ProSteel Equipment" description="The requested ProSteel Equipment page could not be found.">
+	<main class="not-found">
+		<div>
+			<p>404 · Page not found</p>
+			<h1>This page is off the rack.</h1>
+			<span>The equipment catalogue and ProSteel team are still close at hand.</span>
+			<nav aria-label="404 page actions">
+				<a href="/products/">View equipment</a>
+				<a href="/contact/">Contact ProSteel</a>
+			</nav>
+		</div>
+	</main>
+</BaseLayout>
+
+<style>
+	.not-found { display: grid; min-height: 620px; padding: 80px 24px; place-items: center; background: radial-gradient(circle at 78% 28%, rgba(74,71,164,.3), transparent 32%), #111216; color: #fff; text-align: center; }
+	.not-found > div { width: min(100%, 760px); }
+	.not-found p { margin: 0 0 16px; color: #b8baff; font-size: 11px; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; }
+	.not-found h1 { margin: 0; font-size: clamp(42px,7vw,72px); font-weight: 900; letter-spacing: -.05em; line-height: 1.02; text-transform: uppercase; }
+	.not-found span { display: block; margin-top: 22px; color: #c4c5cc; font-size: 15px; line-height: 1.65; }
+	.not-found nav { display: flex; margin-top: 34px; justify-content: center; flex-wrap: wrap; gap: 12px; }
+	.not-found a { display: inline-flex; min-width: 166px; height: 48px; padding: 0 22px; align-items: center; justify-content: center; border: 1px solid #fff; border-radius: 999px; background: #fff; color: #17171b; font-size: 10px; font-weight: 900; letter-spacing: .07em; text-decoration: none; text-transform: uppercase; }
+	.not-found a:last-child { background: transparent; color: #fff; }
+	.not-found a:hover, .not-found a:focus-visible { border-color: #7779dc; background: #7779dc; color: #fff; outline: none; }
+</style>

@@ -1,0 +1,281 @@
+---
+import { Search, ShoppingCart } from 'lucide-astro';
+import { catalogProducts } from '../data/catalog';
+
+const links = [
+	{ label: 'Gas Cages', href: '/products/?filter=gas-cage#catalogue' },
+	{ label: 'Material Racks', href: '/products/?filter=material-rack#catalogue' },
+	{ label: 'Fabrication', href: '/fabrication/' },
+	{ label: 'About', href: '/about/' },
+	{ label: 'Contact', href: '/contact/' },
+];
+
+const searchCatalogue = catalogProducts.map((product) => ({
+	slug: product.slug,
+	name: product.name,
+	model: product.model,
+	category: product.category,
+	collection: product.collection,
+	price: product.price,
+	image: product.image,
+	search: [
+		product.name,
+		product.model,
+		product.category,
+		product.collection,
+		product.description,
+		product.application,
+		...product.specs.flatMap((spec) => [spec.label, spec.value]),
+		...product.features,
+	].join(' '),
+}));
+---
+
+<script is:inline type="application/json" data-site-search-catalogue set:html={JSON.stringify(searchCatalogue)}></script>
+<header class="header">
+	<div class="announcement">
+		<div class="announcement__inner">
+			<p><strong>Made in Canada</strong><span>Industrial cages, carriers, and material handling equipment</span></p>
+			<div><a href="tel:+19054873472">+1 905 487 3472</a><span>·</span><a href="mailto:mju@prosteelequipment.com">mju@prosteelequipment.com</a></div>
+		</div>
+	</div>
+
+	<div class="header__main">
+		<a class="brand" href="/" aria-label="ProSteel Equipment home">
+			<img src="/images/prosteel/logo.png" alt="ProSteel Equipment" />
+		</a>
+
+		<form class="site-search site-search--desktop" action="/search/" method="get" role="search" data-site-search-form autocomplete="off">
+			<button type="submit" aria-label="Search equipment"><Search size={18} strokeWidth={2} aria-hidden="true" /></button>
+			<input type="search" name="q" placeholder="Search products, models, capacities, and applications" aria-label="Search equipment" data-site-search-input />
+			<div class="site-search__suggestions" data-site-search-suggestions hidden></div>
+		</form>
+
+		<div class="header__actions">
+			<button class="header__cart" type="button" data-cart-open aria-label="Open cart, 0 items">
+				<ShoppingCart size={18} strokeWidth={2} aria-hidden="true" />
+				<span>Cart</span>
+				<b data-cart-count>0</b>
+			</button>
+			<button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
+		</div>
+	</div>
+
+	<div class="header__nav-row">
+		<nav class="desktop-nav" aria-label="Main navigation">
+			{links.map((link) => <a href={link.href}>{link.label}</a>)}
+		</nav>
+	</div>
+
+	<nav class="mobile-nav" id="mobile-menu" aria-label="Mobile navigation">
+		<form class="site-search site-search--mobile" action="/search/" method="get" role="search" data-site-search-form autocomplete="off">
+			<button type="submit" aria-label="Search equipment"><Search size={19} strokeWidth={2} aria-hidden="true" /></button>
+			<input type="search" name="q" placeholder="Search products or models" aria-label="Search equipment" data-site-search-input />
+			<div class="site-search__suggestions" data-site-search-suggestions hidden></div>
+		</form>
+		{links.map((link) => <a href={link.href}>{link.label}</a>)}
+		<div><a href="tel:+19054873472">+1 905 487 3472</a><a href="mailto:mju@prosteelequipment.com">Email sales</a></div>
+	</nav>
+</header>
+
+<script>
+	const menuButton = document.querySelector<HTMLButtonElement>('.menu-button');
+	const mobileNav = document.querySelector<HTMLElement>('.mobile-nav');
+	menuButton?.addEventListener('click', () => {
+		const open = menuButton.getAttribute('aria-expanded') === 'true';
+		menuButton.setAttribute('aria-expanded', String(!open));
+		mobileNav?.classList.toggle('is-open', !open);
+		document.documentElement.classList.toggle('menu-open', !open);
+	});
+	mobileNav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+		menuButton?.setAttribute('aria-expanded', 'false');
+		mobileNav.classList.remove('is-open');
+		document.documentElement.classList.remove('menu-open');
+	}));
+</script>
+
+<script>
+	type SearchRecord = { slug: string; name: string; model: string; category: string; collection: string; price?: number; image: string; search: string };
+	const catalogueNode = document.querySelector<HTMLScriptElement>('[data-site-search-catalogue]');
+	let searchRecords: SearchRecord[] = [];
+	try { searchRecords = JSON.parse(catalogueNode?.textContent ?? '[]'); } catch { searchRecords = []; }
+	const normalize = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+	const money = new Intl.NumberFormat('en-CA', { style: 'currency', currency: 'CAD', maximumFractionDigits: 0 });
+	const forms = Array.from(document.querySelectorAll<HTMLFormElement>('[data-site-search-form]'));
+
+	forms.forEach((form, formIndex) => {
+		const input = form.querySelector<HTMLInputElement>('[data-site-search-input]');
+		const panel = form.querySelector<HTMLElement>('[data-site-search-suggestions]');
+		if (!input || !panel) return;
+		panel.id = `site-search-results-${formIndex}`;
+		panel.setAttribute('role', 'listbox');
+		input.setAttribute('aria-controls', panel.id);
+		input.setAttribute('aria-expanded', 'false');
+		let activeIndex = -1;
+
+		const setOpen = (open: boolean) => {
+			panel.hidden = !open;
+			input.setAttribute('aria-expanded', String(open));
+			if (!open) { activeIndex = -1; input.removeAttribute('aria-activedescendant'); }
+		};
+
+		const render = () => {
+			const query = normalize(input.value);
+			panel.replaceChildren();
+			if (query.length < 2) { setOpen(false); return; }
+			const tokens = query.split(' ').filter(Boolean);
+			const matches = searchRecords
+				.map((record) => {
+					const name = normalize(record.name);
+					const model = normalize(record.model);
+					const searchable = normalize(`${record.search} ${record.collection === 'gas-cage' ? 'gas cage propane cylinder tank' : 'material rack a frame slab storage'}`);
+					const matchesAll = tokens.every((token) => searchable.includes(token));
+					const score = (name.startsWith(query) ? 12 : 0) + (name.includes(query) ? 7 : 0) + (model.includes(query) ? 10 : 0) + tokens.filter((token) => name.includes(token)).length * 3;
+					return { record, matchesAll, score };
+				})
+				.filter((item) => item.matchesAll)
+				.sort((a, b) => b.score - a.score)
+				.slice(0, 5);
+
+			if (matches.length === 0) {
+				const empty = document.createElement('p');
+				empty.className = 'site-search__empty';
+				empty.textContent = `No quick matches for “${input.value.trim()}”`;
+				panel.append(empty);
+			} else {
+				matches.forEach(({ record }, index) => {
+					const link = document.createElement('a');
+					link.className = 'site-search__result';
+					link.href = `/products/${record.slug}/`;
+					link.id = `${panel.id}-option-${index}`;
+					link.setAttribute('role', 'option');
+					const image = document.createElement('img');
+					image.src = record.image;
+					image.alt = '';
+					const copy = document.createElement('span');
+					const name = document.createElement('strong');
+					name.textContent = record.name;
+					const meta = document.createElement('small');
+					meta.textContent = `${record.model} · ${record.category}`;
+					copy.append(name, meta);
+					const price = document.createElement('b');
+					price.textContent = record.price === undefined ? 'Quote' : money.format(record.price);
+					link.append(image, copy, price);
+					panel.append(link);
+				});
+			}
+			const all = document.createElement('a');
+			all.className = 'site-search__all';
+			all.href = `/search/?q=${encodeURIComponent(input.value.trim())}`;
+			all.textContent = `View all search results →`;
+			panel.append(all);
+			setOpen(true);
+		};
+
+		input.addEventListener('input', render);
+		input.addEventListener('focus', render);
+		input.addEventListener('keydown', (event) => {
+			const results = Array.from(panel.querySelectorAll<HTMLAnchorElement>('.site-search__result'));
+			if (event.key === 'Escape') { setOpen(false); input.blur(); return; }
+			if (!results.length || (event.key !== 'ArrowDown' && event.key !== 'ArrowUp' && event.key !== 'Enter')) return;
+			if (event.key === 'Enter' && activeIndex >= 0) { event.preventDefault(); window.location.href = results[activeIndex].href; return; }
+			if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+				event.preventDefault();
+				activeIndex = event.key === 'ArrowDown' ? (activeIndex + 1) % results.length : (activeIndex - 1 + results.length) % results.length;
+				results.forEach((result, index) => result.classList.toggle('is-active', index === activeIndex));
+				input.setAttribute('aria-activedescendant', results[activeIndex].id);
+			}
+		});
+		form.addEventListener('submit', (event) => {
+			if (!input.value.trim()) { event.preventDefault(); window.location.href = '/products/'; }
+		});
+	});
+
+	document.addEventListener('pointerdown', (event) => {
+		forms.forEach((form) => {
+			if (!form.contains(event.target as Node)) {
+				const input = form.querySelector<HTMLInputElement>('[data-site-search-input]');
+				const panel = form.querySelector<HTMLElement>('[data-site-search-suggestions]');
+				if (panel) panel.hidden = true;
+				input?.setAttribute('aria-expanded', 'false');
+			}
+		});
+	});
+</script>
+
+<style>
+	.header { position: sticky; z-index: 20; top: 0; right: 0; left: 0; border-bottom: 1px solid #e7e7e9; background: rgba(255,255,255,.98); color: #17171b; box-shadow: 0 7px 24px rgba(15,17,20,.05); backdrop-filter: blur(12px); }
+	.announcement { background: #18191e; color: #fff; }
+	.announcement__inner { display: flex; width: min(calc(100% - 48px),1400px); min-height: 38px; margin: 0 auto; align-items: center; justify-content: space-between; gap: 24px; }
+	.announcement p, .announcement__inner > div { display: flex; margin: 0; align-items: center; gap: 12px; font-size: 12px; line-height: 1.3; }
+	.announcement p strong { color: #b9bbff; font-size: 11px; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }
+	.announcement p span { color: #c7c8ce; }
+	.announcement a { color: #fff; font-weight: 700; text-decoration: none; }
+	.announcement a:hover, .announcement a:focus-visible { color: #b9bbff; outline: none; }
+	.header__main { display: grid; grid-template-columns: 148px minmax(280px,1fr) auto; width: min(calc(100% - 48px),1400px); height: 74px; margin: 0 auto; align-items: center; gap: 32px; }
+	.brand { display: flex; height: 58px; align-items: center; border-radius: 4px; background: #fff; padding: 5px 10px; text-decoration: none; }
+	.brand img { display: block; width: 100%; height: 100%; object-fit: contain; }
+	.header__nav-row { border-top: 1px solid #ededee; background: #fff; }
+	.desktop-nav { display: flex; width: min(calc(100% - 48px),1400px); height: 46px; margin: 0 auto; padding-left: 180px; align-items: center; gap: 34px; }
+	.desktop-nav a { position: relative; color: #24242a; font-size: 13px; font-weight: 700; letter-spacing: .02em; text-decoration: none; text-transform: uppercase; }
+	.desktop-nav a::after { position: absolute; right: 0; bottom: -7px; left: 0; height: 2px; background: #4a47a4; content: ''; transform: scaleX(0); transform-origin: left; transition: transform 180ms ease; }
+	.desktop-nav a:hover::after, .desktop-nav a:focus-visible::after { transform: scaleX(1); }
+	.header__actions { display: flex; align-items: center; gap: 14px; }
+	.header__cart { display: inline-flex; height: 42px; padding: 0 12px; align-items: center; gap: 7px; border: 0; background: transparent; color: #202026; font: inherit; font-size: 12px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
+	.header__cart b { display: grid; min-width: 20px; height: 20px; padding: 0 5px; place-items: center; border-radius: 999px; background: #4a47a4; color: #fff; font-size: 10px; }
+	.header__cart:hover, .header__cart:focus-visible { color: #4a47a4; outline: none; }
+	.site-search { position: relative; display: flex; width: 100%; height: 44px; align-items: center; border: 1px solid #d8d8dc; border-radius: 999px; background: #f7f7f7; }
+	.site-search > button { display: grid; width: 46px; height: 42px; flex: 0 0 46px; place-items: center; border: 0; background: transparent; color: #45464d; }
+	.site-search > input { width: 100%; height: 42px; min-width: 0; border: 0; outline: 0; background: transparent; color: #17171b; font: inherit; font-size: 12px; }
+	.site-search > input::-webkit-search-cancel-button { margin-right: 10px; }
+	.site-search:focus-within { border-color: #4a47a4; background: #fff; box-shadow: 0 0 0 3px rgba(74,71,164,.1); }
+	.site-search__suggestions { position: absolute; z-index: 30; top: calc(100% + 10px); left: 0; width: min(620px,calc(100vw - 32px)); overflow: hidden; border: 1px solid #e0e0e3; background: #fff; box-shadow: 0 22px 48px rgba(20,21,26,.16); }
+	.site-search__suggestions[hidden] { display: none; }
+	:global(.site-search__result) { display: grid; grid-template-columns: 58px minmax(0,1fr) auto; min-height: 72px; padding: 8px 13px 8px 8px; align-items: center; gap: 12px; border-bottom: 1px solid #ececef; color: #17171b; text-decoration: none; }
+	:global(.site-search__result:hover), :global(.site-search__result:focus-visible), :global(.site-search__result.is-active) { background: #f3f3f8; outline: none; }
+	:global(.site-search__result img) { width: 58px; height: 54px; object-fit: contain; background: #f8f8f8; }
+	:global(.site-search__result span) { display: flex; min-width: 0; flex-direction: column; gap: 5px; }
+	:global(.site-search__result strong) { overflow: hidden; font-size: 12px; line-height: 1.2; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
+	:global(.site-search__result small) { overflow: hidden; color: #797a82; font-size: 9px; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
+	:global(.site-search__result b) { color: #4a47a4; font-size: 11px; }
+	:global(.site-search__all) { display: flex; min-height: 44px; padding: 0 16px; align-items: center; justify-content: flex-end; background: #17171b; color: #fff; font-size: 9px; font-weight: 900; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
+	:global(.site-search__empty) { margin: 0; padding: 22px 16px; color: #777880; font-size: 12px; }
+	.site-search--mobile { display: none; }
+	.menu-button, .mobile-nav { display: none; }
+	@media(max-width:1180px){.header__main{gap:24px}.desktop-nav{gap:26px}}
+	@media(max-width:1020px){
+		.header__main{grid-template-columns:132px minmax(180px,1fr) auto;height:74px;gap:20px}
+		.header__nav-row{display:none}
+		.menu-button{display:flex;width:28px;height:24px;flex-direction:column;justify-content:center;gap:7px;border:0;background:transparent;padding:0}
+		.menu-button span{display:block;width:28px;height:2px;background:#17171b;transition:transform 180ms ease}
+		.menu-button[aria-expanded='true'] span:first-child{transform:translateY(4.5px) rotate(45deg)}
+		.menu-button[aria-expanded='true'] span:last-child{transform:translateY(-4.5px) rotate(-45deg)}
+		.mobile-nav{position:fixed;z-index:-1;inset:0;display:flex;visibility:hidden;flex-direction:column;justify-content:center;align-items:flex-start;gap:21px;padding:120px max(24px,calc((100vw - 700px)/2));background:#0d1311;opacity:0;transition:opacity 180ms ease,visibility 180ms ease}
+		.mobile-nav.is-open{visibility:visible;opacity:1}
+		.mobile-nav>a{color:#fff;font-size:clamp(27px,7vw,42px);font-weight:700;text-decoration:none;text-transform:uppercase}
+		.mobile-nav>div{display:flex;flex-wrap:wrap;gap:18px;margin-top:25px}
+		.mobile-nav>div a{color:#aeb6b1;font-size:14px;font-weight:700;text-decoration:none;text-transform:uppercase}
+		.site-search--mobile{width:min(100%,520px);margin-bottom:12px;border-color:rgba(255,255,255,.24);background:rgba(255,255,255,.08)}
+		.site-search--mobile>button,.site-search--mobile>input{color:#fff}
+		.site-search--mobile>input::placeholder{color:#9ea5a1}
+		.site-search--mobile .site-search__suggestions{left:0;color:#17171b}
+	}
+	@media(max-width:700px){
+		.announcement__inner{width:calc(100% - 32px);justify-content:center;text-align:center}
+		.announcement p span,.announcement__inner>div{display:none}
+		.announcement p strong{font-size:10px}
+		.header__main{grid-template-columns:120px 1fr auto;width:calc(100% - 32px)}
+		.site-search--desktop{display:none}
+		.site-search--mobile{display:flex}
+	}
+	@media(max-width:560px){
+		.brand{height:50px;padding:5px 8px}
+		.header__cart span{display:none}
+		.header__cart{padding:0 4px}
+		.header__actions{gap:15px}
+	}
+</style>
+
+<style is:global>
+	html.menu-open, html.menu-open body { overflow: hidden; }
+</style>

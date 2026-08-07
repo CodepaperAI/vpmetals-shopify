@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+
+const capabilities = [
+	{ number: '01', title: 'CNC laser cutting', copy: 'High-precision CNC sheet laser and tube-laser cutting for consistent parts, openings, panels, and structural components.' },
+	{ number: '02', title: 'Precision forming & machining', copy: 'CNC bending, CNC rolling, CNC lathe, and CNC milling for formed, rolled, and machined metal components.' },
+	{ number: '03', title: 'Welding & assembly', copy: 'MIG, TIG, and spot welding supported by product assembly for finished industrial equipment and structural systems.' },
+	{ number: '04', title: 'Finishing', copy: 'Powder coating plus ProSteel\'s multi-stage prime-and-paint process for durable weather-resistant products.' },
+	{ number: '05', title: 'Design & prototyping', copy: 'In-house metal-structure design, prototype development, and fabrication for application-specific equipment.' },
+];
+---
+
+<BaseLayout title="Custom Metal Fabrication | ProSteel Equipment" description="ProSteel offers CNC sheet and tube laser cutting, bending, rolling, machining, welding, assembly, powder coating, design, and prototyping in Brampton.">
+	<main>
+		<PageHero eyebrow="Fabrication capabilities" title="From concept to finished equipment" copy="In-house cutting, forming, machining, welding, assembly, finishing, design, and prototyping keep complex industrial builds coordinated under one roof." image="/images/prosteel/feature-laser-cage.webp" alt="Laser-cut ProSteel cylinder cage at an industrial facility" />
+
+		<section class="capabilities">
+			<div class="capabilities__heading"><p>Our fabrication capabilities</p><h2>Advanced equipment. Practical industrial outcomes.</h2></div>
+			<div class="capabilities__grid">{capabilities.map((item) => <article><span>{item.number}</span><h3>{item.title}</h3><p>{item.copy}</p></article>)}</div>
+		</section>
+
+		<section class="process">
+			<div class="process__image"><img src="/images/prosteel/feature-transport.webp" alt="ProSteel transport rack being handled by forklift" loading="lazy" /></div>
+			<div class="process__copy">
+				<p>Custom project workflow</p><h2>Designed around your load and site</h2>
+				<ol><li><strong>Define the application</strong><span>Load, footprint, material, access, environment, and handling method.</span></li><li><strong>Develop the structure</strong><span>In-house design and prototype development for the required configuration.</span></li><li><strong>Fabricate and finish</strong><span>Cutting, forming, machining, welding, assembly, and protective treatment.</span></li><li><strong>Confirm and deliver</strong><span>Final specifications, lead time, shipping, and documentation are coordinated with the order.</span></li></ol>
+				<a href="/contact/">Start a custom project</a>
+			</div>
+		</section>
+	</main>
+</BaseLayout>
+
+<style>
+	.capabilities { padding: 92px 24px 104px; background:#f5f5f4; }
+	.capabilities__heading { display:grid; grid-template-columns:.8fr 1.2fr; width:min(100%,1200px); margin:0 auto 44px; gap:70px; }
+	.capabilities__heading p,.process__copy>p{margin:0;color:#4a47a4;font-size:10px;font-weight:900;letter-spacing:.11em;text-transform:uppercase}
+	.capabilities__heading h2,.process h2{margin:0;font-size:clamp(34px,4vw,48px);font-weight:900;line-height:1.08;letter-spacing:-.04em;text-transform:uppercase}
+	.capabilities__grid{display:grid;grid-template-columns:repeat(3,1fr);width:min(100%,1200px);margin:0 auto;gap:1px;background:#dcdce0}
+	.capabilities article{min-height:290px;padding:34px 30px;background:#fff}
+	.capabilities article span{color:#4a47a4;font-size:11px;font-weight:900}.capabilities h3{margin:58px 0 0;font-size:19px;line-height:1.2;text-transform:uppercase}.capabilities article p{margin:15px 0 0;color:#6b6c74;font-size:13px;line-height:1.7}
+	.process{display:grid;grid-template-columns:1fr 1fr;background:#111216;color:#fff}.process__image{min-height:720px}.process__image img{width:100%;height:100%;object-fit:cover}.process__copy{display:flex;padding:70px max(34px,calc((100vw - 1200px)/2));flex-direction:column;justify-content:center;align-items:flex-start}.process h2{margin-top:12px}.process ol{margin:32px 0 0;padding:0;list-style:none;counter-reset:process}.process li{display:grid;grid-template-columns:190px 1fr;padding:18px 0;border-bottom:1px solid #303138;gap:20px}.process li strong{font-size:12px;text-transform:uppercase}.process li span{color:#adaeb6;font-size:12px;line-height:1.6}.process a{display:inline-flex;height:46px;margin-top:32px;padding:0 22px;align-items:center;border-radius:999px;background:#fff;color:#17171b;font-size:10px;font-weight:900;letter-spacing:.07em;text-decoration:none;text-transform:uppercase}.process a:hover,.process a:focus-visible{background:#4a47a4;color:#fff;outline:none}
+	@media(max-width:900px){.capabilities__heading{grid-template-columns:1fr;gap:20px}.capabilities__grid{grid-template-columns:repeat(2,1fr)}.process{grid-template-columns:1fr}.process__image{min-height:520px}.process__copy{padding:64px 24px}}
+	@media(max-width:560px){.capabilities{padding:68px 20px 76px}.capabilities__grid{grid-template-columns:1fr}.capabilities article{min-height:240px}.process__image{min-height:390px}.process li{grid-template-columns:1fr;gap:7px}}
+</style>

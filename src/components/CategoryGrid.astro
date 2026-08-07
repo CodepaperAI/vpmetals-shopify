@@ -1,0 +1,180 @@
+---
+const categories = [
+	{
+		name: 'Propane & BBQ Cages',
+		image: '/images/prosteel/category-propane.webp',
+		alt: 'ProSteel 24-cylinder propane cage at a commercial service yard',
+		href: '/products/?filter=gas-cage#catalogue',
+	},
+	{
+		name: 'Forklift Tank Cages',
+		image: '/images/prosteel/category-forklift.webp',
+		alt: 'Orange ProSteel forklift gas cylinder cage at a construction site',
+		href: '/products/?filter=gas-cage#catalogue',
+	},
+	{
+		name: 'A-Frame & Slab Racks',
+		image: '/images/prosteel/category-aframe.webp',
+		alt: 'ProSteel A-frame safely storing stone slabs in a fabrication warehouse',
+		href: '/products/?filter=material-rack#catalogue',
+	},
+	{
+		name: 'Aluminum Medical Cages',
+		image: '/images/prosteel/category-aluminum.webp',
+		alt: 'Aluminum oxygen cylinder cage at a hospital receiving area',
+		href: '/products/pse-al-147-7-16/',
+	},
+];
+---
+
+<section class="categories" id="gas-cages" aria-labelledby="categories-title">
+	<div class="categories__inner">
+		<div class="categories__heading">
+			<p>Purpose-built storage</p>
+			<h2 id="categories-title">Shop by equipment type</h2>
+		</div>
+		<div class="categories__grid">
+			{categories.map((category) => (
+				<article class="category-card">
+					<img src={category.image} alt={category.alt} loading="lazy" />
+					<a href={category.href} aria-label={`Shop ${category.name}`}>
+						<span>{category.name}</span>
+						<span class="category-card__arrow" aria-hidden="true">→</span>
+					</a>
+				</article>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	.categories {
+		background: #f5f5f4;
+		color: #111;
+		padding: 76px 24px 96px;
+	}
+
+	.categories__inner {
+		width: min(100%, 1200px);
+		margin: 0 auto;
+	}
+
+	.categories__heading { margin: 0 0 42px; }
+	.categories__heading p { margin: 0 0 10px; color: #4a47a4; font-size: 12px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+	.categories h2 {
+		margin: 0;
+		font-size: 25px;
+		font-weight: 900;
+		line-height: 1.1;
+		letter-spacing: -.025em;
+		text-transform: uppercase;
+	}
+
+	.categories__grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 16px;
+	}
+
+	.category-card {
+		position: relative;
+		aspect-ratio: 1.16 / 1;
+		overflow: hidden;
+		background: #181b1a;
+	}
+
+	.category-card::after {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(0deg, rgba(5, 7, 6, .32) 0%, transparent 43%);
+		content: '';
+		pointer-events: none;
+	}
+
+	.category-card img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 500ms cubic-bezier(.2, .7, .2, 1);
+	}
+
+	.category-card a {
+		position: absolute;
+		z-index: 1;
+		bottom: 34px;
+		left: 38px;
+		display: inline-flex;
+		min-width: 162px;
+		height: 54px;
+		padding: 0 27px;
+		align-items: center;
+		justify-content: center;
+		gap: 12px;
+		border: 1px solid #fff;
+		border-radius: 999px;
+		background: #fff;
+		color: #171717;
+		font-size: 13px;
+		font-weight: 900;
+		letter-spacing: .075em;
+		text-decoration: none;
+		text-transform: uppercase;
+		transition: background 180ms ease, color 180ms ease;
+	}
+
+	.category-card__arrow {
+		font-size: 18px;
+		font-weight: 400;
+		line-height: 1;
+		transform: translateY(-1px);
+	}
+
+	.category-card:hover img,
+	.category-card:focus-within img {
+		transform: scale(1.025);
+	}
+
+	.category-card a:hover,
+	.category-card a:focus-visible {
+		border-color: #4a47a4;
+		background: #4a47a4;
+		color: #fff;
+		outline: none;
+	}
+
+	@media (max-width: 760px) {
+		.categories {
+			padding: 58px 20px 68px;
+		}
+
+		.categories__heading { margin-bottom: 30px; }
+		.categories h2 {
+			font-size: 22px;
+		}
+
+		.categories__grid {
+			grid-template-columns: 1fr;
+			gap: 12px;
+		}
+
+		.category-card {
+			aspect-ratio: 1.15 / 1;
+		}
+
+		.category-card a {
+			bottom: 24px;
+			left: 24px;
+			min-width: 148px;
+			height: 48px;
+			padding: 0 22px;
+			font-size: 12px;
+		}
+	}
+
+	@media (max-width: 420px) {
+		.category-card {
+			aspect-ratio: .96 / 1;
+		}
+	}
+</style>

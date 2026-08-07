@@ -1,0 +1,131 @@
+---
+import {
+	Blocks,
+	Boxes,
+	DraftingCompass,
+	Factory,
+	Flame,
+	Forklift,
+	Hospital,
+	PanelsTopLeft,
+	Warehouse,
+} from 'lucide-astro';
+
+const collections = [
+	{ icon: Flame, name: 'Propane Cages', href: '/products/?filter=gas-cage#catalogue' },
+	{ icon: Forklift, name: 'Forklift Cages', href: '/products/?filter=gas-cage#catalogue' },
+	{ icon: Factory, name: 'Welding Cages', href: '/products/?filter=gas-cage#catalogue' },
+	{ icon: Hospital, name: 'Medical Gas', href: '/products/pse-al-147-7-16/' },
+	{ icon: PanelsTopLeft, name: 'A-Frame Racks', href: '/products/?filter=material-rack#catalogue' },
+	{ icon: Blocks, name: 'Slab Storage', href: '/products/?filter=material-rack#catalogue' },
+	{ icon: Boxes, name: 'Crane Carriers', href: '/products/model-420-1/' },
+	{ icon: DraftingCompass, name: 'Custom Builds', href: '/contact/' },
+];
+---
+
+<section class="collection" aria-labelledby="collection-title">
+	<div class="collection__inner">
+		<h2 id="collection-title">Explore collection</h2>
+		<div class="collection__grid">
+			{collections.map(({ icon: Icon, name, href }, index) => (
+				<a class:list={['collection__item', { 'collection__item--featured': index === 0 }]} href={href}>
+					<span class="collection__icon" aria-hidden="true"><Icon size={54} strokeWidth={1.65} /></span>
+					<span class="collection__name">{name}</span>
+				</a>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	.collection {
+		border-top: 1px solid #dcdcdc;
+		background: #f3f3f2;
+		color: #151515;
+		padding: 72px 24px 86px;
+	}
+
+	.collection__inner {
+		width: min(100%, 980px);
+		margin: 0 auto;
+	}
+
+	.collection h2 {
+		margin: 0 0 54px;
+		font-size: 16px;
+		font-weight: 900;
+		letter-spacing: .03em;
+		line-height: 1.1;
+		text-align: center;
+		text-transform: uppercase;
+	}
+
+	.collection__grid {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 12px;
+	}
+
+	.collection__item {
+		display: flex;
+		min-height: 158px;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 19px;
+		color: #171717;
+		text-decoration: none;
+		transition: background 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+	}
+
+	.collection__item--featured,
+	.collection__item:hover,
+	.collection__item:focus-visible {
+		background: #fff;
+		box-shadow: 0 12px 28px rgba(0, 0, 0, .04);
+		outline: none;
+		transform: translateY(-2px);
+	}
+
+	.collection__icon {
+		display: grid;
+		width: 62px;
+		height: 62px;
+		place-items: center;
+		color: #4a47a4;
+		transition: transform 180ms ease;
+	}
+
+	.collection__item:hover .collection__icon,
+	.collection__item:focus-visible .collection__icon {
+		transform: translateY(-2px) scale(1.04);
+	}
+
+	.collection__name {
+		font-size: 15px;
+		font-weight: 900;
+		letter-spacing: -.015em;
+		line-height: 1.15;
+		text-align: center;
+		text-transform: uppercase;
+	}
+
+	@media (max-width: 760px) {
+		.collection {
+			padding: 58px 20px 66px;
+		}
+
+		.collection h2 {
+			margin-bottom: 36px;
+		}
+
+		.collection__grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 8px;
+		}
+
+		.collection__item {
+			min-height: 142px;
+		}
+	}
+</style>

@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import CatalogCard from '../../components/CatalogCard.astro';
+import { catalogProducts, gasProducts, rackProducts } from '../../data/catalog';
+---
+
+<BaseLayout title="Equipment Catalogue | ProSteel Equipment" description="Shop ProSteel gas cylinder cages, forklift carriers, welding cages, A-frame racks, slab storage systems, and custom industrial equipment.">
+	<main>
+		<PageHero
+			eyebrow="2026 equipment catalogue"
+			title="Built for industrial work"
+			copy={`${gasProducts.length} cage and carrier systems plus ${rackProducts.length} material rack configurations, engineered and fabricated in Canada.`}
+			image="/images/prosteel/hero-crane-carrier.webp"
+			alt="ProSteel crane-mounted gas bottle carrier at an industrial site"
+		/>
+
+		<section class="catalogue" id="catalogue" aria-labelledby="catalogue-title">
+			<div class="catalogue__inner">
+				<div class="catalogue__heading">
+					<div>
+						<p>Complete product range</p>
+						<h1 id="catalogue-title">Equipment catalogue</h1>
+					</div>
+					<span><strong>{catalogProducts.length}</strong> product systems</span>
+				</div>
+
+				<div class="catalogue__filters" aria-label="Filter products">
+					<button class="is-active" type="button" data-filter="all" aria-pressed="true">All equipment</button>
+					<button type="button" data-filter="gas-cage" aria-pressed="false">Gas cages & carriers</button>
+					<button type="button" data-filter="material-rack" aria-pressed="false">Material racks</button>
+				</div>
+
+				<div class="catalogue__grid" data-catalogue-grid>
+					{catalogProducts.map((product) => <CatalogCard product={product} />)}
+				</div>
+			</div>
+		</section>
+
+		<section class="catalogue-cta">
+			<div>
+				<p>Need a different footprint, capacity, or handling method?</p>
+				<h2>ProSteel can design and fabricate equipment around your application.</h2>
+			</div>
+			<a href="/contact/">Discuss a custom build</a>
+		</section>
+	</main>
+</BaseLayout>
+
+<script>
+	const filters = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-filter]'));
+	const cards = Array.from(document.querySelectorAll<HTMLElement>('[data-catalog-card]'));
+	const applyFilter = (filter: string) => {
+		filters.forEach((item) => {
+			const active = item.dataset.filter === filter;
+			item.classList.toggle('is-active', active);
+			item.setAttribute('aria-pressed', String(active));
+		});
+		cards.forEach((card) => { card.hidden = filter !== 'all' && card.dataset.collection !== filter; });
+	};
+	filters.forEach((button) => button.addEventListener('click', () => {
+		const filter = button.dataset.filter ?? 'all';
+		applyFilter(filter);
+		const url = new URL(window.location.href);
+		filter === 'all' ? url.searchParams.delete('filter') : url.searchParams.set('filter', filter);
+		history.replaceState({}, '', `${url.pathname}${url.search}#catalogue`);
+	}));
+	const initialFilter = new URLSearchParams(window.location.search).get('filter') ?? 'all';
+	applyFilter(filters.some((item) => item.dataset.filter === initialFilter) ? initialFilter : 'all');
+</script>
+
+<style>
+	.catalogue { background: #f5f5f4; padding: 88px 24px 110px; }
+	.catalogue__inner { width: min(100%, 1200px); margin: 0 auto; }
+	.catalogue__heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; }
+	.catalogue__heading p { margin: 0 0 9px; color: #4a47a4; font-size: 11px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+	.catalogue__heading h1 { margin: 0; font-size: clamp(31px, 4vw, 45px); font-weight: 900; letter-spacing: -.035em; line-height: 1.08; text-transform: uppercase; }
+	.catalogue__heading > span { color: #6f7078; font-size: 12px; }
+	.catalogue__heading > span strong { color: #17171b; font-size: 18px; }
+	.catalogue__filters { display: flex; margin: 38px 0 42px; flex-wrap: wrap; gap: 9px; }
+	.catalogue__filters button { height: 42px; padding: 0 18px; border: 1px solid #d5d5d9; border-radius: 999px; background: #fff; color: #55565e; font: inherit; font-size: 10px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; }
+	.catalogue__filters button:hover, .catalogue__filters button:focus-visible, .catalogue__filters button.is-active { border-color: #4a47a4; background: #4a47a4; color: #fff; outline: none; }
+	.catalogue__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+	.catalogue__grid > [hidden] { display: none; }
+	.catalogue { scroll-margin-top: 84px; }
+	.catalogue-cta { display: flex; padding: 76px max(24px, calc((100vw - 1200px)/2)); align-items: center; justify-content: space-between; gap: 42px; background: #111216; color: #fff; }
+	.catalogue-cta p { margin: 0 0 10px; color: #b7b9ff; font-size: 11px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+	.catalogue-cta h2 { max-width: 760px; margin: 0; font-size: clamp(25px, 3vw, 36px); line-height: 1.18; letter-spacing: -.025em; text-transform: uppercase; }
+	.catalogue-cta a { display: inline-flex; min-width: 205px; height: 48px; padding: 0 20px; align-items: center; justify-content: center; border-radius: 999px; background: #fff; color: #17171b; font-size: 10px; font-weight: 900; letter-spacing: .07em; text-decoration: none; text-transform: uppercase; }
+	.catalogue-cta a:hover, .catalogue-cta a:focus-visible { background: #4a47a4; color: #fff; outline: none; }
+	@media (max-width: 900px) { .catalogue__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .catalogue-cta { align-items: flex-start; flex-direction: column; } }
+	@media (max-width: 600px) { .catalogue { padding: 68px 20px 76px; } .catalogue__heading { align-items: flex-start; flex-direction: column; } .catalogue__filters { margin: 30px 0; } .catalogue__grid { grid-template-columns: 1fr; } .catalogue-cta { padding: 58px 20px; } }
+</style>
