@@ -24,7 +24,7 @@ const brochureConfig = product.collection === 'material-rack'
 		}
 	: product.collection === 'gas-cage'
 		? {
-				previewImage: product.image,
+				previewImage: null,
 				previewAlt: `${product.name} brochure reference image with product photos, specifications, and B2C pricing`,
 				links: [
 					{ label: 'Product brochure', href: '/brochures/prosteel-gas-cage-brochure.pdf' },
@@ -42,9 +42,18 @@ const brochureConfig = product.collection === 'material-rack'
 			}
 		: null;
 const galleryItems = [
-	{ label: 'Product photo', image: product.image, alt: product.alt, kind: 'photo' },
-	{ label: 'Application photo', image: product.contextImage, alt: `${product.name} shown in an application setting`, kind: 'photo' },
-	...(brochureConfig ? [{ label: 'Brochure panel', image: brochureConfig.previewImage, alt: brochureConfig.previewAlt, kind: 'brochure' }] : []),
+	{ label: 'Product photo', image: product.image, alt: product.alt, kind: 'photo' as const },
+	{ label: 'Application photo', image: product.contextImage, alt: `${product.name} shown in an application setting`, kind: 'photo' as const },
+	...(brochureConfig
+		? [
+				{
+					label: 'Brochure panel',
+					image: brochureConfig.previewImage,
+					alt: brochureConfig.previewAlt,
+					kind: 'brochure' as const,
+				},
+		  ]
+		: []),
 ];
 ---
 
@@ -60,7 +69,15 @@ const galleryItems = [
 					<div class="product-carousel__stage" aria-live="polite">
 						{galleryItems.map((item, index) => (
 							<figure class:list={['product-carousel__slide', { 'is-active': index === 0, 'product-carousel__slide--brochure': item.kind === 'brochure' }]} data-product-carousel-slide aria-hidden={index === 0 ? 'false' : 'true'}>
-								<img src={item.image} alt={item.alt} loading={index === 0 ? 'eager' : 'lazy'} />
+								{item.kind === 'brochure' && !item.image ? (
+									<div class="product-carousel__brochure-card">
+										<FileText size={46} strokeWidth={1.6} aria-hidden="true" />
+										<strong>Brochure files are available below</strong>
+										<p>Download the product brochure or the B2C price sheet PDF for this model.</p>
+									</div>
+								) : (
+									<img src={item.image} alt={item.alt} loading={index === 0 ? 'eager' : 'lazy'} />
+								)}
 							</figure>
 						))}
 					</div>
@@ -73,7 +90,11 @@ const galleryItems = [
 					<div class="product-carousel__thumbs" aria-label="Product media">
 						{galleryItems.map((item, index) => (
 							<button class:list={['product-carousel__thumb', { 'is-active': index === 0 }]} type="button" data-product-carousel-thumb={index} aria-pressed={index === 0 ? 'true' : 'false'}>
-								<img src={item.image} alt="" loading="lazy" />
+								{item.kind === 'brochure' && !item.image ? (
+									<span class="product-carousel__thumb-media" aria-hidden="true"><FileText size={18} strokeWidth={1.8} /></span>
+								) : (
+									<img src={item.image} alt="" loading="lazy" />
+								)}
 								<span>{item.label}</span>
 							</button>
 						))}
@@ -214,13 +235,16 @@ const galleryItems = [
 	.product-carousel__slide.is-active { visibility: visible; opacity: 1; pointer-events: auto; }
 	.product-carousel__slide img { display: block; width: 100%; height: 100%; object-fit: contain; padding: 40px; }
 	.product-carousel__slide--brochure { background: #f4f4f5; }
-	.product-carousel__slide--brochure img { padding: 22px; }
+	.product-carousel__brochure-card { display: grid; width: min(360px, 85%); max-width: 100%; place-items: center; gap: 10px; padding: 16px; color: #111114; text-align: center; }
+	.product-carousel__brochure-card strong { font-size: 15px; line-height: 1.5; }
+	.product-carousel__brochure-card p { max-width: 320px; margin: 0; color: #5a5b62; font-size: 12px; line-height: 1.4; }
 	.product-carousel__controls { position: absolute; z-index: 3; top: 50%; right: 18px; left: 18px; display: flex; justify-content: space-between; pointer-events: none; transform: translateY(-50%); }
 	.product-carousel__arrow { display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid #dedee2; border-radius: 50%; background: rgba(255,255,255,.92); color: #17171b; padding: 0; pointer-events: auto; box-shadow: 0 10px 24px rgba(20,21,26,.12); }
 	.product-carousel__arrow:hover, .product-carousel__arrow:focus-visible { border-color: #4a47a4; background: #4a47a4; color: #fff; outline: none; }
 	.product-carousel__thumbs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 12px; gap: 10px; }
 	.product-carousel__thumb { display: grid; min-width: 0; grid-template-columns: 58px minmax(0, 1fr); min-height: 68px; align-items: center; gap: 10px; border: 1px solid #e0e0e3; background: #fff; padding: 8px; color: #55565d; font: inherit; text-align: left; }
 	.product-carousel__thumb img { width: 58px; height: 50px; object-fit: contain; background: #f6f6f7; }
+	.product-carousel__thumb-media { display: grid; width: 58px; height: 50px; place-items: center; color: #4a47a4; background: #f2f2f8; }
 	.product-carousel__thumb span { overflow: hidden; font-size: 10px; font-weight: 900; letter-spacing: .06em; line-height: 1.25; text-overflow: ellipsis; text-transform: uppercase; }
 	.product-carousel__thumb:hover, .product-carousel__thumb:focus-visible, .product-carousel__thumb.is-active { border-color: #4a47a4; color: #4a47a4; outline: none; }
 	.product-detail__brochures { display: flex; margin-top: 14px; padding: 15px 16px; align-items: center; flex-wrap: wrap; gap: 10px 12px; border: 1px solid #e1e1e4; background: #fff; }
