@@ -51,6 +51,7 @@ const galleryItems = [
 					image: brochureConfig.previewImage,
 					alt: brochureConfig.previewAlt,
 					kind: 'brochure' as const,
+					links: brochureConfig.links,
 				},
 		  ]
 		: []),
@@ -72,8 +73,13 @@ const galleryItems = [
 								{item.kind === 'brochure' && !item.image ? (
 									<div class="product-carousel__brochure-card">
 										<FileText size={46} strokeWidth={1.6} aria-hidden="true" />
-										<strong>Brochure files are available below</strong>
+										<strong>Brochure docs for this model</strong>
 										<p>Download the product brochure or the B2C price sheet PDF for this model.</p>
+										{item.links?.length && (
+											<div class="product-carousel__brochure-actions">
+												{item.links.map((link) => <a href={link.href} target="_blank" rel="noreferrer">{link.label}</a>)}
+											</div>
+										)}
 									</div>
 								) : (
 									<img src={item.image} alt={item.alt} loading={index === 0 ? 'eager' : 'lazy'} />
@@ -238,6 +244,9 @@ const galleryItems = [
 	.product-carousel__brochure-card { display: grid; width: min(360px, 85%); max-width: 100%; place-items: center; gap: 10px; padding: 16px; color: #111114; text-align: center; }
 	.product-carousel__brochure-card strong { font-size: 15px; line-height: 1.5; }
 	.product-carousel__brochure-card p { max-width: 320px; margin: 0; color: #5a5b62; font-size: 12px; line-height: 1.4; }
+	.product-carousel__brochure-actions { display: grid; gap: 8px; margin-top: 6px; width: min(320px, 100%); }
+	.product-carousel__brochure-actions a { justify-self: stretch; padding: 10px 12px; border: 1px solid #cfd0d4; border-radius: 999px; background: #fff; color: #4a47a4; font-size: 10px; font-weight: 900; letter-spacing: .05em; text-decoration: none; text-transform: uppercase; }
+	.product-carousel__brochure-actions a:hover, .product-carousel__brochure-actions a:focus-visible { border-color: #4a47a4; background: #f3f3f8; outline: none; }
 	.product-carousel__controls { position: absolute; z-index: 3; top: 50%; right: 18px; left: 18px; display: flex; justify-content: space-between; pointer-events: none; transform: translateY(-50%); }
 	.product-carousel__arrow { display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid #dedee2; border-radius: 50%; background: rgba(255,255,255,.92); color: #17171b; padding: 0; pointer-events: auto; box-shadow: 0 10px 24px rgba(20,21,26,.12); }
 	.product-carousel__arrow:hover, .product-carousel__arrow:focus-visible { border-color: #4a47a4; background: #4a47a4; color: #fff; outline: none; }
