@@ -24,7 +24,7 @@ const brochureConfig = product.collection === 'material-rack'
 		}
 	: product.collection === 'gas-cage'
 		? {
-				previewImage: null,
+				previewImage: product.image,
 				previewAlt: `${product.name} brochure reference image with product photos, specifications, and B2C pricing`,
 				links: [
 					{ label: 'Product brochure', href: '/brochures/prosteel-gas-cage-brochure.pdf' },
