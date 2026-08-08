@@ -22,6 +22,15 @@ const brochureConfig = product.collection === 'material-rack'
 				{ label: 'B2C price sheet', href: '/brochures/prosteel-a-frame-b2c-price.pdf' },
 			],
 		}
+	: product.collection === 'gas-cage'
+		? {
+				previewImage: product.image,
+				previewAlt: `${product.name} brochure reference image with product photos, specifications, and B2C pricing`,
+				links: [
+					{ label: 'Product brochure', href: '/brochures/prosteel-gas-cage-brochure.pdf' },
+					{ label: 'B2C price sheet', href: '/brochures/prosteel-gas-cage-b2c-price.pdf' },
+				],
+			}
 	: product.collection === 'industrial-table'
 		? {
 				previewImage: `/images/catalog/brochures/tables/${product.slug}-brochure.webp`,
