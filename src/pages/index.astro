@@ -1,25 +1,1080 @@
 ---
+import {
+	ArrowRight,
+	BadgeCheck,
+	Building2,
+	CheckCircle2,
+	ClipboardCheck,
+	Container,
+	DraftingCompass,
+	Factory,
+	Fuel,
+	Hammer,
+	HardHat,
+	Landmark,
+	MapPinned,
+	ShieldCheck,
+	ShoppingCart,
+	Store,
+	Truck,
+	Users,
+	Warehouse,
+	Wrench,
+} from 'lucide-astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
-import TrustBar from '../components/TrustBar.astro';
-import CategoryGrid from '../components/CategoryGrid.astro';
-import Products from '../components/Products.astro';
-import ProductionFeature from '../components/ProductionFeature.astro';
-import ExploreCollection from '../components/ExploreCollection.astro';
-import Newsletter from '../components/Newsletter.astro';
+
+const solutionCards = [
+	{
+		title: 'Metal Gas Cages',
+		text: 'Secure, heavy-duty storage cages for propane, forklift, welding, oxygen, and industrial gas cylinders.',
+		image: '/images/catalog/gas/pse-20-24.webp',
+		alt: 'Yellow ProSteel gas cylinder cage',
+		href: '/products/?filter=gas-cage#catalogue',
+		icon: Fuel,
+		accent: '#095bc5',
+	},
+	{
+		title: 'Metal A-Frames & Transport Solutions',
+		text: 'Durable slab, glass, stone, and panel rack systems for storage, staging, and shop-floor movement.',
+		image: '/images/catalog/racks/double-sided-transport-rack.webp',
+		alt: 'Black double-sided ProSteel transport rack',
+		href: '/products/?filter=material-rack#catalogue',
+		icon: Warehouse,
+		accent: '#0a315f',
+	},
+	{
+		title: 'Metal Tables & Carts',
+		text: 'Industrial work tables, stainless tables, platform carts, and mobile material-handling workstations.',
+		image: '/images/catalog/tables/heavy-duty-steel-workbench.webp',
+		alt: 'Heavy-duty ProSteel metal workbench',
+		href: '/products/?filter=industrial-table#catalogue',
+		icon: ShoppingCart,
+		accent: '#4f8b1f',
+	},
+	{
+		title: 'Warehouse Safety Equipment',
+		text: 'Custom bollards, guards, barriers, transport frames, and protective equipment for industrial facilities.',
+		image: '/images/prosteel/feature-transport.webp',
+		alt: 'ProSteel industrial transport equipment in a warehouse',
+		href: '/fabrication/',
+		icon: ShieldCheck,
+		accent: '#ed8a00',
+	},
+	{
+		title: 'Decorative Metal & Laser Cut Panels',
+		text: 'Custom gates, screens, panels, and laser-cut metalwork for residential and commercial projects.',
+		image: '/images/prosteel/feature-laser-cage.webp',
+		alt: 'Laser-cut ProSteel aluminum cage panel',
+		href: '/fabrication/',
+		icon: DraftingCompass,
+		accent: '#8a4b1c',
+	},
+	{
+		title: 'Construction & Curtain Wall Solutions',
+		text: 'Precision-fabricated components for construction, building envelope, and specialty metal applications.',
+		image: '/images/contact-turbine.png',
+		alt: 'Modern industrial building and metal fabrication reference',
+		href: '/contact/',
+		icon: Building2,
+		accent: '#0a76b8',
+	},
+];
+
+const valuePillars = [
+	{ label: 'Made in Canada', detail: 'Proudly Canadian', icon: BadgeCheck },
+	{ label: 'Built to Last', detail: 'Heavy-duty quality', icon: ShieldCheck },
+	{ label: 'Custom Solutions', detail: 'Made to order', icon: Wrench },
+	{ label: 'Fast & Reliable', detail: 'On-time delivery', icon: Truck },
+];
+
+const strengths = [
+	'High-quality materials and craftsmanship',
+	'Precision fabrication and attention to detail',
+	'Custom sizes, configurations, and finishes',
+	'Competitive pricing and on-time delivery',
+	'Dedicated support from quote to delivery',
+];
+
+const stats = [
+	{ value: '10+', label: 'Years of experience', icon: Factory },
+	{ value: '1000+', label: 'Projects completed', icon: Users },
+	{ value: '100%', label: 'Quality commitment', icon: BadgeCheck },
+	{ value: 'On-time', label: 'Delivery you can count on', icon: Truck },
+];
+
+const customHighlights = [
+	{ label: 'Custom design', text: 'Tailored to your needs', icon: Hammer },
+	{ label: 'Wide material options', text: 'Steel, stainless, aluminum, and more', icon: Container },
+	{ label: 'Engineered for strength', text: 'Built for demanding environments', icon: ClipboardCheck },
+];
+
+const industries = [
+	{ label: 'Industrial & Manufacturing', icon: Factory },
+	{ label: 'Construction', icon: HardHat },
+	{ label: 'Warehousing & Logistics', icon: Warehouse },
+	{ label: 'Oil & Gas', icon: Fuel },
+	{ label: 'Commercial & Retail', icon: Store },
+	{ label: 'Architectural & Design', icon: DraftingCompass },
+	{ label: 'Transportation', icon: Truck },
+	{ label: 'Municipal & Infrastructure', icon: Landmark },
+];
 ---
 
 <BaseLayout
-	title="ProSteel Equipment - Industrial Storage & Material Handling"
-	description="Canadian-made gas cylinder cages, material handling racks, slab storage systems, and custom metal fabrication from ProSteel Equipment."
+	title="ProSteel Equipment - Heavy-Duty Metal Products"
+	description="Heavy-duty Canadian metal products including gas cages, material racks, industrial tables, carts, custom fabrication, and industrial safety equipment."
+	showFooter={false}
 >
-	<main>
-		<Hero />
-		<TrustBar />
-		<CategoryGrid />
-		<Products />
-		<ProductionFeature />
-		<ExploreCollection />
-		<Newsletter />
+	<main class="home-redesign">
+		<section class="home-hero" aria-labelledby="home-hero-title">
+			<div class="home-hero__grid" aria-hidden="true"></div>
+			<div class="home-hero__inner">
+				<div class="home-hero__copy">
+					<p class="eyebrow">Built strong. Made to perform.</p>
+					<h1 id="home-hero-title">Heavy-duty metal products. <span>Built for all your needs.</span></h1>
+					<p class="home-hero__lead">Industrial, commercial, and architectural metal products engineered for strength, functionality, and long-term performance.</p>
+					<div class="home-hero__actions">
+						<a class="button button--primary" href="/products/">Explore products <ArrowRight size={19} strokeWidth={2} aria-hidden="true" /></a>
+						<a class="button button--ghost" href="/contact/">Request a quote <ClipboardCheck size={18} strokeWidth={2} aria-hidden="true" /></a>
+					</div>
+				</div>
+				<div class="home-hero__scene" aria-label="ProSteel gas cages, A-frame racks, industrial tables, and custom equipment">
+					<img class="home-hero__rack" src="/images/catalog/racks/double-sided-transport-rack.webp" alt="Black metal A-frame transport rack" loading="eager" />
+					<img class="home-hero__cage" src="/images/catalog/gas/pse-20-24.webp" alt="Yellow metal gas cylinder cage" loading="eager" />
+					<img class="home-hero__table" src="/images/catalog/tables/heavy-duty-steel-workbench.webp" alt="Heavy-duty metal industrial table" loading="eager" />
+					<img class="home-hero__carrier" src="/images/catalog/gas/model-420-1.webp" alt="Yellow forklift and crane gas bottle carrier" loading="eager" />
+				</div>
+			</div>
+			<div class="home-hero__trust" aria-label="ProSteel strengths">
+				{valuePillars.map((pillar) => {
+					const Icon = pillar.icon;
+					return (
+						<div>
+							<Icon size={34} strokeWidth={1.8} aria-hidden="true" />
+							<span>{pillar.label}</span>
+							<small>{pillar.detail}</small>
+						</div>
+					);
+				})}
+			</div>
+		</section>
+
+		<section class="solutions" aria-labelledby="solutions-title">
+			<div class="section-title">
+				<span></span>
+				<h2 id="solutions-title">Our Metal Product Solutions</h2>
+				<span></span>
+			</div>
+			<div class="solutions__grid">
+				{solutionCards.map((solution) => {
+					const Icon = solution.icon;
+					return (
+						<article class="solution-card" style={`--accent:${solution.accent}`}>
+							<a class="solution-card__image" href={solution.href}>
+								<img src={solution.image} alt={solution.alt} loading="lazy" />
+								<span><Icon size={25} strokeWidth={2} aria-hidden="true" /></span>
+							</a>
+							<div class="solution-card__body">
+								<h3>{solution.title}</h3>
+								<p>{solution.text}</p>
+								<a href={solution.href}>View products <ArrowRight size={17} strokeWidth={2} aria-hidden="true" /></a>
+							</div>
+						</article>
+					);
+				})}
+			</div>
+		</section>
+
+		<section class="why" aria-labelledby="why-title">
+			<div class="why__copy">
+				<p class="eyebrow">Why choose ProSteel?</p>
+				<h2 id="why-title">Manufactured for real industrial use.</h2>
+				<p>We combine advanced manufacturing, skilled craftsmanship, and quality materials to deliver products that perform in demanding environments.</p>
+				<ul>
+					{strengths.map((item) => (
+						<li><CheckCircle2 size={16} strokeWidth={2.2} aria-hidden="true" />{item}</li>
+					))}
+				</ul>
+			</div>
+			<div class="why__stats">
+				{stats.map((stat) => {
+					const Icon = stat.icon;
+					return (
+						<div>
+							<Icon size={40} strokeWidth={1.65} aria-hidden="true" />
+							<strong>{stat.value}</strong>
+							<span>{stat.label}</span>
+						</div>
+					);
+				})}
+			</div>
+		</section>
+
+		<section class="custom" aria-labelledby="custom-title">
+			<div class="custom__gallery" aria-label="ProSteel fabrication and custom product examples">
+				<img src="/images/catalog/racks/economy-a-frame-context.webp" alt="A-frame rack holding stone slabs in a fabrication warehouse" loading="eager" />
+				<img src="/images/catalog/tables/three-tier-heavy-duty-mobile-assembly-workbench-context.webp" alt="ProSteel mobile assembly workbench in a production area" loading="eager" />
+				<img src="/images/prosteel/feature-aframe.webp" alt="ProSteel fabrication shop with A-frame equipment" loading="eager" />
+			</div>
+			<div class="custom__copy">
+				<p class="eyebrow">Built around your needs</p>
+				<h2 id="custom-title">Custom solutions</h2>
+				<p>Need something different from our standard products? We offer made-to-order sizes, configurations, materials, and finishes to meet specific project requirements.</p>
+				<div class="custom__features">
+					{customHighlights.map((highlight) => {
+						const Icon = highlight.icon;
+						return (
+							<div>
+								<Icon size={29} strokeWidth={1.8} aria-hidden="true" />
+								<strong>{highlight.label}</strong>
+								<span>{highlight.text}</span>
+							</div>
+						);
+					})}
+				</div>
+				<a class="button button--primary" href="/fabrication/">Learn more about custom solutions <ArrowRight size={19} strokeWidth={2} aria-hidden="true" /></a>
+			</div>
+		</section>
+
+		<section class="industries" aria-labelledby="industries-title">
+			<div class="section-title">
+				<span></span>
+				<h2 id="industries-title">Industries We Serve</h2>
+				<span></span>
+			</div>
+			<div class="industries__grid">
+				{industries.map((industry) => {
+					const Icon = industry.icon;
+					return (
+						<div>
+							<Icon size={30} strokeWidth={1.75} aria-hidden="true" />
+							<span>{industry.label}</span>
+						</div>
+					);
+				})}
+			</div>
+		</section>
+
+		<section class="home-contact" aria-label="Contact ProSteel">
+			<div>
+				<img src="/images/prosteel/logo.png" alt="ProSteel Equipment" loading="lazy" />
+				<p>Your trusted source for heavy-duty metal products and custom solutions. Built strong. Made to perform.</p>
+			</div>
+			<div>
+				<h2>Products</h2>
+				<a href="/products/?filter=gas-cage#catalogue">Metal Gas Cages</a>
+				<a href="/products/?filter=material-rack#catalogue">Metal A Frames & Transport Solutions</a>
+				<a href="/products/?filter=industrial-table#catalogue">Metal Tables & Carts</a>
+				<a href="/fabrication/">Warehouse Safety Equipment</a>
+			</div>
+			<div>
+				<h2>Company</h2>
+				<a href="/about/">About Us</a>
+				<a href="/fabrication/">Our Capabilities</a>
+				<a href="/fabrication/">Custom Solutions</a>
+				<a href="/contact/">Contact Us</a>
+			</div>
+			<div>
+				<h2>Contact Us</h2>
+				<p><MapPinned size={17} strokeWidth={2} aria-hidden="true" />39 Selby Road, Brampton, ON L6W 1K5</p>
+				<a href="tel:+19054873472">+1 905 487 3472 Ext. 302</a>
+				<a href="mailto:mju@prosteelequipment.com">mju@prosteelequipment.com</a>
+			</div>
+		</section>
 	</main>
 </BaseLayout>
+
+<style>
+	.home-redesign {
+		--blue: #084fb4;
+		--navy: #071945;
+		--ink: #101827;
+		--muted: #5c6575;
+		--line: #dfe4ec;
+		--panel: #f6f8fb;
+		background: #fff;
+		color: var(--ink);
+		overflow: hidden;
+	}
+
+	.eyebrow {
+		margin: 0 0 12px;
+		color: var(--blue);
+		font-size: 15px;
+		font-weight: 900;
+		letter-spacing: 0;
+		line-height: 1.2;
+		text-transform: uppercase;
+	}
+
+	.button {
+		display: inline-flex;
+		min-height: 50px;
+		align-items: center;
+		justify-content: center;
+		gap: 12px;
+		border: 1px solid var(--blue);
+		border-radius: 4px;
+		padding: 0 26px;
+		color: var(--blue);
+		font-size: 12px;
+		font-weight: 900;
+		letter-spacing: 0;
+		text-decoration: none;
+		text-transform: uppercase;
+		transition: background 180ms ease, color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+	}
+
+	.button:hover,
+	.button:focus-visible {
+		outline: none;
+		transform: translateY(-2px);
+	}
+
+	.button--primary {
+		background: var(--blue);
+		box-shadow: 0 12px 24px rgba(8, 79, 180, .22);
+		color: #fff;
+	}
+
+	.button--primary:hover,
+	.button--primary:focus-visible {
+		background: #063f91;
+		color: #fff;
+	}
+
+	.button--ghost {
+		background: #fff;
+	}
+
+	.button--ghost:hover,
+	.button--ghost:focus-visible {
+		background: #eef4ff;
+	}
+
+	.home-hero {
+		position: relative;
+		border-bottom: 1px solid var(--line);
+		background:
+			linear-gradient(90deg, rgba(255, 255, 255, .98) 0%, rgba(255, 255, 255, .9) 43%, rgba(255, 255, 255, .7) 100%),
+			url('/images/prosteel/feature-aframe.webp') center right / cover no-repeat;
+	}
+
+	.home-hero__grid {
+		position: absolute;
+		inset: 0;
+		background-image:
+			linear-gradient(rgba(8, 79, 180, .05) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(8, 79, 180, .05) 1px, transparent 1px);
+		background-size: 78px 78px;
+		pointer-events: none;
+	}
+
+	.home-hero__inner {
+		position: relative;
+		display: grid;
+		width: min(calc(100% - 52px), 1400px);
+		min-height: 548px;
+		margin: 0 auto;
+		grid-template-columns: minmax(360px, 510px) minmax(0, 1fr);
+		align-items: center;
+		gap: 34px;
+	}
+
+	.home-hero__copy {
+		position: relative;
+		z-index: 2;
+		padding: 52px 0 60px;
+	}
+
+	.home-hero h1 {
+		max-width: 560px;
+		margin: 0;
+		color: var(--navy);
+		font-size: 62px;
+		font-weight: 900;
+		letter-spacing: 0;
+		line-height: .95;
+		text-transform: uppercase;
+	}
+
+	.home-hero h1 span {
+		display: block;
+		color: var(--blue);
+	}
+
+	.home-hero__lead {
+		max-width: 520px;
+		margin: 26px 0 0;
+		color: #26334a;
+		font-size: 16px;
+		line-height: 1.75;
+	}
+
+	.home-hero__actions {
+		display: flex;
+		margin-top: 30px;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 16px;
+	}
+
+	.home-hero__scene {
+		position: relative;
+		height: 500px;
+		min-width: 0;
+	}
+
+	.home-hero__scene img {
+		position: absolute;
+		display: block;
+		object-fit: contain;
+		mix-blend-mode: multiply;
+	}
+
+	.home-hero__rack {
+		bottom: 74px;
+		left: 0;
+		width: 43%;
+		z-index: 1;
+	}
+
+	.home-hero__cage {
+		right: 112px;
+		bottom: 80px;
+		width: 36%;
+		z-index: 3;
+	}
+
+	.home-hero__table {
+		right: 20px;
+		bottom: 52px;
+		width: 35%;
+		z-index: 4;
+	}
+
+	.home-hero__carrier {
+		right: 0;
+		bottom: 36px;
+		width: 20%;
+		z-index: 2;
+	}
+
+	.home-hero__trust {
+		position: relative;
+		z-index: 2;
+		display: grid;
+		width: min(calc(100% - 52px), 1400px);
+		margin: -34px auto 0;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 1px;
+		background: var(--line);
+		border: 1px solid var(--line);
+	}
+
+	.home-hero__trust div {
+		display: grid;
+		min-height: 92px;
+		grid-template-columns: 42px minmax(0, 1fr);
+		align-content: center;
+		column-gap: 14px;
+		background: #fff;
+		padding: 16px 22px;
+	}
+
+	.home-hero__trust svg {
+		grid-row: span 2;
+		color: var(--blue);
+	}
+
+	.home-hero__trust span {
+		color: var(--navy);
+		font-size: 12px;
+		font-weight: 900;
+		letter-spacing: 0;
+		text-transform: uppercase;
+	}
+
+	.home-hero__trust small {
+		margin-top: 4px;
+		color: var(--muted);
+		font-size: 11px;
+		line-height: 1.3;
+	}
+
+	.section-title {
+		display: grid;
+		grid-template-columns: 40px auto 40px;
+		align-items: center;
+		justify-content: center;
+		gap: 18px;
+		text-align: center;
+	}
+
+	.section-title span {
+		display: block;
+		height: 2px;
+		background: var(--blue);
+	}
+
+	.section-title h2 {
+		margin: 0;
+		color: var(--navy);
+		font-size: 25px;
+		font-weight: 900;
+		letter-spacing: 0;
+		line-height: 1.15;
+		text-transform: uppercase;
+	}
+
+	.solutions {
+		width: min(calc(100% - 52px), 1400px);
+		margin: 0 auto;
+		padding: 72px 0 28px;
+	}
+
+	.solutions__grid {
+		display: grid;
+		grid-template-columns: repeat(6, minmax(0, 1fr));
+		gap: 18px;
+		margin-top: 28px;
+	}
+
+	.solution-card {
+		display: flex;
+		min-width: 0;
+		min-height: 430px;
+		flex-direction: column;
+		border: 1px solid var(--line);
+		border-radius: 6px;
+		background: #fff;
+		overflow: hidden;
+		box-shadow: 0 14px 34px rgba(19, 37, 72, .06);
+	}
+
+	.solution-card__image {
+		position: relative;
+		display: block;
+		height: 176px;
+		background: var(--panel);
+		text-decoration: none;
+	}
+
+	.solution-card__image img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		padding: 18px;
+		transition: transform 260ms ease;
+	}
+
+	.solution-card__image span {
+		position: absolute;
+		right: 50%;
+		bottom: -26px;
+		display: grid;
+		width: 54px;
+		height: 54px;
+		place-items: center;
+		border: 3px solid #fff;
+		background: var(--accent);
+		color: #fff;
+		transform: translateX(50%) rotate(45deg);
+	}
+
+	.solution-card__image svg {
+		transform: rotate(-45deg);
+	}
+
+	.solution-card:hover .solution-card__image img,
+	.solution-card:focus-within .solution-card__image img {
+		transform: scale(1.04);
+	}
+
+	.solution-card__body {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		padding: 44px 18px 20px;
+		text-align: center;
+	}
+
+	.solution-card h3 {
+		min-height: 46px;
+		margin: 0;
+		color: var(--navy);
+		font-size: 14px;
+		font-weight: 900;
+		letter-spacing: 0;
+		line-height: 1.25;
+		text-transform: uppercase;
+	}
+
+	.solution-card p {
+		margin: 16px 0 0;
+		color: #4b5669;
+		font-size: 12px;
+		line-height: 1.65;
+	}
+
+	.solution-card__body > a {
+		display: inline-flex;
+		margin: auto auto 0;
+		align-items: center;
+		gap: 8px;
+		color: var(--blue);
+		font-size: 11px;
+		font-weight: 900;
+		letter-spacing: 0;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	.solution-card__body > a:hover,
+	.solution-card__body > a:focus-visible {
+		color: var(--accent);
+		outline: none;
+	}
+
+	.why {
+		display: grid;
+		width: min(calc(100% - 52px), 1400px);
+		margin: 28px auto 0;
+		grid-template-columns: minmax(320px, 520px) minmax(0, 1fr);
+		gap: 46px;
+		border-top: 1px solid var(--line);
+		padding: 32px 0 34px;
+	}
+
+	.why h2,
+	.custom h2 {
+		margin: 0;
+		color: var(--navy);
+		font-size: 31px;
+		font-weight: 900;
+		letter-spacing: 0;
+		line-height: 1.05;
+		text-transform: uppercase;
+	}
+
+	.why__copy > p:not(.eyebrow),
+	.custom__copy > p {
+		margin: 14px 0 0;
+		color: #344055;
+		font-size: 14px;
+		line-height: 1.7;
+	}
+
+	.why ul {
+		display: grid;
+		gap: 8px;
+		margin: 18px 0 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.why li {
+		display: flex;
+		align-items: flex-start;
+		gap: 9px;
+		color: #26334a;
+		font-size: 13px;
+		line-height: 1.35;
+	}
+
+	.why li svg {
+		flex: 0 0 auto;
+		color: var(--blue);
+		transform: translateY(1px);
+	}
+
+	.why__stats {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		border-left: 1px solid var(--line);
+	}
+
+	.why__stats div {
+		display: grid;
+		min-height: 190px;
+		place-items: center;
+		align-content: center;
+		border-right: 1px solid var(--line);
+		padding: 22px 18px;
+		text-align: center;
+	}
+
+	.why__stats svg {
+		color: var(--blue);
+	}
+
+	.why__stats strong {
+		margin-top: 14px;
+		color: var(--navy);
+		font-size: 43px;
+		font-weight: 900;
+		letter-spacing: 0;
+		line-height: 1;
+		text-transform: uppercase;
+	}
+
+	.why__stats span {
+		max-width: 130px;
+		margin-top: 10px;
+		color: var(--navy);
+		font-size: 12px;
+		font-weight: 900;
+		letter-spacing: 0;
+		line-height: 1.35;
+		text-transform: uppercase;
+	}
+
+	.custom {
+		display: grid;
+		width: min(calc(100% - 52px), 1400px);
+		margin: 0 auto;
+		grid-template-columns: minmax(0, 1fr) minmax(390px, 690px);
+		align-items: center;
+		gap: 38px;
+		padding: 28px 0 50px;
+	}
+
+	.custom__gallery {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 16px;
+	}
+
+	.custom__gallery img {
+		display: block;
+		width: 100%;
+		aspect-ratio: 1 / .86;
+		border-radius: 6px;
+		object-fit: cover;
+		box-shadow: 0 16px 30px rgba(15, 33, 64, .12);
+	}
+
+	.custom__features {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 16px;
+		margin-top: 24px;
+	}
+
+	.custom__features div {
+		display: grid;
+		grid-template-columns: 34px minmax(0, 1fr);
+		align-items: start;
+		gap: 8px 10px;
+	}
+
+	.custom__features svg {
+		grid-row: span 2;
+		color: var(--blue);
+	}
+
+	.custom__features strong {
+		color: var(--navy);
+		font-size: 12px;
+		font-weight: 900;
+		letter-spacing: 0;
+		line-height: 1.2;
+		text-transform: uppercase;
+	}
+
+	.custom__features span {
+		color: var(--muted);
+		font-size: 11px;
+		line-height: 1.4;
+	}
+
+	.custom .button {
+		margin-top: 24px;
+	}
+
+	.industries {
+		width: min(calc(100% - 52px), 1400px);
+		margin: 0 auto;
+		padding: 18px 0 0;
+		border-top: 1px solid var(--line);
+	}
+
+	.industries__grid {
+		display: grid;
+		grid-template-columns: repeat(8, minmax(0, 1fr));
+		margin-top: 20px;
+		border: 1px solid var(--line);
+		border-right: 0;
+		background: #fff;
+	}
+
+	.industries__grid div {
+		display: grid;
+		min-height: 102px;
+		place-items: center;
+		align-content: center;
+		gap: 10px;
+		border-right: 1px solid var(--line);
+		padding: 14px 10px;
+		text-align: center;
+	}
+
+	.industries__grid svg {
+		color: var(--blue);
+	}
+
+	.industries__grid span {
+		color: var(--navy);
+		font-size: 11px;
+		font-weight: 900;
+		letter-spacing: 0;
+		line-height: 1.25;
+	}
+
+	.home-contact {
+		display: grid;
+		grid-template-columns: 1.4fr 1fr 1fr 1.35fr;
+		gap: 44px;
+		margin-top: 38px;
+		padding: 34px max(26px, calc((100vw - 1400px) / 2)) 42px;
+		border-top: 1px solid var(--line);
+		background: #eef4fb;
+	}
+
+	.home-contact img {
+		display: block;
+		width: 250px;
+		max-width: 100%;
+		height: 76px;
+		object-fit: contain;
+		object-position: left center;
+	}
+
+	.home-contact h2 {
+		margin: 0 0 12px;
+		color: var(--navy);
+		font-size: 12px;
+		font-weight: 900;
+		letter-spacing: 0;
+		text-transform: uppercase;
+	}
+
+	.home-contact p,
+	.home-contact a {
+		margin: 0;
+		color: #28354d;
+		font-size: 12px;
+		line-height: 1.65;
+		text-decoration: none;
+	}
+
+	.home-contact > div {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.home-contact > div:first-child p {
+		max-width: 330px;
+		margin-top: 14px;
+	}
+
+	.home-contact > div:last-child p {
+		display: flex;
+		gap: 8px;
+	}
+
+	.home-contact a:hover,
+	.home-contact a:focus-visible {
+		color: var(--blue);
+		outline: none;
+	}
+
+	@media (max-width: 1220px) {
+		.home-hero__inner {
+			grid-template-columns: minmax(340px, 470px) minmax(0, 1fr);
+		}
+
+		.home-hero h1 {
+			font-size: 54px;
+		}
+
+		.home-hero__scene {
+			height: 460px;
+		}
+
+		.solutions__grid {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+
+		.solution-card {
+			min-height: 388px;
+		}
+
+		.industries__grid {
+			grid-template-columns: repeat(4, minmax(0, 1fr));
+		}
+	}
+
+	@media (max-width: 930px) {
+		.home-hero__inner {
+			min-height: 0;
+			grid-template-columns: 1fr;
+			gap: 0;
+		}
+
+		.home-hero__copy {
+			padding: 52px 0 18px;
+		}
+
+		.home-hero h1 {
+			max-width: 680px;
+			font-size: 46px;
+			line-height: 1;
+		}
+
+		.home-hero__scene {
+			height: 390px;
+		}
+
+		.home-hero__rack {
+			left: 4%;
+			width: 42%;
+		}
+
+		.home-hero__cage {
+			right: 28%;
+			width: 34%;
+		}
+
+		.home-hero__table {
+			right: 7%;
+			width: 30%;
+		}
+
+		.home-hero__carrier {
+			right: 0;
+			width: 18%;
+		}
+
+		.home-hero__trust {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			margin-top: 0;
+		}
+
+		.why,
+		.custom {
+			grid-template-columns: 1fr;
+		}
+
+		.why__stats {
+			border-left: 0;
+			border-top: 1px solid var(--line);
+		}
+
+		.home-contact {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (max-width: 720px) {
+		.home-hero {
+			background:
+				linear-gradient(180deg, rgba(255, 255, 255, .98) 0%, rgba(255, 255, 255, .9) 100%),
+				url('/images/prosteel/feature-aframe.webp') center / cover no-repeat;
+		}
+
+		.home-hero__inner,
+		.home-hero__trust,
+		.solutions,
+		.why,
+		.custom,
+		.industries {
+			width: calc(100% - 36px);
+		}
+
+		.home-hero h1 {
+			font-size: 38px;
+		}
+
+		.home-hero__lead {
+			font-size: 15px;
+		}
+
+		.home-hero__actions {
+			align-items: stretch;
+			flex-direction: column;
+		}
+
+		.button {
+			width: 100%;
+		}
+
+		.home-hero__scene {
+			height: 320px;
+		}
+
+		.home-hero__rack {
+			bottom: 72px;
+			width: 48%;
+		}
+
+		.home-hero__cage {
+			right: 24%;
+			bottom: 62px;
+			width: 38%;
+		}
+
+		.home-hero__table {
+			right: 5%;
+			bottom: 50px;
+			width: 36%;
+		}
+
+		.home-hero__carrier {
+			display: none;
+		}
+
+		.home-hero__trust,
+		.solutions__grid,
+		.why__stats,
+		.custom__gallery,
+		.custom__features,
+		.industries__grid,
+		.home-contact {
+			grid-template-columns: 1fr;
+		}
+
+		.solution-card {
+			min-height: auto;
+		}
+
+		.why__stats {
+			border: 1px solid var(--line);
+		}
+
+		.why__stats div {
+			min-height: 150px;
+			border-right: 0;
+			border-bottom: 1px solid var(--line);
+		}
+
+		.why__stats div:last-child {
+			border-bottom: 0;
+		}
+
+		.section-title {
+			grid-template-columns: 28px auto 28px;
+			gap: 10px;
+		}
+
+		.section-title h2 {
+			font-size: 20px;
+		}
+
+		.home-contact {
+			gap: 30px;
+		}
+	}
+</style>
