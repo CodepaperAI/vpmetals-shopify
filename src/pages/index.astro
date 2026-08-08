@@ -138,6 +138,9 @@ const industries = [
 						<a class="button button--ghost" href="/contact/">Request a quote <ClipboardCheck size={18} strokeWidth={2} aria-hidden="true" /></a>
 					</div>
 				</div>
+				<figure class="home-hero__visual">
+					<img src="/images/prosteel/home-hero-equipment-showcase-clean.png" alt="ProSteel A-frame rack, gas cage, work table, gas bottle carrier, and guard rail in a clean warehouse" loading="eager" />
+				</figure>
 			</div>
 			<div class="home-hero__trust" aria-label="ProSteel strengths">
 				{valuePillars.map((pillar) => {
@@ -418,6 +421,10 @@ const industries = [
 		align-items: center;
 		flex-wrap: wrap;
 		gap: 16px;
+	}
+
+	.home-hero__visual {
+		display: none;
 	}
 
 	.home-hero__trust {
@@ -913,15 +920,7 @@ const industries = [
 	@media (max-width: 720px) {
 		.home-hero {
 			background-image:
-				linear-gradient(180deg, rgba(255, 255, 255, .99) 0%, rgba(255, 255, 255, .96) 48%, rgba(255, 255, 255, .42) 68%, rgba(255, 255, 255, .02) 100%),
-				url('/images/prosteel/home-hero-equipment-showcase-clean.png');
-			background-position:
-				left top,
-				center 520px;
-			background-size:
-				100% 100%,
-				auto 270px;
-			background-repeat: no-repeat;
+				linear-gradient(180deg, rgba(255, 255, 255, .99) 0%, rgba(255, 255, 255, .94) 100%);
 		}
 
 		.home-hero__inner,
@@ -934,52 +933,187 @@ const industries = [
 		}
 
 		.home-hero__inner {
-			min-height: 760px;
+			min-height: auto;
+			padding: 28px 0 0;
+		}
+
+		.home-hero__copy {
+			padding: 0;
 		}
 
 		.home-hero h1 {
-			font-size: 38px;
+			max-width: 360px;
+			font-size: 36px;
+			line-height: .98;
+			text-wrap: balance;
 		}
 
 		.home-hero__lead {
+			max-width: 34rem;
+			margin-top: 18px;
 			font-size: 15px;
+			line-height: 1.58;
 		}
 
 		.home-hero__actions {
+			margin-top: 22px;
 			align-items: stretch;
 			flex-direction: column;
+			gap: 10px;
 		}
 
 		.button {
 			width: 100%;
+			min-height: 48px;
 		}
 
-		.home-hero__trust,
-		.solutions__grid,
-		.why__stats,
+		.home-hero__visual {
+			position: relative;
+			z-index: 1;
+			display: block;
+			margin: 24px 0 -8px;
+			border: 1px solid var(--line);
+			border-radius: 8px;
+			background: #f7faff;
+			overflow: hidden;
+			box-shadow: 0 18px 34px rgba(15, 33, 64, .12);
+		}
+
+		.home-hero__visual img {
+			display: block;
+			width: 100%;
+			aspect-ratio: 1.34 / 1;
+			object-fit: cover;
+			object-position: 72% center;
+		}
+
+		.home-hero__trust {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			margin-top: 18px;
+		}
+
+		.home-hero__trust div {
+			min-height: 92px;
+			grid-template-columns: 34px minmax(0, 1fr);
+			padding: 14px;
+			column-gap: 10px;
+		}
+
+		.home-hero__trust svg {
+			width: 28px;
+			height: 28px;
+		}
+
 		.custom__gallery,
 		.custom__features,
-		.industries__grid,
 		.home-contact {
 			grid-template-columns: 1fr;
 		}
 
+		.solutions {
+			padding: 48px 0 20px;
+		}
+
+		.solutions__grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 10px;
+			margin-top: 20px;
+		}
+
 		.solution-card {
 			min-height: auto;
+			border-radius: 8px;
+			box-shadow: 0 10px 24px rgba(19, 37, 72, .06);
+		}
+
+		.solution-card__image {
+			height: 126px;
+		}
+
+		.solution-card__image img {
+			padding: 13px;
+		}
+
+		.solution-card__image span {
+			bottom: -18px;
+			width: 40px;
+			height: 40px;
+			border-width: 2px;
+		}
+
+		.solution-card__image svg {
+			width: 20px;
+			height: 20px;
+		}
+
+		.solution-card__body {
+			padding: 30px 10px 13px;
+		}
+
+		.solution-card h3 {
+			min-height: 40px;
+			font-size: 11px;
+			line-height: 1.2;
+			text-wrap: balance;
+		}
+
+		.solution-card p {
+			display: none;
+		}
+
+		.solution-card__body > a {
+			margin-top: 12px;
+			font-size: 10px;
+		}
+
+		.why {
+			margin-top: 18px;
+			padding: 26px 0 24px;
+			gap: 22px;
+		}
+
+		.why h2,
+		.custom h2 {
+			font-size: 26px;
+		}
+
+		.why ul {
+			gap: 7px;
 		}
 
 		.why__stats {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
 			border: 1px solid var(--line);
 		}
 
 		.why__stats div {
-			min-height: 150px;
+			min-height: 118px;
 			border-right: 0;
 			border-bottom: 1px solid var(--line);
+			padding: 16px 12px;
 		}
 
-		.why__stats div:last-child {
+		.why__stats div:nth-child(odd) {
+			border-right: 1px solid var(--line);
+		}
+
+		.why__stats div:nth-last-child(-n + 2) {
 			border-bottom: 0;
+		}
+
+		.why__stats svg {
+			width: 29px;
+			height: 29px;
+		}
+
+		.why__stats strong {
+			margin-top: 9px;
+			font-size: 31px;
+		}
+
+		.why__stats span {
+			margin-top: 7px;
+			font-size: 10px;
 		}
 
 		.section-title {
@@ -989,6 +1123,42 @@ const industries = [
 
 		.section-title h2 {
 			font-size: 20px;
+		}
+
+		.custom {
+			padding: 18px 0 34px;
+			gap: 22px;
+		}
+
+		.custom__gallery {
+			grid-template-columns: repeat(3, minmax(128px, 1fr));
+			gap: 10px;
+			margin-inline: -18px;
+			padding: 0 18px 4px;
+			overflow-x: auto;
+			scroll-snap-type: x mandatory;
+		}
+
+		.custom__gallery img {
+			scroll-snap-align: start;
+		}
+
+		.custom__features {
+			gap: 14px;
+			margin-top: 18px;
+		}
+
+		.industries {
+			padding-top: 6px;
+		}
+
+		.industries__grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.industries__grid div {
+			min-height: 86px;
+			padding: 12px 8px;
 		}
 
 		.home-contact {
