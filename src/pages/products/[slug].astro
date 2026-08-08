@@ -142,6 +142,8 @@ const galleryItems = [
 		const previous = carousel.querySelector<HTMLButtonElement>('[data-product-carousel-prev]');
 		const next = carousel.querySelector<HTMLButtonElement>('[data-product-carousel-next]');
 		let active = 0;
+		let autoplayTimer: ReturnType<typeof setInterval> | null = null;
+		const AUTOPLAY_MS = 4000;
 
 		const show = (index: number) => {
 			if (slides.length === 0) return;
@@ -158,13 +160,37 @@ const galleryItems = [
 			});
 		};
 
-		previous?.addEventListener('click', () => show(active - 1));
-		next?.addEventListener('click', () => show(active + 1));
-		thumbs.forEach((thumb, index) => thumb.addEventListener('click', () => show(index)));
+		const stopAutoplay = () => {
+			if (autoplayTimer != null) {
+				window.clearInterval(autoplayTimer);
+				autoplayTimer = null;
+			}
+		};
+
+		const startAutoplay = () => {
+			stopAutoplay();
+			if (slides.length <= 1) return;
+			autoplayTimer = window.setInterval(() => show(active + 1), AUTOPLAY_MS);
+		};
+
+		const handleShow = (index: number) => {
+			show(index);
+			startAutoplay();
+		};
+
+		previous?.addEventListener('click', () => handleShow(active - 1));
+		next?.addEventListener('click', () => handleShow(active + 1));
+		thumbs.forEach((thumb, index) => thumb.addEventListener('click', () => handleShow(index)));
 		carousel.addEventListener('keydown', (event) => {
-			if (event.key === 'ArrowLeft') show(active - 1);
-			if (event.key === 'ArrowRight') show(active + 1);
+			if (event.key === 'ArrowLeft') {
+				handleShow(active - 1);
+			}
+			if (event.key === 'ArrowRight') {
+				handleShow(active + 1);
+			}
 		});
+
+		startAutoplay();
 	});
 </script>
 
