@@ -350,14 +350,14 @@ const industries = [
 		position: relative;
 		border-bottom: 1px solid var(--line);
 		background-image:
-			linear-gradient(90deg, rgba(255, 255, 255, .99) 0%, rgba(255, 255, 255, .96) 29%, rgba(255, 255, 255, .68) 36%, rgba(255, 255, 255, .14) 50%, rgba(255, 255, 255, .03) 66%),
-			url('/images/prosteel/home-hero-equipment-showcase.png');
+			linear-gradient(90deg, rgba(255, 255, 255, .99) 0%, rgba(255, 255, 255, .98) 32%, rgba(255, 255, 255, .5) 46%, rgba(255, 255, 255, .08) 58%, rgba(255, 255, 255, 0) 72%),
+			url('/images/prosteel/home-hero-equipment-showcase-clean.png');
 		background-position:
 			left center,
-			right -24px center;
+			right center;
 		background-size:
 			100% 100%,
-			min(84vw, 1340px) auto;
+			min(92vw, 1540px) auto;
 		background-repeat: no-repeat;
 	}
 
@@ -914,15 +914,14 @@ const industries = [
 		.home-hero {
 			background-image:
 				linear-gradient(180deg, rgba(255, 255, 255, .99) 0%, rgba(255, 255, 255, .96) 48%, rgba(255, 255, 255, .42) 68%, rgba(255, 255, 255, .02) 100%),
-				url('/images/prosteel/home-hero-equipment-showcase.png');
+				url('/images/prosteel/home-hero-equipment-showcase-clean.png');
 			background-position:
 				left top,
-				center bottom;
+				center 520px;
 			background-size:
 				100% 100%,
-				auto 330px;
+				auto 270px;
 			background-repeat: no-repeat;
-			padding-bottom: 244px;
 		}
 
 		.home-hero__inner,
@@ -932,6 +931,10 @@ const industries = [
 		.custom,
 		.industries {
 			width: calc(100% - 36px);
+		}
+
+		.home-hero__inner {
+			min-height: 760px;
 		}
 
 		.home-hero h1 {
