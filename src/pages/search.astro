@@ -13,11 +13,15 @@ const searchText = (product: typeof catalogProducts[number]) => [
 	product.application,
 	...product.specs.flatMap((spec) => [spec.label, spec.value]),
 	...product.features,
-	product.collection === 'gas-cage' ? 'gas cage propane cylinder tank bbq forklift welding oxygen medical crane carrier' : 'material rack a frame slab stone glass transport mobile storage',
+	product.collection === 'gas-cage'
+		? 'gas cage propane cylinder tank bbq forklift welding oxygen medical crane carrier'
+		: product.collection === 'material-rack'
+			? 'material rack a frame slab stone glass transport mobile storage'
+			: 'industrial table workbench work table platform cart service cart mobile workstation pizza butcher cutting garment assembly',
 ].join(' ').toLowerCase();
 ---
 
-<BaseLayout title="Search Equipment | ProSteel Equipment" description="Search ProSteel gas cylinder cages, forklift carriers, A-frame racks, slab storage systems, and custom industrial equipment by product, model, application, or specification.">
+<BaseLayout title="Search Equipment | ProSteel Equipment" description="Search ProSteel gas cylinder cages, forklift carriers, A-frame racks, slab storage systems, industrial tables, workbenches, carts, and custom equipment by product, model, application, or specification.">
 	<main>
 		<PageHero
 			eyebrow="Product finder"
@@ -41,6 +45,7 @@ const searchText = (product: typeof catalogProducts[number]) => [
 						<button class="is-active" type="button" data-search-filter="all" aria-pressed="true">All equipment</button>
 						<button type="button" data-search-filter="gas-cage" aria-pressed="false">Gas cages & carriers</button>
 						<button type="button" data-search-filter="material-rack" aria-pressed="false">Material racks</button>
+						<button type="button" data-search-filter="industrial-table" aria-pressed="false">Industrial tables</button>
 					</div>
 					<p class="search-page__count" id="search-results-title" data-search-page-count aria-live="polite">{catalogProducts.length} products</p>
 				</div>

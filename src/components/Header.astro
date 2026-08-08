@@ -5,6 +5,7 @@ import { catalogProducts } from '../data/catalog';
 const links = [
 	{ label: 'Gas Cages', href: '/products/?filter=gas-cage#catalogue' },
 	{ label: 'Material Racks', href: '/products/?filter=material-rack#catalogue' },
+	{ label: 'Industrial Tables', href: '/products/?filter=industrial-table#catalogue' },
 	{ label: 'Fabrication', href: '/fabrication/' },
 	{ label: 'About', href: '/about/' },
 	{ label: 'Contact', href: '/contact/' },
@@ -135,7 +136,7 @@ const searchCatalogue = catalogProducts.map((product) => ({
 				.map((record) => {
 					const name = normalize(record.name);
 					const model = normalize(record.model);
-					const searchable = normalize(`${record.search} ${record.collection === 'gas-cage' ? 'gas cage propane cylinder tank' : 'material rack a frame slab storage'}`);
+					const searchable = normalize(`${record.search} ${record.collection === 'gas-cage' ? 'gas cage propane cylinder tank' : record.collection === 'material-rack' ? 'material rack a frame slab storage' : 'industrial table workbench platform cart workstation cutting prep'}`);
 					const matchesAll = tokens.every((token) => searchable.includes(token));
 					const score = (name.startsWith(query) ? 12 : 0) + (name.includes(query) ? 7 : 0) + (model.includes(query) ? 10 : 0) + tokens.filter((token) => name.includes(token)).length * 3;
 					return { record, matchesAll, score };

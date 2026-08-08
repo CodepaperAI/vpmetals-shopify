@@ -2,15 +2,15 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import CatalogCard from '../../components/CatalogCard.astro';
-import { catalogProducts, gasProducts, rackProducts } from '../../data/catalog';
+import { catalogProducts, gasProducts, rackProducts, tableProducts } from '../../data/catalog';
 ---
 
-<BaseLayout title="Equipment Catalogue | ProSteel Equipment" description="Shop ProSteel gas cylinder cages, forklift carriers, welding cages, A-frame racks, slab storage systems, and custom industrial equipment.">
+<BaseLayout title="Equipment Catalogue | ProSteel Equipment" description="Shop ProSteel gas cylinder cages, forklift carriers, welding cages, A-frame racks, slab storage systems, industrial tables, workbenches, carts, and custom equipment.">
 	<main>
 		<PageHero
 			eyebrow="2026 equipment catalogue"
 			title="Built for industrial work"
-			copy={`${gasProducts.length} cage and carrier systems plus ${rackProducts.length} material rack configurations, engineered and fabricated in Canada.`}
+			copy={`${gasProducts.length} cage and carrier systems, ${rackProducts.length} material rack configurations, and ${tableProducts.length} industrial tables and carts engineered and fabricated in Canada.`}
 			image="/images/prosteel/hero-crane-carrier.webp"
 			alt="ProSteel crane-mounted gas bottle carrier at an industrial site"
 		/>
@@ -29,6 +29,7 @@ import { catalogProducts, gasProducts, rackProducts } from '../../data/catalog';
 					<button class="is-active" type="button" data-filter="all" aria-pressed="true">All equipment</button>
 					<button type="button" data-filter="gas-cage" aria-pressed="false">Gas cages & carriers</button>
 					<button type="button" data-filter="material-rack" aria-pressed="false">Material racks</button>
+					<button type="button" data-filter="industrial-table" aria-pressed="false">Industrial tables</button>
 				</div>
 
 				<div class="catalogue__grid" data-catalogue-grid>
