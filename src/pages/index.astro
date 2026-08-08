@@ -138,12 +138,6 @@ const industries = [
 						<a class="button button--ghost" href="/contact/">Request a quote <ClipboardCheck size={18} strokeWidth={2} aria-hidden="true" /></a>
 					</div>
 				</div>
-				<div class="home-hero__scene" aria-label="ProSteel gas cages, A-frame racks, industrial tables, and custom equipment">
-					<img class="home-hero__rack" src="/images/catalog/racks/double-sided-transport-rack.webp" alt="Black metal A-frame transport rack" loading="eager" />
-					<img class="home-hero__cage" src="/images/catalog/gas/pse-20-24.webp" alt="Yellow metal gas cylinder cage" loading="eager" />
-					<img class="home-hero__table" src="/images/catalog/tables/heavy-duty-steel-workbench.webp" alt="Heavy-duty metal industrial table" loading="eager" />
-					<img class="home-hero__carrier" src="/images/catalog/gas/model-420-1.webp" alt="Yellow forklift and crane gas bottle carrier" loading="eager" />
-				</div>
 			</div>
 			<div class="home-hero__trust" aria-label="ProSteel strengths">
 				{valuePillars.map((pillar) => {
@@ -356,8 +350,8 @@ const industries = [
 		position: relative;
 		border-bottom: 1px solid var(--line);
 		background:
-			linear-gradient(90deg, rgba(255, 255, 255, .98) 0%, rgba(255, 255, 255, .9) 43%, rgba(255, 255, 255, .7) 100%),
-			url('/images/prosteel/feature-aframe.webp') center right / cover no-repeat;
+			linear-gradient(90deg, rgba(255, 255, 255, .99) 0%, rgba(255, 255, 255, .95) 31%, rgba(255, 255, 255, .72) 49%, rgba(255, 255, 255, .08) 78%),
+			url('/images/prosteel/home-hero-equipment-showcase.png') center right / cover no-repeat;
 	}
 
 	.home-hero__grid {
@@ -374,9 +368,9 @@ const industries = [
 		position: relative;
 		display: grid;
 		width: min(calc(100% - 52px), 1400px);
-		min-height: 548px;
+		min-height: 620px;
 		margin: 0 auto;
-		grid-template-columns: minmax(360px, 510px) minmax(0, 1fr);
+		grid-template-columns: minmax(360px, 585px) minmax(0, 1fr);
 		align-items: center;
 		gap: 34px;
 	}
@@ -417,47 +411,6 @@ const industries = [
 		align-items: center;
 		flex-wrap: wrap;
 		gap: 16px;
-	}
-
-	.home-hero__scene {
-		position: relative;
-		height: 500px;
-		min-width: 0;
-	}
-
-	.home-hero__scene img {
-		position: absolute;
-		display: block;
-		object-fit: contain;
-		mix-blend-mode: multiply;
-	}
-
-	.home-hero__rack {
-		bottom: 74px;
-		left: 0;
-		width: 43%;
-		z-index: 1;
-	}
-
-	.home-hero__cage {
-		right: 112px;
-		bottom: 80px;
-		width: 36%;
-		z-index: 3;
-	}
-
-	.home-hero__table {
-		right: 20px;
-		bottom: 52px;
-		width: 35%;
-		z-index: 4;
-	}
-
-	.home-hero__carrier {
-		right: 0;
-		bottom: 36px;
-		width: 20%;
-		z-index: 2;
 	}
 
 	.home-hero__trust {
@@ -900,10 +853,6 @@ const industries = [
 			font-size: 54px;
 		}
 
-		.home-hero__scene {
-			height: 460px;
-		}
-
 		.solutions__grid {
 			grid-template-columns: repeat(3, minmax(0, 1fr));
 		}
@@ -919,7 +868,7 @@ const industries = [
 
 	@media (max-width: 930px) {
 		.home-hero__inner {
-			min-height: 0;
+			min-height: 560px;
 			grid-template-columns: 1fr;
 			gap: 0;
 		}
@@ -932,30 +881,6 @@ const industries = [
 			max-width: 680px;
 			font-size: 46px;
 			line-height: 1;
-		}
-
-		.home-hero__scene {
-			height: 390px;
-		}
-
-		.home-hero__rack {
-			left: 4%;
-			width: 42%;
-		}
-
-		.home-hero__cage {
-			right: 28%;
-			width: 34%;
-		}
-
-		.home-hero__table {
-			right: 7%;
-			width: 30%;
-		}
-
-		.home-hero__carrier {
-			right: 0;
-			width: 18%;
 		}
 
 		.home-hero__trust {
@@ -981,8 +906,9 @@ const industries = [
 	@media (max-width: 720px) {
 		.home-hero {
 			background:
-				linear-gradient(180deg, rgba(255, 255, 255, .98) 0%, rgba(255, 255, 255, .9) 100%),
-				url('/images/prosteel/feature-aframe.webp') center / cover no-repeat;
+				linear-gradient(180deg, rgba(255, 255, 255, .99) 0%, rgba(255, 255, 255, .96) 48%, rgba(255, 255, 255, .42) 68%, rgba(255, 255, 255, .02) 100%),
+				url('/images/prosteel/home-hero-equipment-showcase.png') center bottom / auto 330px no-repeat;
+			padding-bottom: 244px;
 		}
 
 		.home-hero__inner,
@@ -1009,31 +935,6 @@ const industries = [
 
 		.button {
 			width: 100%;
-		}
-
-		.home-hero__scene {
-			height: 320px;
-		}
-
-		.home-hero__rack {
-			bottom: 72px;
-			width: 48%;
-		}
-
-		.home-hero__cage {
-			right: 24%;
-			bottom: 62px;
-			width: 38%;
-		}
-
-		.home-hero__table {
-			right: 5%;
-			bottom: 50px;
-			width: 36%;
-		}
-
-		.home-hero__carrier {
-			display: none;
 		}
 
 		.home-hero__trust,
