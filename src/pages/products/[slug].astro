@@ -45,10 +45,10 @@ const galleryItems = [
 	{ label: 'Product photo', image: product.image, alt: product.alt, kind: 'photo' as const },
 	{ label: 'Application photo', image: product.contextImage, alt: `${product.name} shown in an application setting`, kind: 'photo' as const },
 	...(brochureConfig
-		? [
+			? [
 				{
 					label: 'Brochure panel',
-					image: brochureConfig.previewImage,
+					image: brochureConfig.previewImage || product.image,
 					alt: brochureConfig.previewAlt,
 					kind: 'brochure' as const,
 					links: brochureConfig.links,
