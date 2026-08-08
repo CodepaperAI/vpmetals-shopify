@@ -15,8 +15,8 @@ const related = catalogProducts
 	.slice(0, 3);
 const brochureConfig = product.collection === 'material-rack'
 	? {
-			previewImage: product.image,
-			previewAlt: `${product.name} product photo paired with brochure and B2C pricing downloads`,
+			previewImage: `/images/catalog/brochures/racks/${product.slug}-brochure.webp`,
+			previewAlt: `${product.name} brochure panel with product photos, specifications, and B2C pricing`,
 			links: [
 				{ label: 'Product brochure', href: '/brochures/prosteel-a-frame-brochure.pdf' },
 				{ label: 'B2C price sheet', href: '/brochures/prosteel-a-frame-b2c-price.pdf' },
@@ -24,8 +24,8 @@ const brochureConfig = product.collection === 'material-rack'
 		}
 	: product.collection === 'gas-cage'
 		? {
-				previewImage: product.image,
-				previewAlt: `${product.name} product photo paired with brochure and B2C pricing downloads`,
+				previewImage: `/images/catalog/brochures/gas/${product.slug}-brochure.webp`,
+				previewAlt: `${product.name} brochure panel with product photos, specifications, and B2C pricing`,
 				links: [
 					{ label: 'Product brochure', href: '/brochures/prosteel-gas-cage-brochure.pdf' },
 					{ label: 'B2C price sheet', href: '/brochures/prosteel-gas-cage-b2c-price.pdf' },
@@ -33,8 +33,8 @@ const brochureConfig = product.collection === 'material-rack'
 			}
 	: product.collection === 'industrial-table'
 		? {
-				previewImage: product.image,
-				previewAlt: `${product.name} product photo paired with brochure and B2C pricing downloads`,
+				previewImage: `/images/catalog/brochures/tables/${product.slug}-brochure.webp`,
+				previewAlt: `${product.name} brochure panel with product photos, specifications, and B2C pricing`,
 				links: [
 					{ label: 'Product brochure', href: '/brochures/prosteel-industrial-table-brochure.pdf' },
 					{ label: 'B2C price sheet', href: '/brochures/prosteel-industrial-table-b2c-price.pdf' },
