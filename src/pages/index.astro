@@ -34,8 +34,8 @@ const solutionCards = [
 		accent: '#095bc5',
 	},
 	{
-		title: 'Metal A-Frames & Transport Solutions',
-		text: 'Durable slab, glass, stone, and panel rack systems for storage, staging, and shop-floor movement.',
+		title: 'Metal A Frames & Transport Solutions',
+		text: 'Durable transportation and storage systems for glass, stone, slabs, panels, and other large materials.',
 		image: '/images/catalog/racks/double-sided-transport-rack.webp',
 		alt: 'Black double-sided ProSteel transport rack',
 		href: '/products/?filter=material-rack#catalogue',
@@ -45,8 +45,8 @@ const solutionCards = [
 	{
 		title: 'Metal Tables & Carts',
 		text: 'Industrial work tables, stainless tables, platform carts, and mobile material-handling workstations.',
-		image: '/images/catalog/tables/heavy-duty-steel-workbench.webp',
-		alt: 'Heavy-duty ProSteel metal workbench',
+		image: '/images/catalog/tables/heavy-duty-industrial-metal-top-platform-cart.webp',
+		alt: 'Heavy-duty ProSteel metal top platform cart',
 		href: '/products/?filter=industrial-table#catalogue',
 		icon: ShoppingCart,
 		accent: '#4f8b1f',
@@ -54,29 +54,35 @@ const solutionCards = [
 	{
 		title: 'Warehouse Safety Equipment',
 		text: 'Custom bollards, guards, barriers, transport frames, and protective equipment for industrial facilities.',
-		image: '/images/prosteel/feature-transport.webp',
-		alt: 'ProSteel industrial transport equipment in a warehouse',
+		image: '/images/prosteel/category-warehouse-safety.png',
+		alt: 'Yellow and black industrial bollards, guard rails, and warehouse safety barriers',
 		href: '/fabrication/',
 		icon: ShieldCheck,
 		accent: '#ed8a00',
+		imageFit: 'cover',
+		imagePadding: '0px',
 	},
 	{
-		title: 'Decorative Metal & Laser Cut Panels',
-		text: 'Custom gates, screens, panels, and laser-cut metalwork for residential and commercial projects.',
-		image: '/images/prosteel/feature-laser-cage.webp',
-		alt: 'Laser-cut ProSteel aluminum cage panel',
+		title: 'Decorative Metal Art Products',
+		text: 'Custom gates, fencing, screens, panels, and decorative metalwork for residential and commercial projects.',
+		image: '/images/prosteel/category-decorative-metal-art.png',
+		alt: 'Black powder-coated decorative laser-cut metal gate and privacy screen panels',
 		href: '/fabrication/',
 		icon: DraftingCompass,
 		accent: '#8a4b1c',
+		imageFit: 'cover',
+		imagePadding: '0px',
 	},
 	{
 		title: 'Construction & Curtain Wall Solutions',
 		text: 'Precision-fabricated components for construction, building envelope, and specialty metal applications.',
-		image: '/images/contact-turbine.png',
-		alt: 'Modern industrial building and metal fabrication reference',
+		image: '/images/prosteel/category-curtain-wall.png',
+		alt: 'Modern glass curtain wall building with fabricated metal framing and staged components',
 		href: '/contact/',
 		icon: Building2,
 		accent: '#0a76b8',
+		imageFit: 'cover',
+		imagePadding: '0px',
 	},
 ];
 
@@ -166,7 +172,7 @@ const industries = [
 				{solutionCards.map((solution) => {
 					const Icon = solution.icon;
 					return (
-						<article class="solution-card" style={`--accent:${solution.accent}`}>
+						<article class="solution-card" style={`--accent:${solution.accent};--image-fit:${solution.imageFit ?? 'contain'};--image-padding:${solution.imagePadding ?? '18px'}`}>
 							<a class="solution-card__image" href={solution.href}>
 								<img src={solution.image} alt={solution.alt} loading="lazy" />
 								<span><Icon size={25} strokeWidth={2} aria-hidden="true" /></span>
@@ -207,8 +213,8 @@ const industries = [
 			</div>
 		</section>
 
-		<section class="custom" aria-labelledby="custom-title">
-			<div class="custom__gallery" aria-label="ProSteel fabrication and custom product examples">
+		<section class="custom" id="custom-solutions" aria-labelledby="custom-title">
+			<div class="custom__gallery" id="gallery" aria-label="ProSteel fabrication and custom product examples">
 				<img src="/images/catalog/racks/economy-a-frame-context.webp" alt="A-frame rack holding stone slabs in a fabrication warehouse" loading="eager" />
 				<img src="/images/catalog/tables/three-tier-heavy-duty-mobile-assembly-workbench-context.webp" alt="ProSteel mobile assembly workbench in a production area" loading="eager" />
 				<img src="/images/prosteel/feature-aframe.webp" alt="ProSteel fabrication shop with A-frame equipment" loading="eager" />
@@ -233,7 +239,7 @@ const industries = [
 			</div>
 		</section>
 
-		<section class="industries" aria-labelledby="industries-title">
+		<section class="industries" id="industries" aria-labelledby="industries-title">
 			<div class="section-title">
 				<span></span>
 				<h2 id="industries-title">Industries We Serve</h2>
@@ -263,12 +269,16 @@ const industries = [
 				<a href="/products/?filter=material-rack#catalogue">Metal A Frames & Transport Solutions</a>
 				<a href="/products/?filter=industrial-table#catalogue">Metal Tables & Carts</a>
 				<a href="/fabrication/">Warehouse Safety Equipment</a>
+				<a href="/fabrication/">Decorative Metal Art Products</a>
+				<a href="/contact/">Construction & Curtain Walls</a>
 			</div>
 			<div>
 				<h2>Company</h2>
 				<a href="/about/">About Us</a>
 				<a href="/fabrication/">Our Capabilities</a>
 				<a href="/fabrication/">Custom Solutions</a>
+				<a href="/#gallery">Gallery</a>
+				<a href="/fabrication/">Quality & Safety</a>
 				<a href="/contact/">Contact Us</a>
 			</div>
 			<div>
@@ -531,8 +541,8 @@ const industries = [
 		display: block;
 		width: 100%;
 		height: 100%;
-		object-fit: contain;
-		padding: 18px;
+		object-fit: var(--image-fit, contain);
+		padding: var(--image-padding, 18px);
 		transition: transform 260ms ease;
 	}
 
@@ -1031,7 +1041,7 @@ const industries = [
 		}
 
 		.solution-card__image img {
-			padding: 13px;
+			padding: var(--image-padding, 13px);
 		}
 
 		.solution-card__image span {
