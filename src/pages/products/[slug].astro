@@ -40,6 +40,15 @@ const brochureConfig = product.collection === 'material-rack'
 					{ label: 'B2C price sheet', href: '/brochures/prosteel-industrial-table-b2c-price.pdf' },
 				],
 			}
+	: product.collection === 'warehouse-safety'
+		? {
+				previewImage: product.brochurePreviewImage ?? `/images/catalog/brochures/safety/${product.slug}-brochure.webp`,
+				previewAlt: `${product.name} brochure panel with product photos, specifications, and B2C pricing`,
+				links: [
+					{ label: 'Product brochure', href: '/brochures/prosteel-bollard-guard-brochure.pdf' },
+					{ label: 'B2C price sheet', href: '/brochures/prosteel-bollard-guard-b2c-price.pdf' },
+				],
+			}
 		: null;
 const galleryItems = [
 	{ label: 'Product photo', image: product.image, alt: product.alt, kind: 'photo' as const },
@@ -239,7 +248,8 @@ const galleryItems = [
 	.product-carousel__stage { position: relative; aspect-ratio: 1 / .92; overflow: hidden; border: 1px solid #e6e6e8; background: #fafafa; }
 	.product-carousel__slide { position: absolute; inset: 0; display: grid; visibility: hidden; margin: 0; opacity: 0; place-items: center; pointer-events: none; transition: opacity 260ms ease, visibility 260ms ease; }
 	.product-carousel__slide.is-active { visibility: visible; opacity: 1; pointer-events: auto; }
-	.product-carousel__slide img { display: block; width: 100%; height: 100%; object-fit: contain; padding: 40px; }
+	.product-carousel__slide img { position: absolute; inset: 40px; display: block; width: calc(100% - 80px); height: calc(100% - 80px); object-fit: contain; }
+	.product-carousel__slide--brochure img { inset: 18px; width: calc(100% - 36px); height: calc(100% - 36px); }
 	.product-carousel__slide--brochure { background: #f4f4f5; }
 	.product-carousel__brochure-card { display: grid; width: min(360px, 85%); max-width: 100%; place-items: center; gap: 10px; padding: 16px; color: #111114; text-align: center; }
 	.product-carousel__brochure-card strong { font-size: 15px; line-height: 1.5; }
@@ -293,6 +303,6 @@ const galleryItems = [
 	.related__heading a { color: #4a47a4; font-size: 10px; font-weight: 900; letter-spacing: .06em; text-decoration: none; text-transform: uppercase; }
 	.related__grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 22px; }
 	@media (max-width: 900px) { .product-detail { grid-template-columns: 1fr; gap: 36px; } .product-info { gap: 42px; } }
-	@media (max-width: 650px) { .breadcrumbs, .product-detail { width: calc(100% - 40px); } .product-detail { padding-bottom: 68px; } .product-carousel__stage { aspect-ratio: 1 / 1; } .product-carousel__slide img { padding: 24px; } .product-carousel__slide--brochure img { padding: 12px; } .product-carousel__controls { right: 12px; left: 12px; } .product-carousel__thumbs { grid-template-columns: 1fr; } .product-detail__brochures { align-items: flex-start; flex-direction: column; } .product-info { grid-template-columns: 1fr; padding: 64px 20px; } .product-assurance { grid-template-columns: 1fr; padding: 24px 20px; } .related { padding: 70px 20px 76px; } .related__heading { align-items: flex-start; flex-direction: column; } .related__grid { grid-template-columns: 1fr; } }
+	@media (max-width: 650px) { .breadcrumbs, .product-detail { width: calc(100% - 40px); } .product-detail { padding-bottom: 68px; } .product-carousel__stage { aspect-ratio: 1 / 1; } .product-carousel__slide img { inset: 24px; width: calc(100% - 48px); height: calc(100% - 48px); } .product-carousel__slide--brochure img { inset: 12px; width: calc(100% - 24px); height: calc(100% - 24px); } .product-carousel__controls { right: 12px; left: 12px; } .product-carousel__thumbs { grid-template-columns: 1fr; } .product-detail__brochures { align-items: flex-start; flex-direction: column; } .product-info { grid-template-columns: 1fr; padding: 64px 20px; } .product-assurance { grid-template-columns: 1fr; padding: 24px 20px; } .related { padding: 70px 20px 76px; } .related__heading { align-items: flex-start; flex-direction: column; } .related__grid { grid-template-columns: 1fr; } }
 	@media (prefers-reduced-motion: reduce) { .product-carousel__slide { transition: none; } }
 </style>

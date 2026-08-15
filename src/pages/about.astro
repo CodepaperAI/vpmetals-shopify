@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
-import { gasProducts, rackProducts, tableProducts } from '../data/catalog';
+import { gasProducts, rackProducts, safetyProducts, tableProducts } from '../data/catalog';
 ---
 
 <BaseLayout title="About ProSteel Equipment" description="Learn about ProSteel Equipment's Canadian manufacturing, industrial metal fabrication, protective finishing, and lifetime warranty commitment.">
@@ -12,7 +12,7 @@ import { gasProducts, rackProducts, tableProducts } from '../data/catalog';
 			<div class="story__inner">
 				<div class="story__heading"><p>Our manufacturing identity</p><h2>Built here. Built to work.</h2></div>
 				<div class="story__copy">
-					<p>ProSteel Equipment focuses on exceptional solid metal fabrication and heavy-duty structural steelwork. The product range covers secure gas-cylinder storage, forklift and crane carriers, A-frame systems, slab racks, transport racks, and custom industrial equipment.</p>
+					<p>ProSteel Equipment focuses on exceptional solid metal fabrication and heavy-duty structural steelwork. The product range covers secure gas-cylinder storage, forklift and crane carriers, A-frame systems, slab racks, transport racks, warehouse safety guards, and custom industrial equipment.</p>
 					<p>The company manufactures in Canada, sources domestic raw materials, and keeps product design, fabrication, assembly, and finishing closely connected. That approach supports better control over dimensions, structural details, protective treatment, and custom applications.</p>
 				</div>
 			</div>
@@ -31,7 +31,7 @@ import { gasProducts, rackProducts, tableProducts } from '../data/catalog';
 				<p>Built for performance. Engineered for safety.</p>
 				<h2>From practical storage to custom equipment</h2>
 				<span>Every product starts with the load, site conditions, access method, and operational need. ProSteel's in-house capabilities make it possible to adapt sizes, materials, handling details, and finishes for the application.</span>
-				<div><strong>{gasProducts.length}</strong><small>cage and carrier models</small><strong>{rackProducts.length}</strong><small>rack systems documented</small><strong>{tableProducts.length}</strong><small>table and cart builds</small></div>
+				<div><strong>{gasProducts.length}</strong><small>cage and carrier models</small><strong>{rackProducts.length}</strong><small>rack systems documented</small><strong>{tableProducts.length}</strong><small>table and cart builds</small><strong>{safetyProducts.length}</strong><small>safety guard products</small></div>
 				<a href="/products/">Explore the catalogue</a>
 			</div>
 		</section>
@@ -55,7 +55,7 @@ import { gasProducts, rackProducts, tableProducts } from '../data/catalog';
 	.about-feature__image img { width: 100%; height: 100%; object-fit: cover; }
 	.about-feature__copy { display: flex; padding: 72px max(34px,calc((100vw - 1200px)/2)); flex-direction: column; justify-content: center; align-items: flex-start; }
 	.about-feature__copy > span { margin-top: 24px; color: #b9bac1; font-size: 14px; line-height: 1.75; }
-	.about-feature__copy > div { display: grid; grid-template-columns: repeat(3, auto 1fr); margin-top: 32px; align-items: baseline; gap: 9px 13px; }
+	.about-feature__copy > div { display: grid; grid-template-columns: repeat(2, auto 1fr); margin-top: 32px; align-items: baseline; gap: 9px 13px; }
 	.about-feature__copy strong { color: #aeb0ff; font-size: 28px; }
 	.about-feature__copy small { color: #b9bac1; font-size: 10px; text-transform: uppercase; }
 	.about-feature a { display: inline-flex; height: 46px; margin-top: 36px; padding: 0 22px; align-items: center; border-radius: 999px; background: #fff; color: #17171b; font-size: 10px; font-weight: 900; letter-spacing: .07em; text-decoration: none; text-transform: uppercase; }

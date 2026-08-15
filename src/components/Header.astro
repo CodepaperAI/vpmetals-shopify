@@ -161,7 +161,7 @@ const searchCatalogue = catalogProducts.map((product) => ({
 				.map((record) => {
 					const name = normalize(record.name);
 					const model = normalize(record.model);
-					const searchable = normalize(`${record.search} ${record.collection === 'gas-cage' ? 'gas cage propane cylinder tank' : record.collection === 'material-rack' ? 'material rack a frame slab storage' : 'industrial table workbench platform cart workstation cutting prep'}`);
+					const searchable = normalize(`${record.search} ${record.collection === 'gas-cage' ? 'gas cage propane cylinder tank' : record.collection === 'material-rack' ? 'material rack a frame slab storage' : record.collection === 'warehouse-safety' ? 'warehouse safety guard barrier protection industrial facility' : 'industrial table workbench platform cart workstation cutting prep'}`);
 					const matchesAll = tokens.every((token) => searchable.includes(token));
 					const score = (name.startsWith(query) ? 12 : 0) + (name.includes(query) ? 7 : 0) + (model.includes(query) ? 10 : 0) + tokens.filter((token) => name.includes(token)).length * 3;
 					return { record, matchesAll, score };

@@ -17,6 +17,8 @@ const searchText = (product: typeof catalogProducts[number]) => [
 		? 'gas cage propane cylinder tank bbq forklift welding oxygen medical crane carrier'
 		: product.collection === 'material-rack'
 			? 'material rack a frame slab stone glass transport mobile storage'
+		: product.collection === 'warehouse-safety'
+			? 'warehouse safety guard barrier protection industrial facility'
 			: 'industrial table workbench work table platform cart service cart mobile workstation pizza butcher cutting garment assembly',
 ].join(' ').toLowerCase();
 ---
@@ -46,6 +48,7 @@ const searchText = (product: typeof catalogProducts[number]) => [
 						<button type="button" data-search-filter="gas-cage" aria-pressed="false">Gas cages & carriers</button>
 						<button type="button" data-search-filter="material-rack" aria-pressed="false">Material racks</button>
 						<button type="button" data-search-filter="industrial-table" aria-pressed="false">Industrial tables</button>
+						<button type="button" data-search-filter="warehouse-safety" aria-pressed="false">Warehouse safety</button>
 					</div>
 					<p class="search-page__count" id="search-results-title" data-search-page-count aria-live="polite">{catalogProducts.length} products</p>
 				</div>
@@ -68,7 +71,7 @@ const searchText = (product: typeof catalogProducts[number]) => [
 				<div class="search-page__empty" data-search-page-empty hidden>
 					<p>No matching equipment</p>
 					<h2>Try a broader product or model search.</h2>
-					<span>Search examples: propane cage, forklift, welding, oxygen, A-frame, slab rack, transport rack, or a PSE model number.</span>
+					<span>Search examples: propane cage, forklift, welding, oxygen, A-frame, slab rack, bollard, rack protector, or a PSE model number.</span>
 					<div><a href="/products/">Browse the full catalogue</a><a href="/contact/">Ask the ProSteel team</a></div>
 				</div>
 			</div>

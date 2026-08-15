@@ -4,11 +4,12 @@ export type CatalogProduct = {
 	slug: string;
 	name: string;
 	model: string;
-	collection: 'gas-cage' | 'material-rack' | 'industrial-table';
+	collection: 'gas-cage' | 'material-rack' | 'industrial-table' | 'warehouse-safety';
 	category: string;
 	price?: number;
 	image: string;
 	contextImage: string;
+	brochurePreviewImage?: string;
 	alt: string;
 	description: string;
 	application: string;
@@ -39,12 +40,22 @@ const tableFeatures = [
 	'Built for commercial and industrial work areas',
 ];
 
+const safetyFeatures = [
+	'Heavy-duty steel construction',
+	'Powder-coated finish for warehouse and industrial environments',
+	'Designed for surface-mounted protection',
+	'Custom sizes are available on request',
+];
+
 const gasImage = (slug: string) => `/images/catalog/gas/${slug}.webp`;
 const gasContext = (slug: string) => `/images/catalog/gas/${slug}-context.webp`;
 const rackImage = (slug: string) => `/images/catalog/racks/${slug}.webp`;
 const rackContext = (slug: string) => `/images/catalog/racks/${slug}-context.webp`;
 const tableImage = (slug: string) => `/images/catalog/tables/${slug}.webp`;
 const tableContext = (slug: string) => `/images/catalog/tables/${slug}-context.webp`;
+const safetyImage = (slug: string) => `/images/catalog/safety/${slug}.webp`;
+const safetyContext = (slug: string) => `/images/catalog/safety/${slug}-context.webp`;
+const safetyBrochure = (group: string) => `/images/catalog/brochures/safety/${group}-brochure.webp`;
 
 export const gasProducts: CatalogProduct[] = [
 	{
@@ -386,7 +397,202 @@ export const tableProducts: CatalogProduct[] = [
 	},
 ];
 
-export const catalogProducts = [...gasProducts, ...rackProducts, ...tableProducts];
+export const safetyProducts: CatalogProduct[] = [
+	{
+		slug: 'heavy-duty-bollard-bolt-down-4-dia-36', name: 'Heavy Duty Bolt-Down Bollard - 4 in x 36 in', model: '4 in dia x 36 in H', collection: 'warehouse-safety', category: 'Bollards', price: 145,
+		image: safetyImage('heavy-duty-bollard-bolt-down-4-dia-36'), contextImage: safetyContext('heavy-duty-bollard-bolt-down-4-dia-36'), brochurePreviewImage: safetyBrochure('heavy-duty-bollard-bolt-down'), alt: 'Yellow 4 inch by 36 inch ProSteel bolt-down bollard',
+		description: 'A surface-mounted steel bollard for protecting doors, walls, equipment, traffic lanes, and exposed industrial work areas.',
+		application: 'Warehouse aisles, overhead doors, building corners, loading areas, parking lanes, and equipment protection zones.',
+		specs: [{ label: 'Diameter', value: '4 in' }, { label: 'Height', value: '36 in' }, { label: 'Pipe', value: '7 gauge steel' }, { label: 'Base plate', value: '8 x 8 x 0.4 in' }, { label: 'Anchor bolt', value: '5/8 x 4.5 in, not included' }],
+		features: ['Welded metal cap', ...safetyFeatures, 'Concrete installation kit sold separately'],
+	},
+	{
+		slug: 'heavy-duty-bollard-bolt-down-4-dia-42', name: 'Heavy Duty Bolt-Down Bollard - 4 in x 42 in', model: '4 in dia x 42 in H', collection: 'warehouse-safety', category: 'Bollards', price: 160,
+		image: safetyImage('heavy-duty-bollard-bolt-down-4-dia-42'), contextImage: safetyContext('heavy-duty-bollard-bolt-down-4-dia-42'), brochurePreviewImage: safetyBrochure('heavy-duty-bollard-bolt-down'), alt: 'Yellow 4 inch by 42 inch ProSteel bolt-down bollard',
+		description: 'A taller bolt-down bollard for creating visible impact protection around warehouse doors, posts, and vulnerable equipment.',
+		application: 'Loading docks, production aisles, material handling routes, parking areas, and industrial traffic-control points.',
+		specs: [{ label: 'Diameter', value: '4 in' }, { label: 'Height', value: '42 in' }, { label: 'Pipe', value: '7 gauge steel' }, { label: 'Base plate', value: '8 x 8 x 0.4 in' }, { label: 'Anchor bolt', value: '5/8 x 4.5 in, not included' }],
+		features: ['Welded metal cap', ...safetyFeatures, 'Concrete installation kit sold separately'],
+	},
+	{
+		slug: 'heavy-duty-bollard-bolt-down-4-dia-48', name: 'Heavy Duty Bolt-Down Bollard - 4 in x 48 in', model: '4 in dia x 48 in H', collection: 'warehouse-safety', category: 'Bollards', price: 175,
+		image: safetyImage('heavy-duty-bollard-bolt-down-4-dia-48'), contextImage: safetyContext('heavy-duty-bollard-bolt-down-4-dia-48'), brochurePreviewImage: safetyBrochure('heavy-duty-bollard-bolt-down'), alt: 'Yellow 4 inch by 48 inch ProSteel bolt-down bollard', featured: true,
+		description: 'A heavy-duty 48 in bollard for strong, visible protection where forklifts, carts, or vehicles move near assets and walkways.',
+		application: 'Warehouse traffic lanes, machine protection, dock areas, storefront protection, and high-visibility safety layouts.',
+		specs: [{ label: 'Diameter', value: '4 in' }, { label: 'Height', value: '48 in' }, { label: 'Pipe', value: '7 gauge steel' }, { label: 'Base plate', value: '8 x 8 x 0.4 in' }, { label: 'Anchor bolt', value: '5/8 x 4.5 in, not included' }],
+		features: ['Welded metal cap', ...safetyFeatures, 'Concrete installation kit sold separately'],
+	},
+	{
+		slug: 'heavy-duty-bollard-bolt-down-4-dia-60', name: 'Heavy Duty Bolt-Down Bollard - 4 in x 60 in', model: '4 in dia x 60 in H', collection: 'warehouse-safety', category: 'Bollards', price: 180,
+		image: safetyImage('heavy-duty-bollard-bolt-down-4-dia-60'), contextImage: safetyContext('heavy-duty-bollard-bolt-down-4-dia-60'), brochurePreviewImage: safetyBrochure('heavy-duty-bollard-bolt-down'), alt: 'Yellow 4 inch by 60 inch ProSteel bolt-down bollard',
+		description: 'A tall surface-mounted bollard for high-visibility guarding at warehouse doors, traffic routes, and exposed facility edges.',
+		application: 'Overhead doors, aisle ends, outdoor protection zones, building corners, and industrial vehicle separation.',
+		specs: [{ label: 'Diameter', value: '4 in' }, { label: 'Height', value: '60 in' }, { label: 'Pipe', value: '7 gauge steel' }, { label: 'Base plate', value: '8 x 8 x 0.4 in' }, { label: 'Anchor bolt', value: '5/8 x 4.5 in, not included' }],
+		features: ['Welded metal cap', ...safetyFeatures, 'Concrete installation kit sold separately'],
+	},
+	{
+		slug: 'overhead-door-track-protector-48-in-ht', name: 'Overhead Door Track Protector - 48 in HT', model: '48 in HT / 9.86 x 6.58 in plate', collection: 'warehouse-safety', category: 'Door Protection', price: 140,
+		image: safetyImage('overhead-door-track-protector-48-in-ht'), contextImage: safetyContext('overhead-door-track-protector-48-in-ht'), brochurePreviewImage: safetyBrochure('overhead-door-track-protector'), alt: 'Yellow overhead door track protector with floor plate', featured: true,
+		description: 'A bolt-down guard that shields overhead door tracks from forklift, cart, and pallet impact in busy warehouse openings.',
+		application: 'Loading doors, shipping docks, receiving areas, warehouse entrances, and high-traffic overhead door tracks.',
+		specs: [{ label: 'Height', value: '48 in' }, { label: 'Plate', value: '9.86 x 6.58 in' }, { label: 'Wall holes', value: '5 holes at 5/8 in' }, { label: 'Floor holes', value: '3 holes at 15/16 in' }, { label: 'Anchors', value: 'Not included' }],
+		features: ['Protects door tracks from side impact', 'Large anchor option: 5.5 x 0.75 in', 'Small anchor option: 3.75 x 0.5 in', ...safetyFeatures],
+	},
+	{
+		slug: 'overhead-door-track-protector-36-in-ht', name: 'Overhead Door Track Protector - 36 in HT', model: '36 in HT / 9.86 x 6.58 in plate', collection: 'warehouse-safety', category: 'Door Protection', price: 120,
+		image: safetyImage('overhead-door-track-protector-36-in-ht'), contextImage: safetyContext('overhead-door-track-protector-36-in-ht'), brochurePreviewImage: safetyBrochure('overhead-door-track-protector'), alt: 'Yellow 36 inch overhead door track protector',
+		description: 'A compact overhead door track guard for protecting lower track areas and doorway corners from daily facility traffic.',
+		application: 'Warehouse doors, service doors, shipping bays, receiving lanes, and compact impact-protection locations.',
+		specs: [{ label: 'Height', value: '36 in' }, { label: 'Plate', value: '9.86 x 6.58 in' }, { label: 'Wall holes', value: '5 holes at 5/8 in' }, { label: 'Floor holes', value: '3 holes at 15/16 in' }, { label: 'Anchors', value: 'Not included' }],
+		features: ['Protects door tracks from side impact', 'Large anchor option: 5.5 x 0.75 in', 'Small anchor option: 3.75 x 0.5 in', ...safetyFeatures],
+	},
+	{
+		slug: 'heavy-duty-mid-rail-machine-guard-24x18', name: 'Heavy Duty Mid-Rail Machine Guard - 24 x 18 in', model: '24 x 18 in', collection: 'warehouse-safety', category: 'Machine Guards', price: 370,
+		image: safetyImage('heavy-duty-mid-rail-machine-guard-24x18'), contextImage: safetyContext('heavy-duty-mid-rail-machine-guard-24x18'), brochurePreviewImage: safetyBrochure('heavy-duty-mid-rail-machine-guard'), alt: 'Yellow heavy-duty mid-rail machine guard',
+		description: 'A compact welded machine guard for adding physical separation around equipment, posts, and vulnerable production assets.',
+		application: 'Machine cells, conveyor areas, production lines, corner protection, equipment bases, and work-area boundaries.',
+		specs: [{ label: 'Width', value: '24 in' }, { label: 'Height', value: '18 in' }, { label: 'Tube', value: '4 x 4 x 0.25 in square tube' }, { label: 'Base plate', value: '8 x 8 x 0.4 in' }, { label: 'Anchor bolt', value: '0.74 x 5.51 in, not included' }],
+		features: ['Mid-rail format for low-profile equipment protection', ...safetyFeatures],
+	},
+	{
+		slug: 'heavy-duty-mid-rail-machine-guard-26x18', name: 'Heavy Duty Mid-Rail Machine Guard - 26 x 18 in', model: '26 x 18 in', collection: 'warehouse-safety', category: 'Machine Guards', price: 450,
+		image: safetyImage('heavy-duty-mid-rail-machine-guard-26x18'), contextImage: safetyContext('heavy-duty-mid-rail-machine-guard-26x18'), brochurePreviewImage: safetyBrochure('heavy-duty-mid-rail-machine-guard'), alt: 'Yellow 26 by 18 inch heavy-duty mid-rail machine guard',
+		description: 'A welded mid-rail guard sized for equipment edges and traffic routes that need a wider protective footprint.',
+		application: 'Industrial equipment, production aisles, warehouse columns, machine bases, and exposed shop-floor corners.',
+		specs: [{ label: 'Width', value: '26 in' }, { label: 'Height', value: '18 in' }, { label: 'Tube', value: '4 x 4 x 0.25 in square tube' }, { label: 'Base plate', value: '8 x 8 x 0.4 in' }, { label: 'Anchor bolt', value: '0.74 x 5.51 in, not included' }],
+		features: ['Mid-rail format for low-profile equipment protection', ...safetyFeatures],
+	},
+	{
+		slug: 'heavy-duty-mid-rail-machine-guard-24x42', name: 'Heavy Duty Mid-Rail Machine Guard - 24 x 42 in', model: '24 x 42 in', collection: 'warehouse-safety', category: 'Machine Guards', price: 500,
+		image: safetyImage('heavy-duty-mid-rail-machine-guard-24x42'), contextImage: safetyContext('heavy-duty-mid-rail-machine-guard-24x42'), brochurePreviewImage: safetyBrochure('heavy-duty-mid-rail-machine-guard'), alt: 'Tall yellow heavy-duty mid-rail machine guard', featured: true,
+		description: 'A taller mid-rail machine guard for protecting exposed equipment and separating facility traffic from critical areas.',
+		application: 'Machine guarding layouts, forklift travel lanes, equipment corners, production cells, and warehouse safety barriers.',
+		specs: [{ label: 'Width', value: '24 in' }, { label: 'Height', value: '42 in' }, { label: 'Tube', value: '4 x 4 x 0.25 in square tube' }, { label: 'Base plate', value: '8 x 8 x 0.4 in' }, { label: 'Anchor bolt', value: '0.74 x 5.51 in, not included' }],
+		features: ['Taller profile for stronger visual separation', 'Mid-rail format for equipment protection', ...safetyFeatures],
+	},
+	{
+		slug: 'rack-protector-7x12-3ga', name: 'Rack Protector - 7 x 12 in, 3 Ga.', model: 'Fits 7 in post / 12 in H', collection: 'warehouse-safety', category: 'Rack Protection', price: 55,
+		image: safetyImage('rack-protector-7x12-3ga'), contextImage: safetyContext('rack-protector-7x12-3ga'), brochurePreviewImage: safetyBrochure('rack-protector'), alt: 'Yellow 7 by 12 inch pallet rack protector',
+		description: 'A low-profile rack protector that shields 7 in pallet-rack uprights from cart and forklift contact.',
+		application: 'Pallet rack aisles, warehouse storage rows, picking areas, logistics facilities, and rack-end protection zones.',
+		specs: [{ label: 'Post fit', value: '7 in' }, { label: 'Height', value: '12 in' }, { label: 'Steel', value: '3 ga' }, { label: 'Finish', value: 'Powder coated' }, { label: 'Anchor bolt', value: '1/2 x 4 in, not included' }],
+		features: ['Floor-mounted guard for rack upright impact zones', ...safetyFeatures],
+	},
+	{
+		slug: 'rack-protector-7x18-3ga', name: 'Rack Protector - 7 x 18 in, 3 Ga.', model: 'Fits 7 in post / 18 in H', collection: 'warehouse-safety', category: 'Rack Protection', price: 75,
+		image: safetyImage('rack-protector-7x18-3ga'), contextImage: safetyContext('rack-protector-7x18-3ga'), brochurePreviewImage: safetyBrochure('rack-protector'), alt: 'Yellow 7 by 18 inch pallet rack protector',
+		description: 'A medium-height rack protector for 7 in pallet-rack posts in active warehouse aisles and storage lanes.',
+		application: 'Pallet rack aisles, warehouse storage rows, distribution centres, picking areas, and high-traffic rack ends.',
+		specs: [{ label: 'Post fit', value: '7 in' }, { label: 'Height', value: '18 in' }, { label: 'Steel', value: '3 ga' }, { label: 'Finish', value: 'Powder coated' }, { label: 'Anchor bolt', value: '1/2 x 4 in, not included' }],
+		features: ['Floor-mounted guard for rack upright impact zones', ...safetyFeatures],
+	},
+	{
+		slug: 'rack-protector-7x24-3ga', name: 'Rack Protector - 7 x 24 in, 3 Ga.', model: 'Fits 7 in post / 24 in H', collection: 'warehouse-safety', category: 'Rack Protection', price: 90,
+		image: safetyImage('rack-protector-7x24-3ga'), contextImage: safetyContext('rack-protector-7x24-3ga'), brochurePreviewImage: safetyBrochure('rack-protector'), alt: 'Yellow 7 by 24 inch pallet rack protector', featured: true,
+		description: 'A taller 3 ga rack protector for 7 in pallet-rack posts that need more visible lower-post protection.',
+		application: 'Warehouse rack rows, forklift aisles, high-bay storage areas, distribution centres, and exposed rack uprights.',
+		specs: [{ label: 'Post fit', value: '7 in' }, { label: 'Height', value: '24 in' }, { label: 'Steel', value: '3 ga' }, { label: 'Finish', value: 'Powder coated' }, { label: 'Anchor bolt', value: '1/2 x 4 in, not included' }],
+		features: ['Floor-mounted guard for rack upright impact zones', ...safetyFeatures],
+	},
+	{
+		slug: 'rack-protector-5x12-3ga', name: 'Rack Protector - 5 x 12 in, 3 Ga.', model: 'Fits 5 in post / 12 in H', collection: 'warehouse-safety', category: 'Rack Protection', price: 45,
+		image: safetyImage('rack-protector-5x12-3ga'), contextImage: safetyContext('rack-protector-5x12-3ga'), brochurePreviewImage: safetyBrochure('rack-protector'), alt: 'Yellow 5 by 12 inch pallet rack protector',
+		description: 'A compact rack protector for 5 in pallet-rack uprights in tighter warehouse aisles and storage rows.',
+		application: 'Warehouse rack aisles, compact storage areas, material handling zones, and lower upright protection.',
+		specs: [{ label: 'Post fit', value: '5 in' }, { label: 'Height', value: '12 in' }, { label: 'Steel', value: '3 ga' }, { label: 'Finish', value: 'Powder coated' }, { label: 'Anchor bolt', value: '1/2 x 4 in, not included' }],
+		features: ['Floor-mounted guard for rack upright impact zones', ...safetyFeatures],
+	},
+	{
+		slug: 'rack-protector-5x18-3ga', name: 'Rack Protector - 5 x 18 in, 3 Ga.', model: 'Fits 5 in post / 18 in H', collection: 'warehouse-safety', category: 'Rack Protection', price: 55,
+		image: safetyImage('rack-protector-5x18-3ga'), contextImage: safetyContext('rack-protector-5x18-3ga'), brochurePreviewImage: safetyBrochure('rack-protector'), alt: 'Yellow 5 by 18 inch pallet rack protector',
+		description: 'A medium-height 5 in rack-post protector for warehouse rows that need stronger lower-upright protection.',
+		application: 'Pallet rack protection, forklift aisles, warehouse storage, receiving areas, and distribution facilities.',
+		specs: [{ label: 'Post fit', value: '5 in' }, { label: 'Height', value: '18 in' }, { label: 'Steel', value: '3 ga' }, { label: 'Finish', value: 'Powder coated' }, { label: 'Anchor bolt', value: '1/2 x 4 in, not included' }],
+		features: ['Floor-mounted guard for rack upright impact zones', ...safetyFeatures],
+	},
+	{
+		slug: 'rack-protector-5x24-3ga', name: 'Rack Protector - 5 x 24 in, 3 Ga.', model: 'Fits 5 in post / 24 in H', collection: 'warehouse-safety', category: 'Rack Protection', price: 70,
+		image: safetyImage('rack-protector-5x24-3ga'), contextImage: safetyContext('rack-protector-5x24-3ga'), brochurePreviewImage: safetyBrochure('rack-protector'), alt: 'Yellow 5 by 24 inch pallet rack protector',
+		description: 'A taller 5 in post rack protector for visible, durable guarding at active rack rows and traffic lanes.',
+		application: 'Distribution centres, warehouse aisles, pallet storage rows, rack ends, and forklift travel areas.',
+		specs: [{ label: 'Post fit', value: '5 in' }, { label: 'Height', value: '24 in' }, { label: 'Steel', value: '3 ga' }, { label: 'Finish', value: 'Powder coated' }, { label: 'Anchor bolt', value: '1/2 x 4 in, not included' }],
+		features: ['Floor-mounted guard for rack upright impact zones', ...safetyFeatures],
+	},
+	{
+		slug: 'pallet-rack-guard-end-46x3x5', name: 'Pallet Rack Guard End - 46 x 3 x 5 in', model: '46 x 3 x 5 in', collection: 'warehouse-safety', category: 'Rack Protection', price: 205,
+		image: safetyImage('pallet-rack-guard-end-46x3x5'), contextImage: safetyContext('pallet-rack-guard-end-46x3x5'), brochurePreviewImage: safetyBrochure('pallet-rack-guard-end'), alt: 'Yellow pallet rack guard end with low welded guard rail', featured: true,
+		description: 'A heavy-duty guard end that protects rack runs and aisle ends from side impacts in warehouse traffic areas.',
+		application: 'Pallet rack ends, aisle entries, forklift lanes, warehouse corners, and exposed storage-row protection.',
+		specs: [{ label: 'Fits post size', value: '4.5 in' }, { label: 'Dimensions', value: '46 L x 3 W x 5 H in' }, { label: 'Corner height', value: '8 in' }, { label: 'Steel', value: '3/8 in all-welded steel' }, { label: 'Anchor bolts', value: 'Included' }],
+		features: ['Available for right-side or left-side placement', 'Extra heavy-duty welded steel construction', ...safetyFeatures],
+	},
+	{
+		slug: 'upright-protector-7x7x18', name: 'Upright Protector - 7 x 7 x 18 in', model: '7 W x 7 D x 18 H in', collection: 'warehouse-safety', category: 'Rack Protection', price: 55,
+		image: safetyImage('upright-protector-7x7x18'), contextImage: safetyContext('upright-protector-7x7x18'), brochurePreviewImage: safetyBrochure('upright-protector'), alt: 'Yellow 7 by 7 by 18 inch upright protector',
+		description: 'A welded upright protector that guards rack posts, columns, and equipment corners against low-level industrial impact.',
+		application: 'Rack uprights, warehouse columns, aisle ends, compact storage areas, and lower-post protection zones.',
+		specs: [{ label: 'Width', value: '7 in' }, { label: 'Depth', value: '7 in' }, { label: 'Height', value: '18 in' }, { label: 'Steel', value: '3/8 in all-welded steel' }, { label: 'Anchor bolt', value: '1/2 x 4 in, not included' }],
+		features: ['Compact wraparound post protection', ...safetyFeatures],
+	},
+	{
+		slug: 'upright-protector-7x7x12', name: 'Upright Protector - 7 x 7 x 12 in', model: '7 W x 7 D x 12 H in', collection: 'warehouse-safety', category: 'Rack Protection', price: 45,
+		image: safetyImage('upright-protector-7x7x12'), contextImage: safetyContext('upright-protector-7x7x12'), brochurePreviewImage: safetyBrochure('upright-protector'), alt: 'Yellow 7 by 7 by 12 inch upright protector',
+		description: 'A compact upright protector for lower rack posts and exposed support points in busy material-handling areas.',
+		application: 'Pallet rack posts, compact rack rows, warehouse columns, equipment corners, and low-level impact protection.',
+		specs: [{ label: 'Width', value: '7 in' }, { label: 'Depth', value: '7 in' }, { label: 'Height', value: '12 in' }, { label: 'Steel', value: '3/8 in all-welded steel' }, { label: 'Anchor bolt', value: '1/2 x 4 in, not included' }],
+		features: ['Compact wraparound post protection', ...safetyFeatures],
+	},
+	{
+		slug: 'floor-angle-guard-warehouse-24x5x3', name: 'Floor Angle Guard - Warehouse 24 in', model: '24 L x 5 H x 3 W in', collection: 'warehouse-safety', category: 'Floor Guards', price: 100,
+		image: safetyImage('floor-angle-guard-warehouse-24x5x3'), contextImage: safetyContext('floor-angle-guard-warehouse-24x5x3'), brochurePreviewImage: safetyBrochure('floor-angle-guard-warehouse'), alt: 'Yellow 24 inch warehouse floor angle guard',
+		description: 'A short floor angle guard for protecting vulnerable wall bases, edges, and floor-level equipment from impact.',
+		application: 'Warehouse wall bases, machinery edges, dock areas, pedestrian boundaries, and compact floor-protection runs.',
+		specs: [{ label: 'Length', value: '24 in' }, { label: 'Height', value: '5 in' }, { label: 'Width', value: '3 in' }, { label: 'Steel', value: '3/8 in' }, { label: 'Anchor bolts', value: 'Included' }],
+		features: ['Permanent installation for floor-level protection', ...safetyFeatures],
+	},
+	{
+		slug: 'floor-angle-guard-warehouse-48x5x3', name: 'Floor Angle Guard - Warehouse 48 in', model: '48 L x 5 H x 3 W in', collection: 'warehouse-safety', category: 'Floor Guards', price: 140,
+		image: safetyImage('floor-angle-guard-warehouse-48x5x3'), contextImage: safetyContext('floor-angle-guard-warehouse-48x5x3'), brochurePreviewImage: safetyBrochure('floor-angle-guard-warehouse'), alt: 'Yellow 48 inch warehouse floor angle guard',
+		description: 'A 48 in floor guard for protecting wall runs, equipment bases, and lower warehouse edges from facility traffic.',
+		application: 'Warehouse perimeters, production walls, dock lanes, floor-level machine protection, and aisle boundary marking.',
+		specs: [{ label: 'Length', value: '48 in' }, { label: 'Height', value: '5 in' }, { label: 'Width', value: '3 in' }, { label: 'Steel', value: '3/8 in' }, { label: 'Anchor bolts', value: 'Included' }],
+		features: ['Permanent installation for floor-level protection', ...safetyFeatures],
+	},
+	{
+		slug: 'floor-angle-guard-warehouse-60x5x3', name: 'Floor Angle Guard - Warehouse 60 in', model: '60 L x 5 H x 3 W in', collection: 'warehouse-safety', category: 'Floor Guards', price: 190,
+		image: safetyImage('floor-angle-guard-warehouse-60x5x3'), contextImage: safetyContext('floor-angle-guard-warehouse-60x5x3'), brochurePreviewImage: safetyBrochure('floor-angle-guard-warehouse'), alt: 'Yellow 60 inch warehouse floor angle guard',
+		description: 'A medium-length warehouse floor guard for building continuous low-level protection around high-use areas.',
+		application: 'Production areas, rack rows, wall bases, storage perimeters, and traffic-facing facility edges.',
+		specs: [{ label: 'Length', value: '60 in' }, { label: 'Height', value: '5 in' }, { label: 'Width', value: '3 in' }, { label: 'Steel', value: '3/8 in' }, { label: 'Anchor bolts', value: 'Included' }],
+		features: ['Permanent installation for floor-level protection', ...safetyFeatures],
+	},
+	{
+		slug: 'floor-angle-guard-warehouse-96x5x3', name: 'Floor Angle Guard - Warehouse 96 in', model: '96 L x 5 H x 3 W in', collection: 'warehouse-safety', category: 'Floor Guards', price: 300,
+		image: safetyImage('floor-angle-guard-warehouse-96x5x3'), contextImage: safetyContext('floor-angle-guard-warehouse-96x5x3'), brochurePreviewImage: safetyBrochure('floor-angle-guard-warehouse'), alt: 'Yellow 96 inch warehouse floor angle guard',
+		description: 'A long 96 in floor angle guard for protecting extended warehouse edges, walls, and traffic-facing equipment bases.',
+		application: 'Warehouse walls, dock approaches, equipment lines, storage-zone boundaries, and long floor-protection runs.',
+		specs: [{ label: 'Length', value: '96 in' }, { label: 'Height', value: '5 in' }, { label: 'Width', value: '3 in' }, { label: 'Steel', value: '3/8 in' }, { label: 'Anchor bolts', value: 'Included' }],
+		features: ['Permanent installation for floor-level protection', ...safetyFeatures],
+	},
+	{
+		slug: 'floor-angle-guard-warehouse-120x5x3', name: 'Floor Angle Guard - Warehouse 120 in', model: '120 L x 5 H x 3 W in', collection: 'warehouse-safety', category: 'Floor Guards', price: 360,
+		image: safetyImage('floor-angle-guard-warehouse-120x5x3'), contextImage: safetyContext('floor-angle-guard-warehouse-120x5x3'), brochurePreviewImage: safetyBrochure('floor-angle-guard-warehouse'), alt: 'Yellow 120 inch warehouse floor angle guard', featured: true,
+		description: 'A 120 in floor angle guard for creating extended, durable protection along high-traffic warehouse walls and equipment runs.',
+		application: 'Long warehouse perimeters, loading areas, production boundaries, rack-line edges, and high-traffic facility layouts.',
+		specs: [{ label: 'Length', value: '120 in' }, { label: 'Height', value: '5 in' }, { label: 'Width', value: '3 in' }, { label: 'Steel', value: '3/8 in' }, { label: 'Anchor bolts', value: 'Included' }],
+		features: ['Permanent installation for floor-level protection', ...safetyFeatures],
+	},
+	{
+		slug: 'anti-theft-parking-bollard-collapsible', name: 'Anti-Theft Parking Bollard - Collapsible', model: 'Collapsible parking bollard', collection: 'warehouse-safety', category: 'Parking Bollards', price: 306,
+		image: safetyImage('anti-theft-parking-bollard-collapsible'), contextImage: safetyContext('anti-theft-parking-bollard-collapsible'), brochurePreviewImage: safetyBrochure('anti-theft-parking-bollard-collapsible'), alt: 'Yellow collapsible anti-theft parking bollard with base plate', featured: true,
+		description: 'A hinged collapsible bollard for reserving parking spaces, controlling access, and adding removable vehicle deterrence.',
+		application: 'Parking spaces, commercial lots, loading areas, restricted-access lanes, private driveways, and vehicle-control points.',
+		specs: [{ label: 'Outer diameter', value: '5 in' }, { label: 'Height', value: '36 in upright / 3.5 in folded' }, { label: 'Base', value: '10.5 x 8 x 3.5 in' }, { label: 'Base plate', value: '0.55 in' }, { label: 'Anchor bolt', value: '1/2 x 4 in, not included' }],
+		features: ['Two-direction hinged bollard folds at 90 degrees', 'Surface-mount installation without core drilling or excavation', 'Low folded profile for vehicle clearance', ...safetyFeatures],
+	},
+];
+
+export const catalogProducts = [...gasProducts, ...rackProducts, ...tableProducts, ...safetyProducts];
 export const featuredProducts = catalogProducts.filter((product) => product.featured);
 export const findProduct = (slug: string) => catalogProducts.find((product) => product.slug === slug);
 export const formatPrice = (price?: number) => price === undefined ? 'Request a quote' : new Intl.NumberFormat('en-CA', { style: 'currency', currency: 'CAD', maximumFractionDigits: 0 }).format(price);
