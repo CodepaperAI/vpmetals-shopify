@@ -1,0 +1,132 @@
+---
+import { ArrowRight } from 'lucide-astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+
+const galleryItems = [
+	{
+		title: 'Heavy-duty product lineup',
+		tag: 'Product range',
+		image: '/images/prosteel/home-hero-equipment-showcase-clean.png',
+		alt: 'ProSteel gas cage, A-frame rack, work table, bollard guard, and safety equipment in a warehouse',
+		href: '/products/',
+	},
+	{
+		title: 'Gas cage storage systems',
+		tag: 'Gas cages',
+		image: '/images/catalog/gas/pse-20-24-context.webp',
+		alt: 'Yellow ProSteel gas cylinder cage in an industrial setting',
+		href: '/products/?filter=gas-cage#catalogue',
+	},
+	{
+		title: 'A-frame transport racks',
+		tag: 'Material racks',
+		image: '/images/catalog/racks/double-sided-transport-rack-context.webp',
+		alt: 'Black double-sided ProSteel transport rack in a shop environment',
+		href: '/products/?filter=material-rack#catalogue',
+	},
+	{
+		title: 'Industrial tables and carts',
+		tag: 'Tables and carts',
+		image: '/images/catalog/tables/heavy-duty-industrial-metal-top-platform-cart-context.webp',
+		alt: 'Heavy-duty ProSteel industrial platform cart in a production workspace',
+		href: '/products/?filter=industrial-table#catalogue',
+	},
+	{
+		title: 'Bolt-down bollard protection',
+		tag: 'Warehouse safety',
+		image: '/images/catalog/safety/heavy-duty-bollard-bolt-down-4-dia-48-context.webp',
+		alt: 'Yellow ProSteel bolt-down bollard protecting an overhead door area',
+		href: '/products/?filter=warehouse-safety#catalogue',
+	},
+	{
+		title: 'Mid-rail machine guards',
+		tag: 'Safety guards',
+		image: '/images/catalog/safety/heavy-duty-mid-rail-machine-guard-24x42-context.webp',
+		alt: 'Yellow ProSteel mid-rail machine guard installed in an industrial facility',
+		href: '/products/heavy-duty-mid-rail-machine-guard-24x42/',
+	},
+	{
+		title: 'Pallet rack guard ends',
+		tag: 'Rack protection',
+		image: '/images/catalog/safety/pallet-rack-guard-end-46x3x5-context.webp',
+		alt: 'Yellow pallet rack guard protecting a warehouse rack end',
+		href: '/products/pallet-rack-guard-end-46x3x5/',
+	},
+	{
+		title: 'Laser-cut fabrication',
+		tag: 'Custom solutions',
+		image: '/images/prosteel/feature-laser-cage.webp',
+		alt: 'Laser-cut ProSteel metal work in a fabrication environment',
+		href: '/fabrication/',
+	},
+];
+---
+
+<BaseLayout title="Gallery | ProSteel Equipment" description="View ProSteel Equipment product and fabrication examples, including gas cages, material racks, industrial tables, warehouse safety guards, and custom metal work.">
+	<main>
+		<PageHero
+			eyebrow="Project gallery"
+			title="Built products in real industrial contexts"
+			copy="A focused look at ProSteel gas cages, material racks, industrial tables, warehouse safety guards, and custom fabrication examples."
+			image="/images/prosteel/home-hero-equipment-showcase-clean.png"
+			alt="ProSteel product lineup in a bright industrial warehouse"
+		/>
+
+		<section class="gallery-page" aria-labelledby="gallery-title">
+			<div class="gallery-page__heading">
+				<p>Product and fabrication visuals</p>
+				<h1 id="gallery-title">Gallery</h1>
+			</div>
+			<div class="gallery-page__grid">
+				{galleryItems.map((item, index) => (
+					<article class:list={['gallery-card', { 'gallery-card--wide': index === 0 }]}>
+						<a href={item.href} aria-label={`View ${item.title}`}>
+							<img src={item.image} alt={item.alt} loading={index < 2 ? 'eager' : 'lazy'} />
+							<span>{item.tag}</span>
+							<div>
+								<h2>{item.title}</h2>
+								<strong>View details <ArrowRight size={17} strokeWidth={2} aria-hidden="true" /></strong>
+							</div>
+						</a>
+					</article>
+				))}
+			</div>
+		</section>
+
+		<section class="gallery-cta">
+			<div>
+				<p>Need a product matched to your site?</p>
+				<h2>Send the model, load, footprint, or installation area and ProSteel can help configure the right build.</h2>
+			</div>
+			<a href="/contact/">Request a quote</a>
+		</section>
+	</main>
+</BaseLayout>
+
+<style>
+	.gallery-page { padding: 92px 24px 112px; background: #f5f7fa; }
+	.gallery-page__heading { display: flex; width: min(100%, 1200px); margin: 0 auto 38px; align-items: flex-end; justify-content: space-between; gap: 28px; }
+	.gallery-page__heading p { margin: 0 0 9px; color: #084fb4; font-size: 11px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+	.gallery-page h1 { margin: 0; color: #071945; font-size: clamp(36px, 5vw, 58px); font-weight: 900; letter-spacing: -.04em; line-height: 1; text-transform: uppercase; }
+	.gallery-page__grid { display: grid; width: min(100%, 1200px); margin: 0 auto; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+	.gallery-card { min-width: 0; background: #111216; }
+	.gallery-card--wide { grid-column: span 2; grid-row: span 2; }
+	.gallery-card a { position: relative; display: block; min-height: 300px; height: 100%; overflow: hidden; color: #fff; text-decoration: none; }
+	.gallery-card--wide a { min-height: 616px; }
+	.gallery-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 500ms cubic-bezier(.2, .7, .2, 1); }
+	.gallery-card a::after { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7, 25, 69, .08), rgba(7, 25, 69, .78)); content: ''; }
+	.gallery-card span { position: absolute; z-index: 1; top: 18px; left: 18px; padding: 8px 10px; background: #084fb4; font-size: 9px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+	.gallery-card div { position: absolute; z-index: 1; right: 20px; bottom: 20px; left: 20px; }
+	.gallery-card h2 { max-width: 420px; margin: 0; font-size: clamp(20px, 2.5vw, 34px); font-weight: 900; letter-spacing: -.03em; line-height: 1.05; text-transform: uppercase; }
+	.gallery-card strong { display: inline-flex; margin-top: 14px; align-items: center; gap: 8px; color: #b8d4ff; font-size: 10px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+	.gallery-card a:hover img, .gallery-card a:focus-visible img { transform: scale(1.045); }
+	.gallery-card a:focus-visible { outline: 3px solid #084fb4; outline-offset: 3px; }
+	.gallery-cta { display: flex; padding: 72px max(24px, calc((100vw - 1200px)/2)); align-items: center; justify-content: space-between; gap: 40px; background: #071945; color: #fff; }
+	.gallery-cta p { margin: 0 0 10px; color: #9fc8ff; font-size: 11px; font-weight: 900; letter-spacing: .11em; text-transform: uppercase; }
+	.gallery-cta h2 { max-width: 780px; margin: 0; font-size: clamp(24px, 3vw, 36px); font-weight: 900; letter-spacing: -.03em; line-height: 1.15; text-transform: uppercase; }
+	.gallery-cta a { display: inline-flex; min-width: 160px; min-height: 48px; align-items: center; justify-content: center; border: 1px solid #fff; border-radius: 4px; color: #071945; background: #fff; font-size: 10px; font-weight: 900; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
+	.gallery-cta a:hover, .gallery-cta a:focus-visible { border-color: #9fc8ff; background: #9fc8ff; outline: none; }
+	@media (max-width: 920px) { .gallery-page__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .gallery-card--wide { grid-column: span 2; } .gallery-cta { align-items: flex-start; flex-direction: column; } }
+	@media (max-width: 560px) { .gallery-page { padding: 68px 20px 78px; } .gallery-page__heading { align-items: flex-start; flex-direction: column; } .gallery-page__grid { grid-template-columns: 1fr; } .gallery-card--wide { grid-column: auto; grid-row: auto; } .gallery-card a, .gallery-card--wide a { min-height: 340px; } .gallery-cta { padding: 58px 20px; } }
+</style>

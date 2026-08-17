@@ -2,19 +2,34 @@
 import { ArrowRight, ChevronDown, Search, ShoppingCart } from 'lucide-astro';
 import { catalogProducts } from '../data/catalog';
 
+type HeaderDropdownItem = {
+	label: string;
+	href: string;
+	detail: string;
+	image: string;
+};
+
 type HeaderLink = {
 	label: string;
 	href: string;
-	hasDropdown?: boolean;
+	dropdown?: HeaderDropdownItem[];
 };
+
+const productDropdown: HeaderDropdownItem[] = [
+	{ label: 'All Products', href: '/products/', detail: 'Browse the complete ProSteel catalogue', image: '/images/prosteel/home-hero-equipment-showcase-clean.png' },
+	{ label: 'Gas Cages & Carriers', href: '/products/?filter=gas-cage#catalogue', detail: 'Propane, forklift, welding, oxygen, and crane handling systems', image: '/images/catalog/gas/pse-20-24.webp' },
+	{ label: 'Material Racks', href: '/products/?filter=material-rack#catalogue', detail: 'A-frames, slab racks, and glass or stone transport solutions', image: '/images/catalog/racks/double-sided-transport-rack.webp' },
+	{ label: 'Industrial Tables & Carts', href: '/products/?filter=industrial-table#catalogue', detail: 'Work tables, platform carts, prep tables, and mobile stations', image: '/images/catalog/tables/heavy-duty-industrial-metal-top-platform-cart.webp' },
+	{ label: 'Warehouse Safety', href: '/products/?filter=warehouse-safety#catalogue', detail: 'Bollards, rack protectors, door guards, and floor protection', image: '/images/catalog/safety/heavy-duty-bollard-bolt-down-4-dia-48.webp' },
+];
 
 const links: HeaderLink[] = [
 	{ label: 'Home', href: '/' },
 	{ label: 'About Us', href: '/about/' },
-	{ label: 'Products', href: '/products/', hasDropdown: true },
+	{ label: 'Products', href: '/products/', dropdown: productDropdown },
 	{ label: 'Custom Solutions', href: '/fabrication/' },
-	{ label: 'Gallery', href: '/#gallery' },
-	{ label: 'Industries', href: '/#industries' },
+	{ label: 'Gallery', href: '/gallery/' },
+	{ label: 'Industries', href: '/industries/' },
 	{ label: 'Contact', href: '/contact/' },
 ];
 
@@ -55,10 +70,29 @@ const searchCatalogue = catalogProducts.map((product) => ({
 
 		<nav class="desktop-nav" aria-label="Main navigation">
 			{links.map((link) => (
-				<a class:list={['desktop-nav__link', { 'is-active': isActive(link.href) }]} href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>
-					{link.label}
-					{link.hasDropdown && <ChevronDown size={13} strokeWidth={2.4} aria-hidden="true" />}
-				</a>
+				link.dropdown ? (
+					<div class="desktop-nav__item">
+						<a class:list={['desktop-nav__link', { 'is-active': isActive(link.href) }]} href={link.href} aria-current={isActive(link.href) ? 'page' : undefined} aria-haspopup="menu">
+							{link.label}
+							<ChevronDown size={13} strokeWidth={2.4} aria-hidden="true" />
+						</a>
+						<div class="desktop-nav__dropdown" role="menu" aria-label="Product categories">
+							{link.dropdown.map((item) => (
+								<a href={item.href} role="menuitem">
+									<img src={item.image} alt="" loading="lazy" />
+									<span>
+										<strong>{item.label}</strong>
+										<small>{item.detail}</small>
+									</span>
+								</a>
+							))}
+						</div>
+					</div>
+				) : (
+					<a class:list={['desktop-nav__link', { 'is-active': isActive(link.href) }]} href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>
+						{link.label}
+					</a>
+				)
 			))}
 		</nav>
 
@@ -83,10 +117,21 @@ const searchCatalogue = catalogProducts.map((product) => ({
 			<div class="site-search__suggestions" data-site-search-suggestions hidden></div>
 		</form>
 		{links.map((link) => (
-			<a class:list={{ 'is-active': isActive(link.href) }} href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>
-				{link.label}
-				{link.hasDropdown && <ChevronDown size={18} strokeWidth={2.2} aria-hidden="true" />}
-			</a>
+			link.dropdown ? (
+				<div class:list={['mobile-nav__group', { 'is-active': isActive(link.href) }]}>
+					<a class="mobile-nav__group-link" href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>
+						{link.label}
+						<ChevronDown size={18} strokeWidth={2.2} aria-hidden="true" />
+					</a>
+					<div class="mobile-nav__subnav">
+						{link.dropdown.map((item) => <a href={item.href}>{item.label}</a>)}
+					</div>
+				</div>
+			) : (
+				<a class:list={{ 'is-active': isActive(link.href) }} href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>
+					{link.label}
+				</a>
+			)
 		))}
 		<button class="mobile-nav__cart" type="button" data-cart-open>
 			<ShoppingCart size={18} strokeWidth={2} aria-hidden="true" />
@@ -254,16 +299,16 @@ const searchCatalogue = catalogProducts.map((product) => ({
 		width: min(calc(100% - 52px), 1400px);
 		height: 78px;
 		margin: 0 auto;
-		grid-template-columns: minmax(188px, 258px) minmax(0, 1fr) auto;
+		grid-template-columns: minmax(178px, 230px) minmax(0, 1fr) auto;
 		align-items: center;
 		gap: 28px;
 	}
 
 	.brand {
 		display: flex;
-		width: 255px;
+		width: 188px;
 		max-width: 100%;
-		height: 64px;
+		min-height: 64px;
 		align-items: center;
 		border-radius: 4px;
 		text-decoration: none;
@@ -272,7 +317,8 @@ const searchCatalogue = catalogProducts.map((product) => ({
 	.brand img {
 		display: block;
 		width: 100%;
-		height: 100%;
+		height: auto;
+		max-height: 58px;
 		object-fit: contain;
 		object-position: left center;
 	}
@@ -283,6 +329,13 @@ const searchCatalogue = catalogProducts.map((product) => ({
 		align-items: center;
 		justify-content: center;
 		gap: clamp(16px, 2vw, 34px);
+	}
+
+	.desktop-nav__item {
+		position: relative;
+		display: flex;
+		min-height: 78px;
+		align-items: center;
 	}
 
 	.desktop-nav__link {
@@ -325,6 +378,79 @@ const searchCatalogue = catalogProducts.map((product) => ({
 	.desktop-nav__link:focus-visible::after,
 	.desktop-nav__link.is-active::after {
 		transform: scaleX(1);
+	}
+
+	.desktop-nav__dropdown {
+		position: absolute;
+		z-index: 45;
+		top: calc(100% - 1px);
+		left: 50%;
+		display: grid;
+		visibility: hidden;
+		width: min(560px, calc(100vw - 32px));
+		padding: 10px;
+		border: 1px solid #dbe1eb;
+		background: #fff;
+		box-shadow: 0 26px 60px rgba(8, 31, 73, .18);
+		opacity: 0;
+		transform: translate(-50%, 10px);
+		transition: opacity 160ms ease, transform 160ms ease, visibility 160ms ease;
+	}
+
+	.desktop-nav__item:hover .desktop-nav__dropdown,
+	.desktop-nav__item:focus-within .desktop-nav__dropdown {
+		visibility: visible;
+		opacity: 1;
+		transform: translate(-50%, 0);
+	}
+
+	.desktop-nav__dropdown a {
+		display: grid;
+		grid-template-columns: 70px minmax(0, 1fr);
+		min-height: 78px;
+		align-items: center;
+		gap: 14px;
+		padding: 9px 11px;
+		border-bottom: 1px solid #eef1f5;
+		color: #071945;
+		text-decoration: none;
+	}
+
+	.desktop-nav__dropdown a:last-child {
+		border-bottom: 0;
+	}
+
+	.desktop-nav__dropdown a:hover,
+	.desktop-nav__dropdown a:focus-visible {
+		background: #f4f7fb;
+		outline: none;
+	}
+
+	.desktop-nav__dropdown img {
+		width: 70px;
+		height: 56px;
+		object-fit: contain;
+		background: #f8fafc;
+	}
+
+	.desktop-nav__dropdown span {
+		display: flex;
+		min-width: 0;
+		flex-direction: column;
+		gap: 5px;
+	}
+
+	.desktop-nav__dropdown strong {
+		font-size: 11px;
+		font-weight: 900;
+		line-height: 1.2;
+		text-transform: uppercase;
+	}
+
+	.desktop-nav__dropdown small {
+		color: #667085;
+		font-size: 11px;
+		line-height: 1.4;
 	}
 
 	.header__actions {
@@ -556,7 +682,7 @@ const searchCatalogue = catalogProducts.map((product) => ({
 
 	@media (max-width: 1240px) {
 		.header__main {
-			grid-template-columns: 210px minmax(0, 1fr) auto;
+			grid-template-columns: 182px minmax(0, 1fr) auto;
 			gap: 18px;
 		}
 
@@ -587,8 +713,8 @@ const searchCatalogue = catalogProducts.map((product) => ({
 		}
 
 		.brand {
-			width: 210px;
-			height: 58px;
+			width: 174px;
+			min-height: 58px;
 		}
 
 		.desktop-nav,
@@ -647,7 +773,8 @@ const searchCatalogue = catalogProducts.map((product) => ({
 			transform: translateY(0);
 		}
 
-		.mobile-nav > a:not(.mobile-nav__quote) {
+		.mobile-nav > a:not(.mobile-nav__quote),
+		.mobile-nav__group {
 			display: flex;
 			width: min(100%, 620px);
 			min-height: 56px;
@@ -663,9 +790,52 @@ const searchCatalogue = catalogProducts.map((product) => ({
 			text-transform: uppercase;
 		}
 
+		.mobile-nav__group {
+			display: flex;
+			min-height: 266px;
+			flex: 0 0 auto;
+			flex-direction: column;
+			align-items: stretch;
+			justify-content: flex-start;
+			padding-bottom: 12px;
+			color: #fff;
+		}
+
+		.mobile-nav__group-link {
+			display: flex;
+			min-height: 56px;
+			align-items: center;
+			justify-content: space-between;
+			color: #fff;
+			text-decoration: none;
+		}
+
+		.mobile-nav__subnav {
+			display: grid;
+			gap: 0;
+			padding: 0 0 8px 16px;
+		}
+
+		.mobile-nav__subnav a {
+			display: flex;
+			min-height: 38px;
+			align-items: center;
+			color: rgba(255, 255, 255, .78);
+			font-size: 12px;
+			font-weight: 900;
+			line-height: 1.2;
+			text-decoration: none;
+			text-transform: uppercase;
+		}
+
 		.mobile-nav > a:not(.mobile-nav__quote):hover,
 		.mobile-nav > a:not(.mobile-nav__quote):focus-visible,
-		.mobile-nav > a.is-active {
+		.mobile-nav > a.is-active,
+		.mobile-nav__group-link:hover,
+		.mobile-nav__group-link:focus-visible,
+		.mobile-nav__group.is-active .mobile-nav__group-link,
+		.mobile-nav__subnav a:hover,
+		.mobile-nav__subnav a:focus-visible {
 			color: #8ebcff;
 			outline: none;
 		}
@@ -730,8 +900,8 @@ const searchCatalogue = catalogProducts.map((product) => ({
 		}
 
 		.brand {
-			width: 154px;
-			height: 50px;
+			width: 142px;
+			min-height: 50px;
 		}
 
 		.header__actions {

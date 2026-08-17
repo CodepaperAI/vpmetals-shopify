@@ -2,7 +2,9 @@
 	<div class="footer__inner">
 		<div class="footer__intro">
 			<div class="footer__identity">
-				<a class="footer__brand" href="/" aria-label="ProSteel Equipment home">PRO<span>STEEL</span><small>Equipment</small></a>
+				<a class="footer__brand" href="/" aria-label="ProSteel Equipment home">
+					<img src="/images/prosteel/logo.png" alt="ProSteel Equipment" loading="lazy" />
+				</a>
 				<a class="footer__call" href="tel:+19054873472">+1 905 487 3472</a>
 			</div>
 			<div class="footer__about">
@@ -75,19 +77,8 @@
 		justify-content: space-between;
 	}
 
-	.footer__brand {
-		display: inline-flex;
-		width: auto;
-		align-items: baseline;
-		gap: 1px;
-		color: #fff;
-		font-size: 22px;
-		font-weight: 900;
-		letter-spacing: .015em;
-		text-decoration: none;
-	}
-	.footer__brand span { color: #8b8ee8; }
-	.footer__brand small { margin-left: 8px; color: #8f9098; font-size: 9px; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; }
+	.footer__brand { display: inline-flex; width: 190px; max-width: 100%; padding: 8px 10px; align-items: center; border-radius: 4px; background: #fff; text-decoration: none; }
+	.footer__brand img { display: block; width: 100%; height: auto; }
 	.footer__call { color: #fff; font-size: 12px; font-weight: 900; letter-spacing: .05em; text-decoration: none; }
 
 	.footer h2 {

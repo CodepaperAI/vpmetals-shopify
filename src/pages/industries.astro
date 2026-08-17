@@ -1,0 +1,162 @@
+---
+import {
+	ArrowRight,
+	DraftingCompass,
+	Factory,
+	Fuel,
+	HardHat,
+	Landmark,
+	Store,
+	Truck,
+	Warehouse,
+} from 'lucide-astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+
+const industries = [
+	{
+		name: 'Industrial & Manufacturing',
+		icon: Factory,
+		copy: 'Work tables, mobile carts, gas storage, guarding, and custom steel equipment for production floors and maintenance teams.',
+		links: [
+			{ label: 'Industrial tables', href: '/products/?filter=industrial-table#catalogue' },
+			{ label: 'Warehouse safety', href: '/products/?filter=warehouse-safety#catalogue' },
+		],
+	},
+	{
+		name: 'Construction',
+		icon: HardHat,
+		copy: 'Racks, carriers, bollards, and custom-fabricated handling equipment for jobsite staging and material movement.',
+		links: [
+			{ label: 'Material racks', href: '/products/?filter=material-rack#catalogue' },
+			{ label: 'Custom solutions', href: '/fabrication/' },
+		],
+	},
+	{
+		name: 'Warehousing & Logistics',
+		icon: Warehouse,
+		copy: 'Rack protectors, floor guards, bollards, propane cages, and mobile work platforms for active distribution environments.',
+		links: [
+			{ label: 'Safety guards', href: '/products/?filter=warehouse-safety#catalogue' },
+			{ label: 'Gas cages', href: '/products/?filter=gas-cage#catalogue' },
+		],
+	},
+	{
+		name: 'Oil & Gas',
+		icon: Fuel,
+		copy: 'Cylinder cages, forklift-tank storage, crane-compatible carriers, and heavy steel structures for controlled gas handling.',
+		links: [
+			{ label: 'Gas equipment', href: '/products/?filter=gas-cage#catalogue' },
+			{ label: 'Request quote', href: '/contact/' },
+		],
+	},
+	{
+		name: 'Commercial & Retail',
+		icon: Store,
+		copy: 'Propane cage programs, parking bollards, stainless service carts, and custom product storage for public-facing facilities.',
+		links: [
+			{ label: 'Propane cages', href: '/products/?filter=gas-cage#catalogue' },
+			{ label: 'Parking bollards', href: '/products/anti-theft-parking-bollard-collapsible/' },
+		],
+	},
+	{
+		name: 'Architectural & Design',
+		icon: DraftingCompass,
+		copy: 'Custom gates, panels, curtain-wall support pieces, decorative metalwork, and fabrication support for specialty builds.',
+		links: [
+			{ label: 'Custom solutions', href: '/fabrication/' },
+			{ label: 'Contact team', href: '/contact/' },
+		],
+	},
+	{
+		name: 'Transportation',
+		icon: Truck,
+		copy: 'Transport racks, carts, mobile A-frames, carriers, and protective equipment for movement-heavy operations.',
+		links: [
+			{ label: 'Transport racks', href: '/products/?filter=material-rack#catalogue' },
+			{ label: 'Tables and carts', href: '/products/?filter=industrial-table#catalogue' },
+		],
+	},
+	{
+		name: 'Municipal & Infrastructure',
+		icon: Landmark,
+		copy: 'Durable bollards, guards, custom fabricated parts, and public-site protection equipment built for long-term service.',
+		links: [
+			{ label: 'Bollards and guards', href: '/products/?filter=warehouse-safety#catalogue' },
+			{ label: 'Custom quote', href: '/contact/' },
+		],
+	},
+];
+---
+
+<BaseLayout title="Industries Served | ProSteel Equipment" description="ProSteel Equipment supports manufacturing, construction, warehousing, oil and gas, retail, architectural, transportation, municipal, and infrastructure applications.">
+	<main>
+		<PageHero
+			eyebrow="Industries served"
+			title="Heavy-duty metal products for working facilities"
+			copy="ProSteel supports industrial, commercial, construction, logistics, and specialty fabrication environments with catalogue equipment and made-to-order builds."
+			image="/images/prosteel/feature-transport.webp"
+			alt="ProSteel transport rack being handled in an industrial setting"
+		/>
+
+		<section class="industries-page" aria-labelledby="industries-title">
+			<div class="industries-page__heading">
+				<p>Application focused</p>
+				<h1 id="industries-title">Industries we serve</h1>
+			</div>
+			<div class="industries-page__grid">
+				{industries.map((industry) => {
+					const Icon = industry.icon;
+					return (
+						<article class="industry-card">
+							<Icon size={36} strokeWidth={1.8} aria-hidden="true" />
+							<h2>{industry.name}</h2>
+							<p>{industry.copy}</p>
+							<div>
+								{industry.links.map((link) => (
+									<a href={link.href}>{link.label} <ArrowRight size={15} strokeWidth={2} aria-hidden="true" /></a>
+								))}
+							</div>
+						</article>
+					);
+				})}
+			</div>
+		</section>
+
+		<section class="industry-feature">
+			<img src="/images/catalog/safety/heavy-duty-mid-rail-machine-guard-24x42-context.webp" alt="Yellow ProSteel machine guard installed along an industrial traffic route" loading="lazy" />
+			<div>
+				<p>Built around the site</p>
+				<h2>Catalogue products plus custom fabrication support.</h2>
+				<span>When a standard model does not match the load, footprint, finish, or handling method, ProSteel can adapt the build around the application.</span>
+				<a href="/contact/">Discuss your application</a>
+			</div>
+		</section>
+	</main>
+</BaseLayout>
+
+<style>
+	.industries-page { padding: 92px 24px 110px; background: #fff; }
+	.industries-page__heading { display: grid; width: min(100%, 1200px); margin: 0 auto 44px; grid-template-columns: .72fr 1.28fr; gap: 70px; }
+	.industries-page__heading p, .industry-feature p { margin: 0; color: #084fb4; font-size: 11px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+	.industries-page h1 { margin: 0; color: #071945; font-size: clamp(34px, 5vw, 56px); font-weight: 900; letter-spacing: -.04em; line-height: 1.04; text-transform: uppercase; }
+	.industries-page__grid { display: grid; width: min(100%, 1200px); margin: 0 auto; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: #dfe4ec; }
+	.industry-card { min-width: 0; min-height: 360px; padding: 30px 24px; background: #f7f9fc; color: #071945; }
+	.industry-card svg { color: #084fb4; }
+	.industry-card h2 { margin: 28px 0 0; font-size: 18px; font-weight: 900; letter-spacing: -.02em; line-height: 1.18; text-transform: uppercase; }
+	.industry-card p { min-height: 112px; margin: 16px 0 0; color: #5f6877; font-size: 13px; line-height: 1.65; }
+	.industry-card div { display: grid; gap: 7px; margin-top: 20px; }
+	.industry-card a { display: inline-flex; align-items: center; gap: 7px; color: #084fb4; font-size: 10px; font-weight: 900; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
+	.industry-card a:hover, .industry-card a:focus-visible { color: #071945; outline: none; }
+	.industry-feature { display: grid; grid-template-columns: 1fr 1fr; background: #071945; color: #fff; }
+	.industry-feature img { width: 100%; height: 100%; min-height: 620px; object-fit: cover; }
+	.industry-feature > div { display: flex; padding: 74px max(34px, calc((100vw - 1200px)/2)); flex-direction: column; justify-content: center; align-items: flex-start; }
+	.industry-feature p { color: #9fc8ff; }
+	.industry-feature h2 { max-width: 620px; margin: 14px 0 0; font-size: clamp(32px, 4vw, 52px); font-weight: 900; letter-spacing: -.04em; line-height: 1.05; text-transform: uppercase; }
+	.industry-feature span { max-width: 560px; margin-top: 22px; color: rgba(255, 255, 255, .76); font-size: 14px; line-height: 1.75; }
+	.industry-feature a { display: inline-flex; min-height: 48px; margin-top: 34px; padding: 0 22px; align-items: center; border-radius: 4px; background: #fff; color: #071945; font-size: 10px; font-weight: 900; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
+	.industry-feature a:hover, .industry-feature a:focus-visible { background: #9fc8ff; outline: none; }
+	@media (max-width: 1040px) { .industries-page__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .industry-card p { min-height: auto; } }
+	@media (max-width: 840px) { .industries-page__heading { grid-template-columns: 1fr; gap: 18px; } .industry-feature { grid-template-columns: 1fr; } .industry-feature img { min-height: 420px; } .industry-feature > div { padding: 60px 24px; } }
+	@media (max-width: 560px) { .industries-page { padding: 68px 20px 78px; } .industries-page__grid { grid-template-columns: 1fr; } .industry-card { min-height: 290px; padding: 26px 22px; } .industry-feature img { min-height: 330px; } }
+</style>
