@@ -6,7 +6,6 @@ import {
 	CheckCircle2,
 	ClipboardCheck,
 	Container,
-	Cylinder,
 	DraftingCompass,
 	Factory,
 	Fuel,
@@ -14,13 +13,13 @@ import {
 	HardHat,
 	Landmark,
 	MapPinned,
+	ShoppingCart,
 	ShieldCheck,
 	Store,
-	Table2,
-	Triangle,
 	Truck,
 	Users,
 	Warehouse,
+	Weight,
 	Wrench,
 } from 'lucide-astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -29,35 +28,41 @@ const solutionCards = [
 	{
 		title: 'Metal Gas Cages',
 		text: 'Secure, heavy-duty storage cages for propane, forklift, welding, oxygen, and industrial gas cylinders.',
-		image: '/images/catalog/gas/pse-20-24.webp',
-		alt: 'Yellow ProSteel gas cylinder cage',
+		image: '/images/catalog/gas/pse-20-24-context.webp',
+		alt: 'Yellow ProSteel PSE 20-24 gas cage securely storing propane cylinders at a commercial property',
 		href: '/products/?filter=gas-cage#catalogue',
-		icon: Cylinder,
+		icon: Weight,
 		accent: '#095bc5',
+		imageFit: 'cover',
+		imagePadding: '0px',
 	},
 	{
 		title: 'Metal A Frames & Transport Solutions',
 		text: 'Durable transportation and storage systems for glass, stone, slabs, panels, and other large materials.',
-		image: '/images/catalog/racks/double-sided-transport-rack.webp',
-		alt: 'Black double-sided ProSteel transport rack',
+		image: '/images/catalog/racks/double-sided-transport-rack-context.webp',
+		alt: 'Black double-sided ProSteel transport rack carrying glass panels by forklift',
 		href: '/products/?filter=material-rack#catalogue',
-		icon: Triangle,
+		icon: DraftingCompass,
 		accent: '#0a315f',
+		imageFit: 'cover',
+		imagePadding: '0px',
 	},
 	{
 		title: 'Metal Tables & Carts',
 		text: 'Industrial work tables, stainless tables, platform carts, and mobile material-handling workstations.',
-		image: '/images/catalog/tables/heavy-duty-industrial-metal-top-platform-cart.webp',
-		alt: 'Heavy-duty ProSteel metal top platform cart',
+		image: '/images/catalog/tables/heavy-duty-industrial-metal-top-platform-cart-context.webp',
+		alt: 'Heavy-duty ProSteel metal top platform cart in an industrial fabrication workspace',
 		href: '/products/?filter=industrial-table#catalogue',
-		icon: Table2,
+		icon: ShoppingCart,
 		accent: '#4f8b1f',
+		imageFit: 'cover',
+		imagePadding: '0px',
 	},
 	{
 		title: 'Warehouse Safety Equipment',
 		text: 'Bollards, rack protectors, door track guards, floor guards, and protective equipment for industrial facilities.',
-		image: '/images/catalog/safety/heavy-duty-mid-rail-machine-guard-24x42-context.webp',
-		alt: 'Yellow ProSteel warehouse safety machine guard installed in an industrial facility',
+		image: '/images/catalog/safety/heavy-duty-bollard-bolt-down-4-dia-48-context.webp',
+		alt: 'Yellow 4 by 48 inch ProSteel bolt-down bollard protecting an industrial doorway',
 		href: '/products/?filter=warehouse-safety#catalogue',
 		icon: ShieldCheck,
 		accent: '#ed8a00',
@@ -166,7 +171,7 @@ const industries = [
 						<article class="solution-card" style={`--accent:${solution.accent};--image-fit:${solution.imageFit ?? 'contain'};--image-padding:${solution.imagePadding ?? '18px'}`}>
 							<a class="solution-card__image" href={solution.href}>
 								<img src={solution.image} alt={solution.alt} loading="lazy" />
-								<span><Icon size={25} strokeWidth={2} aria-hidden="true" /></span>
+								<span><Icon size={30} strokeWidth={1.9} aria-hidden="true" /></span>
 							</a>
 							<div class="solution-card__body">
 								<h3>{solution.title}</h3>
@@ -502,7 +507,7 @@ const industries = [
 
 	.solutions__grid {
 		display: grid;
-		grid-template-columns: repeat(6, minmax(0, 1fr));
+		grid-template-columns: repeat(5, minmax(0, 1fr));
 		gap: 18px;
 		margin-top: 28px;
 	}
@@ -539,19 +544,28 @@ const industries = [
 	.solution-card__image span {
 		position: absolute;
 		right: 50%;
-		bottom: -26px;
+		bottom: -32px;
 		display: grid;
-		width: 54px;
-		height: 54px;
+		width: 64px;
+		height: 64px;
 		place-items: center;
-		border: 3px solid #fff;
-		background: var(--accent);
+		background: #fff;
+		clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
 		color: #fff;
-		transform: translateX(50%) rotate(45deg);
+		transform: translateX(50%);
+	}
+
+	.solution-card__image span::before {
+		position: absolute;
+		inset: 3px;
+		background: var(--accent);
+		clip-path: inherit;
+		content: '';
 	}
 
 	.solution-card__image svg {
-		transform: rotate(-45deg);
+		position: relative;
+		z-index: 1;
 	}
 
 	.solution-card:hover .solution-card__image img,
@@ -563,7 +577,7 @@ const industries = [
 		display: flex;
 		flex: 1;
 		flex-direction: column;
-		padding: 44px 18px 20px;
+		padding: 50px 18px 20px;
 		text-align: center;
 	}
 
@@ -1035,10 +1049,9 @@ const industries = [
 		}
 
 		.solution-card__image span {
-			bottom: -18px;
-			width: 40px;
-			height: 40px;
-			border-width: 2px;
+			bottom: -22px;
+			width: 44px;
+			height: 44px;
 		}
 
 		.solution-card__image svg {

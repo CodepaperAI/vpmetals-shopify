@@ -48,7 +48,7 @@ const brochureConfig = product.collection === 'material-rack'
 	: product.collection === 'warehouse-safety'
 		? {
 				previewImage: product.brochurePreviewImage ?? `/images/catalog/brochures/safety/${product.slug}-brochure.webp`,
-				previewAlt: `${product.name} brochure panel with product photos, specifications, and B2C pricing`,
+				previewAlt: `${product.category} family brochure panel with available models, specifications, and B2C pricing`,
 				links: [
 					{ label: 'Product brochure', href: '/brochures/prosteel-bollard-guard-brochure.pdf' },
 					{ label: 'B2C price sheet', href: '/brochures/prosteel-bollard-guard-b2c-price.pdf' },
@@ -57,7 +57,7 @@ const brochureConfig = product.collection === 'material-rack'
 		: null;
 const galleryItems = [
 	{ label: 'Product photo', image: product.image, alt: product.alt, kind: 'photo' as const },
-	{ label: 'Application photo', image: product.contextImage, alt: `${product.name} shown in an application setting`, kind: 'photo' as const },
+	{ label: 'Application example', image: product.contextImage, alt: `${product.name} application example; product size and configuration shown may vary`, kind: 'photo' as const },
 	...(brochureConfig
 			? [
 				{
