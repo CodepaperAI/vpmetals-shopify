@@ -14,7 +14,7 @@
     <a class="skip-link visually-hidden" href="#MainContent">Skip to content</a>
     {% sections 'header-group' %}
     <main id="MainContent" tabindex="-1">{{ content_for_layout }}</main>
-    {% sections 'footer-group' %}
+    {% unless request.page_type == 'index' %}{% sections 'footer-group' %}{% endunless %}
     <script src="{{ 'theme.js' | asset_url }}" defer></script>
   </body>
 </html>
