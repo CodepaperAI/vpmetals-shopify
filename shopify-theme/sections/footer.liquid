@@ -32,7 +32,7 @@
     </div>
   </div>
   <div class="site-footer__bottom page-width">
-    <span>© {{ 'now' | date: '%Y' }} Pro Steel Equipment. All rights reserved.</span>
+    <span>© {{ 'now' | date: '%Y' }} Pro Steel Equipment. All rights reserved. <a href="/pages/lifetime-warranty">Lifetime Warranty Terms</a></span>
     {% if section.settings.show_payment_icons %}<div class="site-footer__payments">{% for type in shop.enabled_payment_types %}{{ type | payment_type_svg_tag }}{% endfor %}</div>{% endif %}
   </div>
 </footer>
