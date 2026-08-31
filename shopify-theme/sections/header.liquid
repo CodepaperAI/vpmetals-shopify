@@ -2,7 +2,7 @@
   <div class="site-header__inner page-width">
     <a class="site-header__brand" href="{{ routes.root_url }}" aria-label="{{ shop.name }} home">
       {% if section.settings.logo != blank %}
-        {{ section.settings.logo | image_url: width: 360 | image_tag: widths: '180,240,360', width: 180, loading: 'eager', alt: shop.name }}
+        <img src="{{ section.settings.logo | image_url: width: 360 }}" width="180" height="72" loading="eager" alt="{{ shop.name | escape }}">
       {% else %}
         <img src="{{ 'prosteel-logo.png' | asset_url }}" width="180" height="72" loading="eager" alt="{{ shop.name | escape }}">
       {% endif %}
