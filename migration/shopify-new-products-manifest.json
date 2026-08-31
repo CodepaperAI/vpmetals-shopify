@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-30T19:51:53.757Z",
+  "generatedAt": "2026-08-31T14:49:27.894Z",
   "source": "src/data/catalog.ts",
   "currency": "CAD",
   "newProductCount": 59,
@@ -579,23 +579,23 @@
       "collection": "material-rack",
       "category": "Slab Rack",
       "price": 2850,
-      "image": "/images/catalog/racks/multi-purpose-slab-rack.webp",
-      "contextImage": "/images/catalog/racks/multi-purpose-slab-rack-context.webp",
-      "alt": "Multi-purpose slab rack with capped steel posts",
+      "image": "/images/catalog/racks/heavy-duty-bundle-slab-rack.webp",
+      "contextImage": "/images/catalog/racks/heavy-duty-bundle-slab-rack-context.webp",
+      "alt": "Black multi-purpose slab rack with ten removable posts per base",
       "description": "A configurable post-and-rail slab rack for flexible storage of heavy stone, glass, and panel materials.",
       "application": "Stone yards, glass facilities, warehouses, fabrication operations, and configurable slab storage.",
       "specs": [
         {
           "label": "Work load limit",
-          "value": "6,000 lb / 2,721.55 kg"
+          "value": "6,481 lb / 2,940 kg"
         },
         {
           "label": "Dimensions",
           "value": "120 L x 8 W x 60 H in"
         },
         {
-          "label": "Net weight per pair",
-          "value": "690 lb / 313 kg"
+          "label": "Net weight per post",
+          "value": "4,700 lb / 2,131 kg"
         },
         {
           "label": "Poles / holes",
@@ -621,24 +621,24 @@
       "collection": "material-rack",
       "category": "Slab Rack",
       "price": 3400,
-      "image": "/images/catalog/racks/heavy-duty-bundle-slab-rack.webp",
-      "contextImage": "/images/catalog/racks/heavy-duty-bundle-slab-rack-context.webp",
-      "alt": "Heavy-duty bundle slab rack with capped steel posts storing stone slabs",
+      "image": "/images/catalog/racks/multi-purpose-slab-rack.webp",
+      "contextImage": "/images/catalog/racks/multi-purpose-slab-rack-context.webp",
+      "alt": "Silver heavy-duty bundle slab rack with timber-lined rails and white rubber post caps",
       "featured": true,
       "description": "A reinforced post-and-rail storage system for heavy slab bundles, with protective timber and capped uprights.",
       "application": "Stone distributors, slab warehouses, fabrication facilities, and high-capacity bundle storage.",
       "specs": [
         {
           "label": "Work load limit",
-          "value": "6,000 lb / 2,721.55 kg"
+          "value": "6,481 lb / 2,940 kg"
         },
         {
           "label": "Dimensions",
           "value": "120 L x 8 W x 63 H in"
         },
         {
-          "label": "Net weight per pair",
-          "value": "925 lb / 420 kg"
+          "label": "Net weight per post",
+          "value": "4,700 lb / 2,131 kg"
         },
         {
           "label": "Poles / holes",

@@ -238,14 +238,14 @@ export const rackProducts: CatalogProduct[] = [
 		specs: [{ label: 'Capacity', value: '9,000 lb per side' }, { label: 'Dimensions', value: '72 L x 30 W x 60 H in' }, { label: 'Frame', value: '2 x 2 in square pipe' }, { label: 'Base', value: '3 in U-channel' }], features: rackFeatures,
 	},
 	{
-		slug: 'multi-purpose-slab-rack', name: 'Multi-Purpose Slab Rack', model: 'PSE PS10', collection: 'material-rack', category: 'Slab Rack', price: 2850, image: rackImage('multi-purpose-slab-rack'), contextImage: rackContext('multi-purpose-slab-rack'), alt: 'Multi-purpose slab rack with capped steel posts',
+		slug: 'multi-purpose-slab-rack', name: 'Multi-Purpose Slab Rack', model: 'PSE PS10', collection: 'material-rack', category: 'Slab Rack', price: 2850, image: rackImage('heavy-duty-bundle-slab-rack'), contextImage: rackContext('heavy-duty-bundle-slab-rack'), alt: 'Black multi-purpose slab rack with ten removable posts per base',
 		description: 'A configurable post-and-rail slab rack for flexible storage of heavy stone, glass, and panel materials.', application: 'Stone yards, glass facilities, warehouses, fabrication operations, and configurable slab storage.',
-		specs: [{ label: 'Work load limit', value: '6,000 lb / 2,721.55 kg' }, { label: 'Dimensions', value: '120 L x 8 W x 60 H in' }, { label: 'Net weight per pair', value: '690 lb / 313 kg' }, { label: 'Poles / holes', value: '10 / 10' }, { label: 'Post options', value: '60, 48, or 36 in' }], features: ['Configurable removable post system', ...rackFeatures],
+		specs: [{ label: 'Work load limit', value: '6,481 lb / 2,940 kg' }, { label: 'Dimensions', value: '120 L x 8 W x 60 H in' }, { label: 'Net weight per post', value: '4,700 lb / 2,131 kg' }, { label: 'Poles / holes', value: '10 / 10' }, { label: 'Post options', value: '60, 48, or 36 in' }], features: ['Configurable removable post system', ...rackFeatures],
 	},
 	{
-		slug: 'heavy-duty-bundle-slab-rack', name: 'Heavy-Duty Bundle Slab Rack With Rubber Cap', model: 'PSE PS10', collection: 'material-rack', category: 'Slab Rack', price: 3400, image: rackImage('heavy-duty-bundle-slab-rack'), contextImage: rackContext('heavy-duty-bundle-slab-rack'), alt: 'Heavy-duty bundle slab rack with capped steel posts storing stone slabs', featured: true,
+		slug: 'heavy-duty-bundle-slab-rack', name: 'Heavy-Duty Bundle Slab Rack With Rubber Cap', model: 'PSE PS10', collection: 'material-rack', category: 'Slab Rack', price: 3400, image: rackImage('multi-purpose-slab-rack'), contextImage: rackContext('multi-purpose-slab-rack'), alt: 'Silver heavy-duty bundle slab rack with timber-lined rails and white rubber post caps', featured: true,
 		description: 'A reinforced post-and-rail storage system for heavy slab bundles, with protective timber and capped uprights.', application: 'Stone distributors, slab warehouses, fabrication facilities, and high-capacity bundle storage.',
-		specs: [{ label: 'Work load limit', value: '6,000 lb / 2,721.55 kg' }, { label: 'Dimensions', value: '120 L x 8 W x 63 H in' }, { label: 'Net weight per pair', value: '925 lb / 420 kg' }, { label: 'Poles / holes', value: '10 / 11' }, { label: 'Post options', value: '63, 48, or 36 in' }],
+		specs: [{ label: 'Work load limit', value: '6,481 lb / 2,940 kg' }, { label: 'Dimensions', value: '120 L x 8 W x 63 H in' }, { label: 'Net weight per post', value: '4,700 lb / 2,131 kg' }, { label: 'Poles / holes', value: '10 / 11' }, { label: 'Post options', value: '63, 48, or 36 in' }],
 		features: ['5 mm wall extra-strong square steel posts', 'Heavy-duty steel base rails', 'Timber protection on base rails', 'Square rubber caps on uprights', ...rackFeatures],
 	},
 	{
