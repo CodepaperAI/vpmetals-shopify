@@ -1,0 +1,29 @@
+<section class="home-hero">
+  <div class="home-hero__inner page-width">
+    <div class="home-hero__copy"><p class="eyebrow">Canadian-made industrial equipment</p><h1>Heavy-duty metal products. <span>Built for all your needs.</span></h1><p>Industrial, commercial, and architectural metal products engineered for strength, functionality, and long-term performance.</p><div><a class="ps-button" href="{{ routes.all_products_collection_url }}">Explore products →</a><a class="ps-button ps-button--outline" href="{{ section.settings.quote_url | default: '/pages/contact' }}">Request a quote</a></div></div>
+    <div class="home-hero__image"><img src="{{ 'prosteel-hero.png' | asset_url }}" width="1100" height="825" loading="eager" alt="ProSteel industrial equipment collection"></div>
+  </div>
+</section>
+<section class="home-solutions page-width">
+  <div class="home-heading"><p class="eyebrow">Product catalogue</p><h2>Built for demanding environments</h2><p>Explore secure storage, transport, work-area, and warehouse safety equipment.</p></div>
+  <div class="home-solutions__grid">
+    {% assign category_images = 'category-gas-cages.webp,category-racks.webp,category-tables.webp,category-safety.png' | split: ',' %}
+    {% assign category_titles = 'Metal Gas Cages,Metal A-Frames & Transport,Metal Tables & Carts,Warehouse Safety' | split: ',' %}
+    {% assign category_handles = 'gas-cages-carriers,material-racks-transport,industrial-tables-carts,warehouse-safety' | split: ',' %}
+    {% for title in category_titles %}
+      <a class="home-solution" href="{{ routes.collections_url }}/{{ category_handles[forloop.index0] }}">
+        <img src="{{ category_images[forloop.index0] | asset_url }}" width="700" height="584" loading="lazy" alt="{{ title | escape }}">
+        <div><span>0{{ forloop.index }}</span><h3>{{ title }}</h3><b>View products →</b></div>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+<section class="home-fabrication">
+  <div class="home-fabrication__inner page-width"><div class="home-fabrication__image"><img src="{{ 'fabrication-welding.webp' | asset_url }}" width="1000" height="750" loading="lazy" alt="ProSteel welding and custom fabrication"></div><div class="home-fabrication__copy"><p class="eyebrow">Custom solutions</p><h2>From concept to finished steel.</h2><p>Laser cutting, forming, machining, welding, finishing, and prototyping under one roof—built around your application.</p><ul><li>CNC laser cutting</li><li>Precision forming & machining</li><li>Welding & assembly</li><li>Powder coating & finishing</li><li>Design & prototyping</li></ul><a class="ps-button ps-button--light" href="{{ section.settings.fabrication_url | default: '/pages/custom-solutions' }}">Start a custom project →</a></div></div>
+</section>
+{% stylesheet %}
+  .home-hero{overflow:hidden;background:linear-gradient(125deg,#f5f8fc 0%,#fff 58%)}.home-hero__inner{min-height:690px;display:grid;grid-template-columns:1fr 1.08fr;align-items:center;gap:48px}.home-hero__copy h1{max-width:760px;margin:8px 0 22px;color:#071c44;font-size:clamp(3rem,6vw,6.5rem);line-height:.94;letter-spacing:-.055em;text-transform:uppercase}.home-hero__copy h1 span{color:#0757b6}.home-hero__copy>p:not(.eyebrow){max-width:610px;color:#566477;font-size:1.08rem}.home-hero__copy>div{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}.home-hero__image img{width:100%;filter:drop-shadow(0 30px 50px rgba(0,27,66,.18))}.home-solutions{padding-block:100px}.home-heading{display:grid;grid-template-columns:1fr 1.3fr;gap:16px 60px;align-items:end;margin-bottom:42px}.home-heading .eyebrow{grid-column:1/-1}.home-heading h2{margin:0;color:#071c44;font-size:clamp(2rem,4vw,4.2rem);line-height:1;letter-spacing:-.04em;text-transform:uppercase}.home-heading>p:last-child{margin:0;color:#657286}.home-solutions__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.home-solution{overflow:hidden;border:1px solid #dbe2eb;background:#fff;text-decoration:none;box-shadow:0 8px 30px rgba(7,28,68,.04)}.home-solution>img{width:100%;aspect-ratio:1.2/1;object-fit:cover;transition:transform .3s}.home-solution:hover>img{transform:scale(1.035)}.home-solution>div{padding:24px}.home-solution span{color:#0757b6;font-size:.7rem;font-weight:900}.home-solution h3{min-height:58px;margin:9px 0 20px;color:#071c44;font-size:1.12rem;line-height:1.2;text-transform:uppercase}.home-solution b{color:#0757b6;font-size:.75rem;text-transform:uppercase}.home-fabrication{background:#0d1117;color:#fff}.home-fabrication__inner{display:grid;grid-template-columns:1.05fr .95fr}.home-fabrication__image img{width:100%;height:100%;min-height:620px;object-fit:cover}.home-fabrication__copy{padding:80px}.home-fabrication h2{margin:8px 0 20px;font-size:clamp(2.4rem,4vw,4.8rem);line-height:1;letter-spacing:-.04em;text-transform:uppercase}.home-fabrication p{color:#c3cad3}.home-fabrication ul{display:grid;grid-template-columns:1fr 1fr;gap:12px 25px;margin:30px 0;padding:0;list-style:none}.home-fabrication li{padding-bottom:8px;border-bottom:1px solid #303843;font-size:.84rem}@media(max-width:1050px){.home-hero__inner{min-height:auto;padding-block:70px;grid-template-columns:1fr}.home-hero__image{max-width:750px}.home-solutions__grid{grid-template-columns:1fr 1fr}.home-fabrication__copy{padding:54px 38px}}@media(max-width:720px){.home-heading,.home-fabrication__inner{grid-template-columns:1fr}.home-solutions{padding-block:65px}.home-solutions__grid{grid-template-columns:1fr}.home-fabrication__image img{min-height:360px}.home-fabrication__copy{padding:45px 24px}.home-fabrication ul{grid-template-columns:1fr}.home-hero__copy h1{font-size:2.75rem}}
+{% endstylesheet %}
+{% schema %}
+{"name":"ProSteel home","settings":[{"type":"url","id":"quote_url","label":"Quote page"},{"type":"url","id":"fabrication_url","label":"Custom solutions page"}],"presets":[{"name":"ProSteel home"}]}
+{% endschema %}

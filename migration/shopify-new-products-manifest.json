@@ -1,0 +1,2419 @@
+{
+  "generatedAt": "2026-08-30T19:51:53.757Z",
+  "source": "src/data/catalog.ts",
+  "currency": "CAD",
+  "newProductCount": 59,
+  "products": [
+    {
+      "slug": "pse-147-7-8",
+      "name": "8-Cylinder Welding Cage",
+      "model": "PSE 147.7-8",
+      "collection": "gas-cage",
+      "category": "Welding",
+      "price": 1520,
+      "image": "/images/catalog/gas/pse-147-7-8.webp",
+      "contextImage": "/images/catalog/gas/pse-147-7-8-context.webp",
+      "alt": "ProSteel cage for eight welding cylinders",
+      "description": "A secure vertical cage sized for eight 147.7 lb welding cylinders.",
+      "application": "Welding shops, fabrication facilities, maintenance departments, and construction operations.",
+      "specs": [
+        {
+          "label": "Cylinder",
+          "value": "147.7 lb welding tank"
+        },
+        {
+          "label": "Capacity",
+          "value": "8 cylinders"
+        },
+        {
+          "label": "Height",
+          "value": "72 in"
+        },
+        {
+          "label": "Width",
+          "value": "52 in"
+        },
+        {
+          "label": "Depth",
+          "value": "27.5 in"
+        }
+      ],
+      "features": [
+        "Exceptional solid metal fabrication",
+        "Meticulously primed and painted for severe weather exposure",
+        "Safety signage positioned at the top of the cage",
+        "Built for maximum durability",
+        "Backed by ProSteel's lifetime warranty"
+      ]
+    },
+    {
+      "slug": "pse-147-7-20",
+      "name": "20-Cylinder Welding Cage",
+      "model": "PSE 147.7-20",
+      "collection": "gas-cage",
+      "category": "Welding",
+      "price": 1955,
+      "image": "/images/catalog/gas/pse-147-7-20.webp",
+      "contextImage": "/images/catalog/gas/pse-147-7-20-context.webp",
+      "alt": "Large ProSteel cage for twenty welding cylinders",
+      "description": "The highest-capacity welding-cylinder cage in the catalogue, configured for twenty 147.7 lb tanks.",
+      "application": "High-volume fabrication, industrial gas storage, major construction projects, and distribution sites.",
+      "specs": [
+        {
+          "label": "Cylinder",
+          "value": "147.7 lb welding tank"
+        },
+        {
+          "label": "Capacity",
+          "value": "20 cylinders"
+        },
+        {
+          "label": "Height",
+          "value": "72 in"
+        },
+        {
+          "label": "Width",
+          "value": "64 in"
+        },
+        {
+          "label": "Depth",
+          "value": "40 in"
+        }
+      ],
+      "features": [
+        "Exceptional solid metal fabrication",
+        "Meticulously primed and painted for severe weather exposure",
+        "Safety signage positioned at the top of the cage",
+        "Built for maximum durability",
+        "Backed by ProSteel's lifetime warranty"
+      ]
+    },
+    {
+      "slug": "pse-147-7-16",
+      "name": "16-Cylinder Welding Cage",
+      "model": "PSE 147.7-16",
+      "collection": "gas-cage",
+      "category": "Welding",
+      "price": 1350,
+      "image": "/images/catalog/gas/pse-147-7-16.webp",
+      "contextImage": "/images/catalog/gas/pse-147-7-16-context.webp",
+      "alt": "Green ProSteel cage for sixteen welding cylinders",
+      "description": "A durable full-height enclosure for sixteen large welding cylinders.",
+      "application": "Fabrication facilities, industrial gas programs, maintenance operations, and manufacturing plants.",
+      "specs": [
+        {
+          "label": "Cylinder",
+          "value": "147.7 lb welding tank"
+        },
+        {
+          "label": "Capacity",
+          "value": "16 cylinders"
+        },
+        {
+          "label": "Height",
+          "value": "73 in"
+        },
+        {
+          "label": "Width",
+          "value": "45 in"
+        },
+        {
+          "label": "Depth",
+          "value": "35 in"
+        }
+      ],
+      "features": [
+        "Exceptional solid metal fabrication",
+        "Meticulously primed and painted for severe weather exposure",
+        "Safety signage positioned at the top of the cage",
+        "Built for maximum durability",
+        "Backed by ProSteel's lifetime warranty"
+      ]
+    },
+    {
+      "slug": "pse-al-147-7-16",
+      "name": "Aluminum Oxygen Cylinder Cage",
+      "model": "PSE AL 147.7-16",
+      "collection": "gas-cage",
+      "category": "Medical Gas",
+      "price": 1750,
+      "image": "/images/catalog/gas/pse-al-147-7-16.webp",
+      "contextImage": "/images/catalog/gas/pse-al-147-7-16-context.webp",
+      "alt": "Laser-cut aluminum ProSteel oxygen cylinder cage",
+      "featured": true,
+      "description": "A laser-cut aluminum cage designed for secure storage of eight 135 lb oxygen cylinders.",
+      "application": "Hospitals, medical facilities, laboratories, clinics, and industrial oxygen-cylinder storage.",
+      "specs": [
+        {
+          "label": "Cylinder",
+          "value": "135 lb oxygen tank"
+        },
+        {
+          "label": "Capacity",
+          "value": "8 cylinders"
+        },
+        {
+          "label": "Height",
+          "value": "76 in"
+        },
+        {
+          "label": "Width",
+          "value": "31 in"
+        },
+        {
+          "label": "Depth",
+          "value": "27 in"
+        }
+      ],
+      "features": [
+        "Laser-cut aluminum sheet construction",
+        "Safety signage positioned at the top of the cage",
+        "Built for maximum durability",
+        "Backed by ProSteel's lifetime warranty"
+      ]
+    },
+    {
+      "slug": "economy-a-frame",
+      "name": "Economy A-Frame",
+      "model": "Economy A-Frame",
+      "collection": "material-rack",
+      "category": "A-Frame",
+      "price": 550,
+      "image": "/images/catalog/racks/economy-a-frame.webp",
+      "contextImage": "/images/catalog/racks/economy-a-frame-context.webp",
+      "alt": "Orange Economy A-Frame holding stone slabs",
+      "featured": true,
+      "description": "A double-sided slab rack for stone, wood, and glass with a high rated capacity on each side.",
+      "application": "Stone shops, glass operations, wood panel handling, fabrication facilities, and warehouse storage.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "12,000 lb per side"
+        },
+        {
+          "label": "Dimensions",
+          "value": "60 L x 60 W x 58 H in"
+        },
+        {
+          "label": "Frame",
+          "value": "2 x 2 in square pipe"
+        },
+        {
+          "label": "Base",
+          "value": "3 in U-channel"
+        }
+      ],
+      "features": [
+        "Full slab support design",
+        "Weather-resistant protective coating",
+        "Drainage holes in the base rails help reduce corrosion",
+        "Lean-back geometry supports stable material positioning",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "single-sided-a-frame",
+      "name": "Single-Sided A-Frame",
+      "model": "Single-Sided A-Frame",
+      "collection": "material-rack",
+      "category": "A-Frame",
+      "price": 490,
+      "image": "/images/catalog/racks/single-sided-a-frame.webp",
+      "contextImage": "/images/catalog/racks/single-sided-a-frame-context.webp",
+      "alt": "Single-sided A-frame with stone samples",
+      "description": "A wall-oriented single-sided rack providing high-capacity slab support where floor space is limited.",
+      "application": "Stone showrooms, glass shops, warehouses, and wall-side material storage.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "12,000 lb"
+        },
+        {
+          "label": "Dimensions",
+          "value": "48 W x 60 H in"
+        },
+        {
+          "label": "Frame",
+          "value": "2 x 2 in square pipe"
+        },
+        {
+          "label": "Base",
+          "value": "3 in U-channel"
+        }
+      ],
+      "features": [
+        "Full slab support design",
+        "Weather-resistant protective coating",
+        "Drainage holes in the base rails help reduce corrosion",
+        "Lean-back geometry supports stable material positioning",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "heavy-duty-a-frame",
+      "name": "Heavy Duty A-Frame",
+      "model": "Heavy Duty A-Frame",
+      "collection": "material-rack",
+      "category": "A-Frame",
+      "price": 1450,
+      "image": "/images/catalog/racks/heavy-duty-a-frame.webp",
+      "contextImage": "/images/catalog/racks/heavy-duty-a-frame-context.webp",
+      "alt": "Heavy-duty A-frame rack in a production facility",
+      "featured": true,
+      "description": "A robust double-sided A-frame developed for demanding slab and panel storage.",
+      "application": "Stone, glass, architectural millwork, manufacturing, and heavy panel storage.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "12,000 lb per side"
+        },
+        {
+          "label": "Dimensions",
+          "value": "72 L x 48 W x 48 H in"
+        },
+        {
+          "label": "Frame",
+          "value": "2 x 2 in square pipe"
+        }
+      ],
+      "features": [
+        "Full slab support design",
+        "Weather-resistant protective coating",
+        "Drainage holes in the base rails help reduce corrosion",
+        "Lean-back geometry supports stable material positioning",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "double-sided-transport-rack",
+      "name": "Double-Sided Transport & Storage Rack",
+      "model": "Double-Sided Transport Rack",
+      "collection": "material-rack",
+      "category": "Transport Rack",
+      "price": 1690,
+      "image": "/images/catalog/racks/double-sided-transport-rack.webp",
+      "contextImage": "/images/catalog/racks/double-sided-transport-rack-context.webp",
+      "alt": "Double-sided rack transporting glass by forklift",
+      "featured": true,
+      "description": "A double-sided A-frame engineered to combine material storage with forklift transport.",
+      "application": "Glass fabrication, stone operations, window and door manufacturing, and internal logistics.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "9,000 lb"
+        },
+        {
+          "label": "Dimensions",
+          "value": "96 L x 48 W x 60 H in"
+        },
+        {
+          "label": "Frame",
+          "value": "1.5 x 1.5 in square pipe"
+        }
+      ],
+      "features": [
+        "Full slab support design",
+        "Weather-resistant protective coating",
+        "Drainage holes in the base rails help reduce corrosion",
+        "Lean-back geometry supports stable material positioning",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "modular-transport-rack",
+      "name": "Metal Modular Transport Rack",
+      "model": "Modular Transport Rack",
+      "collection": "material-rack",
+      "category": "Transport Rack",
+      "price": 1250,
+      "image": "/images/catalog/racks/modular-transport-rack.webp",
+      "contextImage": "/images/catalog/racks/modular-transport-rack-context.webp",
+      "alt": "Modular transport rack loaded on a pickup truck",
+      "description": "A modular rack designed for supported transport of slab and panel materials.",
+      "application": "On-site delivery, stone and glass transport, fabrication shops, and field installation crews.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "7,600 lb per side"
+        },
+        {
+          "label": "Dimensions",
+          "value": "72 L x 48 W x 60 H in"
+        },
+        {
+          "label": "Frame",
+          "value": "2 x 2 in square pipe"
+        },
+        {
+          "label": "Base",
+          "value": "3 in U-channel"
+        }
+      ],
+      "features": [
+        "Weather-resistant protective coating",
+        "Drainage holes in the base rails help reduce corrosion",
+        "Lean-back geometry supports stable material positioning",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "mobile-a-frame",
+      "name": "Mobile A-Frame Transport Rack",
+      "model": "Mobile A-Frame",
+      "collection": "material-rack",
+      "category": "Mobile Rack",
+      "price": 1800,
+      "image": "/images/catalog/racks/mobile-a-frame.webp",
+      "contextImage": "/images/catalog/racks/mobile-a-frame-context.webp",
+      "alt": "Blue mobile A-frame carrying stone slabs",
+      "featured": true,
+      "description": "A mobile A-frame that brings slab storage directly into the production workflow.",
+      "application": "Stone fabrication, glass processing, production lines, staging, and shop-floor movement.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "7,000 lb per side"
+        },
+        {
+          "label": "Dimensions",
+          "value": "72 L x 48 W x 60 H in"
+        },
+        {
+          "label": "Frame",
+          "value": "1.5 x 1.5 in square pipe"
+        }
+      ],
+      "features": [
+        "Mobile caster-supported design",
+        "Full slab support design",
+        "Weather-resistant protective coating",
+        "Drainage holes in the base rails help reduce corrosion",
+        "Lean-back geometry supports stable material positioning",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "mobile-l-frame",
+      "name": "Mobile L-Frame Transport Rack",
+      "model": "Mobile L-Frame",
+      "collection": "material-rack",
+      "category": "Mobile Rack",
+      "price": 1345,
+      "image": "/images/catalog/racks/mobile-l-frame.webp",
+      "contextImage": "/images/catalog/racks/mobile-l-frame-context.webp",
+      "alt": "Single-sided mobile rack for narrow warehouse use",
+      "description": "A mobile single-sided L-frame without a centre post, created for efficient access in constrained spaces.",
+      "application": "Narrow warehouses, glass and stone production, staging aisles, and wall-side storage.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "3,000 lb per side"
+        },
+        {
+          "label": "Dimensions",
+          "value": "72 L x 30 W x 60 H in"
+        },
+        {
+          "label": "Front pole",
+          "value": "30 in"
+        },
+        {
+          "label": "Frame",
+          "value": "2 x 2 in square pipe"
+        }
+      ],
+      "features": [
+        "No centre post",
+        "Full slab support design",
+        "Weather-resistant protective coating",
+        "Drainage holes in the base rails help reduce corrosion",
+        "Lean-back geometry supports stable material positioning",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "stone-fabrication-a-frame",
+      "name": "Stone Fabrication A-Frame",
+      "model": "Double-Sided Stone A-Frame",
+      "collection": "material-rack",
+      "category": "A-Frame",
+      "price": 475,
+      "image": "/images/catalog/racks/stone-fabrication-a-frame.webp",
+      "contextImage": "/images/catalog/racks/stone-fabrication-a-frame-context.webp",
+      "alt": "Double-sided rack for stone fabrication facilities",
+      "description": "A compact double-sided A-frame configured for stone fabrication environments.",
+      "application": "Stone fabrication facilities, countertop production, slab staging, and work-in-progress storage.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "9,000 lb per side"
+        },
+        {
+          "label": "Dimensions",
+          "value": "60 W x 58 H in"
+        },
+        {
+          "label": "Frame",
+          "value": "2 x 2 in square pipe"
+        },
+        {
+          "label": "Base",
+          "value": "3 in U-channel"
+        }
+      ],
+      "features": [
+        "Weather-resistant protective coating",
+        "Drainage holes in the base rails help reduce corrosion",
+        "Lean-back geometry supports stable material positioning",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "solo-shelf-rack",
+      "name": "Solo Shelf Rack",
+      "model": "Solo Shelf Rack - 2 Piece",
+      "collection": "material-rack",
+      "category": "Single-Sided Rack",
+      "price": 1550,
+      "image": "/images/catalog/racks/solo-shelf-rack.webp",
+      "contextImage": "/images/catalog/racks/solo-shelf-rack-context.webp",
+      "alt": "Two-piece Solo Shelf Rack in a paint facility",
+      "description": "A two-piece single-sided rack system for flexible slab and panel positioning.",
+      "application": "Paint shops, fabrication facilities, narrow work areas, and flexible material staging.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "5,200 lb per side"
+        },
+        {
+          "label": "Dimensions",
+          "value": "34 L x 39 W x 57 H in"
+        },
+        {
+          "label": "Frame",
+          "value": "2 x 2 in square pipe"
+        }
+      ],
+      "features": [
+        "Weather-resistant protective coating",
+        "Drainage holes in the base rails help reduce corrosion",
+        "Lean-back geometry supports stable material positioning",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "one-side-l-frame",
+      "name": "One-Side L-Frame for Glass",
+      "model": "One-Side L-Frame",
+      "collection": "material-rack",
+      "category": "Single-Sided Rack",
+      "price": 1350,
+      "image": "/images/catalog/racks/one-side-l-frame.webp",
+      "contextImage": "/images/catalog/racks/one-side-l-frame-context.webp",
+      "alt": "One-side L-frame carrying large glass sheets",
+      "description": "A high-capacity single-sided L-frame developed for glass sheets and large panels.",
+      "application": "Glass manufacturing, glazing operations, window and door production, and sheet storage.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "8,500 lb per side"
+        },
+        {
+          "label": "Dimensions",
+          "value": "72 L x 30 W x 60 H in"
+        },
+        {
+          "label": "Frame",
+          "value": "2 x 2 in square pipe"
+        }
+      ],
+      "features": [
+        "Full slab support design",
+        "Weather-resistant protective coating",
+        "Drainage holes in the base rails help reduce corrosion",
+        "Lean-back geometry supports stable material positioning",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "heavy-duty-double-sided-a-frame",
+      "name": "Heavy Duty Double-Sided A-Frame",
+      "model": "Heavy Duty Double-Sided A-Frame",
+      "collection": "material-rack",
+      "category": "A-Frame",
+      "price": 1450,
+      "image": "/images/catalog/racks/heavy-duty-double-sided-a-frame.webp",
+      "contextImage": "/images/catalog/racks/heavy-duty-double-sided-a-frame-context.webp",
+      "alt": "Heavy-duty double-sided A-frame storage rack",
+      "description": "A compact heavy-duty double-sided rack for high-capacity slab storage.",
+      "application": "Stone, glass, wood panels, fabrication plants, and industrial warehouses.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "9,000 lb per side"
+        },
+        {
+          "label": "Dimensions",
+          "value": "72 L x 30 W x 60 H in"
+        },
+        {
+          "label": "Frame",
+          "value": "2 x 2 in square pipe"
+        },
+        {
+          "label": "Base",
+          "value": "3 in U-channel"
+        }
+      ],
+      "features": [
+        "Weather-resistant protective coating",
+        "Drainage holes in the base rails help reduce corrosion",
+        "Lean-back geometry supports stable material positioning",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "multi-purpose-slab-rack",
+      "name": "Multi-Purpose Slab Rack",
+      "model": "PSE PS10",
+      "collection": "material-rack",
+      "category": "Slab Rack",
+      "price": 2850,
+      "image": "/images/catalog/racks/multi-purpose-slab-rack.webp",
+      "contextImage": "/images/catalog/racks/multi-purpose-slab-rack-context.webp",
+      "alt": "Multi-purpose slab rack with capped steel posts",
+      "description": "A configurable post-and-rail slab rack for flexible storage of heavy stone, glass, and panel materials.",
+      "application": "Stone yards, glass facilities, warehouses, fabrication operations, and configurable slab storage.",
+      "specs": [
+        {
+          "label": "Work load limit",
+          "value": "6,000 lb / 2,721.55 kg"
+        },
+        {
+          "label": "Dimensions",
+          "value": "120 L x 8 W x 60 H in"
+        },
+        {
+          "label": "Net weight per pair",
+          "value": "690 lb / 313 kg"
+        },
+        {
+          "label": "Poles / holes",
+          "value": "10 / 10"
+        },
+        {
+          "label": "Post options",
+          "value": "60, 48, or 36 in"
+        }
+      ],
+      "features": [
+        "Configurable removable post system",
+        "Weather-resistant protective coating",
+        "Drainage holes in the base rails help reduce corrosion",
+        "Lean-back geometry supports stable material positioning",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "heavy-duty-bundle-slab-rack",
+      "name": "Heavy-Duty Bundle Slab Rack With Rubber Cap",
+      "model": "PSE PS10",
+      "collection": "material-rack",
+      "category": "Slab Rack",
+      "price": 3400,
+      "image": "/images/catalog/racks/heavy-duty-bundle-slab-rack.webp",
+      "contextImage": "/images/catalog/racks/heavy-duty-bundle-slab-rack-context.webp",
+      "alt": "Heavy-duty bundle slab rack with capped steel posts storing stone slabs",
+      "featured": true,
+      "description": "A reinforced post-and-rail storage system for heavy slab bundles, with protective timber and capped uprights.",
+      "application": "Stone distributors, slab warehouses, fabrication facilities, and high-capacity bundle storage.",
+      "specs": [
+        {
+          "label": "Work load limit",
+          "value": "6,000 lb / 2,721.55 kg"
+        },
+        {
+          "label": "Dimensions",
+          "value": "120 L x 8 W x 63 H in"
+        },
+        {
+          "label": "Net weight per pair",
+          "value": "925 lb / 420 kg"
+        },
+        {
+          "label": "Poles / holes",
+          "value": "10 / 11"
+        },
+        {
+          "label": "Post options",
+          "value": "63, 48, or 36 in"
+        }
+      ],
+      "features": [
+        "5 mm wall extra-strong square steel posts",
+        "Heavy-duty steel base rails",
+        "Timber protection on base rails",
+        "Square rubber caps on uprights",
+        "Weather-resistant protective coating",
+        "Drainage holes in the base rails help reduce corrosion",
+        "Lean-back geometry supports stable material positioning",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "one-side-frame-narrow-warehouse",
+      "name": "One Side Frame for Narrow Warehouse",
+      "model": "One Side Frame",
+      "collection": "material-rack",
+      "category": "Single-Sided Rack",
+      "price": 925,
+      "image": "/images/catalog/racks/one-side-frame-narrow-warehouse.webp",
+      "contextImage": "/images/catalog/racks/one-side-frame-narrow-warehouse-context.webp",
+      "alt": "One-side frame for narrow warehouse slab storage",
+      "description": "A single-sided frame for narrow warehouse aisles where slab and panel materials need compact wall-side support.",
+      "application": "Narrow warehouses, stone and glass storage aisles, showrooms, and compact fabrication facilities.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "9,000 lb per side"
+        },
+        {
+          "label": "Dimensions",
+          "value": "72 L x 30 W x 60 H in"
+        },
+        {
+          "label": "Frame",
+          "value": "2 x 2 in square pipe"
+        },
+        {
+          "label": "Base",
+          "value": "3 in U-channel"
+        }
+      ],
+      "features": [
+        "Weather-resistant protective coating",
+        "Drainage holes in the base rails help reduce corrosion",
+        "Lean-back geometry supports stable material positioning",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "heavy-duty-bundle-slab-rack-standard",
+      "name": "Heavy-Duty Bundle Slab Rack",
+      "model": "PSE PS10",
+      "collection": "material-rack",
+      "category": "Slab Rack",
+      "price": 2850,
+      "image": "/images/catalog/racks/heavy-duty-bundle-slab-rack-standard.webp",
+      "contextImage": "/images/catalog/racks/heavy-duty-bundle-slab-rack-standard-context.webp",
+      "alt": "Heavy-duty bundle slab rack storing stone bundles",
+      "description": "A heavy-duty post-and-rail rack for organized slab bundle storage without rubber-cap uprights.",
+      "application": "Stone distributors, slab warehouses, fabrication facilities, and high-capacity bundle storage.",
+      "specs": [
+        {
+          "label": "Work load limit",
+          "value": "6,481 lb / 2,940 kg"
+        },
+        {
+          "label": "Dimensions",
+          "value": "120 L x 8 W x 60 H in"
+        },
+        {
+          "label": "Poles / holes",
+          "value": "10 / 10"
+        },
+        {
+          "label": "Post height",
+          "value": "60 in"
+        }
+      ],
+      "features": [
+        "Configurable removable post system",
+        "Heavy-duty steel base rails",
+        "Weather-resistant protective coating",
+        "Drainage holes in the base rails help reduce corrosion",
+        "Lean-back geometry supports stable material positioning",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "heavy-duty-mobile-transport-frame",
+      "name": "Heavy Duty Mobile Transport Frame",
+      "model": "Heavy Duty Mobile Transport Frame",
+      "collection": "industrial-table",
+      "category": "Mobile Transport Frame",
+      "price": 1025,
+      "image": "/images/catalog/tables/heavy-duty-mobile-transport-frame.webp",
+      "contextImage": "/images/catalog/tables/heavy-duty-mobile-transport-frame-context.webp",
+      "alt": "Blue heavy-duty mobile transport frame on casters",
+      "featured": true,
+      "description": "A wheeled 2 x 2 in square-pipe transport frame for moving long materials, assemblies, and work-in-progress around industrial sites.",
+      "application": "Fabrication shops, warehouses, material staging, construction yards, and mobile production support.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "1,800 lb per side"
+        },
+        {
+          "label": "Dimensions",
+          "value": "96 L x 24 W x 36 H in"
+        },
+        {
+          "label": "Frame",
+          "value": "2 x 2 in square pipe"
+        },
+        {
+          "label": "Top",
+          "value": "Frame only, top surface not included"
+        }
+      ],
+      "features": [
+        "Weather-resistant coating",
+        "Heavy-duty metal frame construction",
+        "Wheel size options available",
+        "Custom sizes are available on request",
+        "Built for commercial and industrial work areas"
+      ]
+    },
+    {
+      "slug": "three-tier-triple-stacker-table",
+      "name": "3-Tier Triple Stacker Table",
+      "model": "3-Tier Triple Stacker Table",
+      "collection": "industrial-table",
+      "category": "Stacker Table",
+      "price": 810,
+      "image": "/images/catalog/tables/three-tier-triple-stacker-table.webp",
+      "contextImage": "/images/catalog/tables/three-tier-triple-stacker-table-context.webp",
+      "alt": "Blue three-tier triple stacker table on casters",
+      "description": "A three-tier mobile table frame for organizing parts, cartons, fixtures, and production materials across multiple levels.",
+      "application": "Assembly areas, production lines, warehouse staging, packing stations, and work-in-progress movement.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "1,600 lb per side"
+        },
+        {
+          "label": "Dimensions",
+          "value": "72 L x 36 W x 36 H in"
+        },
+        {
+          "label": "Frame",
+          "value": "1.5 x 1.5 in square pipe"
+        },
+        {
+          "label": "Top",
+          "value": "Frame only, top surface not included"
+        }
+      ],
+      "features": [
+        "Weather-resistant coating",
+        "Three-tier storage layout",
+        "Heavy-duty metal frame construction",
+        "Wheel size options available",
+        "Custom sizes are available on request",
+        "Built for commercial and industrial work areas"
+      ]
+    },
+    {
+      "slug": "heavy-duty-industrial-platform-cart",
+      "name": "Heavy Duty Industrial Platform Cart",
+      "model": "Heavy Duty Industrial Platform Cart",
+      "collection": "industrial-table",
+      "category": "Platform Cart",
+      "price": 675,
+      "image": "/images/catalog/tables/heavy-duty-industrial-platform-cart.webp",
+      "contextImage": "/images/catalog/tables/heavy-duty-industrial-platform-cart-context.webp",
+      "alt": "Blue heavy-duty industrial platform cart frame",
+      "description": "A compact mobile platform cart frame for industrial movement, staging, and shop-floor support.",
+      "application": "Warehouses, fabrication shops, assembly areas, shipping departments, and production staging.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "1,400 lb per side"
+        },
+        {
+          "label": "Dimensions",
+          "value": "72 L x 24 W x 36 H in"
+        },
+        {
+          "label": "Frame",
+          "value": "1.5 x 1.5 in square pipe"
+        },
+        {
+          "label": "Top",
+          "value": "Frame only, top surface not included"
+        }
+      ],
+      "features": [
+        "Weather-resistant coating",
+        "Heavy-duty metal frame construction",
+        "Wheel size options available",
+        "Custom sizes are available on request",
+        "Built for commercial and industrial work areas"
+      ]
+    },
+    {
+      "slug": "garment-production-utility-cart",
+      "name": "Garment Production Utility Cart",
+      "model": "Garment Production Utility Cart",
+      "collection": "industrial-table",
+      "category": "Utility Cart",
+      "price": 790,
+      "image": "/images/catalog/tables/garment-production-utility-cart.webp",
+      "contextImage": "/images/catalog/tables/garment-production-utility-cart-context.webp",
+      "alt": "Black garment production utility cart with backsplash",
+      "description": "A mobile utility cart with backsplash for garment production, light assembly, and organized shop-floor handling.",
+      "application": "Garment production, textile workrooms, light manufacturing, kitting, packing, and mobile work support.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "650 lb per side"
+        },
+        {
+          "label": "Dimensions",
+          "value": "48 L x 24 W x 36 H in"
+        },
+        {
+          "label": "Frame",
+          "value": "1.25 x 1.25 in square pipe"
+        },
+        {
+          "label": "Detail",
+          "value": "With backsplash"
+        }
+      ],
+      "features": [
+        "Weather-resistant coating",
+        "Backsplash helps contain materials on the cart surface",
+        "Heavy-duty metal frame construction",
+        "Wheel size options available",
+        "Custom sizes are available on request",
+        "Built for commercial and industrial work areas"
+      ]
+    },
+    {
+      "slug": "heavy-duty-six-wheel-work-table",
+      "name": "Heavy-Duty 6-Wheel Work Table",
+      "model": "Heavy-Duty 6-Wheel Work Table",
+      "collection": "industrial-table",
+      "category": "Work Table",
+      "price": 1075,
+      "image": "/images/catalog/tables/heavy-duty-six-wheel-work-table.webp",
+      "contextImage": "/images/catalog/tables/heavy-duty-six-wheel-work-table-context.webp",
+      "alt": "Black heavy-duty six-wheel work table frame",
+      "description": "A long six-wheel work table frame that supports larger workpieces and mobile staging in demanding production spaces.",
+      "application": "Stone, glass, metal, woodworking, assembly, and industrial material handling workflows.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "1,800 lb per side"
+        },
+        {
+          "label": "Dimensions",
+          "value": "96 L x 24 W x 36 H in"
+        },
+        {
+          "label": "Frame",
+          "value": "2 x 2 in square pipe"
+        },
+        {
+          "label": "Top",
+          "value": "Frame only, top surface not included"
+        }
+      ],
+      "features": [
+        "Weather-resistant coating",
+        "Six-wheel mobile support",
+        "Heavy-duty metal frame construction",
+        "Wheel size options available",
+        "Custom sizes are available on request",
+        "Built for commercial and industrial work areas"
+      ]
+    },
+    {
+      "slug": "heavy-duty-steel-workbench",
+      "name": "Heavy-Duty Steel Workbench",
+      "model": "Heavy-Duty Steel Workbench",
+      "collection": "industrial-table",
+      "category": "Workbench",
+      "price": 930,
+      "image": "/images/catalog/tables/heavy-duty-steel-workbench.webp",
+      "contextImage": "/images/catalog/tables/heavy-duty-steel-workbench-context.webp",
+      "alt": "Heavy-duty steel workbench with metal sheet top",
+      "featured": true,
+      "description": "A steel workbench with a 16-gauge metal sheet top for durable industrial work, repairs, and production tasks.",
+      "application": "Maintenance departments, fabrication shops, repair benches, assembly work, and industrial work cells.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "1,800 lb per side"
+        },
+        {
+          "label": "Dimensions",
+          "value": "72 L x 36 W x 30 H in"
+        },
+        {
+          "label": "Frame",
+          "value": "1.5 x 1.5 in square pipe"
+        },
+        {
+          "label": "Top",
+          "value": "16 gauge metal sheet included"
+        }
+      ],
+      "features": [
+        "Weather-resistant coating",
+        "Metal top surface included",
+        "Heavy-duty metal frame construction",
+        "Wheel size options available",
+        "Custom sizes are available on request",
+        "Built for commercial and industrial work areas"
+      ]
+    },
+    {
+      "slug": "industrial-mobile-workbench",
+      "name": "Industrial Mobile Workbench",
+      "model": "Industrial Mobile Workbench",
+      "collection": "industrial-table",
+      "category": "Workbench",
+      "price": 1350,
+      "image": "/images/catalog/tables/industrial-mobile-workbench.webp",
+      "contextImage": "/images/catalog/tables/industrial-mobile-workbench-context.webp",
+      "alt": "Industrial mobile workbench with plywood top and lower shelf",
+      "description": "A mobile workbench with plywood surfaces for staging tools, parts, assemblies, and active production work.",
+      "application": "Industrial work cells, shop-floor repairs, fabrication support, assembly stations, and mobile maintenance work.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "1,400 lb per side"
+        },
+        {
+          "label": "Dimensions",
+          "value": "96 L x 24 W x 30 H in"
+        },
+        {
+          "label": "Frame",
+          "value": "1.5 x 1.5 in square pipe"
+        },
+        {
+          "label": "Top",
+          "value": "3/4 in plywood included"
+        }
+      ],
+      "features": [
+        "Weather-resistant coating",
+        "Plywood work surface included",
+        "Heavy-duty metal frame construction",
+        "Wheel size options available",
+        "Custom sizes are available on request",
+        "Built for commercial and industrial work areas"
+      ]
+    },
+    {
+      "slug": "three-tier-heavy-duty-mobile-assembly-workbench",
+      "name": "3-Tier Heavy-Duty Mobile Assembly Workbench",
+      "model": "3-Tier Mobile Assembly Workbench",
+      "collection": "industrial-table",
+      "category": "Assembly Workbench",
+      "price": 1315,
+      "image": "/images/catalog/tables/three-tier-heavy-duty-mobile-assembly-workbench.webp",
+      "contextImage": "/images/catalog/tables/three-tier-heavy-duty-mobile-assembly-workbench-context.webp",
+      "alt": "Three-tier heavy-duty mobile assembly workbench with plywood surfaces",
+      "featured": true,
+      "description": "A three-tier mobile assembly workbench with plywood surfaces for parts, tools, cartons, and active production flow.",
+      "application": "Assembly operations, packing lines, repair work, tooling support, production staging, and warehouse work cells.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "1,800 lb per side"
+        },
+        {
+          "label": "Dimensions",
+          "value": "96 L x 24 W x 36 H in"
+        },
+        {
+          "label": "Frame",
+          "value": "1.5 x 1.5 in square pipe"
+        },
+        {
+          "label": "Top",
+          "value": "3/4 in plywood included"
+        }
+      ],
+      "features": [
+        "Weather-resistant coating",
+        "Three-tier work and storage layout",
+        "Heavy-duty metal frame construction",
+        "Wheel size options available",
+        "Custom sizes are available on request",
+        "Built for commercial and industrial work areas"
+      ]
+    },
+    {
+      "slug": "large-heavy-duty-industrial-platform-cart",
+      "name": "Large Size Heavy Duty Industrial Platform Cart",
+      "model": "Large Industrial Platform Cart",
+      "collection": "industrial-table",
+      "category": "Platform Cart",
+      "price": 1050,
+      "image": "/images/catalog/tables/large-heavy-duty-industrial-platform-cart.webp",
+      "contextImage": "/images/catalog/tables/large-heavy-duty-industrial-platform-cart-context.webp",
+      "alt": "Large heavy-duty industrial platform cart frame",
+      "description": "A wide mobile platform cart frame for larger assemblies, material staging, and industrial shop-floor transport.",
+      "application": "Production floors, warehouses, fabrication areas, material handling, and staging of larger workpieces.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "1,400 lb per side"
+        },
+        {
+          "label": "Dimensions",
+          "value": "96 L x 36 W x 36 H in"
+        },
+        {
+          "label": "Frame",
+          "value": "1.5 x 1.5 in square pipe"
+        },
+        {
+          "label": "Top",
+          "value": "Frame only, top surface not included"
+        }
+      ],
+      "features": [
+        "Weather-resistant coating",
+        "Heavy-duty metal frame construction",
+        "Wheel size options available",
+        "Custom sizes are available on request",
+        "Built for commercial and industrial work areas"
+      ]
+    },
+    {
+      "slug": "mobile-glass-handling-table",
+      "name": "Mobile Glass Handling Table",
+      "model": "Mobile Glass Handling Table",
+      "collection": "industrial-table",
+      "category": "Glass Handling Table",
+      "price": 990,
+      "image": "/images/catalog/tables/mobile-glass-handling-table.webp",
+      "contextImage": "/images/catalog/tables/mobile-glass-handling-table-context.webp",
+      "alt": "Mobile glass handling table with plywood border",
+      "description": "A mobile handling table configured for supported movement and staging of glass sheets and similar panel materials.",
+      "application": "Glass shops, glazing operations, window and door production, panel staging, and fabrication workflows.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "1,400 lb per side"
+        },
+        {
+          "label": "Dimensions",
+          "value": "96 L x 24 W x 30 H in"
+        },
+        {
+          "label": "Frame",
+          "value": "1.5 x 1.5 in square pipe"
+        },
+        {
+          "label": "Top",
+          "value": "3/4 or 1.5 in plywood with 1.5 in border"
+        }
+      ],
+      "features": [
+        "Weather-resistant coating",
+        "Plywood support surface available",
+        "Heavy-duty metal frame construction",
+        "Wheel size options available",
+        "Custom sizes are available on request",
+        "Built for commercial and industrial work areas"
+      ]
+    },
+    {
+      "slug": "heavy-duty-industrial-metal-top-platform-cart",
+      "name": "Heavy Duty Industrial Metal Top Platform Cart",
+      "model": "Metal Top Platform Cart",
+      "collection": "industrial-table",
+      "category": "Platform Cart",
+      "price": 1025,
+      "image": "/images/catalog/tables/heavy-duty-industrial-metal-top-platform-cart.webp",
+      "contextImage": "/images/catalog/tables/heavy-duty-industrial-metal-top-platform-cart-context.webp",
+      "alt": "Blue heavy-duty industrial platform cart with metal top",
+      "description": "A mobile platform cart frame for industrial staging, shop-floor handling, and adaptable work-surface configurations.",
+      "application": "Manufacturing, fabrication, assembly, staging, warehouse transport, and equipment support.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "1,600 lb per side"
+        },
+        {
+          "label": "Dimensions",
+          "value": "72 L x 24 W x 36 H in"
+        },
+        {
+          "label": "Frame",
+          "value": "1.5 x 1.5 in square pipe"
+        },
+        {
+          "label": "Top",
+          "value": "Frame only, top surface not included"
+        }
+      ],
+      "features": [
+        "Weather-resistant coating",
+        "Heavy-duty metal frame construction",
+        "Wheel size options available",
+        "Custom sizes are available on request",
+        "Built for commercial and industrial work areas"
+      ]
+    },
+    {
+      "slug": "mobile-electronics-workstation",
+      "name": "Mobile Electronics Workstation",
+      "model": "Mobile Electronics Workstation",
+      "collection": "industrial-table",
+      "category": "Mobile Workstation",
+      "price": 990,
+      "image": "/images/catalog/tables/mobile-electronics-workstation.webp",
+      "contextImage": "/images/catalog/tables/mobile-electronics-workstation-context.webp",
+      "alt": "Mobile electronics workstation with plywood top and lower rack",
+      "description": "A mobile workstation with top and lower plywood racks for electronics production, kitting, and organized assembly work.",
+      "application": "Electronics assembly, kitting, repair benches, light manufacturing, production lines, and mobile inspection stations.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "1,600 lb per side"
+        },
+        {
+          "label": "Dimensions",
+          "value": "72 L x 24 W x 36 H in"
+        },
+        {
+          "label": "Frame",
+          "value": "1.5 x 1.5 in square pipe"
+        },
+        {
+          "label": "Surfaces",
+          "value": "Top and bottom 3/4 in plywood racks included"
+        }
+      ],
+      "features": [
+        "Weather-resistant coating",
+        "Two-level plywood storage and work layout",
+        "Heavy-duty metal frame construction",
+        "Wheel size options available",
+        "Custom sizes are available on request",
+        "Built for commercial and industrial work areas"
+      ]
+    },
+    {
+      "slug": "heavy-duty-two-tier-service-cart-stainless-steel",
+      "name": "Heavy-Duty 2-Tier Service Cart",
+      "model": "Stainless Steel 2-Tier Service Cart",
+      "collection": "industrial-table",
+      "category": "Stainless Steel Cart",
+      "price": 980,
+      "image": "/images/catalog/tables/heavy-duty-two-tier-service-cart-stainless-steel.webp",
+      "contextImage": "/images/catalog/tables/heavy-duty-two-tier-service-cart-stainless-steel-context.webp",
+      "alt": "Stainless steel two-tier service cart on casters",
+      "description": "A stainless steel two-tier service cart for sanitary, food-service, and commercial work environments.",
+      "application": "Food service, hospitality, commercial kitchens, cleaning operations, labs, and stainless work areas.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "400 lb per side"
+        },
+        {
+          "label": "Dimensions",
+          "value": "42 L x 24 W x 35 H in"
+        },
+        {
+          "label": "Frame",
+          "value": "2 x 2 in round pipe"
+        },
+        {
+          "label": "Material",
+          "value": "304 stainless steel"
+        }
+      ],
+      "features": [
+        "Top surface included",
+        "304 stainless steel construction",
+        "Heavy-duty metal frame construction",
+        "Wheel size options available",
+        "Custom sizes are available on request",
+        "Built for commercial and industrial work areas"
+      ]
+    },
+    {
+      "slug": "butchers-meat-cutting-table-stainless-steel",
+      "name": "Butcher's Meat Cutting Table",
+      "model": "Stainless Steel Meat Cutting Table",
+      "collection": "industrial-table",
+      "category": "Stainless Steel Table",
+      "price": 1480,
+      "image": "/images/catalog/tables/butchers-meat-cutting-table-stainless-steel.webp",
+      "contextImage": "/images/catalog/tables/butchers-meat-cutting-table-stainless-steel-context.webp",
+      "alt": "Stainless steel butcher meat cutting table with catch tray",
+      "featured": true,
+      "description": "A stainless steel meat cutting table with catch tray for butcher, food prep, and commercial kitchen environments.",
+      "application": "Butcher shops, meat processing, commercial kitchens, food prep rooms, and stainless work stations.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "1,400 lb per side"
+        },
+        {
+          "label": "Dimensions",
+          "value": "48 L x 24 W x 32 H in"
+        },
+        {
+          "label": "Frame",
+          "value": "2 x 2 in round pipe"
+        },
+        {
+          "label": "Material",
+          "value": "304 stainless steel"
+        }
+      ],
+      "features": [
+        "Catch tray included",
+        "Top surface included",
+        "304 stainless steel construction",
+        "Heavy-duty metal frame construction",
+        "Wheel size options available",
+        "Custom sizes are available on request",
+        "Built for commercial and industrial work areas"
+      ]
+    },
+    {
+      "slug": "heavy-duty-16-ga-cutting-table",
+      "name": "Heavy Duty 16 Ga. Cutting Table",
+      "model": "16 Ga. Cutting Table",
+      "collection": "industrial-table",
+      "category": "Stainless Steel Table",
+      "price": 2050,
+      "image": "/images/catalog/tables/heavy-duty-16-ga-cutting-table.webp",
+      "contextImage": "/images/catalog/tables/heavy-duty-16-ga-cutting-table-context.webp",
+      "alt": "Stainless steel heavy-duty cutting table with backsplash",
+      "description": "A heavy-duty stainless cutting table with backsplash and cutting-board surface for commercial preparation work.",
+      "application": "Commercial kitchens, food prep rooms, production kitchens, butcher operations, and sanitary workstations.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "400 lb per side"
+        },
+        {
+          "label": "Dimensions",
+          "value": "60 L x 30 W x 35 H in"
+        },
+        {
+          "label": "Frame",
+          "value": "2 x 2 in round pipe"
+        },
+        {
+          "label": "Material",
+          "value": "304 stainless steel, 16 ga / 1.5 mm"
+        }
+      ],
+      "features": [
+        "1 in cutting board",
+        "Backsplash included",
+        "Top surface included",
+        "304 stainless steel construction",
+        "Heavy-duty metal frame construction",
+        "Wheel size options available",
+        "Custom sizes are available on request",
+        "Built for commercial and industrial work areas"
+      ]
+    },
+    {
+      "slug": "commercial-pizza-prep-table",
+      "name": "Commercial Pizza Prep Table",
+      "model": "Commercial Pizza Prep Table",
+      "collection": "industrial-table",
+      "category": "Stainless Steel Table",
+      "price": 2250,
+      "image": "/images/catalog/tables/commercial-pizza-prep-table.webp",
+      "contextImage": "/images/catalog/tables/commercial-pizza-prep-table-context.webp",
+      "alt": "Commercial stainless steel pizza prep table with three-sided backsplash",
+      "description": "A stainless steel pizza prep table with a three-sided backsplash for commercial kitchen and food-service work.",
+      "application": "Pizzerias, commercial kitchens, bakeries, food prep rooms, and stainless service workstations.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "600 lb per side"
+        },
+        {
+          "label": "Dimensions",
+          "value": "60 L x 30 W x 35 H in"
+        },
+        {
+          "label": "Frame",
+          "value": "2 x 2 in round pipe"
+        },
+        {
+          "label": "Material",
+          "value": "304 stainless steel"
+        }
+      ],
+      "features": [
+        "Three-sided backsplash included",
+        "Top surface included",
+        "304 stainless steel construction",
+        "Heavy-duty metal frame construction",
+        "Wheel size options available",
+        "Custom sizes are available on request",
+        "Built for commercial and industrial work areas"
+      ]
+    },
+    {
+      "slug": "heavy-duty-bollard-bolt-down-4-dia-36",
+      "name": "Heavy Duty Bolt-Down Bollard - 4 in x 36 in",
+      "model": "4 in dia x 36 in H",
+      "collection": "warehouse-safety",
+      "category": "Bollards",
+      "price": 145,
+      "image": "/images/catalog/safety/heavy-duty-bollard-bolt-down-4-dia-36.webp",
+      "contextImage": "/images/catalog/safety/heavy-duty-bollard-bolt-down-4-dia-36-context.webp",
+      "brochurePreviewImage": "/images/catalog/brochures/safety/heavy-duty-bollard-bolt-down-brochure.webp",
+      "alt": "Yellow 4 inch by 36 inch ProSteel bolt-down bollard",
+      "description": "A surface-mounted steel bollard for protecting doors, walls, equipment, traffic lanes, and exposed industrial work areas.",
+      "application": "Warehouse aisles, overhead doors, building corners, loading areas, parking lanes, and equipment protection zones.",
+      "specs": [
+        {
+          "label": "Diameter",
+          "value": "4 in"
+        },
+        {
+          "label": "Height",
+          "value": "36 in"
+        },
+        {
+          "label": "Pipe",
+          "value": "7 gauge steel"
+        },
+        {
+          "label": "Base plate",
+          "value": "8 x 8 x 0.4 in"
+        },
+        {
+          "label": "Anchor bolt",
+          "value": "5/8 x 4.5 in, not included"
+        }
+      ],
+      "features": [
+        "Welded metal cap",
+        "Heavy-duty steel construction",
+        "Powder-coated finish for warehouse and industrial environments",
+        "Designed for surface-mounted protection",
+        "Custom sizes are available on request",
+        "Concrete installation kit sold separately"
+      ]
+    },
+    {
+      "slug": "heavy-duty-bollard-bolt-down-4-dia-42",
+      "name": "Heavy Duty Bolt-Down Bollard - 4 in x 42 in",
+      "model": "4 in dia x 42 in H",
+      "collection": "warehouse-safety",
+      "category": "Bollards",
+      "price": 160,
+      "image": "/images/catalog/safety/heavy-duty-bollard-bolt-down-4-dia-42.webp",
+      "contextImage": "/images/catalog/safety/heavy-duty-bollard-bolt-down-4-dia-42-context.webp",
+      "brochurePreviewImage": "/images/catalog/brochures/safety/heavy-duty-bollard-bolt-down-brochure.webp",
+      "alt": "Yellow 4 inch by 42 inch ProSteel bolt-down bollard",
+      "description": "A taller bolt-down bollard for creating visible impact protection around warehouse doors, posts, and vulnerable equipment.",
+      "application": "Loading docks, production aisles, material handling routes, parking areas, and industrial traffic-control points.",
+      "specs": [
+        {
+          "label": "Diameter",
+          "value": "4 in"
+        },
+        {
+          "label": "Height",
+          "value": "42 in"
+        },
+        {
+          "label": "Pipe",
+          "value": "7 gauge steel"
+        },
+        {
+          "label": "Base plate",
+          "value": "8 x 8 x 0.4 in"
+        },
+        {
+          "label": "Anchor bolt",
+          "value": "5/8 x 4.5 in, not included"
+        }
+      ],
+      "features": [
+        "Welded metal cap",
+        "Heavy-duty steel construction",
+        "Powder-coated finish for warehouse and industrial environments",
+        "Designed for surface-mounted protection",
+        "Custom sizes are available on request",
+        "Concrete installation kit sold separately"
+      ]
+    },
+    {
+      "slug": "heavy-duty-bollard-bolt-down-4-dia-48",
+      "name": "Heavy Duty Bolt-Down Bollard - 4 in x 48 in",
+      "model": "4 in dia x 48 in H",
+      "collection": "warehouse-safety",
+      "category": "Bollards",
+      "price": 175,
+      "image": "/images/catalog/safety/heavy-duty-bollard-bolt-down-4-dia-48.webp",
+      "contextImage": "/images/catalog/safety/heavy-duty-bollard-bolt-down-4-dia-48-context.webp",
+      "brochurePreviewImage": "/images/catalog/brochures/safety/heavy-duty-bollard-bolt-down-brochure.webp",
+      "alt": "Yellow 4 inch by 48 inch ProSteel bolt-down bollard",
+      "featured": true,
+      "description": "A heavy-duty 48 in bollard for strong, visible protection where forklifts, carts, or vehicles move near assets and walkways.",
+      "application": "Warehouse traffic lanes, machine protection, dock areas, storefront protection, and high-visibility safety layouts.",
+      "specs": [
+        {
+          "label": "Diameter",
+          "value": "4 in"
+        },
+        {
+          "label": "Height",
+          "value": "48 in"
+        },
+        {
+          "label": "Pipe",
+          "value": "7 gauge steel"
+        },
+        {
+          "label": "Base plate",
+          "value": "8 x 8 x 0.4 in"
+        },
+        {
+          "label": "Anchor bolt",
+          "value": "5/8 x 4.5 in, not included"
+        }
+      ],
+      "features": [
+        "Welded metal cap",
+        "Heavy-duty steel construction",
+        "Powder-coated finish for warehouse and industrial environments",
+        "Designed for surface-mounted protection",
+        "Custom sizes are available on request",
+        "Concrete installation kit sold separately"
+      ]
+    },
+    {
+      "slug": "heavy-duty-bollard-bolt-down-4-dia-60",
+      "name": "Heavy Duty Bolt-Down Bollard - 4 in x 60 in",
+      "model": "4 in dia x 60 in H",
+      "collection": "warehouse-safety",
+      "category": "Bollards",
+      "price": 180,
+      "image": "/images/catalog/safety/heavy-duty-bollard-bolt-down-4-dia-60.webp",
+      "contextImage": "/images/catalog/safety/heavy-duty-bollard-bolt-down-4-dia-60-context.webp",
+      "brochurePreviewImage": "/images/catalog/brochures/safety/heavy-duty-bollard-bolt-down-brochure.webp",
+      "alt": "Yellow 4 inch by 60 inch ProSteel bolt-down bollard",
+      "description": "A tall surface-mounted bollard for high-visibility guarding at warehouse doors, traffic routes, and exposed facility edges.",
+      "application": "Overhead doors, aisle ends, outdoor protection zones, building corners, and industrial vehicle separation.",
+      "specs": [
+        {
+          "label": "Diameter",
+          "value": "4 in"
+        },
+        {
+          "label": "Height",
+          "value": "60 in"
+        },
+        {
+          "label": "Pipe",
+          "value": "7 gauge steel"
+        },
+        {
+          "label": "Base plate",
+          "value": "8 x 8 x 0.4 in"
+        },
+        {
+          "label": "Anchor bolt",
+          "value": "5/8 x 4.5 in, not included"
+        }
+      ],
+      "features": [
+        "Welded metal cap",
+        "Heavy-duty steel construction",
+        "Powder-coated finish for warehouse and industrial environments",
+        "Designed for surface-mounted protection",
+        "Custom sizes are available on request",
+        "Concrete installation kit sold separately"
+      ]
+    },
+    {
+      "slug": "overhead-door-track-protector-48-in-ht",
+      "name": "Overhead Door Track Protector - 48 in HT",
+      "model": "48 in HT / 9.86 x 6.58 in plate",
+      "collection": "warehouse-safety",
+      "category": "Door Protection",
+      "price": 140,
+      "image": "/images/catalog/safety/overhead-door-track-protector-48-in-ht.webp",
+      "contextImage": "/images/catalog/safety/overhead-door-track-protector-48-in-ht-context.webp",
+      "brochurePreviewImage": "/images/catalog/brochures/safety/overhead-door-track-protector-brochure.webp",
+      "alt": "Yellow overhead door track protector with floor plate",
+      "featured": true,
+      "description": "A bolt-down guard that shields overhead door tracks from forklift, cart, and pallet impact in busy warehouse openings.",
+      "application": "Loading doors, shipping docks, receiving areas, warehouse entrances, and high-traffic overhead door tracks.",
+      "specs": [
+        {
+          "label": "Height",
+          "value": "48 in"
+        },
+        {
+          "label": "Plate",
+          "value": "9.86 x 6.58 in"
+        },
+        {
+          "label": "Wall holes",
+          "value": "5 holes at 5/8 in"
+        },
+        {
+          "label": "Floor holes",
+          "value": "3 holes at 15/16 in"
+        },
+        {
+          "label": "Anchors",
+          "value": "Not included"
+        }
+      ],
+      "features": [
+        "Protects door tracks from side impact",
+        "Large anchor option: 5.5 x 0.75 in",
+        "Small anchor option: 3.75 x 0.5 in",
+        "Heavy-duty steel construction",
+        "Powder-coated finish for warehouse and industrial environments",
+        "Designed for surface-mounted protection",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "overhead-door-track-protector-36-in-ht",
+      "name": "Overhead Door Track Protector - 36 in HT",
+      "model": "36 in HT / 9.86 x 6.58 in plate",
+      "collection": "warehouse-safety",
+      "category": "Door Protection",
+      "price": 120,
+      "image": "/images/catalog/safety/overhead-door-track-protector-36-in-ht.webp",
+      "contextImage": "/images/catalog/safety/overhead-door-track-protector-36-in-ht-context.webp",
+      "brochurePreviewImage": "/images/catalog/brochures/safety/overhead-door-track-protector-brochure.webp",
+      "alt": "Yellow 36 inch overhead door track protector",
+      "description": "A compact overhead door track guard for protecting lower track areas and doorway corners from daily facility traffic.",
+      "application": "Warehouse doors, service doors, shipping bays, receiving lanes, and compact impact-protection locations.",
+      "specs": [
+        {
+          "label": "Height",
+          "value": "36 in"
+        },
+        {
+          "label": "Plate",
+          "value": "9.86 x 6.58 in"
+        },
+        {
+          "label": "Wall holes",
+          "value": "5 holes at 5/8 in"
+        },
+        {
+          "label": "Floor holes",
+          "value": "3 holes at 15/16 in"
+        },
+        {
+          "label": "Anchors",
+          "value": "Not included"
+        }
+      ],
+      "features": [
+        "Protects door tracks from side impact",
+        "Large anchor option: 5.5 x 0.75 in",
+        "Small anchor option: 3.75 x 0.5 in",
+        "Heavy-duty steel construction",
+        "Powder-coated finish for warehouse and industrial environments",
+        "Designed for surface-mounted protection",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "heavy-duty-mid-rail-machine-guard-24x18",
+      "name": "Heavy Duty Mid-Rail Machine Guard - 24 x 18 in",
+      "model": "24 x 18 in",
+      "collection": "warehouse-safety",
+      "category": "Machine Guards",
+      "price": 370,
+      "image": "/images/catalog/safety/heavy-duty-mid-rail-machine-guard-24x18.webp",
+      "contextImage": "/images/catalog/safety/heavy-duty-mid-rail-machine-guard-24x18-context.webp",
+      "brochurePreviewImage": "/images/catalog/brochures/safety/heavy-duty-mid-rail-machine-guard-brochure.webp",
+      "alt": "Yellow heavy-duty mid-rail machine guard",
+      "description": "A compact welded machine guard for adding physical separation around equipment, posts, and vulnerable production assets.",
+      "application": "Machine cells, conveyor areas, production lines, corner protection, equipment bases, and work-area boundaries.",
+      "specs": [
+        {
+          "label": "Width",
+          "value": "24 in"
+        },
+        {
+          "label": "Height",
+          "value": "18 in"
+        },
+        {
+          "label": "Tube",
+          "value": "4 x 4 x 0.25 in square tube"
+        },
+        {
+          "label": "Base plate",
+          "value": "8 x 8 x 0.4 in"
+        },
+        {
+          "label": "Anchor bolt",
+          "value": "0.74 x 5.51 in, not included"
+        }
+      ],
+      "features": [
+        "Mid-rail format for low-profile equipment protection",
+        "Heavy-duty steel construction",
+        "Powder-coated finish for warehouse and industrial environments",
+        "Designed for surface-mounted protection",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "heavy-duty-mid-rail-machine-guard-26x18",
+      "name": "Heavy Duty Mid-Rail Machine Guard - 26 x 18 in",
+      "model": "26 x 18 in",
+      "collection": "warehouse-safety",
+      "category": "Machine Guards",
+      "price": 450,
+      "image": "/images/catalog/safety/heavy-duty-mid-rail-machine-guard-26x18.webp",
+      "contextImage": "/images/catalog/safety/heavy-duty-mid-rail-machine-guard-26x18-context.webp",
+      "brochurePreviewImage": "/images/catalog/brochures/safety/heavy-duty-mid-rail-machine-guard-brochure.webp",
+      "alt": "Yellow 26 by 18 inch heavy-duty mid-rail machine guard",
+      "description": "A welded mid-rail guard sized for equipment edges and traffic routes that need a wider protective footprint.",
+      "application": "Industrial equipment, production aisles, warehouse columns, machine bases, and exposed shop-floor corners.",
+      "specs": [
+        {
+          "label": "Width",
+          "value": "26 in"
+        },
+        {
+          "label": "Height",
+          "value": "18 in"
+        },
+        {
+          "label": "Tube",
+          "value": "4 x 4 x 0.25 in square tube"
+        },
+        {
+          "label": "Base plate",
+          "value": "8 x 8 x 0.4 in"
+        },
+        {
+          "label": "Anchor bolt",
+          "value": "0.74 x 5.51 in, not included"
+        }
+      ],
+      "features": [
+        "Mid-rail format for low-profile equipment protection",
+        "Heavy-duty steel construction",
+        "Powder-coated finish for warehouse and industrial environments",
+        "Designed for surface-mounted protection",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "heavy-duty-mid-rail-machine-guard-24x42",
+      "name": "Heavy Duty Mid-Rail Machine Guard - 24 x 42 in",
+      "model": "24 x 42 in",
+      "collection": "warehouse-safety",
+      "category": "Machine Guards",
+      "price": 500,
+      "image": "/images/catalog/safety/heavy-duty-mid-rail-machine-guard-24x42.webp",
+      "contextImage": "/images/catalog/safety/heavy-duty-mid-rail-machine-guard-24x42-context.webp",
+      "brochurePreviewImage": "/images/catalog/brochures/safety/heavy-duty-mid-rail-machine-guard-brochure.webp",
+      "alt": "Tall yellow heavy-duty mid-rail machine guard",
+      "featured": true,
+      "description": "A taller mid-rail machine guard for protecting exposed equipment and separating facility traffic from critical areas.",
+      "application": "Machine guarding layouts, forklift travel lanes, equipment corners, production cells, and warehouse safety barriers.",
+      "specs": [
+        {
+          "label": "Width",
+          "value": "24 in"
+        },
+        {
+          "label": "Height",
+          "value": "42 in"
+        },
+        {
+          "label": "Tube",
+          "value": "4 x 4 x 0.25 in square tube"
+        },
+        {
+          "label": "Base plate",
+          "value": "8 x 8 x 0.4 in"
+        },
+        {
+          "label": "Anchor bolt",
+          "value": "0.74 x 5.51 in, not included"
+        }
+      ],
+      "features": [
+        "Taller profile for stronger visual separation",
+        "Mid-rail format for equipment protection",
+        "Heavy-duty steel construction",
+        "Powder-coated finish for warehouse and industrial environments",
+        "Designed for surface-mounted protection",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "rack-protector-7x12-3ga",
+      "name": "Rack Protector - 7 x 12 in, 3 Ga.",
+      "model": "Fits 7 in post / 12 in H",
+      "collection": "warehouse-safety",
+      "category": "Rack Protection",
+      "price": 55,
+      "image": "/images/catalog/safety/rack-protector-7x12-3ga.webp",
+      "contextImage": "/images/catalog/safety/rack-protector-7x12-3ga-context.webp",
+      "brochurePreviewImage": "/images/catalog/brochures/safety/rack-protector-brochure.webp",
+      "alt": "Yellow 7 by 12 inch pallet rack protector",
+      "description": "A low-profile rack protector that shields 7 in pallet-rack uprights from cart and forklift contact.",
+      "application": "Pallet rack aisles, warehouse storage rows, picking areas, logistics facilities, and rack-end protection zones.",
+      "specs": [
+        {
+          "label": "Post fit",
+          "value": "7 in"
+        },
+        {
+          "label": "Height",
+          "value": "12 in"
+        },
+        {
+          "label": "Steel",
+          "value": "3 ga"
+        },
+        {
+          "label": "Finish",
+          "value": "Powder coated"
+        },
+        {
+          "label": "Anchor bolt",
+          "value": "1/2 x 4 in, not included"
+        }
+      ],
+      "features": [
+        "Floor-mounted guard for rack upright impact zones",
+        "Heavy-duty steel construction",
+        "Powder-coated finish for warehouse and industrial environments",
+        "Designed for surface-mounted protection",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "rack-protector-7x18-3ga",
+      "name": "Rack Protector - 7 x 18 in, 3 Ga.",
+      "model": "Fits 7 in post / 18 in H",
+      "collection": "warehouse-safety",
+      "category": "Rack Protection",
+      "price": 75,
+      "image": "/images/catalog/safety/rack-protector-7x18-3ga.webp",
+      "contextImage": "/images/catalog/safety/rack-protector-7x18-3ga-context.webp",
+      "brochurePreviewImage": "/images/catalog/brochures/safety/rack-protector-brochure.webp",
+      "alt": "Yellow 7 by 18 inch pallet rack protector",
+      "description": "A medium-height rack protector for 7 in pallet-rack posts in active warehouse aisles and storage lanes.",
+      "application": "Pallet rack aisles, warehouse storage rows, distribution centres, picking areas, and high-traffic rack ends.",
+      "specs": [
+        {
+          "label": "Post fit",
+          "value": "7 in"
+        },
+        {
+          "label": "Height",
+          "value": "18 in"
+        },
+        {
+          "label": "Steel",
+          "value": "3 ga"
+        },
+        {
+          "label": "Finish",
+          "value": "Powder coated"
+        },
+        {
+          "label": "Anchor bolt",
+          "value": "1/2 x 4 in, not included"
+        }
+      ],
+      "features": [
+        "Floor-mounted guard for rack upright impact zones",
+        "Heavy-duty steel construction",
+        "Powder-coated finish for warehouse and industrial environments",
+        "Designed for surface-mounted protection",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "rack-protector-7x24-3ga",
+      "name": "Rack Protector - 7 x 24 in, 3 Ga.",
+      "model": "Fits 7 in post / 24 in H",
+      "collection": "warehouse-safety",
+      "category": "Rack Protection",
+      "price": 90,
+      "image": "/images/catalog/safety/rack-protector-7x24-3ga.webp",
+      "contextImage": "/images/catalog/safety/rack-protector-7x24-3ga-context.webp",
+      "brochurePreviewImage": "/images/catalog/brochures/safety/rack-protector-brochure.webp",
+      "alt": "Yellow 7 by 24 inch pallet rack protector",
+      "featured": true,
+      "description": "A taller 3 ga rack protector for 7 in pallet-rack posts that need more visible lower-post protection.",
+      "application": "Warehouse rack rows, forklift aisles, high-bay storage areas, distribution centres, and exposed rack uprights.",
+      "specs": [
+        {
+          "label": "Post fit",
+          "value": "7 in"
+        },
+        {
+          "label": "Height",
+          "value": "24 in"
+        },
+        {
+          "label": "Steel",
+          "value": "3 ga"
+        },
+        {
+          "label": "Finish",
+          "value": "Powder coated"
+        },
+        {
+          "label": "Anchor bolt",
+          "value": "1/2 x 4 in, not included"
+        }
+      ],
+      "features": [
+        "Floor-mounted guard for rack upright impact zones",
+        "Heavy-duty steel construction",
+        "Powder-coated finish for warehouse and industrial environments",
+        "Designed for surface-mounted protection",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "rack-protector-5x12-3ga",
+      "name": "Rack Protector - 5 x 12 in, 3 Ga.",
+      "model": "Fits 5 in post / 12 in H",
+      "collection": "warehouse-safety",
+      "category": "Rack Protection",
+      "price": 45,
+      "image": "/images/catalog/safety/rack-protector-5x12-3ga.webp",
+      "contextImage": "/images/catalog/safety/rack-protector-5x12-3ga-context.webp",
+      "brochurePreviewImage": "/images/catalog/brochures/safety/rack-protector-brochure.webp",
+      "alt": "Yellow 5 by 12 inch pallet rack protector",
+      "description": "A compact rack protector for 5 in pallet-rack uprights in tighter warehouse aisles and storage rows.",
+      "application": "Warehouse rack aisles, compact storage areas, material handling zones, and lower upright protection.",
+      "specs": [
+        {
+          "label": "Post fit",
+          "value": "5 in"
+        },
+        {
+          "label": "Height",
+          "value": "12 in"
+        },
+        {
+          "label": "Steel",
+          "value": "3 ga"
+        },
+        {
+          "label": "Finish",
+          "value": "Powder coated"
+        },
+        {
+          "label": "Anchor bolt",
+          "value": "1/2 x 4 in, not included"
+        }
+      ],
+      "features": [
+        "Floor-mounted guard for rack upright impact zones",
+        "Heavy-duty steel construction",
+        "Powder-coated finish for warehouse and industrial environments",
+        "Designed for surface-mounted protection",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "rack-protector-5x18-3ga",
+      "name": "Rack Protector - 5 x 18 in, 3 Ga.",
+      "model": "Fits 5 in post / 18 in H",
+      "collection": "warehouse-safety",
+      "category": "Rack Protection",
+      "price": 55,
+      "image": "/images/catalog/safety/rack-protector-5x18-3ga.webp",
+      "contextImage": "/images/catalog/safety/rack-protector-5x18-3ga-context.webp",
+      "brochurePreviewImage": "/images/catalog/brochures/safety/rack-protector-brochure.webp",
+      "alt": "Yellow 5 by 18 inch pallet rack protector",
+      "description": "A medium-height 5 in rack-post protector for warehouse rows that need stronger lower-upright protection.",
+      "application": "Pallet rack protection, forklift aisles, warehouse storage, receiving areas, and distribution facilities.",
+      "specs": [
+        {
+          "label": "Post fit",
+          "value": "5 in"
+        },
+        {
+          "label": "Height",
+          "value": "18 in"
+        },
+        {
+          "label": "Steel",
+          "value": "3 ga"
+        },
+        {
+          "label": "Finish",
+          "value": "Powder coated"
+        },
+        {
+          "label": "Anchor bolt",
+          "value": "1/2 x 4 in, not included"
+        }
+      ],
+      "features": [
+        "Floor-mounted guard for rack upright impact zones",
+        "Heavy-duty steel construction",
+        "Powder-coated finish for warehouse and industrial environments",
+        "Designed for surface-mounted protection",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "rack-protector-5x24-3ga",
+      "name": "Rack Protector - 5 x 24 in, 3 Ga.",
+      "model": "Fits 5 in post / 24 in H",
+      "collection": "warehouse-safety",
+      "category": "Rack Protection",
+      "price": 70,
+      "image": "/images/catalog/safety/rack-protector-5x24-3ga.webp",
+      "contextImage": "/images/catalog/safety/rack-protector-5x24-3ga-context.webp",
+      "brochurePreviewImage": "/images/catalog/brochures/safety/rack-protector-brochure.webp",
+      "alt": "Yellow 5 by 24 inch pallet rack protector",
+      "description": "A taller 5 in post rack protector for visible, durable guarding at active rack rows and traffic lanes.",
+      "application": "Distribution centres, warehouse aisles, pallet storage rows, rack ends, and forklift travel areas.",
+      "specs": [
+        {
+          "label": "Post fit",
+          "value": "5 in"
+        },
+        {
+          "label": "Height",
+          "value": "24 in"
+        },
+        {
+          "label": "Steel",
+          "value": "3 ga"
+        },
+        {
+          "label": "Finish",
+          "value": "Powder coated"
+        },
+        {
+          "label": "Anchor bolt",
+          "value": "1/2 x 4 in, not included"
+        }
+      ],
+      "features": [
+        "Floor-mounted guard for rack upright impact zones",
+        "Heavy-duty steel construction",
+        "Powder-coated finish for warehouse and industrial environments",
+        "Designed for surface-mounted protection",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "pallet-rack-guard-end-46x3x5",
+      "name": "Pallet Rack Guard End - 46 x 3 x 5 in",
+      "model": "46 x 3 x 5 in",
+      "collection": "warehouse-safety",
+      "category": "Rack Protection",
+      "price": 205,
+      "image": "/images/catalog/safety/pallet-rack-guard-end-46x3x5.webp",
+      "contextImage": "/images/catalog/safety/pallet-rack-guard-end-46x3x5-context.webp",
+      "brochurePreviewImage": "/images/catalog/brochures/safety/pallet-rack-guard-end-brochure.webp",
+      "alt": "Yellow pallet rack guard end with low welded guard rail",
+      "featured": true,
+      "description": "A heavy-duty guard end that protects rack runs and aisle ends from side impacts in warehouse traffic areas.",
+      "application": "Pallet rack ends, aisle entries, forklift lanes, warehouse corners, and exposed storage-row protection.",
+      "specs": [
+        {
+          "label": "Fits post size",
+          "value": "4.5 in"
+        },
+        {
+          "label": "Dimensions",
+          "value": "46 L x 3 W x 5 H in"
+        },
+        {
+          "label": "Corner height",
+          "value": "8 in"
+        },
+        {
+          "label": "Steel",
+          "value": "3/8 in all-welded steel"
+        },
+        {
+          "label": "Anchor bolts",
+          "value": "Included"
+        }
+      ],
+      "features": [
+        "Available for right-side or left-side placement",
+        "Extra heavy-duty welded steel construction",
+        "Heavy-duty steel construction",
+        "Powder-coated finish for warehouse and industrial environments",
+        "Designed for surface-mounted protection",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "upright-protector-7x7x18",
+      "name": "Upright Protector - 7 x 7 x 18 in",
+      "model": "7 W x 7 D x 18 H in",
+      "collection": "warehouse-safety",
+      "category": "Rack Protection",
+      "price": 55,
+      "image": "/images/catalog/safety/upright-protector-7x7x18.webp",
+      "contextImage": "/images/catalog/safety/upright-protector-7x7x18-context.webp",
+      "brochurePreviewImage": "/images/catalog/brochures/safety/upright-protector-brochure.webp",
+      "alt": "Yellow 7 by 7 by 18 inch upright protector",
+      "description": "A welded upright protector that guards rack posts, columns, and equipment corners against low-level industrial impact.",
+      "application": "Rack uprights, warehouse columns, aisle ends, compact storage areas, and lower-post protection zones.",
+      "specs": [
+        {
+          "label": "Width",
+          "value": "7 in"
+        },
+        {
+          "label": "Depth",
+          "value": "7 in"
+        },
+        {
+          "label": "Height",
+          "value": "18 in"
+        },
+        {
+          "label": "Steel",
+          "value": "3/8 in all-welded steel"
+        },
+        {
+          "label": "Anchor bolt",
+          "value": "1/2 x 4 in, not included"
+        }
+      ],
+      "features": [
+        "Compact wraparound post protection",
+        "Heavy-duty steel construction",
+        "Powder-coated finish for warehouse and industrial environments",
+        "Designed for surface-mounted protection",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "upright-protector-7x7x12",
+      "name": "Upright Protector - 7 x 7 x 12 in",
+      "model": "7 W x 7 D x 12 H in",
+      "collection": "warehouse-safety",
+      "category": "Rack Protection",
+      "price": 45,
+      "image": "/images/catalog/safety/upright-protector-7x7x12.webp",
+      "contextImage": "/images/catalog/safety/upright-protector-7x7x12-context.webp",
+      "brochurePreviewImage": "/images/catalog/brochures/safety/upright-protector-brochure.webp",
+      "alt": "Yellow 7 by 7 by 12 inch upright protector",
+      "description": "A compact upright protector for lower rack posts and exposed support points in busy material-handling areas.",
+      "application": "Pallet rack posts, compact rack rows, warehouse columns, equipment corners, and low-level impact protection.",
+      "specs": [
+        {
+          "label": "Width",
+          "value": "7 in"
+        },
+        {
+          "label": "Depth",
+          "value": "7 in"
+        },
+        {
+          "label": "Height",
+          "value": "12 in"
+        },
+        {
+          "label": "Steel",
+          "value": "3/8 in all-welded steel"
+        },
+        {
+          "label": "Anchor bolt",
+          "value": "1/2 x 4 in, not included"
+        }
+      ],
+      "features": [
+        "Compact wraparound post protection",
+        "Heavy-duty steel construction",
+        "Powder-coated finish for warehouse and industrial environments",
+        "Designed for surface-mounted protection",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "floor-angle-guard-warehouse-24x5x3",
+      "name": "Floor Angle Guard - Warehouse 24 in",
+      "model": "24 L x 5 H x 3 W in",
+      "collection": "warehouse-safety",
+      "category": "Floor Guards",
+      "price": 100,
+      "image": "/images/catalog/safety/floor-angle-guard-warehouse-24x5x3.webp",
+      "contextImage": "/images/catalog/safety/floor-angle-guard-warehouse-24x5x3-context.webp",
+      "brochurePreviewImage": "/images/catalog/brochures/safety/floor-angle-guard-warehouse-brochure.webp",
+      "alt": "Yellow 24 inch warehouse floor angle guard",
+      "description": "A short floor angle guard for protecting vulnerable wall bases, edges, and floor-level equipment from impact.",
+      "application": "Warehouse wall bases, machinery edges, dock areas, pedestrian boundaries, and compact floor-protection runs.",
+      "specs": [
+        {
+          "label": "Length",
+          "value": "24 in"
+        },
+        {
+          "label": "Height",
+          "value": "5 in"
+        },
+        {
+          "label": "Width",
+          "value": "3 in"
+        },
+        {
+          "label": "Steel",
+          "value": "3/8 in"
+        },
+        {
+          "label": "Anchor bolts",
+          "value": "Included"
+        }
+      ],
+      "features": [
+        "Permanent installation for floor-level protection",
+        "Heavy-duty steel construction",
+        "Powder-coated finish for warehouse and industrial environments",
+        "Designed for surface-mounted protection",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "floor-angle-guard-warehouse-48x5x3",
+      "name": "Floor Angle Guard - Warehouse 48 in",
+      "model": "48 L x 5 H x 3 W in",
+      "collection": "warehouse-safety",
+      "category": "Floor Guards",
+      "price": 140,
+      "image": "/images/catalog/safety/floor-angle-guard-warehouse-48x5x3.webp",
+      "contextImage": "/images/catalog/safety/floor-angle-guard-warehouse-48x5x3-context.webp",
+      "brochurePreviewImage": "/images/catalog/brochures/safety/floor-angle-guard-warehouse-brochure.webp",
+      "alt": "Yellow 48 inch warehouse floor angle guard",
+      "description": "A 48 in floor guard for protecting wall runs, equipment bases, and lower warehouse edges from facility traffic.",
+      "application": "Warehouse perimeters, production walls, dock lanes, floor-level machine protection, and aisle boundary marking.",
+      "specs": [
+        {
+          "label": "Length",
+          "value": "48 in"
+        },
+        {
+          "label": "Height",
+          "value": "5 in"
+        },
+        {
+          "label": "Width",
+          "value": "3 in"
+        },
+        {
+          "label": "Steel",
+          "value": "3/8 in"
+        },
+        {
+          "label": "Anchor bolts",
+          "value": "Included"
+        }
+      ],
+      "features": [
+        "Permanent installation for floor-level protection",
+        "Heavy-duty steel construction",
+        "Powder-coated finish for warehouse and industrial environments",
+        "Designed for surface-mounted protection",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "floor-angle-guard-warehouse-60x5x3",
+      "name": "Floor Angle Guard - Warehouse 60 in",
+      "model": "60 L x 5 H x 3 W in",
+      "collection": "warehouse-safety",
+      "category": "Floor Guards",
+      "price": 190,
+      "image": "/images/catalog/safety/floor-angle-guard-warehouse-60x5x3.webp",
+      "contextImage": "/images/catalog/safety/floor-angle-guard-warehouse-60x5x3-context.webp",
+      "brochurePreviewImage": "/images/catalog/brochures/safety/floor-angle-guard-warehouse-brochure.webp",
+      "alt": "Yellow 60 inch warehouse floor angle guard",
+      "description": "A medium-length warehouse floor guard for building continuous low-level protection around high-use areas.",
+      "application": "Production areas, rack rows, wall bases, storage perimeters, and traffic-facing facility edges.",
+      "specs": [
+        {
+          "label": "Length",
+          "value": "60 in"
+        },
+        {
+          "label": "Height",
+          "value": "5 in"
+        },
+        {
+          "label": "Width",
+          "value": "3 in"
+        },
+        {
+          "label": "Steel",
+          "value": "3/8 in"
+        },
+        {
+          "label": "Anchor bolts",
+          "value": "Included"
+        }
+      ],
+      "features": [
+        "Permanent installation for floor-level protection",
+        "Heavy-duty steel construction",
+        "Powder-coated finish for warehouse and industrial environments",
+        "Designed for surface-mounted protection",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "floor-angle-guard-warehouse-96x5x3",
+      "name": "Floor Angle Guard - Warehouse 96 in",
+      "model": "96 L x 5 H x 3 W in",
+      "collection": "warehouse-safety",
+      "category": "Floor Guards",
+      "price": 300,
+      "image": "/images/catalog/safety/floor-angle-guard-warehouse-96x5x3.webp",
+      "contextImage": "/images/catalog/safety/floor-angle-guard-warehouse-96x5x3-context.webp",
+      "brochurePreviewImage": "/images/catalog/brochures/safety/floor-angle-guard-warehouse-brochure.webp",
+      "alt": "Yellow 96 inch warehouse floor angle guard",
+      "description": "A long 96 in floor angle guard for protecting extended warehouse edges, walls, and traffic-facing equipment bases.",
+      "application": "Warehouse walls, dock approaches, equipment lines, storage-zone boundaries, and long floor-protection runs.",
+      "specs": [
+        {
+          "label": "Length",
+          "value": "96 in"
+        },
+        {
+          "label": "Height",
+          "value": "5 in"
+        },
+        {
+          "label": "Width",
+          "value": "3 in"
+        },
+        {
+          "label": "Steel",
+          "value": "3/8 in"
+        },
+        {
+          "label": "Anchor bolts",
+          "value": "Included"
+        }
+      ],
+      "features": [
+        "Permanent installation for floor-level protection",
+        "Heavy-duty steel construction",
+        "Powder-coated finish for warehouse and industrial environments",
+        "Designed for surface-mounted protection",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "floor-angle-guard-warehouse-120x5x3",
+      "name": "Floor Angle Guard - Warehouse 120 in",
+      "model": "120 L x 5 H x 3 W in",
+      "collection": "warehouse-safety",
+      "category": "Floor Guards",
+      "price": 360,
+      "image": "/images/catalog/safety/floor-angle-guard-warehouse-120x5x3.webp",
+      "contextImage": "/images/catalog/safety/floor-angle-guard-warehouse-120x5x3-context.webp",
+      "brochurePreviewImage": "/images/catalog/brochures/safety/floor-angle-guard-warehouse-brochure.webp",
+      "alt": "Yellow 120 inch warehouse floor angle guard",
+      "featured": true,
+      "description": "A 120 in floor angle guard for creating extended, durable protection along high-traffic warehouse walls and equipment runs.",
+      "application": "Long warehouse perimeters, loading areas, production boundaries, rack-line edges, and high-traffic facility layouts.",
+      "specs": [
+        {
+          "label": "Length",
+          "value": "120 in"
+        },
+        {
+          "label": "Height",
+          "value": "5 in"
+        },
+        {
+          "label": "Width",
+          "value": "3 in"
+        },
+        {
+          "label": "Steel",
+          "value": "3/8 in"
+        },
+        {
+          "label": "Anchor bolts",
+          "value": "Included"
+        }
+      ],
+      "features": [
+        "Permanent installation for floor-level protection",
+        "Heavy-duty steel construction",
+        "Powder-coated finish for warehouse and industrial environments",
+        "Designed for surface-mounted protection",
+        "Custom sizes are available on request"
+      ]
+    },
+    {
+      "slug": "anti-theft-parking-bollard-collapsible",
+      "name": "Anti-Theft Parking Bollard - Collapsible",
+      "model": "Collapsible parking bollard",
+      "collection": "warehouse-safety",
+      "category": "Parking Bollards",
+      "price": 306,
+      "image": "/images/catalog/safety/anti-theft-parking-bollard-collapsible.webp",
+      "contextImage": "/images/catalog/safety/anti-theft-parking-bollard-collapsible-context.webp",
+      "brochurePreviewImage": "/images/catalog/brochures/safety/anti-theft-parking-bollard-collapsible-brochure.webp",
+      "alt": "Yellow collapsible anti-theft parking bollard with base plate",
+      "featured": true,
+      "description": "A hinged collapsible bollard for reserving parking spaces, controlling access, and adding removable vehicle deterrence.",
+      "application": "Parking spaces, commercial lots, loading areas, restricted-access lanes, private driveways, and vehicle-control points.",
+      "specs": [
+        {
+          "label": "Outer diameter",
+          "value": "5 in"
+        },
+        {
+          "label": "Height",
+          "value": "36 in upright / 3.5 in folded"
+        },
+        {
+          "label": "Base",
+          "value": "10.5 x 8 x 3.5 in"
+        },
+        {
+          "label": "Base plate",
+          "value": "0.55 in"
+        },
+        {
+          "label": "Anchor bolt",
+          "value": "1/2 x 4 in, not included"
+        }
+      ],
+      "features": [
+        "Two-direction hinged bollard folds at 90 degrees",
+        "Surface-mount installation without core drilling or excavation",
+        "Low folded profile for vehicle clearance",
+        "Heavy-duty steel construction",
+        "Powder-coated finish for warehouse and industrial environments",
+        "Designed for surface-mounted protection",
+        "Custom sizes are available on request"
+      ]
+    }
+  ]
+}

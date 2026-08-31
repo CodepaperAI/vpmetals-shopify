@@ -1,0 +1,31 @@
+<header class="site-header">
+  <div class="site-header__inner page-width">
+    <a class="site-header__brand" href="{{ routes.root_url }}" aria-label="{{ shop.name }} home">
+      {% if section.settings.logo != blank %}
+        {{ section.settings.logo | image_url: width: 360 | image_tag: widths: '180,240,360', width: 180, loading: 'eager', alt: shop.name }}
+      {% else %}
+        <img src="{{ 'prosteel-logo.png' | asset_url }}" width="180" height="72" loading="eager" alt="{{ shop.name | escape }}">
+      {% endif %}
+    </a>
+    <nav class="site-header__nav" aria-label="Main navigation">
+      {% for link in section.settings.menu.links %}
+        <a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.title }}</a>
+      {% endfor %}
+    </nav>
+    <div class="site-header__actions">
+      <a class="site-header__quote ps-button" href="{{ section.settings.quote_url | default: '/pages/contact' }}">Request a quote <span aria-hidden="true">→</span></a>
+      <a class="site-header__cart" href="{{ routes.cart_url }}" aria-label="Cart with {{ cart.item_count }} items">
+        {{ 'icon-cart.svg' | inline_asset_content }}
+        <span>Cart</span><b>{{ cart.item_count }}</b>
+      </a>
+    </div>
+  </div>
+</header>
+
+{% stylesheet %}
+  .site-header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #e7ebf1}.site-header__inner{min-height:88px;display:flex;align-items:center;gap:30px}.site-header__brand{flex:0 0 auto}.site-header__brand img{width:160px;height:auto}.site-header__nav{display:flex;align-items:center;justify-content:center;gap:28px;margin-left:auto}.site-header__nav a{position:relative;color:#15213a;font-size:.76rem;font-weight:800;letter-spacing:.015em;text-decoration:none;text-transform:uppercase}.site-header__nav a::after{content:'';position:absolute;left:0;right:100%;bottom:-11px;height:2px;background:#0757b6;transition:right .2s}.site-header__nav a:hover::after,.site-header__nav a[aria-current=page]::after{right:0}.site-header__actions{display:flex;align-items:center;gap:12px}.site-header__quote{white-space:nowrap}.site-header__cart{min-height:48px;padding:0 14px;display:flex;align-items:center;gap:7px;border:1px solid #dbe2eb;color:#071c44;font-size:.75rem;font-weight:800;text-decoration:none;text-transform:uppercase}.site-header__cart svg{width:19px;height:19px}.site-header__cart b{display:grid;place-items:center;min-width:21px;height:21px;border-radius:50%;background:#0757b6;color:#fff;font-size:.68rem}@media(max-width:1100px){.site-header__inner{flex-wrap:wrap;padding-block:14px}.site-header__nav{order:3;width:100%;overflow-x:auto;justify-content:flex-start;padding:6px 0}.site-header__actions{margin-left:auto}}@media(max-width:640px){.site-header__brand img{width:125px}.site-header__quote{display:none}.site-header__nav{gap:20px}.site-header__inner{gap:12px}}
+{% endstylesheet %}
+
+{% schema %}
+{"name":"ProSteel header","settings":[{"type":"image_picker","id":"logo","label":"Logo"},{"type":"link_list","id":"menu","label":"Main menu","default":"main-menu"},{"type":"url","id":"quote_url","label":"Quote page"}]}
+{% endschema %}

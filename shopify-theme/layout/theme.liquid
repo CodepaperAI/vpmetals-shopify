@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#0757b6">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <link rel="icon" href="{{ 'favicon.svg' | asset_url }}" type="image/svg+xml">
+    {% render 'meta-tags' %}
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
+    {{ content_for_header }}
+  </head>
+  <body>
+    <a class="skip-link visually-hidden" href="#MainContent">Skip to content</a>
+    {% sections 'header-group' %}
+    <main id="MainContent" tabindex="-1">{{ content_for_layout }}</main>
+    {% sections 'footer-group' %}
+    <script src="{{ 'theme.js' | asset_url }}" defer></script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<section class="collection-page page-width">
+  <header class="collection-page__header"><p class="eyebrow">ProSteel catalogue</p><h1>{{ collection.title }}</h1>{% if collection.description != blank %}<div>{{ collection.description }}</div>{% endif %}</header>
+  {% paginate collection.products by 24 %}
+    <div class="collection-grid">
+      {% for product in collection.products %}
+        <article class="product-card">
+          <a class="product-card__media" href="{{ product.url }}">{% if product.featured_image %}{{ product.featured_image | image_url: width: 800 | image_tag: widths: '320,480,640,800', loading: 'lazy', alt: product.featured_image.alt | default: product.title }}{% else %}<span>Image coming soon</span>{% endif %}</a>
+          <div class="product-card__body"><p>{{ product.type | default: product.vendor }}</p><h2><a href="{{ product.url }}">{{ product.title }}</a></h2>{% if product.metafields.custom.model_number != blank %}<small>{{ product.metafields.custom.model_number }}</small>{% endif %}<div><strong>{% if product.price_varies %}From {% endif %}{{ product.price | money }}</strong><a href="{{ product.url }}">View details →</a></div></div>
+        </article>
+      {% else %}
+        <p>No products are assigned to this collection yet.</p>
+      {% endfor %}
+    </div>
+    <div class="collection-pagination">{{ paginate | default_pagination }}</div>
+  {% endpaginate %}
+</section>
+{% stylesheet %}
+  .collection-page{padding-block:70px 90px}.collection-page__header{max-width:850px;margin-bottom:45px}.collection-page__header h1{margin:6px 0 14px;color:#071c44;font-size:clamp(2.5rem,5vw,5rem);line-height:1;text-transform:uppercase}.collection-page__header>div{color:#617084}.collection-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.product-card{overflow:hidden;border:1px solid #dbe2eb;background:#fff;box-shadow:0 8px 30px rgba(7,28,68,.04)}.product-card__media{display:grid;place-items:center;aspect-ratio:1.15/1;background:#f4f7fb;color:#687486;text-decoration:none}.product-card__media img{width:100%;height:100%;object-fit:contain;transition:transform .25s}.product-card:hover img{transform:scale(1.025)}.product-card__body{padding:23px}.product-card__body>p{margin:0;color:#0757b6;font-size:.66rem;font-weight:900;letter-spacing:.09em;text-transform:uppercase}.product-card h2{min-height:52px;margin:7px 0;color:#071c44;font-size:1.1rem;line-height:1.25;text-transform:uppercase}.product-card h2 a{text-decoration:none}.product-card small{color:#6b7686}.product-card__body>div{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:20px;padding-top:17px;border-top:1px solid #e1e6ed}.product-card strong{color:#071c44}.product-card__body>div a{color:#0757b6;font-size:.7rem;font-weight:900;text-decoration:none;text-transform:uppercase}.collection-pagination{margin-top:35px;text-align:center}@media(max-width:920px){.collection-grid{grid-template-columns:1fr 1fr}}@media(max-width:590px){.collection-grid{grid-template-columns:1fr}}
+{% endstylesheet %}
+{% schema %}
+{"name":"ProSteel collection","settings":[]}
+{% endschema %}

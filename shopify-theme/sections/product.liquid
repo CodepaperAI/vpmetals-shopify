@@ -1,0 +1,62 @@
+{% assign current_variant = product.selected_or_first_available_variant %}
+<section class="product-page page-width" data-product-root>
+  <div class="product-gallery" aria-label="Product images">
+    {% if product.media.size > 0 %}
+      {% for media in product.media %}
+        <figure class="product-gallery__item">
+          {{ media.preview_image | image_url: width: 1400 | image_tag: widths: '480,720,960,1400', loading: 'lazy', alt: media.alt | default: product.title }}
+        </figure>
+      {% endfor %}
+    {% else %}
+      <div class="product-gallery__empty">Product image coming soon</div>
+    {% endif %}
+  </div>
+
+  <div class="product-details">
+    <p class="eyebrow">{{ product.vendor | default: 'Pro Steel Equipment' }}</p>
+    <h1>{{ product.title }}</h1>
+    {% if product.metafields.custom.model_number != blank %}<p class="product-details__model">Model {{ product.metafields.custom.model_number }}</p>{% endif %}
+    <div class="product-details__price money" data-product-price>{{ current_variant.price | money }}</div>
+    {% if current_variant.compare_at_price > current_variant.price %}<div class="product-details__compare">{{ current_variant.compare_at_price | money }}</div>{% endif %}
+    <div class="product-details__description rte">{{ product.description }}</div>
+
+    {% form 'product', product, class: 'product-form' %}
+      {% unless product.has_only_default_variant %}
+        <label for="Variant-{{ section.id }}">Size / configuration</label>
+        <select id="Variant-{{ section.id }}" name="id" data-variant-select>
+          {% for variant in product.variants %}
+            <option value="{{ variant.id }}" data-price="{{ variant.price | money }}" data-available="{{ variant.available }}"{% if variant == current_variant %} selected{% endif %}{% unless variant.available %} disabled{% endunless %}>
+              {{ variant.title }} — {{ variant.price | money }}{% unless variant.available %} — Sold out{% endunless %}
+            </option>
+          {% endfor %}
+        </select>
+      {% else %}
+        <input type="hidden" name="id" value="{{ current_variant.id }}">
+      {% endunless %}
+      <div class="product-form__row">
+        <div><label for="Quantity-{{ section.id }}">Quantity</label><input id="Quantity-{{ section.id }}" type="number" name="quantity" min="1" value="1"></div>
+        <button class="ps-button" type="submit" data-add-to-cart{% unless current_variant.available %} disabled{% endunless %}>{% if current_variant.available %}Add to cart{% else %}Sold out{% endif %}</button>
+      </div>
+      {{ form | payment_button }}
+    {% endform %}
+
+    <div class="product-assurance"><span>Canadian-made equipment</span><span>Secure checkout</span><span>Request custom fabrication</span></div>
+  </div>
+
+  {% if product.metafields.custom.specifications != blank or product.metafields.custom.applications != blank or product.metafields.custom.features != blank %}
+    <div class="product-facts">
+      {% if product.metafields.custom.specifications != blank %}<article><h2>Specifications</h2><div class="rte">{{ product.metafields.custom.specifications | metafield_tag }}</div></article>{% endif %}
+      {% if product.metafields.custom.applications != blank %}<article><h2>Applications</h2><div class="rte">{{ product.metafields.custom.applications | metafield_tag }}</div></article>{% endif %}
+      {% if product.metafields.custom.features != blank %}<article><h2>Features</h2><div class="rte">{{ product.metafields.custom.features | metafield_tag }}</div></article>{% endif %}
+    </div>
+  {% endif %}
+  {% if product.metafields.custom.brochure != blank %}<a class="product-brochure ps-button ps-button--outline" href="{{ product.metafields.custom.brochure | file_url }}" target="_blank" rel="noopener">Download product brochure</a>{% endif %}
+</section>
+
+{% stylesheet %}
+  .product-page{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr);gap:70px;padding-block:70px 90px}.product-gallery{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-content:start}.product-gallery__item{margin:0;background:#f4f7fb;border:1px solid #e0e6ee}.product-gallery__item:first-child{grid-column:1/-1}.product-gallery__item img{width:100%;aspect-ratio:1/1;object-fit:contain}.product-gallery__empty{display:grid;place-items:center;min-height:500px;background:#f4f7fb;color:#6e7a89}.product-details{position:sticky;top:120px;align-self:start}.product-details h1{margin:5px 0 6px;color:#071c44;font-size:clamp(2rem,4vw,3.7rem);line-height:1.05;letter-spacing:-.035em;text-transform:uppercase}.product-details__model{margin:0 0 12px;color:#667386;font-weight:700}.product-details__price{font-size:1.8rem}.product-details__compare{color:#7b8491;text-decoration:line-through}.product-details__description{margin:24px 0;color:#4f5c6e}.product-form{padding:24px 0;border-block:1px solid #dbe2eb}.product-form label{display:block;margin-bottom:6px;color:#071c44;font-size:.76rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}.product-form select,.product-form input{width:100%;min-height:50px;padding:10px 13px;border:1px solid #bac4d0;border-radius:2px;background:#fff;color:#101820;font:inherit}.product-form__row{display:grid;grid-template-columns:100px 1fr;gap:12px;align-items:end;margin-top:15px}.product-form__row .ps-button{width:100%}.product-form button:disabled{opacity:.55;cursor:not-allowed}.shopify-payment-button{margin-top:10px}.product-assurance{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:22px;background:#dbe2eb;border:1px solid #dbe2eb}.product-assurance span{padding:12px;background:#f7f9fc;color:#48566a;font-size:.72rem;font-weight:700;text-align:center}.product-facts{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);margin-top:24px;border:1px solid #dbe2eb}.product-facts article{padding:32px}.product-facts article+article{border-left:1px solid #dbe2eb}.product-facts h2{margin:0 0 14px;color:#071c44;font-size:1rem;text-transform:uppercase}.product-facts .rte{color:#536174;font-size:.9rem}.product-brochure{grid-column:1/-1;justify-self:start}@media(max-width:900px){.product-page{grid-template-columns:1fr;gap:38px;padding-block:40px 64px}.product-details{position:static}.product-facts{grid-template-columns:1fr}.product-facts article+article{border-left:0;border-top:1px solid #dbe2eb}}@media(max-width:520px){.product-gallery{grid-template-columns:1fr}.product-gallery__item:first-child{grid-column:auto}.product-assurance{grid-template-columns:1fr}.product-form__row{grid-template-columns:88px 1fr}}
+{% endstylesheet %}
+
+{% schema %}
+{"name":"ProSteel product","settings":[],"disabled_on":{"groups":["header","footer"]}}
+{% endschema %}
