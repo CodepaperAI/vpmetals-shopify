@@ -1,0 +1,63 @@
+---
+import { ArrowRight, Building2, CheckCircle2, Download, Layers3, Ruler, Settings2, ShieldCheck } from 'lucide-astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const profiles = ['Straight flat section', 'Bird beak section', 'Box section', 'Hat top section', 'Adaptor glazing section'];
+const specifications = [
+	['Materials', 'Galvanized G90 steel; aluminum available as a project-specific alternative'],
+	['Standard gauges', '20 gauge and 22 gauge'],
+	['Pan depth', 'Project-specific increments up to 125 mm (4.92 in)'],
+	['Oversized pans', 'Integrated joint-stiffening design available for pans over 2.3 m² (24.75 sq. ft.)'],
+	['Insulation', 'Mineral wool or fiberglass, with factory-installed insulation available'],
+	['Optional finish', 'Painted or powder-coated exposed surfaces'],
+];
+---
+
+<BaseLayout title="Custom Curtain Wall Backpans | ProSteel Equipment" description="Project-specific galvanized steel and aluminum curtain wall backpans manufactured by ProSteel Equipment in Brampton, Ontario.">
+	<main class="backpans">
+		<section class="backpan-hero">
+			<div class="backpan-hero__copy">
+				<p>Architectural metal fabrication</p>
+				<h1>Custom curtain wall backpans</h1>
+				<p class="backpan-hero__lead">Fabricated for glazing contractors, architects, consultants, and construction teams—built to suit the opening, installation sequence, insulation requirement, and curtain wall system.</p>
+				<div class="backpan-hero__actions"><a href="/contact/">Request a project quote <ArrowRight size={18} /></a><a href="/brochures/curtain-wall-backpan-brochure.pdf" target="_blank">Download brochure <Download size={17} /></a></div>
+			</div>
+			<div class="backpan-hero__image"><img src="/images/backpans/fabricated-backpans.png" alt="Insulated galvanized ProSteel curtain wall backpans staged on pallets inside the fabrication facility" /></div>
+		</section>
+
+		<section class="backpan-intro">
+			<div><p>Built around the project</p><h2>Backpans shaped for the building envelope</h2></div>
+			<div><p>Backpans are installed behind opaque curtain wall glazing areas to support insulation and help complete the interior-side assembly. ProSteel fabricates pans to the supplied design, opening dimensions, substrate, and installation requirements.</p><p>Final materials, dimensions, insulation, profiles, fastener details, sealing requirements, and finishes are confirmed for each project.</p></div>
+		</section>
+
+		<section class="backpan-benefits">
+			<article><Ruler /><h3>Project-specific dimensions</h3><p>Custom sizes, depths, flanges, notches, and formed profiles to suit drawings and field conditions.</p></article>
+			<article><Layers3 /><h3>Material and insulation options</h3><p>Galvanized steel or aluminum configurations with mineral wool or fiberglass insulation options.</p></article>
+			<article><Settings2 /><h3>In-house fabrication</h3><p>CNC laser cutting, precision forming, welding, assembly, finishing, and prototyping under one roof.</p></article>
+			<article><ShieldCheck /><h3>Installation coordination</h3><p>Factory-installed insulation and structured floor-by-floor or elevation-based shipping are available when specified.</p></article>
+		</section>
+
+		<section class="backpan-specs">
+			<div class="backpan-specs__image"><img src="/images/backpans/galvanized-backpans.png" alt="Finished galvanized ProSteel curtain wall backpans secured on pallets for shipment" loading="lazy" /></div>
+			<div class="backpan-specs__copy"><p>Technical capabilities</p><h2>Configurable to the design criteria</h2><dl>{specifications.map(([term, detail]) => <div><dt>{term}</dt><dd>{detail}</dd></div>)}</dl></div>
+		</section>
+
+		<section class="backpan-profiles">
+			<div class="backpan-profiles__copy"><p>Formed profiles</p><h2>More than a standard four-sided pan</h2><p>Profile selection depends on the sequence of component installation, glazing method, whether the work is new construction or retrofit, and other project conditions.</p><ul>{profiles.map((profile) => <li><CheckCircle2 size={19} />{profile}</li>)}</ul></div>
+			<img src="/images/backpans/custom-profile-backpans.png" alt="Custom-profile ProSteel curtain wall backpans stacked in the fabrication shop" loading="lazy" />
+		</section>
+
+		<section class="backpan-process">
+			<div class="backpan-process__heading"><p>What to send us</p><h2>Start with the project requirements</h2></div>
+			<ol><li><span>01</span><strong>Drawings and openings</strong><p>Panel dimensions, elevations, profiles, flanges, penetrations, and tolerances.</p></li><li><span>02</span><strong>Assembly requirements</strong><p>Material, gauge, pan depth, insulation, attachment, substrate, and sealing scope.</p></li><li><span>03</span><strong>Finish and logistics</strong><p>Exposed finish, quantities, packaging, delivery sequence, and required schedule.</p></li></ol>
+		</section>
+
+		<section class="backpan-cta"><Building2 size={52} /><div><p>Have a curtain wall package to price?</p><h2>Send the drawings and project requirements.</h2></div><a href="/contact/">Request a quote <ArrowRight size={18} /></a></section>
+	</main>
+</BaseLayout>
+
+<style>
+	.backpans{--blue:#0759bd;--navy:#071b46;--line:#dce3ee;color:#172033}.backpan-hero{display:grid;min-height:620px;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:#f5f8fc}.backpan-hero__copy{display:flex;padding:80px max(48px,calc((100vw - 1400px)/2));padding-right:70px;flex-direction:column;justify-content:center;align-items:flex-start}.backpan-hero__copy>p:first-child,.backpan-intro>div:first-child p,.backpan-specs__copy>p,.backpan-profiles__copy>p,.backpan-process__heading p{margin:0;color:var(--blue);font-size:11px;font-weight:900;letter-spacing:.13em;text-transform:uppercase}.backpan-hero h1{max-width:700px;margin:14px 0 0;color:var(--navy);font-size:clamp(48px,5.2vw,82px);font-weight:900;letter-spacing:-.055em;line-height:.92;text-transform:uppercase}.backpan-hero__lead{max-width:650px;margin:28px 0 0;color:#425069;font-size:16px;line-height:1.75}.backpan-hero__actions{display:flex;margin-top:32px;gap:12px;flex-wrap:wrap}.backpan-hero__actions a,.backpan-cta a{display:inline-flex;min-height:50px;padding:0 24px;align-items:center;gap:11px;border:1px solid var(--blue);border-radius:4px;background:var(--blue);color:#fff;font-size:11px;font-weight:900;text-decoration:none;text-transform:uppercase}.backpan-hero__actions a:last-child{background:#fff;color:var(--blue)}.backpan-hero__image{min-height:620px;background:#172033}.backpan-hero__image img{width:100%;height:100%;object-fit:cover}.backpan-intro{display:grid;width:min(calc(100% - 48px),1200px);margin:0 auto;grid-template-columns:.9fr 1.1fr;gap:90px;padding:100px 0}.backpan-intro h2,.backpan-specs h2,.backpan-profiles h2,.backpan-process h2,.backpan-cta h2{margin:12px 0 0;color:var(--navy);font-size:clamp(34px,4vw,52px);font-weight:900;letter-spacing:-.04em;line-height:1.02;text-transform:uppercase}.backpan-intro>div:last-child p{margin:0;color:#526079;font-size:15px;line-height:1.8}.backpan-intro>div:last-child p+p{margin-top:16px}.backpan-benefits{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:#0b244d;color:#fff}.backpan-benefits article{min-height:300px;padding:48px 34px;border-right:1px solid rgba(255,255,255,.16)}.backpan-benefits svg{color:#78aeff}.backpan-benefits h3{margin:42px 0 0;font-size:16px;text-transform:uppercase}.backpan-benefits p{margin:14px 0 0;color:#cad7eb;font-size:13px;line-height:1.7}.backpan-specs,.backpan-profiles{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}.backpan-specs__image{min-height:720px;background:#eef2f7}.backpan-specs__image img,.backpan-profiles>img{width:100%;height:100%;object-fit:cover}.backpan-specs__copy,.backpan-profiles__copy{display:flex;padding:80px clamp(42px,6vw,110px);flex-direction:column;justify-content:center}.backpan-specs dl{margin:34px 0 0}.backpan-specs dl div{display:grid;grid-template-columns:150px 1fr;padding:17px 0;border-bottom:1px solid var(--line);gap:24px}.backpan-specs dt{color:var(--navy);font-size:12px;font-weight:900;text-transform:uppercase}.backpan-specs dd{margin:0;color:#536079;font-size:13px;line-height:1.55}.backpan-profiles{background:#f4f7fb}.backpan-profiles__copy>p:not(:first-child){max-width:620px;margin:22px 0 0;color:#526079;font-size:14px;line-height:1.75}.backpan-profiles ul{display:grid;margin:28px 0 0;padding:0;grid-template-columns:1fr 1fr;gap:14px 22px;list-style:none}.backpan-profiles li{display:flex;align-items:center;gap:9px;color:var(--navy);font-size:12px;font-weight:800}.backpan-profiles li svg{color:var(--blue)}.backpan-process{width:min(calc(100% - 48px),1200px);margin:0 auto;padding:100px 0}.backpan-process__heading{display:grid;grid-template-columns:.6fr 1.4fr;align-items:start;gap:60px}.backpan-process__heading h2{margin-top:0}.backpan-process ol{display:grid;margin:52px 0 0;padding:0;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);list-style:none}.backpan-process li{min-height:250px;padding:34px;border-right:1px solid var(--line)}.backpan-process li:last-child{border-right:0}.backpan-process li span{color:var(--blue);font-size:11px;font-weight:900}.backpan-process strong{display:block;margin-top:54px;color:var(--navy);font-size:15px;text-transform:uppercase}.backpan-process li p{margin:13px 0 0;color:#59667c;font-size:13px;line-height:1.65}.backpan-cta{display:grid;padding:58px max(28px,calc((100vw - 1200px)/2));grid-template-columns:auto 1fr auto;align-items:center;gap:28px;background:linear-gradient(120deg,#071b46,#0759bd);color:#fff}.backpan-cta>svg{color:#a9cbff}.backpan-cta p{margin:0;color:#c9dcfb;font-size:11px;font-weight:900;text-transform:uppercase}.backpan-cta h2{max-width:700px;color:#fff;font-size:34px}.backpan-cta a{border-color:#fff;background:#fff;color:var(--blue)}
+	@media(max-width:960px){.backpan-hero,.backpan-specs,.backpan-profiles{grid-template-columns:1fr}.backpan-hero__copy{padding:72px 28px}.backpan-hero__image,.backpan-specs__image{min-height:480px}.backpan-benefits{grid-template-columns:1fr 1fr}.backpan-intro{grid-template-columns:1fr;gap:24px}.backpan-profiles>img{min-height:480px}.backpan-process__heading{grid-template-columns:1fr;gap:18px}.backpan-cta{grid-template-columns:auto 1fr}.backpan-cta a{grid-column:1/-1;justify-self:start}}
+	@media(max-width:600px){.backpan-hero h1{font-size:44px}.backpan-hero__actions{width:100%;flex-direction:column}.backpan-hero__actions a{justify-content:center}.backpan-hero__image,.backpan-specs__image,.backpan-profiles>img{min-height:340px}.backpan-intro,.backpan-process{width:calc(100% - 40px);padding:70px 0}.backpan-benefits{grid-template-columns:1fr}.backpan-benefits article{min-height:230px}.backpan-specs__copy,.backpan-profiles__copy{padding:64px 20px}.backpan-specs dl div{grid-template-columns:1fr;gap:7px}.backpan-profiles ul,.backpan-process ol{grid-template-columns:1fr}.backpan-process li{min-height:210px;border-right:0;border-bottom:1px solid var(--line)}.backpan-process li:last-child{border-bottom:0}.backpan-cta{grid-template-columns:1fr;padding:48px 20px}.backpan-cta a{width:100%;justify-content:center}}
+</style>
