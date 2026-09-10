@@ -1,62 +1,118 @@
 {% assign current_variant = product.selected_or_first_available_variant %}
-<section class="product-page page-width" data-product-root>
-  <div class="product-gallery" aria-label="Product images">
-    {% if product.media.size > 0 %}
-      {% for media in product.media %}
-        <figure class="product-gallery__item">
-          {{ media.preview_image | image_url: width: 1400 | image_tag: widths: '480,720,960,1400', loading: 'lazy', alt: media.alt | default: product.title }}
-        </figure>
-      {% endfor %}
-    {% else %}
-      <div class="product-gallery__empty">Product image coming soon</div>
-    {% endif %}
-  </div>
-
-  <div class="product-details">
-    <p class="eyebrow">{{ product.vendor | default: 'Pro Steel Equipment' }}</p>
-    <h1>{{ product.title }}</h1>
-    {% if product.metafields.custom.model_number != blank %}<p class="product-details__model">Model {{ product.metafields.custom.model_number }}</p>{% endif %}
-    <div class="product-details__price money" data-product-price>{{ current_variant.price | money }}</div>
-    {% if current_variant.compare_at_price > current_variant.price %}<div class="product-details__compare">{{ current_variant.compare_at_price | money }}</div>{% endif %}
-    <div class="product-details__description rte">{{ product.description }}</div>
-
-    {% form 'product', product, class: 'product-form' %}
-      {% unless product.has_only_default_variant %}
-        <label for="Variant-{{ section.id }}">Size / configuration</label>
-        <select id="Variant-{{ section.id }}" name="id" data-variant-select>
-          {% for variant in product.variants %}
-            <option value="{{ variant.id }}" data-price="{{ variant.price | money }}" data-available="{{ variant.available }}"{% if variant == current_variant %} selected{% endif %}{% unless variant.available %} disabled{% endunless %}>
-              {{ variant.title }} — {{ variant.price | money }}{% unless variant.available %} — Sold out{% endunless %}
-            </option>
-          {% endfor %}
-        </select>
-      {% else %}
-        <input type="hidden" name="id" value="{{ current_variant.id }}">
-      {% endunless %}
-      <div class="product-form__row">
-        <div><label for="Quantity-{{ section.id }}">Quantity</label><input id="Quantity-{{ section.id }}" type="number" name="quantity" min="1" value="1"></div>
-        <button class="ps-button" type="submit" data-add-to-cart{% unless current_variant.available %} disabled{% endunless %}>{% if current_variant.available %}Add to cart{% else %}Sold out{% endif %}</button>
-      </div>
-      {{ form | payment_button }}
-    {% endform %}
-
-    <div class="product-assurance"><span>Canadian-made equipment</span><span>Secure checkout</span><span>Request custom fabrication</span></div>
-  </div>
-
-  {% if product.metafields.custom.specifications != blank or product.metafields.custom.applications != blank or product.metafields.custom.features != blank %}
-    <div class="product-facts">
-      {% if product.metafields.custom.specifications != blank %}<article><h2>Specifications</h2><div class="rte">{{ product.metafields.custom.specifications | metafield_tag }}</div></article>{% endif %}
-      {% if product.metafields.custom.applications != blank %}<article><h2>Applications</h2><div class="rte">{{ product.metafields.custom.applications | metafield_tag }}</div></article>{% endif %}
-      {% if product.metafields.custom.features != blank %}<article><h2>Features</h2><div class="rte">{{ product.metafields.custom.features | metafield_tag }}</div></article>{% endif %}
-    </div>
-  {% endif %}
-  {% if product.metafields.custom.brochure != blank %}<a class="product-brochure ps-button ps-button--outline" href="{{ product.metafields.custom.brochure | file_url }}" target="_blank" rel="noopener">Download product brochure</a>{% endif %}
-</section>
-
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="{{ routes.root_url }}">Home</a><span>›</span><a href="{{ routes.all_products_collection_url }}">Products</a><span>›</span><span>{{ product.title | escape }}</span></nav>
+<section class="product-detail" data-product-root>
+<div class="product-detail__gallery">{% render 'catalog-reference', product: product, part: 'gallery' %}</div>
+<div class="product-detail__content">
+<p class="product-detail__category">{% render 'catalog-reference', product: product, part: 'category' %}</p>
+<h1>{{ product.title | escape }}</h1><p class="product-detail__model">Model {% render 'catalog-reference', product: product, part: 'model' %}</p>
+<p class="product-detail__price" data-product-price>{{ current_variant.price | money }}</p>
+<div class="product-detail__description">{% render 'catalog-reference', product: product, part: 'description' %}</div>
+{% if product.handle contains 'heavy-duty-bollard-bolt-down-4-dia-' %}
+<div class="product-detail__sizes"><h2>Available heights</h2><div class="product-detail__size-options">
+{% assign heights = '36,42,48,60' | split: ',' %}{% for height in heights %}{% assign size_handle = 'heavy-duty-bollard-bolt-down-4-dia-' | append: height %}{% assign size_product = all_products[size_handle] %}{% if size_product != blank %}<a class="product-detail__size-option{% if product.handle == size_handle %} is-active{% endif %}" href="{{ size_product.url }}"{% if product.handle == size_handle %} aria-current="page"{% endif %}><strong>{{ height }} in</strong><span>{{ size_product.price | money }}</span></a>{% endif %}{% endfor %}
+</div><p>All listed sizes use 4 in diameter, 7-gauge steel pipe and an 8 × 8 × 0.4 in base plate.</p></div>{% endif %}
+{% form 'product', product, class: 'product-form' %}
+{% unless product.has_only_default_variant %}<label for="Variant-{{ section.id }}">Size / configuration</label><select id="Variant-{{ section.id }}" name="id" data-variant-select>{% for variant in product.variants %}<option value="{{ variant.id }}" data-price="{{ variant.price | money }}" data-available="{{ variant.available }}"{% if variant == current_variant %} selected{% endif %}>{{ variant.title | escape }} — {{ variant.price | money }}</option>{% endfor %}</select>{% else %}<input type="hidden" name="id" value="{{ current_variant.id }}">{% endunless %}
+<label for="Quantity-{{ section.id }}">Quantity</label><input id="Quantity-{{ section.id }}" type="number" name="quantity" min="1" value="1">
+<button class="product-detail__cart" type="submit" data-add-to-cart{% unless current_variant.available %} disabled{% endunless %}>{% if current_variant.available %}Add to cart{% else %}Sold out{% endif %}</button>
+{% unless current_variant.available %}<a class="product-detail__cart" href="/pages/contact?product={{ product.handle | url_encode }}">Request a quote</a>{% endunless %}
+{% endform %}
+<p class="product-detail__note">Prices shown in CAD. Shipping, applicable taxes, lead time, and final configuration are confirmed with your order.</p>
+<p class="product-detail__warranty"><strong>1-Year Limited Warranty.</strong> This product is covered for defects in materials and workmanship, subject to the applicable written warranty terms.</p>
+<div class="product-detail__specs">{% render 'catalog-reference', product: product, part: 'specs' %}</div>
+</div></section>
+<dialog class="product-lightbox" data-product-lightbox aria-label="Expanded product image"><button type="button" class="product-lightbox__close" data-product-image-close aria-label="Close expanded image">×</button><img data-product-lightbox-image width="1200" height="900" alt=""><p data-product-lightbox-caption></p></dialog>
+<section class="product-info"><div><p class="product-info__eyebrow">Built for the application</p><h2>Where it works</h2><p>{% render 'catalog-reference', product: product, part: 'application' %}</p></div><div><p class="product-info__eyebrow">Product construction</p><h2>Features</h2>{% render 'catalog-reference', product: product, part: 'features' %}</div></section>
+<section class="product-assurance"><div><span>Made in Canada</span><strong>Domestic manufacturing and metal fabrication</strong></div><div><span>Built for durability</span><strong>Industrial construction and protective finishing</strong></div><div><span>Custom capable</span><strong>Sizes and configurations available on request</strong></div></section>
 {% stylesheet %}
-  .product-page{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr);gap:70px;padding-block:70px 90px}.product-gallery{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-content:start}.product-gallery__item{margin:0;background:#f4f7fb;border:1px solid #e0e6ee}.product-gallery__item:first-child{grid-column:1/-1}.product-gallery__item img{width:100%;aspect-ratio:1/1;object-fit:contain}.product-gallery__empty{display:grid;place-items:center;min-height:500px;background:#f4f7fb;color:#6e7a89}.product-details{position:sticky;top:120px;align-self:start}.product-details h1{margin:5px 0 6px;color:#071c44;font-size:clamp(2rem,4vw,3.7rem);line-height:1.05;letter-spacing:-.035em;text-transform:uppercase}.product-details__model{margin:0 0 12px;color:#667386;font-weight:700}.product-details__price{font-size:1.8rem}.product-details__compare{color:#7b8491;text-decoration:line-through}.product-details__description{margin:24px 0;color:#4f5c6e}.product-form{padding:24px 0;border-block:1px solid #dbe2eb}.product-form label{display:block;margin-bottom:6px;color:#071c44;font-size:.76rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}.product-form select,.product-form input{width:100%;min-height:50px;padding:10px 13px;border:1px solid #bac4d0;border-radius:2px;background:#fff;color:#101820;font:inherit}.product-form__row{display:grid;grid-template-columns:100px 1fr;gap:12px;align-items:end;margin-top:15px}.product-form__row .ps-button{width:100%}.product-form button:disabled{opacity:.55;cursor:not-allowed}.shopify-payment-button{margin-top:10px}.product-assurance{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:22px;background:#dbe2eb;border:1px solid #dbe2eb}.product-assurance span{padding:12px;background:#f7f9fc;color:#48566a;font-size:.72rem;font-weight:700;text-align:center}.product-facts{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);margin-top:24px;border:1px solid #dbe2eb}.product-facts article{padding:32px}.product-facts article+article{border-left:1px solid #dbe2eb}.product-facts h2{margin:0 0 14px;color:#071c44;font-size:1rem;text-transform:uppercase}.product-facts .rte{color:#536174;font-size:.9rem}.product-brochure{grid-column:1/-1;justify-self:start}@media(max-width:900px){.product-page{grid-template-columns:1fr;gap:38px;padding-block:40px 64px}.product-details{position:static}.product-facts{grid-template-columns:1fr}.product-facts article+article{border-left:0;border-top:1px solid #dbe2eb}}@media(max-width:520px){.product-gallery{grid-template-columns:1fr}.product-gallery__item:first-child{grid-column:auto}.product-assurance{grid-template-columns:1fr}.product-form__row{grid-template-columns:88px 1fr}}
-{% endstylesheet %}
 
-{% schema %}
-{"name":"ProSteel product","settings":[],"disabled_on":{"groups":["header","footer"]}}
-{% endschema %}
+	.breadcrumbs { display: flex; width: min(calc(100% - 48px), 1200px); margin: 0 auto; padding: 24px 0; align-items: center; flex-wrap: wrap; gap: 9px; color: #777880; font-size: 11px; }
+	.breadcrumbs a { color: #4a47a4; text-decoration: none; }
+	.product-detail { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(380px, .95fr); width: min(calc(100% - 48px), 1200px); margin: 0 auto; padding: 22px 0 92px; gap: 64px; }
+	.product-detail__gallery { min-width: 0; align-content: start; }
+	.product-carousel { position: relative; }
+	.product-carousel__stage { position: relative; aspect-ratio: 1 / .92; overflow: hidden; border: 1px solid #e6e6e8; background: #fafafa; }
+	.product-carousel__slide { position: absolute; inset: 0; display: grid; visibility: hidden; margin: 0; opacity: 0; place-items: center; pointer-events: none; transition: opacity 260ms ease, visibility 260ms ease; }
+	.product-carousel__slide.is-active { visibility: visible; opacity: 1; pointer-events: auto; }
+	.product-carousel__zoom { position: absolute; inset: 0; width: 100%; border: 0; background: transparent; color: inherit; cursor: zoom-in; }
+	.product-carousel__slide img { position: absolute; inset: 40px; display: block; width: calc(100% - 80px); height: calc(100% - 80px); object-fit: contain; }
+	.product-carousel__slide--brochure img { inset: 18px; width: calc(100% - 36px); height: calc(100% - 36px); }
+	.product-carousel__slide--brochure { background: #f4f4f5; }
+	.product-carousel__brochure-card { display: grid; width: min(360px, 85%); max-width: 100%; place-items: center; gap: 10px; padding: 16px; color: #111114; text-align: center; }
+	.product-carousel__brochure-card strong { font-size: 15px; line-height: 1.5; }
+	.product-carousel__brochure-card p { max-width: 320px; margin: 0; color: #5a5b62; font-size: 12px; line-height: 1.4; }
+	.product-carousel__brochure-actions { display: grid; gap: 8px; margin-top: 6px; width: min(320px, 100%); }
+	.product-carousel__brochure-actions a { justify-self: stretch; padding: 10px 12px; border: 1px solid #cfd0d4; border-radius: 999px; background: #fff; color: #4a47a4; font-size: 10px; font-weight: 900; letter-spacing: .05em; text-decoration: none; text-transform: uppercase; }
+	.product-carousel__brochure-actions a:hover, .product-carousel__brochure-actions a:focus-visible { border-color: #4a47a4; background: #f3f3f8; outline: none; }
+	.product-carousel__controls { position: absolute; z-index: 3; top: 50%; right: 18px; left: 18px; display: flex; justify-content: space-between; pointer-events: none; transform: translateY(-50%); }
+	.product-carousel__arrow { display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid #dedee2; border-radius: 50%; background: rgba(255,255,255,.92); color: #17171b; padding: 0; pointer-events: auto; box-shadow: 0 10px 24px rgba(20,21,26,.12); }
+	.product-carousel__arrow:hover, .product-carousel__arrow:focus-visible { border-color: #4a47a4; background: #4a47a4; color: #fff; outline: none; }
+	.product-carousel__thumbs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 12px; gap: 10px; }
+	.product-carousel__thumb { display: grid; min-width: 0; grid-template-columns: 58px minmax(0, 1fr); min-height: 68px; align-items: center; gap: 10px; border: 1px solid #e0e0e3; background: #fff; padding: 8px; color: #55565d; font: inherit; text-align: left; }
+	.product-carousel__thumb img { width: 58px; height: 50px; object-fit: contain; background: #f6f6f7; }
+	.product-carousel__thumb-media { display: grid; width: 58px; height: 50px; place-items: center; color: #4a47a4; background: #f2f2f8; }
+	.product-carousel__thumb span { overflow: hidden; font-size: 10px; font-weight: 900; letter-spacing: .06em; line-height: 1.25; text-overflow: ellipsis; text-transform: uppercase; }
+	.product-carousel__thumb:hover, .product-carousel__thumb:focus-visible, .product-carousel__thumb.is-active { border-color: #4a47a4; color: #4a47a4; outline: none; }
+	.product-detail__brochures { display: flex; margin-top: 14px; padding: 15px 16px; align-items: center; flex-wrap: wrap; gap: 10px 12px; border: 1px solid #e1e1e4; background: #fff; }
+	.product-detail__brochures span { display: inline-flex; align-items: center; gap: 7px; color: #17171b; font-size: 10px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+	.product-detail__brochures a { display: inline-flex; min-height: 34px; padding: 0 13px; align-items: center; border: 1px solid #d8d8dd; border-radius: 999px; color: #4a47a4; font-size: 9px; font-weight: 900; letter-spacing: .06em; text-decoration: none; text-transform: uppercase; }
+	.product-detail__brochures a:hover, .product-detail__brochures a:focus-visible { border-color: #4a47a4; background: #f3f3f8; outline: none; }
+	.product-detail__content { padding-top: 14px; }
+	.product-detail__category, .product-info__eyebrow { margin: 0 0 11px; color: #4a47a4; font-size: 10px; font-weight: 900; letter-spacing: .11em; text-transform: uppercase; }
+	.product-detail h1 { margin: 0; font-size: clamp(38px, 5vw, 58px); font-weight: 900; letter-spacing: -.045em; line-height: 1.04; text-transform: uppercase; }
+	.product-detail__model { margin: 16px 0 0; color: #777880; font-size: 12px; font-weight: 900; letter-spacing: .05em; text-transform: uppercase; }
+	.product-detail__price { margin: 25px 0 0; color: #4a47a4; font-size: 28px; font-weight: 900; }
+	.product-detail__description { margin: 24px 0 0; color: #62636b; font-size: 15px; line-height: 1.7; }
+	.product-detail__sizes { margin-top: 28px; padding: 20px; border: 1px solid #dedee2; background: #f8f8f7; }
+	.product-detail__sizes-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+	.product-detail__sizes h2 { margin: 0; font-size: 12px; font-weight: 900; letter-spacing: .07em; text-transform: uppercase; }
+	.product-detail__sizes-heading span { color: #777880; font-size: 10px; font-weight: 700; }
+	.product-detail__size-options { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 14px; gap: 8px; }
+	.product-detail__size-option { display: flex; min-height: 62px; padding: 10px 8px; align-items: center; justify-content: center; flex-direction: column; gap: 4px; border: 1px solid #d5d5d9; background: #fff; color: #232329; text-align: center; text-decoration: none; }
+	.product-detail__size-option strong { font-size: 12px; }
+	.product-detail__size-option span { color: #777880; font-size: 10px; }
+	.product-detail__size-option:hover, .product-detail__size-option:focus-visible, .product-detail__size-option.is-active { border-color: #4a47a4; background: #4a47a4; color: #fff; outline: none; }
+	.product-detail__size-option:hover span, .product-detail__size-option:focus-visible span, .product-detail__size-option.is-active span { color: #fff; }
+	.product-detail__sizes > p { margin: 13px 0 0; color: #777880; font-size: 10px; line-height: 1.5; }
+	.product-detail__cart { display: inline-flex; min-width: 180px; height: 48px; margin-top: 30px; padding: 0 24px; align-items: center; justify-content: center; border: 1px solid #4a47a4; border-radius: 999px; background: #4a47a4; color: #fff; font: inherit; font-size: 10px; font-weight: 900; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
+	.product-detail__cart:hover, .product-detail__cart:focus-visible { border-color: #35327f; background: #35327f; outline: none; }
+	.product-detail__note { margin: 14px 0 0; color: #8a8b92; font-size: 10px; line-height: 1.5; }
+	.product-detail__warranty { margin: 18px 0 0; padding: 14px 16px; border-left: 3px solid #4a47a4; background: #f4f4f8; color: #575862; font-size: 11px; line-height: 1.55; }
+	.product-detail__warranty strong { color: #232329; }
+	.product-lightbox { width: min(94vw, 1180px); max-width: none; height: min(92vh, 920px); max-height: none; padding: 52px 28px 24px; border: 0; border-radius: 8px; background: #fff; color: #17171b; box-shadow: 0 24px 80px rgba(0,0,0,.35); }
+	.product-lightbox::backdrop { background: rgba(4,8,18,.86); }
+	.product-lightbox img { display: block; width: 100%; height: calc(100% - 40px); object-fit: contain; cursor: zoom-out; }
+	.product-lightbox p { margin: 12px 0 0; color: #55565d; font-size: 12px; text-align: center; }
+	.product-lightbox__close { position: absolute; top: 10px; right: 12px; display: grid; width: 36px; height: 36px; place-items: center; border: 1px solid #d7d7dc; border-radius: 50%; background: #fff; color: #17171b; font-size: 24px; cursor: pointer; }
+	.product-lightbox__close:hover,.product-lightbox__close:focus-visible { border-color:#4a47a4; color:#4a47a4; outline:2px solid rgba(74,71,164,.22); }
+	.product-detail__specs { margin-top: 38px; padding-top: 28px; border-top: 1px solid #dfdfe2; }
+	.product-detail__specs h2 { margin: 0 0 16px; font-size: 15px; font-weight: 900; text-transform: uppercase; }
+	.product-detail__specs dl { margin: 0; }
+	.product-detail__specs dl > div { display: grid; grid-template-columns: 145px 1fr; padding: 10px 0; border-bottom: 1px solid #ececee; gap: 14px; }
+	.product-detail__specs dt { color: #7a7b82; font-size: 11px; }
+	.product-detail__specs dd { margin: 0; color: #232329; font-size: 11px; font-weight: 900; }
+	.product-info { display: grid; grid-template-columns: 1fr 1fr; padding: 84px max(24px, calc((100vw - 1200px)/2)); gap: 90px; background: #111216; color: #fff; }
+	.product-info h2 { margin: 0; font-size: 28px; font-weight: 900; letter-spacing: -.03em; text-transform: uppercase; }
+	.product-info p:not(.product-info__eyebrow) { margin: 19px 0 0; color: #b7b8c0; font-size: 14px; line-height: 1.75; }
+	.product-info ul { margin: 19px 0 0; padding: 0; list-style: none; }
+	.product-info li { position: relative; padding: 9px 0 9px 20px; border-bottom: 1px solid #2b2c32; color: #cacbd0; font-size: 13px; line-height: 1.5; }
+	.product-info li::before { position: absolute; top: 15px; left: 0; width: 6px; height: 6px; border-radius: 50%; background: #7779dc; content: ''; }
+	.product-assurance { display: grid; grid-template-columns: repeat(3, 1fr); padding: 42px max(24px, calc((100vw - 1200px)/2)); gap: 1px; background: #e4e4e6; }
+	.product-assurance div { display: flex; min-height: 100px; padding: 24px; flex-direction: column; justify-content: center; background: #f7f7f6; }
+	.product-assurance span { color: #4a47a4; font-size: 9px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+	.product-assurance strong { margin-top: 7px; font-size: 12px; line-height: 1.45; }
+	.related { background: #f5f5f4; padding: 90px 24px 104px; }
+	.related__inner { width: min(100%, 1200px); margin: 0 auto; }
+	.related__heading { display: flex; margin-bottom: 35px; align-items: flex-end; justify-content: space-between; gap: 24px; }
+	.related__heading p { margin: 0 0 8px; color: #4a47a4; font-size: 10px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+	.related h2 { margin: 0; font-size: 29px; font-weight: 900; letter-spacing: -.03em; text-transform: uppercase; }
+	.related__heading a { color: #4a47a4; font-size: 10px; font-weight: 900; letter-spacing: .06em; text-decoration: none; text-transform: uppercase; }
+	.related__grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 22px; }
+	@media (max-width: 900px) { .product-detail { grid-template-columns: 1fr; gap: 36px; } .product-info { gap: 42px; } }
+	@media (max-width: 650px) { .breadcrumbs, .product-detail { width: calc(100% - 40px); } .product-detail { padding-bottom: 68px; } .product-carousel__stage { aspect-ratio: 1 / 1; } .product-carousel__slide img { inset: 24px; width: calc(100% - 48px); height: calc(100% - 48px); } .product-carousel__slide--brochure img { inset: 12px; width: calc(100% - 24px); height: calc(100% - 24px); } .product-carousel__controls { right: 12px; left: 12px; } .product-carousel__thumbs { grid-template-columns: 1fr; } .product-detail__brochures { align-items: flex-start; flex-direction: column; } .product-detail__size-options { grid-template-columns: repeat(2, minmax(0, 1fr)); } .product-info { grid-template-columns: 1fr; padding: 64px 20px; } .product-assurance { grid-template-columns: 1fr; padding: 24px 20px; } .related { padding: 70px 20px 76px; } .related__heading { align-items: flex-start; flex-direction: column; } .related__grid { grid-template-columns: 1fr; } }
+	@media (prefers-reduced-motion: reduce) { .product-carousel__slide { transition: none; } .product-lightbox { scroll-behavior: auto; } }
+
+
+.product-form label{display:block;margin-top:15px;font-size:12px}.product-form input,.product-form select{padding:10px;border:1px solid #d5d5d9;font:inherit;max-width:100%}.product-form input[type=number]{width:80px;margin-right:12px}.product-form button:disabled{opacity:.5;cursor:not-allowed}
+{% endstylesheet %}
+{% schema %}{"name":"ProSteel product","settings":[],"disabled_on":{"groups":["header","footer"]}}{% endschema %}

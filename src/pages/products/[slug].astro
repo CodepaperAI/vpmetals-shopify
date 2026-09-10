@@ -96,7 +96,9 @@ const galleryItems = [
 										)}
 									</div>
 								) : (
-									<img src={item.image} alt={item.alt} loading={index === 0 ? 'eager' : 'lazy'} />
+									<button class="product-carousel__zoom" type="button" data-product-image-open data-image-src={item.image} data-image-alt={item.alt} aria-label={`Enlarge ${item.label.toLowerCase()} for ${product.name}`}>
+										<img src={item.image} alt={item.alt} loading={index === 0 ? 'eager' : 'lazy'} />
+									</button>
 								)}
 							</figure>
 						))}
@@ -171,6 +173,7 @@ const galleryItems = [
 					<a class="product-detail__cart" href="/contact/">Request pricing</a>
 				)}
 				<p class="product-detail__note">Prices shown in CAD. Shipping, applicable taxes, lead time, and final configuration are confirmed with your order.</p>
+				<p class="product-detail__warranty"><strong>1-Year Limited Warranty</strong> Our metal products are covered by a 1-Year Limited Warranty, subject to the applicable written terms and conditions.</p>
 
 				<div class="product-detail__specs">
 					<h2>Specifications</h2>
@@ -178,6 +181,11 @@ const galleryItems = [
 				</div>
 			</div>
 		</section>
+		<dialog class="product-lightbox" data-product-lightbox aria-label="Enlarged product image">
+			<button class="product-lightbox__close" type="button" data-product-lightbox-close aria-label="Close enlarged image">×</button>
+			<img src="" alt="" data-product-lightbox-image />
+			<p>Click the image again or press Escape to close.</p>
+		</dialog>
 
 		<section class="product-info">
 			<div>
@@ -200,7 +208,7 @@ const galleryItems = [
 
 		<section class="related" aria-labelledby="related-title">
 			<div class="related__inner">
-				<div class="related__heading"><div><p>Continue exploring</p><h2 id="related-title">Related equipment</h2></div><a href="/products/">View full catalogue →</a></div>
+				<div class="related__heading"><div><p>Continue exploring</p><h2 id="related-title">Related products</h2></div><a href="/products/">View full catalogue →</a></div>
 				<div class="related__grid">{related.map((item) => <CatalogCard product={item} />)}</div>
 			</div>
 		</section>
@@ -264,6 +272,28 @@ const galleryItems = [
 
 		startAutoplay();
 	});
+
+	const lightbox = document.querySelector<HTMLDialogElement>('[data-product-lightbox]');
+	const lightboxImage = lightbox?.querySelector<HTMLImageElement>('[data-product-lightbox-image]');
+	const lightboxClose = lightbox?.querySelector<HTMLButtonElement>('[data-product-lightbox-close]');
+	let lightboxTrigger: HTMLButtonElement | null = null;
+	const closeLightbox = () => lightbox?.close();
+	document.querySelectorAll<HTMLButtonElement>('[data-product-image-open]').forEach((trigger) => {
+		trigger.addEventListener('click', () => {
+			if (!lightbox || !lightboxImage) return;
+			lightboxTrigger = trigger;
+			lightboxImage.src = trigger.dataset.imageSrc ?? '';
+			lightboxImage.alt = trigger.dataset.imageAlt ?? '';
+			lightbox.showModal();
+		});
+	});
+	lightboxClose?.addEventListener('click', closeLightbox);
+	lightboxImage?.addEventListener('click', closeLightbox);
+	lightbox?.addEventListener('click', (event) => { if (event.target === lightbox) closeLightbox(); });
+	lightbox?.addEventListener('close', () => {
+		lightboxImage?.removeAttribute('src');
+		lightboxTrigger?.focus();
+	});
 </script>
 
 <style>
@@ -275,6 +305,8 @@ const galleryItems = [
 	.product-carousel__stage { position: relative; aspect-ratio: 1 / .92; overflow: hidden; border: 1px solid #e6e6e8; background: #fafafa; }
 	.product-carousel__slide { position: absolute; inset: 0; display: grid; visibility: hidden; margin: 0; opacity: 0; place-items: center; pointer-events: none; transition: opacity 260ms ease, visibility 260ms ease; }
 	.product-carousel__slide.is-active { visibility: visible; opacity: 1; pointer-events: auto; }
+	.product-carousel__zoom { position: absolute; inset: 0; display: grid; width: 100%; height: 100%; padding: 0; place-items: center; border: 0; background: transparent; cursor: zoom-in; }
+	.product-carousel__zoom:focus-visible { outline: 3px solid #4a47a4; outline-offset: -3px; }
 	.product-carousel__slide img { position: absolute; inset: 40px; display: block; width: calc(100% - 80px); height: calc(100% - 80px); object-fit: contain; }
 	.product-carousel__slide--brochure img { inset: 18px; width: calc(100% - 36px); height: calc(100% - 36px); }
 	.product-carousel__slide--brochure { background: #f4f4f5; }
@@ -297,6 +329,13 @@ const galleryItems = [
 	.product-detail__brochures span { display: inline-flex; align-items: center; gap: 7px; color: #17171b; font-size: 10px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
 	.product-detail__brochures a { display: inline-flex; min-height: 34px; padding: 0 13px; align-items: center; border: 1px solid #d8d8dd; border-radius: 999px; color: #4a47a4; font-size: 9px; font-weight: 900; letter-spacing: .06em; text-decoration: none; text-transform: uppercase; }
 	.product-detail__brochures a:hover, .product-detail__brochures a:focus-visible { border-color: #4a47a4; background: #f3f3f8; outline: none; }
+	.product-lightbox { width: min(94vw, 1400px); max-width: none; height: min(92vh, 1050px); max-height: none; padding: 54px 34px 46px; border: 0; background: #fff; box-shadow: 0 26px 90px rgb(0 0 0 / 35%); }
+	.product-lightbox::backdrop { background: rgb(5 8 18 / 82%); }
+	.product-lightbox[open] { display: grid; place-items: center; }
+	.product-lightbox img { display: block; width: 100%; height: 100%; max-height: calc(92vh - 110px); object-fit: contain; cursor: zoom-out; }
+	.product-lightbox__close { position: absolute; top: 10px; right: 14px; display: grid; width: 38px; height: 38px; padding: 0; place-items: center; border: 1px solid #d7d8dc; border-radius: 50%; background: #fff; color: #17171b; font: inherit; font-size: 25px; line-height: 1; }
+	.product-lightbox__close:hover, .product-lightbox__close:focus-visible { border-color: #4a47a4; background: #4a47a4; color: #fff; outline: none; }
+	.product-lightbox p { position: absolute; right: 24px; bottom: 13px; left: 24px; margin: 0; color: #686971; font-size: 10px; text-align: center; }
 	.product-detail__content { padding-top: 14px; }
 	.product-detail__category, .product-info__eyebrow { margin: 0 0 11px; color: #4a47a4; font-size: 10px; font-weight: 900; letter-spacing: .11em; text-transform: uppercase; }
 	.product-detail h1 { margin: 0; font-size: clamp(38px, 5vw, 58px); font-weight: 900; letter-spacing: -.045em; line-height: 1.04; text-transform: uppercase; }
@@ -317,6 +356,8 @@ const galleryItems = [
 	.product-detail__cart { display: inline-flex; min-width: 180px; height: 48px; margin-top: 30px; padding: 0 24px; align-items: center; justify-content: center; border: 1px solid #4a47a4; border-radius: 999px; background: #4a47a4; color: #fff; font: inherit; font-size: 10px; font-weight: 900; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
 	.product-detail__cart:hover, .product-detail__cart:focus-visible { border-color: #35327f; background: #35327f; outline: none; }
 	.product-detail__note { margin: 14px 0 0; color: #8a8b92; font-size: 10px; line-height: 1.5; }
+	.product-detail__warranty { margin: 18px 0 0; padding: 14px 16px; border-left: 3px solid #4a47a4; background: #f2f2f8; color: #55565e; font-size: 11px; line-height: 1.55; }
+	.product-detail__warranty strong { display: block; margin-bottom: 3px; color: #302e7e; font-size: 10px; letter-spacing: .06em; text-transform: uppercase; }
 	.product-detail__specs { margin-top: 38px; padding-top: 28px; border-top: 1px solid #dfdfe2; }
 	.product-detail__specs h2 { margin: 0 0 16px; font-size: 15px; font-weight: 900; text-transform: uppercase; }
 	.product-detail__specs dl { margin: 0; }

@@ -23,7 +23,7 @@ const cageFeatures = [
 	'Meticulously primed and painted for severe weather exposure',
 	'Safety signage positioned at the top of the cage',
 	'Built for maximum durability',
-	'Backed by ProSteel\'s lifetime warranty',
+	'Covered by ProSteel\'s 1-Year Limited Warranty',
 ];
 
 const rackFeatures = [
@@ -138,7 +138,7 @@ export const gasProducts: CatalogProduct[] = [
 	},
 	{
 		slug: 'pse-147-7-8', name: '8-Cylinder Welding Cage', model: 'PSE 147.7-8', collection: 'gas-cage', category: 'Welding', price: 1520,
-		image: gasImage('pse-147-7-8'), contextImage: gasContext('pse-147-7-8'), alt: 'ProSteel cage for eight welding cylinders',
+		image: '/images/catalog/gas/pse-147-7-8-confirmed.png', contextImage: gasContext('pse-147-7-8'), alt: 'Customer-confirmed yellow ProSteel welding cylinder cage with cylinders inside',
 		description: 'A secure vertical cage sized for eight 147.7 lb welding cylinders.',
 		application: 'Welding shops, fabrication facilities, maintenance departments, and construction operations.',
 		specs: [{ label: 'Cylinder', value: '147.7 lb welding tank' }, { label: 'Capacity', value: '8 cylinders' }, { label: 'Height', value: '72 in' }, { label: 'Width', value: '52 in' }, { label: 'Depth', value: '27.5 in' }], features: cageFeatures,
@@ -163,7 +163,7 @@ export const gasProducts: CatalogProduct[] = [
 		description: 'A laser-cut aluminum cage designed for secure storage of eight 135 lb oxygen cylinders.',
 		application: 'Hospitals, medical facilities, laboratories, clinics, and industrial oxygen-cylinder storage.',
 		specs: [{ label: 'Cylinder', value: '135 lb oxygen tank' }, { label: 'Capacity', value: '8 cylinders' }, { label: 'Height', value: '76 in' }, { label: 'Width', value: '31 in' }, { label: 'Depth', value: '27 in' }],
-		features: ['Laser-cut aluminum sheet construction', 'Safety signage positioned at the top of the cage', 'Built for maximum durability', 'Backed by ProSteel\'s lifetime warranty'],
+		features: ['Laser-cut aluminum sheet construction', 'Safety signage positioned at the top of the cage', 'Built for maximum durability', 'Covered by ProSteel\'s 1-Year Limited Warranty'],
 	},
 	{
 		slug: 'pse-fwb', name: 'Firewood Bundle Cage', model: 'PSE FWB', collection: 'gas-cage', category: 'Specialty Carrier', price: 1440,
@@ -213,8 +213,8 @@ export const rackProducts: CatalogProduct[] = [
 		specs: [{ label: 'Capacity', value: '7,000 lb per side' }, { label: 'Dimensions', value: '72 L x 48 W x 60 H in' }, { label: 'Frame', value: '1.5 x 1.5 in square pipe' }], features: ['Mobile caster-supported design', 'Full slab support design', ...rackFeatures],
 	},
 	{
-		slug: 'mobile-l-frame', name: 'Mobile L-Frame Transport Rack', model: 'Mobile L-Frame', collection: 'material-rack', category: 'Mobile Rack', price: 1345, image: rackImage('mobile-l-frame'), contextImage: rackContext('mobile-l-frame'), alt: 'Single-sided mobile rack for narrow warehouse use',
-		description: 'A mobile single-sided L-frame without a centre post, created for efficient access in constrained spaces.', application: 'Narrow warehouses, glass and stone production, staging aisles, and wall-side storage.',
+		slug: 'mobile-l-frame', name: 'Mobile L-Frame Transport Rack', model: 'Mobile L-Frame', collection: 'material-rack', category: 'Mobile Rack', price: 1345, image: '/images/catalog/racks/mobile-l-frame-corrected.png', contextImage: '/images/catalog/racks/mobile-l-frame-corrected-context.png', alt: 'Black mobile L-frame transport rack with two tall rear supports and four front retaining posts',
+		description: 'A mobile single-sided L-frame configured for safe transportation of doors, panels, glass, stone, and other upright materials.', application: 'Truck transport, door and panel delivery, glass and stone production, staging aisles, and compact material handling.',
 		specs: [{ label: 'Capacity', value: '3,000 lb per side' }, { label: 'Dimensions', value: '72 L x 30 W x 60 H in' }, { label: 'Front pole', value: '30 in' }, { label: 'Frame', value: '2 x 2 in square pipe' }], features: ['No centre post', 'Full slab support design', ...rackFeatures],
 	},
 	{
@@ -238,21 +238,21 @@ export const rackProducts: CatalogProduct[] = [
 		specs: [{ label: 'Capacity', value: '9,000 lb per side' }, { label: 'Dimensions', value: '72 L x 30 W x 60 H in' }, { label: 'Frame', value: '2 x 2 in square pipe' }, { label: 'Base', value: '3 in U-channel' }], features: rackFeatures,
 	},
 	{
-		slug: 'multi-purpose-slab-rack', name: 'Multi-Purpose Slab Rack', model: 'PSE PS10', collection: 'material-rack', category: 'Slab Rack', price: 2850, image: rackImage('heavy-duty-bundle-slab-rack'), contextImage: rackContext('heavy-duty-bundle-slab-rack'), alt: 'Black multi-purpose slab rack with ten removable posts per base',
+		slug: 'multi-purpose-slab-rack', name: 'Multi-Purpose Slab Rack', model: 'PSE PS10', collection: 'material-rack', category: 'Slab Rack', price: 2850, image: '/images/catalog/racks/multi-purpose-slab-rack-corrected.png', contextImage: '/images/catalog/racks/multi-purpose-slab-rack-corrected-context.png', alt: 'Black multi-purpose slab rack with removable posts in multiple heights',
 		description: 'A configurable post-and-rail slab rack for flexible storage of heavy stone, glass, and panel materials.', application: 'Stone yards, glass facilities, warehouses, fabrication operations, and configurable slab storage.',
 		specs: [{ label: 'Work load limit', value: '6,481 lb / 2,940 kg' }, { label: 'Dimensions', value: '120 L x 8 W x 60 H in' }, { label: 'Net weight per post', value: '4,700 lb / 2,131 kg' }, { label: 'Poles / holes', value: '10 / 10' }, { label: 'Post options', value: '60, 48, or 36 in' }], features: ['Configurable removable post system', ...rackFeatures],
 	},
 	{
-		slug: 'heavy-duty-bundle-slab-rack', name: 'Heavy-Duty Bundle Slab Rack With Rubber Cap', model: 'PSE PS10', collection: 'material-rack', category: 'Slab Rack', price: 3400, image: rackImage('multi-purpose-slab-rack'), contextImage: rackContext('multi-purpose-slab-rack'), alt: 'Silver heavy-duty bundle slab rack with timber-lined rails and white rubber post caps', featured: true,
+		slug: 'heavy-duty-bundle-slab-rack', name: 'Heavy-Duty Bundle Slab Rack With Rubber Cap', model: 'PSE PS10', collection: 'material-rack', category: 'Slab Rack', price: 3400, image: rackImage('heavy-duty-bundle-slab-rack'), contextImage: rackContext('heavy-duty-bundle-slab-rack'), alt: 'Silver heavy-duty bundle slab rack with timber-lined rails and white rubber post caps', featured: true,
 		description: 'A reinforced post-and-rail storage system for heavy slab bundles, with protective timber and capped uprights.', application: 'Stone distributors, slab warehouses, fabrication facilities, and high-capacity bundle storage.',
 		specs: [{ label: 'Work load limit', value: '6,481 lb / 2,940 kg' }, { label: 'Dimensions', value: '120 L x 8 W x 63 H in' }, { label: 'Net weight per post', value: '4,700 lb / 2,131 kg' }, { label: 'Poles / holes', value: '10 / 11' }, { label: 'Post options', value: '63, 48, or 36 in' }],
 		features: ['5 mm wall extra-strong square steel posts', 'Heavy-duty steel base rails', 'Timber protection on base rails', 'Square rubber caps on uprights', ...rackFeatures],
 	},
 	{
 		slug: 'one-side-frame-narrow-warehouse', name: 'One Side Frame for Narrow Warehouse', model: 'One Side Frame', collection: 'material-rack', category: 'Single-Sided Rack', price: 925,
-		image: rackImage('one-side-frame-narrow-warehouse'), contextImage: rackContext('one-side-frame-narrow-warehouse'), alt: 'One-side frame for narrow warehouse slab storage',
-		description: 'A single-sided frame for narrow warehouse aisles where slab and panel materials need compact wall-side support.',
-		application: 'Narrow warehouses, stone and glass storage aisles, showrooms, and compact fabrication facilities.',
+		image: '/images/catalog/racks/one-side-frame-narrow-warehouse-corrected.png', contextImage: '/images/catalog/racks/one-side-frame-narrow-warehouse-corrected-context.png', alt: 'Black one-side frame with two tall rear supports for narrow warehouse storage',
+		description: 'A compact one-side frame with tall rear supports for storing doors, slabs, glass, and panels in narrow warehouse areas.',
+		application: 'Narrow warehouses, stone and glass storage aisles, door storage, showrooms, and compact fabrication facilities.',
 		specs: [{ label: 'Capacity', value: '9,000 lb per side' }, { label: 'Dimensions', value: '72 L x 30 W x 60 H in' }, { label: 'Frame', value: '2 x 2 in square pipe' }, { label: 'Base', value: '3 in U-channel' }],
 		features: rackFeatures,
 	},
@@ -272,7 +272,7 @@ export const tableProducts: CatalogProduct[] = [
 		image: tableImage('heavy-duty-mobile-transport-frame'), contextImage: tableContext('heavy-duty-mobile-transport-frame'), alt: 'Blue heavy-duty mobile transport frame on casters', featured: true,
 		description: 'A wheeled 2 x 2 in square-pipe transport frame for moving long materials, assemblies, and work-in-progress around industrial sites.',
 		application: 'Fabrication shops, warehouses, material staging, construction yards, and mobile production support.',
-		specs: [{ label: 'Capacity', value: '1,800 lb per side' }, { label: 'Dimensions', value: '96 L x 24 W x 36 H in' }, { label: 'Frame', value: '2 x 2 in square pipe' }, { label: 'Top', value: 'Frame only, top surface not included' }],
+		specs: [{ label: 'Capacity', value: '1,800 lb' }, { label: 'Dimensions', value: '96 L x 24 W x 36 H in' }, { label: 'Frame', value: '2 x 2 in square pipe' }, { label: 'Top', value: 'Frame only, top surface not included' }],
 		features: ['Weather-resistant coating', ...tableFeatures],
 	},
 	{
@@ -280,7 +280,7 @@ export const tableProducts: CatalogProduct[] = [
 		image: tableImage('three-tier-triple-stacker-table'), contextImage: tableContext('three-tier-triple-stacker-table'), alt: 'Blue three-tier triple stacker table on casters',
 		description: 'A three-tier mobile table frame for organizing parts, cartons, fixtures, and production materials across multiple levels.',
 		application: 'Assembly areas, production lines, warehouse staging, packing stations, and work-in-progress movement.',
-		specs: [{ label: 'Capacity', value: '1,600 lb per side' }, { label: 'Dimensions', value: '72 L x 36 W x 36 H in' }, { label: 'Frame', value: '1.5 x 1.5 in square pipe' }, { label: 'Top', value: 'Frame only, top surface not included' }],
+		specs: [{ label: 'Capacity', value: '1,600 lb' }, { label: 'Dimensions', value: '72 L x 36 W x 36 H in' }, { label: 'Frame', value: '1.5 x 1.5 in square pipe' }, { label: 'Top', value: 'Frame only, top surface not included' }],
 		features: ['Weather-resistant coating', 'Three-tier storage layout', ...tableFeatures],
 	},
 	{
@@ -288,7 +288,7 @@ export const tableProducts: CatalogProduct[] = [
 		image: tableImage('heavy-duty-industrial-platform-cart'), contextImage: tableContext('heavy-duty-industrial-platform-cart'), alt: 'Blue heavy-duty industrial platform cart frame',
 		description: 'A compact mobile platform cart frame for industrial movement, staging, and shop-floor support.',
 		application: 'Warehouses, fabrication shops, assembly areas, shipping departments, and production staging.',
-		specs: [{ label: 'Capacity', value: '1,400 lb per side' }, { label: 'Dimensions', value: '72 L x 24 W x 36 H in' }, { label: 'Frame', value: '1.5 x 1.5 in square pipe' }, { label: 'Top', value: 'Frame only, top surface not included' }],
+		specs: [{ label: 'Capacity', value: '1,400 lb' }, { label: 'Dimensions', value: '72 L x 24 W x 36 H in' }, { label: 'Frame', value: '1.5 x 1.5 in square pipe' }, { label: 'Top', value: 'Frame only, top surface not included' }],
 		features: ['Weather-resistant coating', ...tableFeatures],
 	},
 	{
@@ -296,7 +296,7 @@ export const tableProducts: CatalogProduct[] = [
 		image: tableImage('garment-production-utility-cart'), contextImage: tableContext('garment-production-utility-cart'), alt: 'Black garment production utility cart with backsplash',
 		description: 'A mobile utility cart with backsplash for garment production, light assembly, and organized shop-floor handling.',
 		application: 'Garment production, textile workrooms, light manufacturing, kitting, packing, and mobile work support.',
-		specs: [{ label: 'Capacity', value: '650 lb per side' }, { label: 'Dimensions', value: '48 L x 24 W x 36 H in' }, { label: 'Frame', value: '1.25 x 1.25 in square pipe' }, { label: 'Detail', value: 'With backsplash' }],
+		specs: [{ label: 'Capacity', value: '650 lb' }, { label: 'Dimensions', value: '48 L x 24 W x 36 H in' }, { label: 'Frame', value: '1.25 x 1.25 in square pipe' }, { label: 'Detail', value: 'With backsplash' }],
 		features: ['Weather-resistant coating', 'Backsplash helps contain materials on the cart surface', ...tableFeatures],
 	},
 	{
@@ -304,7 +304,7 @@ export const tableProducts: CatalogProduct[] = [
 		image: tableImage('heavy-duty-six-wheel-work-table'), contextImage: tableContext('heavy-duty-six-wheel-work-table'), alt: 'Black heavy-duty six-wheel work table frame',
 		description: 'A long six-wheel work table frame that supports larger workpieces and mobile staging in demanding production spaces.',
 		application: 'Stone, glass, metal, woodworking, assembly, and industrial material handling workflows.',
-		specs: [{ label: 'Capacity', value: '1,800 lb per side' }, { label: 'Dimensions', value: '96 L x 24 W x 36 H in' }, { label: 'Frame', value: '2 x 2 in square pipe' }, { label: 'Top', value: 'Frame only, top surface not included' }],
+		specs: [{ label: 'Capacity', value: '1,800 lb' }, { label: 'Dimensions', value: '96 L x 24 W x 36 H in' }, { label: 'Frame', value: '2 x 2 in square pipe' }, { label: 'Top', value: 'Frame only, top surface not included' }],
 		features: ['Weather-resistant coating', 'Six-wheel mobile support', ...tableFeatures],
 	},
 	{
@@ -312,7 +312,7 @@ export const tableProducts: CatalogProduct[] = [
 		image: tableImage('heavy-duty-steel-workbench'), contextImage: tableContext('heavy-duty-steel-workbench'), alt: 'Heavy-duty steel workbench with metal sheet top', featured: true,
 		description: 'A steel workbench with a 16-gauge metal sheet top for durable industrial work, repairs, and production tasks.',
 		application: 'Maintenance departments, fabrication shops, repair benches, assembly work, and industrial work cells.',
-		specs: [{ label: 'Capacity', value: '1,800 lb per side' }, { label: 'Dimensions', value: '72 L x 36 W x 30 H in' }, { label: 'Frame', value: '1.5 x 1.5 in square pipe' }, { label: 'Top', value: '16 gauge metal sheet included' }],
+		specs: [{ label: 'Capacity', value: '1,800 lb' }, { label: 'Dimensions', value: '72 L x 36 W x 30 H in' }, { label: 'Frame', value: '1.5 x 1.5 in square pipe' }, { label: 'Top', value: '16 gauge metal sheet included' }],
 		features: ['Weather-resistant coating', 'Metal top surface included', ...tableFeatures],
 	},
 	{
@@ -320,7 +320,7 @@ export const tableProducts: CatalogProduct[] = [
 		image: tableImage('industrial-mobile-workbench'), contextImage: tableContext('industrial-mobile-workbench'), alt: 'Industrial mobile workbench with plywood top and lower shelf',
 		description: 'A mobile workbench with plywood surfaces for staging tools, parts, assemblies, and active production work.',
 		application: 'Industrial work cells, shop-floor repairs, fabrication support, assembly stations, and mobile maintenance work.',
-		specs: [{ label: 'Capacity', value: '1,400 lb per side' }, { label: 'Dimensions', value: '96 L x 24 W x 30 H in' }, { label: 'Frame', value: '1.5 x 1.5 in square pipe' }, { label: 'Top', value: '3/4 in plywood included' }],
+		specs: [{ label: 'Capacity', value: '1,400 lb' }, { label: 'Dimensions', value: '96 L x 24 W x 30 H in' }, { label: 'Frame', value: '1.5 x 1.5 in square pipe' }, { label: 'Top', value: '3/4 in plywood included' }],
 		features: ['Weather-resistant coating', 'Plywood work surface included', ...tableFeatures],
 	},
 	{
@@ -328,7 +328,7 @@ export const tableProducts: CatalogProduct[] = [
 		image: tableImage('three-tier-heavy-duty-mobile-assembly-workbench'), contextImage: tableContext('three-tier-heavy-duty-mobile-assembly-workbench'), alt: 'Three-tier heavy-duty mobile assembly workbench with plywood surfaces', featured: true,
 		description: 'A three-tier mobile assembly workbench with plywood surfaces for parts, tools, cartons, and active production flow.',
 		application: 'Assembly operations, packing lines, repair work, tooling support, production staging, and warehouse work cells.',
-		specs: [{ label: 'Capacity', value: '1,800 lb per side' }, { label: 'Dimensions', value: '96 L x 24 W x 36 H in' }, { label: 'Frame', value: '1.5 x 1.5 in square pipe' }, { label: 'Top', value: '3/4 in plywood included' }],
+		specs: [{ label: 'Capacity', value: '1,800 lb' }, { label: 'Dimensions', value: '96 L x 24 W x 36 H in' }, { label: 'Frame', value: '1.5 x 1.5 in square pipe' }, { label: 'Top', value: '3/4 in plywood included' }],
 		features: ['Weather-resistant coating', 'Three-tier work and storage layout', ...tableFeatures],
 	},
 	{
@@ -336,7 +336,7 @@ export const tableProducts: CatalogProduct[] = [
 		image: tableImage('large-heavy-duty-industrial-platform-cart'), contextImage: tableContext('large-heavy-duty-industrial-platform-cart'), alt: 'Large heavy-duty industrial platform cart frame',
 		description: 'A wide mobile platform cart frame for larger assemblies, material staging, and industrial shop-floor transport.',
 		application: 'Production floors, warehouses, fabrication areas, material handling, and staging of larger workpieces.',
-		specs: [{ label: 'Capacity', value: '1,400 lb per side' }, { label: 'Dimensions', value: '96 L x 36 W x 36 H in' }, { label: 'Frame', value: '1.5 x 1.5 in square pipe' }, { label: 'Top', value: 'Frame only, top surface not included' }],
+		specs: [{ label: 'Capacity', value: '1,400 lb' }, { label: 'Dimensions', value: '96 L x 36 W x 36 H in' }, { label: 'Frame', value: '1.5 x 1.5 in square pipe' }, { label: 'Top', value: 'Frame only, top surface not included' }],
 		features: ['Weather-resistant coating', ...tableFeatures],
 	},
 	{
@@ -344,7 +344,7 @@ export const tableProducts: CatalogProduct[] = [
 		image: tableImage('mobile-glass-handling-table'), contextImage: tableContext('mobile-glass-handling-table'), alt: 'Mobile glass handling table with plywood border',
 		description: 'A mobile handling table configured for supported movement and staging of glass sheets and similar panel materials.',
 		application: 'Glass shops, glazing operations, window and door production, panel staging, and fabrication workflows.',
-		specs: [{ label: 'Capacity', value: '1,400 lb per side' }, { label: 'Dimensions', value: '96 L x 24 W x 30 H in' }, { label: 'Frame', value: '1.5 x 1.5 in square pipe' }, { label: 'Top', value: '3/4 or 1.5 in plywood with 1.5 in border' }],
+		specs: [{ label: 'Capacity', value: '1,400 lb' }, { label: 'Dimensions', value: '96 L x 24 W x 30 H in' }, { label: 'Frame', value: '1.5 x 1.5 in square pipe' }, { label: 'Top', value: '3/4 or 1.5 in plywood with 1.5 in border' }],
 		features: ['Weather-resistant coating', 'Plywood support surface available', ...tableFeatures],
 	},
 	{
@@ -352,7 +352,7 @@ export const tableProducts: CatalogProduct[] = [
 		image: tableImage('heavy-duty-industrial-metal-top-platform-cart'), contextImage: tableContext('heavy-duty-industrial-metal-top-platform-cart'), alt: 'Blue heavy-duty industrial platform cart with metal top',
 		description: 'A mobile platform cart frame for industrial staging, shop-floor handling, and adaptable work-surface configurations.',
 		application: 'Manufacturing, fabrication, assembly, staging, warehouse transport, and equipment support.',
-		specs: [{ label: 'Capacity', value: '1,600 lb per side' }, { label: 'Dimensions', value: '72 L x 24 W x 36 H in' }, { label: 'Frame', value: '1.5 x 1.5 in square pipe' }, { label: 'Top', value: 'Frame only, top surface not included' }],
+		specs: [{ label: 'Capacity', value: '1,600 lb' }, { label: 'Dimensions', value: '72 L x 24 W x 36 H in' }, { label: 'Frame', value: '1.5 x 1.5 in square pipe' }, { label: 'Top', value: 'Frame only, top surface not included' }],
 		features: ['Weather-resistant coating', ...tableFeatures],
 	},
 	{
@@ -360,7 +360,7 @@ export const tableProducts: CatalogProduct[] = [
 		image: tableImage('mobile-electronics-workstation'), contextImage: tableContext('mobile-electronics-workstation'), alt: 'Mobile electronics workstation with plywood top and lower rack',
 		description: 'A mobile workstation with top and lower plywood racks for electronics production, kitting, and organized assembly work.',
 		application: 'Electronics assembly, kitting, repair benches, light manufacturing, production lines, and mobile inspection stations.',
-		specs: [{ label: 'Capacity', value: '1,600 lb per side' }, { label: 'Dimensions', value: '72 L x 24 W x 36 H in' }, { label: 'Frame', value: '1.5 x 1.5 in square pipe' }, { label: 'Surfaces', value: 'Top and bottom 3/4 in plywood racks included' }],
+		specs: [{ label: 'Capacity', value: '1,600 lb' }, { label: 'Dimensions', value: '72 L x 24 W x 36 H in' }, { label: 'Frame', value: '1.5 x 1.5 in square pipe' }, { label: 'Surfaces', value: 'Top and bottom 3/4 in plywood racks included' }],
 		features: ['Weather-resistant coating', 'Two-level plywood storage and work layout', ...tableFeatures],
 	},
 	{
@@ -368,7 +368,7 @@ export const tableProducts: CatalogProduct[] = [
 		image: tableImage('heavy-duty-two-tier-service-cart-stainless-steel'), contextImage: tableContext('heavy-duty-two-tier-service-cart-stainless-steel'), alt: 'Stainless steel two-tier service cart on casters',
 		description: 'A stainless steel two-tier service cart for sanitary, food-service, and commercial work environments.',
 		application: 'Food service, hospitality, commercial kitchens, cleaning operations, labs, and stainless work areas.',
-		specs: [{ label: 'Capacity', value: '400 lb per side' }, { label: 'Dimensions', value: '42 L x 24 W x 35 H in' }, { label: 'Frame', value: '2 x 2 in round pipe' }, { label: 'Material', value: '304 stainless steel' }],
+		specs: [{ label: 'Capacity', value: '400 lb' }, { label: 'Dimensions', value: '42 L x 24 W x 35 H in' }, { label: 'Frame', value: '2 x 2 in round pipe' }, { label: 'Material', value: '304 stainless steel' }],
 		features: ['Top surface included', '304 stainless steel construction', ...tableFeatures],
 	},
 	{
@@ -376,7 +376,7 @@ export const tableProducts: CatalogProduct[] = [
 		image: tableImage('butchers-meat-cutting-table-stainless-steel'), contextImage: tableContext('butchers-meat-cutting-table-stainless-steel'), alt: 'Stainless steel butcher meat cutting table with catch tray', featured: true,
 		description: 'A stainless steel meat cutting table with catch tray for butcher, food prep, and commercial kitchen environments.',
 		application: 'Butcher shops, meat processing, commercial kitchens, food prep rooms, and stainless work stations.',
-		specs: [{ label: 'Capacity', value: '1,400 lb per side' }, { label: 'Dimensions', value: '48 L x 24 W x 32 H in' }, { label: 'Frame', value: '2 x 2 in round pipe' }, { label: 'Material', value: '304 stainless steel' }],
+		specs: [{ label: 'Capacity', value: '600 lb' }, { label: 'Dimensions', value: '48 L x 24 W x 32 H in' }, { label: 'Frame', value: '2 x 2 in round pipe' }, { label: 'Material', value: '304 stainless steel' }],
 		features: ['Catch tray included', 'Top surface included', '304 stainless steel construction', ...tableFeatures],
 	},
 	{
@@ -384,7 +384,7 @@ export const tableProducts: CatalogProduct[] = [
 		image: tableImage('heavy-duty-16-ga-cutting-table'), contextImage: tableContext('heavy-duty-16-ga-cutting-table'), alt: 'Stainless steel heavy-duty cutting table with backsplash',
 		description: 'A heavy-duty stainless cutting table with backsplash and cutting-board surface for commercial preparation work.',
 		application: 'Commercial kitchens, food prep rooms, production kitchens, butcher operations, and sanitary workstations.',
-		specs: [{ label: 'Capacity', value: '400 lb per side' }, { label: 'Dimensions', value: '60 L x 30 W x 35 H in' }, { label: 'Frame', value: '2 x 2 in round pipe' }, { label: 'Material', value: '304 stainless steel, 16 ga / 1.5 mm' }],
+		specs: [{ label: 'Capacity', value: '400 lb' }, { label: 'Dimensions', value: '60 L x 30 W x 35 H in' }, { label: 'Frame', value: '2 x 2 in round pipe' }, { label: 'Material', value: '304 stainless steel, 16 ga / 1.5 mm' }],
 		features: ['1 in cutting board', 'Backsplash included', 'Top surface included', '304 stainless steel construction', ...tableFeatures],
 	},
 	{
@@ -392,7 +392,7 @@ export const tableProducts: CatalogProduct[] = [
 		image: tableImage('commercial-pizza-prep-table'), contextImage: tableContext('commercial-pizza-prep-table'), alt: 'Commercial stainless steel pizza prep table with three-sided backsplash',
 		description: 'A stainless steel pizza prep table with a three-sided backsplash for commercial kitchen and food-service work.',
 		application: 'Pizzerias, commercial kitchens, bakeries, food prep rooms, and stainless service workstations.',
-		specs: [{ label: 'Capacity', value: '600 lb per side' }, { label: 'Dimensions', value: '60 L x 30 W x 35 H in' }, { label: 'Frame', value: '2 x 2 in round pipe' }, { label: 'Material', value: '304 stainless steel' }],
+		specs: [{ label: 'Capacity', value: '600 lb' }, { label: 'Dimensions', value: '60 L x 30 W x 35 H in' }, { label: 'Frame', value: '2 x 2 in round pipe' }, { label: 'Material', value: '304 stainless steel' }],
 		features: ['Three-sided backsplash included', 'Top surface included', '304 stainless steel construction', ...tableFeatures],
 	},
 ];

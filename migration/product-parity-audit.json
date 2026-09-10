@@ -1,0 +1,1158 @@
+{
+  "source": "src/data/catalog.ts",
+  "checkedAt": "2026-09-10T15:46:12.739Z",
+  "products": [
+    {
+      "slug": "pse-20-33-2",
+      "handle": "asset-pack-72436383746-example-product-4",
+      "id": "gid://shopify/Product/9193566240906",
+      "priceCAD": 501,
+      "shopifyPriceCAD": 501,
+      "status": "ACTIVE",
+      "inventory": 5,
+      "originalTitle": "PSE 20-33-2",
+      "title": "2-Cylinder Gas Cage",
+      "assets": [
+        "catalog-pse-20-33-2.webp",
+        "catalog-pse-20-33-2-context.webp",
+        "catalog-pse-20-33-2-brochure.webp"
+      ]
+    },
+    {
+      "slug": "pse-20-33-4",
+      "handle": "asset-pack-72436383746-example-product-1",
+      "id": "gid://shopify/Product/9193566142602",
+      "priceCAD": 550,
+      "shopifyPriceCAD": 550,
+      "status": "ACTIVE",
+      "inventory": 7,
+      "originalTitle": "PSE 20-33-4",
+      "title": "4-Cylinder Gas Cage",
+      "assets": [
+        "catalog-pse-20-33-4.webp",
+        "catalog-pse-20-33-4-context.webp",
+        "catalog-pse-20-33-4-brochure.webp"
+      ]
+    },
+    {
+      "slug": "pse-20-33-6",
+      "handle": "asset-pack-72436383746-example-product-2",
+      "id": "gid://shopify/Product/9193566175370",
+      "priceCAD": 635,
+      "shopifyPriceCAD": 635,
+      "status": "ACTIVE",
+      "inventory": 9,
+      "originalTitle": "PSE 20-33-6",
+      "title": "6-Cylinder Gas Cage",
+      "assets": [
+        "catalog-pse-20-33-6.webp",
+        "catalog-pse-20-33-6-context.webp",
+        "catalog-pse-20-33-6-brochure.webp"
+      ]
+    },
+    {
+      "slug": "pse-100-20-8-18",
+      "handle": "asset-pack-72436383746-example-product-3",
+      "id": "gid://shopify/Product/9193566208138",
+      "priceCAD": 1485,
+      "shopifyPriceCAD": 1485,
+      "status": "ACTIVE",
+      "inventory": 4,
+      "originalTitle": "PSE 100-20-8-18",
+      "title": "Dual-Capacity Cylinder Cage",
+      "assets": [
+        "catalog-pse-100-20-8-18.webp",
+        "catalog-pse-100-20-8-18-context.webp",
+        "catalog-pse-100-20-8-18-brochure.webp"
+      ]
+    },
+    {
+      "slug": "pse-33-12",
+      "handle": "pse-33-12",
+      "id": "gid://shopify/Product/9193578201226",
+      "priceCAD": 1008,
+      "shopifyPriceCAD": 1008,
+      "status": "ACTIVE",
+      "inventory": 10,
+      "originalTitle": "PSE 33-12",
+      "title": "12-Cylinder 33 lb Cage",
+      "assets": [
+        "catalog-pse-33-12.webp",
+        "catalog-pse-33-12-context.webp",
+        "catalog-pse-33-12-brochure.webp"
+      ]
+    },
+    {
+      "slug": "pse-20-24",
+      "handle": "pse-20-24",
+      "id": "gid://shopify/Product/9193578397834",
+      "priceCAD": 1499,
+      "shopifyPriceCAD": 1499,
+      "status": "ACTIVE",
+      "inventory": 3,
+      "originalTitle": "PSE 20-24",
+      "title": "24-Cylinder BBQ Cage",
+      "assets": [
+        "catalog-pse-20-24.webp",
+        "catalog-pse-20-24-context.webp",
+        "catalog-pse-20-24-brochure.webp"
+      ]
+    },
+    {
+      "slug": "pse-20-12",
+      "handle": "pse-20-12",
+      "id": "gid://shopify/Product/9193578594442",
+      "priceCAD": 890,
+      "shopifyPriceCAD": 890,
+      "status": "ACTIVE",
+      "inventory": 8,
+      "originalTitle": "PSE 20-12",
+      "title": "12-Cylinder BBQ Cage",
+      "assets": [
+        "catalog-pse-20-12.webp",
+        "catalog-pse-20-12-context.webp",
+        "catalog-pse-20-12-brochure.webp"
+      ]
+    },
+    {
+      "slug": "pse-33-18",
+      "handle": "pse-33-18",
+      "id": "gid://shopify/Product/9193578889354",
+      "priceCAD": 1249,
+      "shopifyPriceCAD": 1249,
+      "status": "ACTIVE",
+      "inventory": 4,
+      "originalTitle": "PSE 33-18",
+      "title": "18-Cylinder Forklift Cage",
+      "assets": [
+        "catalog-pse-33-18.webp",
+        "catalog-pse-33-18-context.webp",
+        "catalog-pse-33-18-brochure.webp"
+      ]
+    },
+    {
+      "slug": "pse-33-8",
+      "handle": "pse-33-8",
+      "id": "gid://shopify/Product/9193606971530",
+      "priceCAD": 1042,
+      "shopifyPriceCAD": 1042,
+      "status": "ACTIVE",
+      "inventory": 6,
+      "originalTitle": "PSE 33-8",
+      "title": "8-Cylinder Forklift Cage",
+      "assets": [
+        "catalog-pse-33-8.webp",
+        "catalog-pse-33-8-context.webp",
+        "catalog-pse-33-8-brochure.webp"
+      ]
+    },
+    {
+      "slug": "pse-20-18",
+      "handle": "pse-20-18",
+      "id": "gid://shopify/Product/9193579446410",
+      "priceCAD": 1310,
+      "shopifyPriceCAD": 1310,
+      "status": "ACTIVE",
+      "inventory": 11,
+      "originalTitle": "PSE 20-18",
+      "title": "18-Cylinder BBQ Cage",
+      "assets": [
+        "catalog-pse-20-18.webp",
+        "catalog-pse-20-18-context.webp",
+        "catalog-pse-20-18-brochure.webp"
+      ]
+    },
+    {
+      "slug": "pse-33-147-8-4",
+      "handle": "pse-33-147-8-4",
+      "id": "gid://shopify/Product/9193579872394",
+      "priceCAD": 1567,
+      "shopifyPriceCAD": 1567,
+      "status": "ACTIVE",
+      "inventory": 2,
+      "originalTitle": "PSE 33-147-8-4",
+      "title": "Combination Forklift & Welding Cage",
+      "assets": [
+        "catalog-pse-33-147-8-4.webp",
+        "catalog-pse-33-147-8-4-context.webp",
+        "catalog-pse-33-147-8-4-brochure.webp"
+      ]
+    },
+    {
+      "slug": "pse-147-7-8",
+      "handle": "pse-147-7-8",
+      "id": "gid://shopify/Product/9278499094666",
+      "priceCAD": 1520,
+      "shopifyPriceCAD": 1520,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "8-Cylinder Welding Cage",
+      "title": "8-Cylinder Welding Cage",
+      "assets": [
+        "catalog-pse-147-7-8-confirmed.png",
+        "catalog-pse-147-7-8-context.webp",
+        "catalog-pse-147-7-8-brochure.webp"
+      ]
+    },
+    {
+      "slug": "pse-147-7-20",
+      "handle": "pse-147-7-20",
+      "id": "gid://shopify/Product/9278499127434",
+      "priceCAD": 1955,
+      "shopifyPriceCAD": 1955,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "20-Cylinder Welding Cage",
+      "title": "20-Cylinder Welding Cage",
+      "assets": [
+        "catalog-pse-147-7-20.webp",
+        "catalog-pse-147-7-20-context.webp",
+        "catalog-pse-147-7-20-brochure.webp"
+      ]
+    },
+    {
+      "slug": "pse-147-7-16",
+      "handle": "pse-147-7-16",
+      "id": "gid://shopify/Product/9278499160202",
+      "priceCAD": 1350,
+      "shopifyPriceCAD": 1350,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "16-Cylinder Welding Cage",
+      "title": "16-Cylinder Welding Cage",
+      "assets": [
+        "catalog-pse-147-7-16.webp",
+        "catalog-pse-147-7-16-context.webp",
+        "catalog-pse-147-7-16-brochure.webp"
+      ]
+    },
+    {
+      "slug": "pse-al-147-7-16",
+      "handle": "pse-al-147-7-16",
+      "id": "gid://shopify/Product/9278499192970",
+      "priceCAD": 1750,
+      "shopifyPriceCAD": 1750,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Aluminum Oxygen Cylinder Cage",
+      "title": "Aluminum Oxygen Cylinder Cage",
+      "assets": [
+        "catalog-pse-al-147-7-16.webp",
+        "catalog-pse-al-147-7-16-context.webp",
+        "catalog-pse-al-147-7-16-brochure.webp"
+      ]
+    },
+    {
+      "slug": "pse-fwb",
+      "handle": "pse-fwb",
+      "id": "gid://shopify/Product/9193580757130",
+      "priceCAD": 1440,
+      "shopifyPriceCAD": 1440,
+      "status": "ACTIVE",
+      "inventory": 3,
+      "originalTitle": "PSE FWB",
+      "title": "Firewood Bundle Cage",
+      "assets": [
+        "catalog-pse-fwb.webp",
+        "catalog-pse-fwb-context.webp",
+        "catalog-pse-fwb-brochure.webp"
+      ]
+    },
+    {
+      "slug": "model-420-1",
+      "handle": "afafa",
+      "id": "gid://shopify/Product/9193619980426",
+      "priceCAD": 853,
+      "shopifyPriceCAD": 853,
+      "status": "ACTIVE",
+      "inventory": 4,
+      "originalTitle": "PSE 420-1",
+      "title": "Forklift / Crane Bottle Carrier",
+      "assets": [
+        "catalog-model-420-1.webp",
+        "catalog-model-420-1-context.webp",
+        "catalog-model-420-1-brochure.webp"
+      ]
+    },
+    {
+      "slug": "economy-a-frame",
+      "handle": "economy-a-frame",
+      "id": "gid://shopify/Product/9278499258506",
+      "priceCAD": 550,
+      "shopifyPriceCAD": 550,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Economy A-Frame",
+      "title": "Economy A-Frame",
+      "assets": [
+        "catalog-economy-a-frame.webp",
+        "catalog-economy-a-frame-context.webp",
+        "catalog-economy-a-frame-brochure.webp"
+      ]
+    },
+    {
+      "slug": "single-sided-a-frame",
+      "handle": "single-sided-a-frame",
+      "id": "gid://shopify/Product/9278499324042",
+      "priceCAD": 490,
+      "shopifyPriceCAD": 490,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Single-Sided A-Frame",
+      "title": "Single-Sided A-Frame",
+      "assets": [
+        "catalog-single-sided-a-frame.webp",
+        "catalog-single-sided-a-frame-context.webp",
+        "catalog-single-sided-a-frame-brochure.webp"
+      ]
+    },
+    {
+      "slug": "heavy-duty-a-frame",
+      "handle": "heavy-duty-a-frame",
+      "id": "gid://shopify/Product/9278499356810",
+      "priceCAD": 1450,
+      "shopifyPriceCAD": 1450,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Heavy Duty A-Frame",
+      "title": "Heavy Duty A-Frame",
+      "assets": [
+        "catalog-heavy-duty-a-frame.webp",
+        "catalog-heavy-duty-a-frame-context.webp",
+        "catalog-heavy-duty-a-frame-brochure.webp"
+      ]
+    },
+    {
+      "slug": "double-sided-transport-rack",
+      "handle": "double-sided-transport-rack",
+      "id": "gid://shopify/Product/9278499389578",
+      "priceCAD": 1690,
+      "shopifyPriceCAD": 1690,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Double-Sided Transport & Storage Rack",
+      "title": "Double-Sided Transport & Storage Rack",
+      "assets": [
+        "catalog-double-sided-transport-rack.webp",
+        "catalog-double-sided-transport-rack-context.webp",
+        "catalog-double-sided-transport-rack-brochure.webp"
+      ]
+    },
+    {
+      "slug": "modular-transport-rack",
+      "handle": "modular-transport-rack",
+      "id": "gid://shopify/Product/9278499422346",
+      "priceCAD": 1250,
+      "shopifyPriceCAD": 1250,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Metal Modular Transport Rack",
+      "title": "Metal Modular Transport Rack",
+      "assets": [
+        "catalog-modular-transport-rack.webp",
+        "catalog-modular-transport-rack-context.webp",
+        "catalog-modular-transport-rack-brochure.webp"
+      ]
+    },
+    {
+      "slug": "mobile-a-frame",
+      "handle": "mobile-a-frame",
+      "id": "gid://shopify/Product/9278499455114",
+      "priceCAD": 1800,
+      "shopifyPriceCAD": 1800,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Mobile A-Frame Transport Rack",
+      "title": "Mobile A-Frame Transport Rack",
+      "assets": [
+        "catalog-mobile-a-frame.webp",
+        "catalog-mobile-a-frame-context.webp",
+        "catalog-mobile-a-frame-brochure.webp"
+      ]
+    },
+    {
+      "slug": "mobile-l-frame",
+      "handle": "mobile-l-frame",
+      "id": "gid://shopify/Product/9278499487882",
+      "priceCAD": 1345,
+      "shopifyPriceCAD": 1345,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Mobile L-Frame Transport Rack",
+      "title": "Mobile L-Frame Transport Rack",
+      "assets": [
+        "catalog-mobile-l-frame-corrected.png",
+        "catalog-mobile-l-frame-corrected-context.png",
+        "catalog-mobile-l-frame-brochure.webp"
+      ]
+    },
+    {
+      "slug": "stone-fabrication-a-frame",
+      "handle": "stone-fabrication-a-frame",
+      "id": "gid://shopify/Product/9278499553418",
+      "priceCAD": 475,
+      "shopifyPriceCAD": 475,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Stone Fabrication A-Frame",
+      "title": "Stone Fabrication A-Frame",
+      "assets": [
+        "catalog-stone-fabrication-a-frame.webp",
+        "catalog-stone-fabrication-a-frame-context.webp",
+        "catalog-stone-fabrication-a-frame-brochure.webp"
+      ]
+    },
+    {
+      "slug": "solo-shelf-rack",
+      "handle": "solo-shelf-rack",
+      "id": "gid://shopify/Product/9278499586186",
+      "priceCAD": 1550,
+      "shopifyPriceCAD": 1550,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Solo Shelf Rack",
+      "title": "Solo Shelf Rack",
+      "assets": [
+        "catalog-solo-shelf-rack.webp",
+        "catalog-solo-shelf-rack-context.webp",
+        "catalog-solo-shelf-rack-brochure.webp"
+      ]
+    },
+    {
+      "slug": "one-side-l-frame",
+      "handle": "one-side-l-frame",
+      "id": "gid://shopify/Product/9278499618954",
+      "priceCAD": 1350,
+      "shopifyPriceCAD": 1350,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "One-Side L-Frame for Glass",
+      "title": "One-Side L-Frame for Glass",
+      "assets": [
+        "catalog-one-side-l-frame.webp",
+        "catalog-one-side-l-frame-context.webp",
+        "catalog-one-side-l-frame-brochure.webp"
+      ]
+    },
+    {
+      "slug": "heavy-duty-double-sided-a-frame",
+      "handle": "heavy-duty-double-sided-a-frame",
+      "id": "gid://shopify/Product/9278499651722",
+      "priceCAD": 1450,
+      "shopifyPriceCAD": 1450,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Heavy Duty Double-Sided A-Frame",
+      "title": "Heavy Duty Double-Sided A-Frame",
+      "assets": [
+        "catalog-heavy-duty-double-sided-a-frame.webp",
+        "catalog-heavy-duty-double-sided-a-frame-context.webp",
+        "catalog-heavy-duty-double-sided-a-frame-brochure.webp"
+      ]
+    },
+    {
+      "slug": "multi-purpose-slab-rack",
+      "handle": "multi-purpose-slab-rack",
+      "id": "gid://shopify/Product/9278499684490",
+      "priceCAD": 2850,
+      "shopifyPriceCAD": 2850,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Multi-Purpose Slab Rack",
+      "title": "Multi-Purpose Slab Rack",
+      "assets": [
+        "catalog-multi-purpose-slab-rack-corrected.png",
+        "catalog-multi-purpose-slab-rack-corrected-context.png",
+        "catalog-multi-purpose-slab-rack-brochure.webp"
+      ]
+    },
+    {
+      "slug": "heavy-duty-bundle-slab-rack",
+      "handle": "heavy-duty-bundle-slab-rack",
+      "id": "gid://shopify/Product/9278499750026",
+      "priceCAD": 3400,
+      "shopifyPriceCAD": 3400,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Heavy-Duty Bundle Slab Rack With Rubber Cap",
+      "title": "Heavy-Duty Bundle Slab Rack With Rubber Cap",
+      "assets": [
+        "catalog-heavy-duty-bundle-slab-rack.webp",
+        "catalog-heavy-duty-bundle-slab-rack-context.webp",
+        "catalog-heavy-duty-bundle-slab-rack-brochure.webp"
+      ]
+    },
+    {
+      "slug": "one-side-frame-narrow-warehouse",
+      "handle": "one-side-frame-narrow-warehouse",
+      "id": "gid://shopify/Product/9278499782794",
+      "priceCAD": 925,
+      "shopifyPriceCAD": 925,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "One Side Frame for Narrow Warehouse",
+      "title": "One Side Frame for Narrow Warehouse",
+      "assets": [
+        "catalog-one-side-frame-narrow-warehouse-corrected.png",
+        "catalog-one-side-frame-narrow-warehouse-corrected-context.png",
+        "catalog-one-side-frame-narrow-warehouse-brochure.webp"
+      ]
+    },
+    {
+      "slug": "heavy-duty-bundle-slab-rack-standard",
+      "handle": "heavy-duty-bundle-slab-rack-standard",
+      "id": "gid://shopify/Product/9278499815562",
+      "priceCAD": 2850,
+      "shopifyPriceCAD": 2850,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Heavy-Duty Bundle Slab Rack",
+      "title": "Heavy-Duty Bundle Slab Rack",
+      "assets": [
+        "catalog-heavy-duty-bundle-slab-rack-standard.webp",
+        "catalog-heavy-duty-bundle-slab-rack-standard-context.webp",
+        "catalog-heavy-duty-bundle-slab-rack-standard-brochure.webp"
+      ]
+    },
+    {
+      "slug": "heavy-duty-mobile-transport-frame",
+      "handle": "heavy-duty-mobile-transport-frame",
+      "id": "gid://shopify/Product/9278499848330",
+      "priceCAD": 1025,
+      "shopifyPriceCAD": 1025,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Heavy Duty Mobile Transport Frame",
+      "title": "Heavy Duty Mobile Transport Frame",
+      "assets": [
+        "catalog-heavy-duty-mobile-transport-frame.webp",
+        "catalog-heavy-duty-mobile-transport-frame-context.webp",
+        "catalog-heavy-duty-mobile-transport-frame-brochure.webp"
+      ]
+    },
+    {
+      "slug": "three-tier-triple-stacker-table",
+      "handle": "three-tier-triple-stacker-table",
+      "id": "gid://shopify/Product/9278499881098",
+      "priceCAD": 810,
+      "shopifyPriceCAD": 810,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "3-Tier Triple Stacker Table",
+      "title": "3-Tier Triple Stacker Table",
+      "assets": [
+        "catalog-three-tier-triple-stacker-table.webp",
+        "catalog-three-tier-triple-stacker-table-context.webp",
+        "catalog-three-tier-triple-stacker-table-brochure.webp"
+      ]
+    },
+    {
+      "slug": "heavy-duty-industrial-platform-cart",
+      "handle": "heavy-duty-industrial-platform-cart",
+      "id": "gid://shopify/Product/9278499913866",
+      "priceCAD": 675,
+      "shopifyPriceCAD": 675,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Heavy Duty Industrial Platform Cart",
+      "title": "Heavy Duty Industrial Platform Cart",
+      "assets": [
+        "catalog-heavy-duty-industrial-platform-cart.webp",
+        "catalog-heavy-duty-industrial-platform-cart-context.webp",
+        "catalog-heavy-duty-industrial-platform-cart-brochure.webp"
+      ]
+    },
+    {
+      "slug": "garment-production-utility-cart",
+      "handle": "garment-production-utility-cart",
+      "id": "gid://shopify/Product/9278499946634",
+      "priceCAD": 790,
+      "shopifyPriceCAD": 790,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Garment Production Utility Cart",
+      "title": "Garment Production Utility Cart",
+      "assets": [
+        "catalog-garment-production-utility-cart.webp",
+        "catalog-garment-production-utility-cart-context.webp",
+        "catalog-garment-production-utility-cart-brochure.webp"
+      ]
+    },
+    {
+      "slug": "heavy-duty-six-wheel-work-table",
+      "handle": "heavy-duty-six-wheel-work-table",
+      "id": "gid://shopify/Product/9278499979402",
+      "priceCAD": 1075,
+      "shopifyPriceCAD": 1075,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Heavy-Duty 6-Wheel Work Table",
+      "title": "Heavy-Duty 6-Wheel Work Table",
+      "assets": [
+        "catalog-heavy-duty-six-wheel-work-table.webp",
+        "catalog-heavy-duty-six-wheel-work-table-context.webp",
+        "catalog-heavy-duty-six-wheel-work-table-brochure.webp"
+      ]
+    },
+    {
+      "slug": "heavy-duty-steel-workbench",
+      "handle": "heavy-duty-steel-workbench",
+      "id": "gid://shopify/Product/9278500012170",
+      "priceCAD": 930,
+      "shopifyPriceCAD": 930,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Heavy-Duty Steel Workbench",
+      "title": "Heavy-Duty Steel Workbench",
+      "assets": [
+        "catalog-heavy-duty-steel-workbench.webp",
+        "catalog-heavy-duty-steel-workbench-context.webp",
+        "catalog-heavy-duty-steel-workbench-brochure.webp"
+      ]
+    },
+    {
+      "slug": "industrial-mobile-workbench",
+      "handle": "industrial-mobile-workbench",
+      "id": "gid://shopify/Product/9278500044938",
+      "priceCAD": 1350,
+      "shopifyPriceCAD": 1350,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Industrial Mobile Workbench",
+      "title": "Industrial Mobile Workbench",
+      "assets": [
+        "catalog-industrial-mobile-workbench.webp",
+        "catalog-industrial-mobile-workbench-context.webp",
+        "catalog-industrial-mobile-workbench-brochure.webp"
+      ]
+    },
+    {
+      "slug": "three-tier-heavy-duty-mobile-assembly-workbench",
+      "handle": "three-tier-heavy-duty-mobile-assembly-workbench",
+      "id": "gid://shopify/Product/9278500077706",
+      "priceCAD": 1315,
+      "shopifyPriceCAD": 1315,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "3-Tier Heavy-Duty Mobile Assembly Workbench",
+      "title": "3-Tier Heavy-Duty Mobile Assembly Workbench",
+      "assets": [
+        "catalog-three-tier-heavy-duty-mobile-assembly-workbench.webp",
+        "catalog-three-tier-heavy-duty-mobile-assembly-workbench-context.webp",
+        "catalog-three-tier-heavy-duty-mobile-assembly-workbench-brochure.webp"
+      ]
+    },
+    {
+      "slug": "large-heavy-duty-industrial-platform-cart",
+      "handle": "large-heavy-duty-industrial-platform-cart",
+      "id": "gid://shopify/Product/9278500110474",
+      "priceCAD": 1050,
+      "shopifyPriceCAD": 1050,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Large Size Heavy Duty Industrial Platform Cart",
+      "title": "Large Size Heavy Duty Industrial Platform Cart",
+      "assets": [
+        "catalog-large-heavy-duty-industrial-platform-cart.webp",
+        "catalog-large-heavy-duty-industrial-platform-cart-context.webp",
+        "catalog-large-heavy-duty-industrial-platform-cart-brochure.webp"
+      ]
+    },
+    {
+      "slug": "mobile-glass-handling-table",
+      "handle": "mobile-glass-handling-table",
+      "id": "gid://shopify/Product/9278500143242",
+      "priceCAD": 990,
+      "shopifyPriceCAD": 990,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Mobile Glass Handling Table",
+      "title": "Mobile Glass Handling Table",
+      "assets": [
+        "catalog-mobile-glass-handling-table.webp",
+        "catalog-mobile-glass-handling-table-context.webp",
+        "catalog-mobile-glass-handling-table-brochure.webp"
+      ]
+    },
+    {
+      "slug": "heavy-duty-industrial-metal-top-platform-cart",
+      "handle": "heavy-duty-industrial-metal-top-platform-cart",
+      "id": "gid://shopify/Product/9278500176010",
+      "priceCAD": 1025,
+      "shopifyPriceCAD": 1025,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Heavy Duty Industrial Metal Top Platform Cart",
+      "title": "Heavy Duty Industrial Metal Top Platform Cart",
+      "assets": [
+        "catalog-heavy-duty-industrial-metal-top-platform-cart.webp",
+        "catalog-heavy-duty-industrial-metal-top-platform-cart-context.webp",
+        "catalog-heavy-duty-industrial-metal-top-platform-cart-brochure.webp"
+      ]
+    },
+    {
+      "slug": "mobile-electronics-workstation",
+      "handle": "mobile-electronics-workstation",
+      "id": "gid://shopify/Product/9278500241546",
+      "priceCAD": 990,
+      "shopifyPriceCAD": 990,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Mobile Electronics Workstation",
+      "title": "Mobile Electronics Workstation",
+      "assets": [
+        "catalog-mobile-electronics-workstation.webp",
+        "catalog-mobile-electronics-workstation-context.webp",
+        "catalog-mobile-electronics-workstation-brochure.webp"
+      ]
+    },
+    {
+      "slug": "heavy-duty-two-tier-service-cart-stainless-steel",
+      "handle": "heavy-duty-two-tier-service-cart-stainless-steel",
+      "id": "gid://shopify/Product/9278500274314",
+      "priceCAD": 980,
+      "shopifyPriceCAD": 980,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Heavy-Duty 2-Tier Service Cart",
+      "title": "Heavy-Duty 2-Tier Service Cart",
+      "assets": [
+        "catalog-heavy-duty-two-tier-service-cart-stainless-steel.webp",
+        "catalog-heavy-duty-two-tier-service-cart-stainless-steel-context.webp",
+        "catalog-heavy-duty-two-tier-service-cart-stainless-steel-brochure.webp"
+      ]
+    },
+    {
+      "slug": "butchers-meat-cutting-table-stainless-steel",
+      "handle": "butchers-meat-cutting-table-stainless-steel",
+      "id": "gid://shopify/Product/9278500339850",
+      "priceCAD": 1480,
+      "shopifyPriceCAD": 1480,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Butcher's Meat Cutting Table",
+      "title": "Butcher's Meat Cutting Table",
+      "assets": [
+        "catalog-butchers-meat-cutting-table-stainless-steel.webp",
+        "catalog-butchers-meat-cutting-table-stainless-steel-context.webp",
+        "catalog-butchers-meat-cutting-table-stainless-steel-brochure.webp"
+      ]
+    },
+    {
+      "slug": "heavy-duty-16-ga-cutting-table",
+      "handle": "heavy-duty-16-ga-cutting-table",
+      "id": "gid://shopify/Product/9278500372618",
+      "priceCAD": 2050,
+      "shopifyPriceCAD": 2050,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Heavy Duty 16 Ga. Cutting Table",
+      "title": "Heavy Duty 16 Ga. Cutting Table",
+      "assets": [
+        "catalog-heavy-duty-16-ga-cutting-table.webp",
+        "catalog-heavy-duty-16-ga-cutting-table-context.webp",
+        "catalog-heavy-duty-16-ga-cutting-table-brochure.webp"
+      ]
+    },
+    {
+      "slug": "commercial-pizza-prep-table",
+      "handle": "commercial-pizza-prep-table",
+      "id": "gid://shopify/Product/9278500438154",
+      "priceCAD": 2250,
+      "shopifyPriceCAD": 2250,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Commercial Pizza Prep Table",
+      "title": "Commercial Pizza Prep Table",
+      "assets": [
+        "catalog-commercial-pizza-prep-table.webp",
+        "catalog-commercial-pizza-prep-table-context.webp",
+        "catalog-commercial-pizza-prep-table-brochure.webp"
+      ]
+    },
+    {
+      "slug": "heavy-duty-bollard-bolt-down-4-dia-36",
+      "handle": "heavy-duty-bollard-bolt-down-4-dia-36",
+      "id": "gid://shopify/Product/9278500470922",
+      "priceCAD": 145,
+      "shopifyPriceCAD": 145,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Heavy Duty Bolt-Down Bollard - 4 in x 36 in",
+      "title": "Heavy Duty Bolt-Down Bollard - 4 in x 36 in",
+      "assets": [
+        "catalog-heavy-duty-bollard-bolt-down-4-dia-36.webp",
+        "catalog-heavy-duty-bollard-bolt-down-4-dia-36-context.webp",
+        "catalog-heavy-duty-bollard-bolt-down-brochure.webp"
+      ]
+    },
+    {
+      "slug": "heavy-duty-bollard-bolt-down-4-dia-42",
+      "handle": "heavy-duty-bollard-bolt-down-4-dia-42",
+      "id": "gid://shopify/Product/9278500536458",
+      "priceCAD": 160,
+      "shopifyPriceCAD": 160,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Heavy Duty Bolt-Down Bollard - 4 in x 42 in",
+      "title": "Heavy Duty Bolt-Down Bollard - 4 in x 42 in",
+      "assets": [
+        "catalog-heavy-duty-bollard-bolt-down-4-dia-42.webp",
+        "catalog-heavy-duty-bollard-bolt-down-4-dia-42-context.webp",
+        "catalog-heavy-duty-bollard-bolt-down-brochure.webp"
+      ]
+    },
+    {
+      "slug": "heavy-duty-bollard-bolt-down-4-dia-48",
+      "handle": "heavy-duty-bollard-bolt-down-4-dia-48",
+      "id": "gid://shopify/Product/9278500569226",
+      "priceCAD": 175,
+      "shopifyPriceCAD": 175,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Heavy Duty Bolt-Down Bollard - 4 in x 48 in",
+      "title": "Heavy Duty Bolt-Down Bollard - 4 in x 48 in",
+      "assets": [
+        "catalog-heavy-duty-bollard-bolt-down-4-dia-48.webp",
+        "catalog-heavy-duty-bollard-bolt-down-4-dia-48-context.webp",
+        "catalog-heavy-duty-bollard-bolt-down-brochure.webp"
+      ]
+    },
+    {
+      "slug": "heavy-duty-bollard-bolt-down-4-dia-60",
+      "handle": "heavy-duty-bollard-bolt-down-4-dia-60",
+      "id": "gid://shopify/Product/9278500601994",
+      "priceCAD": 180,
+      "shopifyPriceCAD": 180,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Heavy Duty Bolt-Down Bollard - 4 in x 60 in",
+      "title": "Heavy Duty Bolt-Down Bollard - 4 in x 60 in",
+      "assets": [
+        "catalog-heavy-duty-bollard-bolt-down-4-dia-60.webp",
+        "catalog-heavy-duty-bollard-bolt-down-4-dia-60-context.webp",
+        "catalog-heavy-duty-bollard-bolt-down-brochure.webp"
+      ]
+    },
+    {
+      "slug": "overhead-door-track-protector-48-in-ht",
+      "handle": "overhead-door-track-protector-48-in-ht",
+      "id": "gid://shopify/Product/9278500634762",
+      "priceCAD": 140,
+      "shopifyPriceCAD": 140,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Overhead Door Track Protector - 48 in HT",
+      "title": "Overhead Door Track Protector - 48 in HT",
+      "assets": [
+        "catalog-overhead-door-track-protector-48-in-ht.webp",
+        "catalog-overhead-door-track-protector-48-in-ht-context.webp",
+        "catalog-overhead-door-track-protector-brochure.webp"
+      ]
+    },
+    {
+      "slug": "overhead-door-track-protector-36-in-ht",
+      "handle": "overhead-door-track-protector-36-in-ht",
+      "id": "gid://shopify/Product/9278500667530",
+      "priceCAD": 120,
+      "shopifyPriceCAD": 120,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Overhead Door Track Protector - 36 in HT",
+      "title": "Overhead Door Track Protector - 36 in HT",
+      "assets": [
+        "catalog-overhead-door-track-protector-36-in-ht.webp",
+        "catalog-overhead-door-track-protector-36-in-ht-context.webp",
+        "catalog-overhead-door-track-protector-brochure.webp"
+      ]
+    },
+    {
+      "slug": "heavy-duty-mid-rail-machine-guard-24x18",
+      "handle": "heavy-duty-mid-rail-machine-guard-24x18",
+      "id": "gid://shopify/Product/9278500733066",
+      "priceCAD": 370,
+      "shopifyPriceCAD": 370,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Heavy Duty Mid-Rail Machine Guard - 24 x 18 in",
+      "title": "Heavy Duty Mid-Rail Machine Guard - 24 x 18 in",
+      "assets": [
+        "catalog-heavy-duty-mid-rail-machine-guard-24x18.webp",
+        "catalog-heavy-duty-mid-rail-machine-guard-24x18-context.webp",
+        "catalog-heavy-duty-mid-rail-machine-guard-brochure.webp"
+      ]
+    },
+    {
+      "slug": "heavy-duty-mid-rail-machine-guard-26x18",
+      "handle": "heavy-duty-mid-rail-machine-guard-26x18",
+      "id": "gid://shopify/Product/9278500765834",
+      "priceCAD": 450,
+      "shopifyPriceCAD": 450,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Heavy Duty Mid-Rail Machine Guard - 26 x 18 in",
+      "title": "Heavy Duty Mid-Rail Machine Guard - 26 x 18 in",
+      "assets": [
+        "catalog-heavy-duty-mid-rail-machine-guard-26x18.webp",
+        "catalog-heavy-duty-mid-rail-machine-guard-26x18-context.webp",
+        "catalog-heavy-duty-mid-rail-machine-guard-brochure.webp"
+      ]
+    },
+    {
+      "slug": "heavy-duty-mid-rail-machine-guard-24x42",
+      "handle": "heavy-duty-mid-rail-machine-guard-24x42",
+      "id": "gid://shopify/Product/9278500798602",
+      "priceCAD": 500,
+      "shopifyPriceCAD": 500,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Heavy Duty Mid-Rail Machine Guard - 24 x 42 in",
+      "title": "Heavy Duty Mid-Rail Machine Guard - 24 x 42 in",
+      "assets": [
+        "catalog-heavy-duty-mid-rail-machine-guard-24x42.webp",
+        "catalog-heavy-duty-mid-rail-machine-guard-24x42-context.webp",
+        "catalog-heavy-duty-mid-rail-machine-guard-brochure.webp"
+      ]
+    },
+    {
+      "slug": "rack-protector-7x12-3ga",
+      "handle": "rack-protector-7x12-3ga",
+      "id": "gid://shopify/Product/9278500831370",
+      "priceCAD": 55,
+      "shopifyPriceCAD": 55,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Rack Protector - 7 x 12 in, 3 Ga.",
+      "title": "Rack Protector - 7 x 12 in, 3 Ga.",
+      "assets": [
+        "catalog-rack-protector-7x12-3ga.webp",
+        "catalog-rack-protector-7x12-3ga-context.webp",
+        "catalog-rack-protector-brochure.webp"
+      ]
+    },
+    {
+      "slug": "rack-protector-7x18-3ga",
+      "handle": "rack-protector-7x18-3ga",
+      "id": "gid://shopify/Product/9278500896906",
+      "priceCAD": 75,
+      "shopifyPriceCAD": 75,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Rack Protector - 7 x 18 in, 3 Ga.",
+      "title": "Rack Protector - 7 x 18 in, 3 Ga.",
+      "assets": [
+        "catalog-rack-protector-7x18-3ga.webp",
+        "catalog-rack-protector-7x18-3ga-context.webp",
+        "catalog-rack-protector-brochure.webp"
+      ]
+    },
+    {
+      "slug": "rack-protector-7x24-3ga",
+      "handle": "rack-protector-7x24-3ga",
+      "id": "gid://shopify/Product/9278500929674",
+      "priceCAD": 90,
+      "shopifyPriceCAD": 90,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Rack Protector - 7 x 24 in, 3 Ga.",
+      "title": "Rack Protector - 7 x 24 in, 3 Ga.",
+      "assets": [
+        "catalog-rack-protector-7x24-3ga.webp",
+        "catalog-rack-protector-7x24-3ga-context.webp",
+        "catalog-rack-protector-brochure.webp"
+      ]
+    },
+    {
+      "slug": "rack-protector-5x12-3ga",
+      "handle": "rack-protector-5x12-3ga",
+      "id": "gid://shopify/Product/9278500962442",
+      "priceCAD": 45,
+      "shopifyPriceCAD": 45,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Rack Protector - 5 x 12 in, 3 Ga.",
+      "title": "Rack Protector - 5 x 12 in, 3 Ga.",
+      "assets": [
+        "catalog-rack-protector-5x12-3ga.webp",
+        "catalog-rack-protector-5x12-3ga-context.webp",
+        "catalog-rack-protector-brochure.webp"
+      ]
+    },
+    {
+      "slug": "rack-protector-5x18-3ga",
+      "handle": "rack-protector-5x18-3ga",
+      "id": "gid://shopify/Product/9278500995210",
+      "priceCAD": 55,
+      "shopifyPriceCAD": 55,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Rack Protector - 5 x 18 in, 3 Ga.",
+      "title": "Rack Protector - 5 x 18 in, 3 Ga.",
+      "assets": [
+        "catalog-rack-protector-5x18-3ga.webp",
+        "catalog-rack-protector-5x18-3ga-context.webp",
+        "catalog-rack-protector-brochure.webp"
+      ]
+    },
+    {
+      "slug": "rack-protector-5x24-3ga",
+      "handle": "rack-protector-5x24-3ga",
+      "id": "gid://shopify/Product/9278501027978",
+      "priceCAD": 70,
+      "shopifyPriceCAD": 70,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Rack Protector - 5 x 24 in, 3 Ga.",
+      "title": "Rack Protector - 5 x 24 in, 3 Ga.",
+      "assets": [
+        "catalog-rack-protector-5x24-3ga.webp",
+        "catalog-rack-protector-5x24-3ga-context.webp",
+        "catalog-rack-protector-brochure.webp"
+      ]
+    },
+    {
+      "slug": "pallet-rack-guard-end-46x3x5",
+      "handle": "pallet-rack-guard-end-46x3x5",
+      "id": "gid://shopify/Product/9278501060746",
+      "priceCAD": 205,
+      "shopifyPriceCAD": 205,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Pallet Rack Guard End - 46 x 3 x 5 in",
+      "title": "Pallet Rack Guard End - 46 x 3 x 5 in",
+      "assets": [
+        "catalog-pallet-rack-guard-end-46x3x5.webp",
+        "catalog-pallet-rack-guard-end-46x3x5-context.webp",
+        "catalog-pallet-rack-guard-end-brochure.webp"
+      ]
+    },
+    {
+      "slug": "upright-protector-7x7x18",
+      "handle": "upright-protector-7x7x18",
+      "id": "gid://shopify/Product/9278501126282",
+      "priceCAD": 55,
+      "shopifyPriceCAD": 55,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Upright Protector - 7 x 7 x 18 in",
+      "title": "Upright Protector - 7 x 7 x 18 in",
+      "assets": [
+        "catalog-upright-protector-7x7x18.webp",
+        "catalog-upright-protector-7x7x18-context.webp",
+        "catalog-upright-protector-brochure.webp"
+      ]
+    },
+    {
+      "slug": "upright-protector-7x7x12",
+      "handle": "upright-protector-7x7x12",
+      "id": "gid://shopify/Product/9278501191818",
+      "priceCAD": 45,
+      "shopifyPriceCAD": 45,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Upright Protector - 7 x 7 x 12 in",
+      "title": "Upright Protector - 7 x 7 x 12 in",
+      "assets": [
+        "catalog-upright-protector-7x7x12.webp",
+        "catalog-upright-protector-7x7x12-context.webp",
+        "catalog-upright-protector-brochure.webp"
+      ]
+    },
+    {
+      "slug": "floor-angle-guard-warehouse-24x5x3",
+      "handle": "floor-angle-guard-warehouse-24x5x3",
+      "id": "gid://shopify/Product/9278501224586",
+      "priceCAD": 100,
+      "shopifyPriceCAD": 100,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Floor Angle Guard - Warehouse 24 in",
+      "title": "Floor Angle Guard - Warehouse 24 in",
+      "assets": [
+        "catalog-floor-angle-guard-warehouse-24x5x3.webp",
+        "catalog-floor-angle-guard-warehouse-24x5x3-context.webp",
+        "catalog-floor-angle-guard-warehouse-brochure.webp"
+      ]
+    },
+    {
+      "slug": "floor-angle-guard-warehouse-48x5x3",
+      "handle": "floor-angle-guard-warehouse-48x5x3",
+      "id": "gid://shopify/Product/9278501290122",
+      "priceCAD": 140,
+      "shopifyPriceCAD": 140,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Floor Angle Guard - Warehouse 48 in",
+      "title": "Floor Angle Guard - Warehouse 48 in",
+      "assets": [
+        "catalog-floor-angle-guard-warehouse-48x5x3.webp",
+        "catalog-floor-angle-guard-warehouse-48x5x3-context.webp",
+        "catalog-floor-angle-guard-warehouse-brochure.webp"
+      ]
+    },
+    {
+      "slug": "floor-angle-guard-warehouse-60x5x3",
+      "handle": "floor-angle-guard-warehouse-60x5x3",
+      "id": "gid://shopify/Product/9278501355658",
+      "priceCAD": 190,
+      "shopifyPriceCAD": 190,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Floor Angle Guard - Warehouse 60 in",
+      "title": "Floor Angle Guard - Warehouse 60 in",
+      "assets": [
+        "catalog-floor-angle-guard-warehouse-60x5x3.webp",
+        "catalog-floor-angle-guard-warehouse-60x5x3-context.webp",
+        "catalog-floor-angle-guard-warehouse-brochure.webp"
+      ]
+    },
+    {
+      "slug": "floor-angle-guard-warehouse-96x5x3",
+      "handle": "floor-angle-guard-warehouse-96x5x3",
+      "id": "gid://shopify/Product/9278501388426",
+      "priceCAD": 300,
+      "shopifyPriceCAD": 300,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Floor Angle Guard - Warehouse 96 in",
+      "title": "Floor Angle Guard - Warehouse 96 in",
+      "assets": [
+        "catalog-floor-angle-guard-warehouse-96x5x3.webp",
+        "catalog-floor-angle-guard-warehouse-96x5x3-context.webp",
+        "catalog-floor-angle-guard-warehouse-brochure.webp"
+      ]
+    },
+    {
+      "slug": "floor-angle-guard-warehouse-120x5x3",
+      "handle": "floor-angle-guard-warehouse-120x5x3",
+      "id": "gid://shopify/Product/9278501421194",
+      "priceCAD": 360,
+      "shopifyPriceCAD": 360,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Floor Angle Guard - Warehouse 120 in",
+      "title": "Floor Angle Guard - Warehouse 120 in",
+      "assets": [
+        "catalog-floor-angle-guard-warehouse-120x5x3.webp",
+        "catalog-floor-angle-guard-warehouse-120x5x3-context.webp",
+        "catalog-floor-angle-guard-warehouse-brochure.webp"
+      ]
+    },
+    {
+      "slug": "anti-theft-parking-bollard-collapsible",
+      "handle": "anti-theft-parking-bollard-collapsible",
+      "id": "gid://shopify/Product/9278501453962",
+      "priceCAD": 306,
+      "shopifyPriceCAD": 306,
+      "status": "DRAFT",
+      "inventory": 0,
+      "originalTitle": "Anti-Theft Parking Bollard - Collapsible",
+      "title": "Anti-Theft Parking Bollard - Collapsible",
+      "assets": [
+        "catalog-anti-theft-parking-bollard-collapsible.webp",
+        "catalog-anti-theft-parking-bollard-collapsible-context.webp",
+        "catalog-anti-theft-parking-bollard-collapsible-brochure.webp"
+      ]
+    }
+  ]
+}

@@ -5,10 +5,10 @@ import CatalogCard from '../../components/CatalogCard.astro';
 import { catalogProducts, gasProducts, rackProducts, safetyProducts, tableProducts } from '../../data/catalog';
 ---
 
-<BaseLayout title="Equipment Catalogue | ProSteel Equipment" description="Shop ProSteel gas cylinder cages, forklift carriers, welding cages, A-frame racks, slab storage systems, industrial tables, workbenches, carts, and custom equipment.">
+<BaseLayout title="Industrial Product Catalogue | ProSteel Equipment" description="Shop ProSteel gas cylinder cages, forklift carriers, welding cages, storage transport systems, industrial tables, workbenches, carts, and warehouse safety products.">
 	<main>
 		<PageHero
-			eyebrow="2026 equipment catalogue"
+			eyebrow="2026 product catalogue"
 			title="Built for industrial work"
 			copy={`${gasProducts.length} cage and carrier systems, ${rackProducts.length} material rack configurations, ${tableProducts.length} industrial tables and carts, and ${safetyProducts.length} warehouse safety guards engineered and fabricated in Canada.`}
 			image="/images/prosteel/hero-crane-carrier.webp"
@@ -20,17 +20,17 @@ import { catalogProducts, gasProducts, rackProducts, safetyProducts, tableProduc
 				<div class="catalogue__heading">
 					<div>
 						<p>Complete product range</p>
-						<h1 id="catalogue-title">Equipment catalogue</h1>
+						<h1 id="catalogue-title" data-catalogue-title>All Products</h1>
 					</div>
 					<span><strong>{catalogProducts.length}</strong> product systems</span>
 				</div>
 
 				<div class="catalogue__filters" aria-label="Filter products">
-					<button class="is-active" type="button" data-filter="all" aria-pressed="true">All equipment</button>
-					<button type="button" data-filter="gas-cage" aria-pressed="false">Gas cages & carriers</button>
-					<button type="button" data-filter="material-rack" aria-pressed="false">Material racks</button>
-					<button type="button" data-filter="industrial-table" aria-pressed="false">Industrial tables</button>
-					<button type="button" data-filter="warehouse-safety" aria-pressed="false">Warehouse safety</button>
+					<button class="is-active" type="button" data-filter="all" aria-pressed="true">All products</button>
+					<button type="button" data-filter="gas-cage" aria-pressed="false">Premium Metal Gas Cage Solution</button>
+					<button type="button" data-filter="material-rack" aria-pressed="false">Storage Transport Solutions</button>
+					<button type="button" data-filter="industrial-table" aria-pressed="false">Heavy-Duty Metal Tables &amp; Carts</button>
+					<button type="button" data-filter="warehouse-safety" aria-pressed="false">Warehouse Safety Equipment</button>
 				</div>
 
 				<div class="catalogue__grid" data-catalogue-grid>
@@ -52,7 +52,16 @@ import { catalogProducts, gasProducts, rackProducts, safetyProducts, tableProduc
 <script>
 	const filters = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-filter]'));
 	const cards = Array.from(document.querySelectorAll<HTMLElement>('[data-catalog-card]'));
+	const title = document.querySelector<HTMLElement>('[data-catalogue-title]');
+	const titles: Record<string, string> = {
+		all: 'All Products',
+		'gas-cage': 'Premium Metal Gas Cage Solution',
+		'material-rack': 'Storage Transport Solutions',
+		'industrial-table': 'Heavy-Duty Metal Tables & Carts',
+		'warehouse-safety': 'Warehouse Safety Equipment',
+	};
 	const applyFilter = (filter: string) => {
+		if (title) title.textContent = titles[filter] ?? titles.all;
 		filters.forEach((item) => {
 			const active = item.dataset.filter === filter;
 			item.classList.toggle('is-active', active);
