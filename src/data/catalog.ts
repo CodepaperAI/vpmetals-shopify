@@ -140,7 +140,7 @@ export const gasProducts: CatalogProduct[] = [
 	},
 	{
 		slug: 'pse-147-7-8', name: '8-Cylinder Welding Cage', model: 'PSE 147.7-8', collection: 'gas-cage', category: 'Welding', price: 1520,
-		image: '/images/catalog/gas/pse-147-7-8-confirmed.png', contextImage: '/images/catalog/gas/pse-147-7-8-confirmed.png', hideContextImage: true, alt: 'Customer-confirmed yellow ProSteel welding cylinder cage with eight cylinders inside',
+		image: '/images/catalog/gas/pse-147-7-8.webp', contextImage: '/images/catalog/gas/pse-147-7-8.webp', hideContextImage: true, alt: 'Original yellow ProSteel PSE 147.7-8 welding cylinder cage with both doors open',
 		description: 'A secure vertical cage sized for eight 147.7 lb welding cylinders.',
 		application: 'Welding shops, fabrication facilities, maintenance departments, and construction operations.',
 		specs: [{ label: 'Cylinder', value: '147.7 lb welding tank' }, { label: 'Capacity', value: '8 cylinders' }, { label: 'Height', value: '72 in' }, { label: 'Width', value: '52 in' }, { label: 'Depth', value: '27.5 in' }], features: cageFeatures,
