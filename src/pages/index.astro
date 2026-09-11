@@ -153,11 +153,7 @@ const industries = [
 				</div>
 				<figure class="home-hero__visual" aria-label="Curtain wall building with representative ProSteel transport, table, and backpan products">
 					<img class="home-hero__building" src="/images/prosteel/category-curtain-wall.png" alt="Modern curtain wall building" loading="eager" />
-					<div class="home-hero__products" aria-hidden="true">
-						<img class="home-hero__product home-hero__product--rack" src="/images/catalog/racks/mobile-a-frame.webp" alt="" />
-						<img class="home-hero__product home-hero__product--table" src="/images/catalog/tables/heavy-duty-16-ga-cutting-table.webp" alt="" />
-						<img class="home-hero__product home-hero__product--backpan" src="/images/catalog/racks/multi-purpose-slab-rack-corrected.png" alt="" />
-					</div>
+					<img class="home-hero__products" src="/images/prosteel/home-hero-product-showcase-v5.png" alt="" aria-hidden="true" />
 				</figure>
 				<p class="home-hero__motto">Strong solutions.<br />Real results.<span></span>From the ground up<br />to a stronger tomorrow.</p>
 			</div>
@@ -458,7 +454,17 @@ const industries = [
 	.home-hero__visual::after {
 		position: absolute;
 		inset: 0;
+		z-index: 3;
 		background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,.88) 10%, rgba(255,255,255,.18) 28%, transparent 48%);
+		content: '';
+		pointer-events: none;
+	}
+
+	.home-hero__visual::before {
+		position: absolute;
+		inset: 44% 0 0;
+		z-index: 1;
+		background: linear-gradient(180deg, transparent 0%, rgba(238, 245, 251, .97) 36%, #eef5fb 100%);
 		content: '';
 		pointer-events: none;
 	}
@@ -478,20 +484,10 @@ const industries = [
 		z-index: 2;
 		width: 72%;
 		height: 48%;
-	}
-
-	.home-hero__product {
-		position: absolute;
-		bottom: 0;
 		display: block;
 		object-fit: contain;
-		mix-blend-mode: multiply;
 		filter: drop-shadow(0 18px 18px rgba(5, 26, 59, .24));
 	}
-
-	.home-hero__product--rack { left: 0; width: 37%; height: 100%; }
-	.home-hero__product--table { left: 28%; width: 41%; height: 72%; }
-	.home-hero__product--backpan { right: 0; width: 42%; height: 72%; }
 
 	.home-hero__trust {
 		display: grid;
@@ -1007,6 +1003,19 @@ const industries = [
 
 		.home-hero__copy {
 			padding: 52px 0 18px;
+		}
+
+		.home-hero__visual {
+			position: relative;
+			inset: auto;
+			height: auto;
+			margin: 0 0 20px;
+			border-radius: 8px;
+		}
+
+		.home-hero__building {
+			height: auto;
+			aspect-ratio: 1.6 / 1;
 		}
 
 		.home-hero h1 {
