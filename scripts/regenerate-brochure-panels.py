@@ -7,7 +7,7 @@ import json
 import subprocess
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageChops, ImageOps
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -29,17 +29,28 @@ console.log(JSON.stringify(catalogProducts.map(({slug,collection,image,contextIm
     return json.loads(result.stdout)
 
 
+def trim_white_space(image: Image.Image, padding: int = 18) -> Image.Image:
+    """Remove exported PDF whitespace while retaining a small clean border."""
+    white = Image.new("RGB", image.size, "white")
+    difference = ImageChops.difference(image, white).convert("L")
+    content_mask = difference.point(lambda value: 255 if value > 12 else 0)
+    bounds = content_mask.getbbox()
+    if not bounds:
+        return image
+    return ImageOps.expand(image.crop(bounds), border=padding, fill="white")
+
+
 def contain(source: Path, box: tuple[int, int]) -> Image.Image:
     with Image.open(source) as opened:
-        image = opened.convert("RGB")
+        image = trim_white_space(opened.convert("RGB"))
     image.thumbnail(box, Image.Resampling.LANCZOS)
     return image
 
 
 def create_panel(primary_path: Path, context_path: Path, output_path: Path) -> None:
     panel = Image.new("RGB", (1200, 800), "white")
-    primary = contain(primary_path, (550, 700))
-    context = contain(context_path, (550, 700))
+    primary = contain(primary_path, (560, 760))
+    context = contain(context_path, (560, 760))
     panel.paste(primary, (300 - primary.width // 2, 400 - primary.height // 2))
     panel.paste(context, (900 - context.width // 2, 400 - context.height // 2))
     output_path.parent.mkdir(parents=True, exist_ok=True)
