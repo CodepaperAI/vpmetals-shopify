@@ -17,7 +17,7 @@ NODE = Path("/Users/udaypatel/.cache/codex-runtimes/codex-primary-runtime/depend
 def load_products() -> list[dict[str, str]]:
     source = """
 import { catalogProducts } from './src/data/catalog.ts';
-console.log(JSON.stringify(catalogProducts.map(({slug,collection,image,contextImage,brochurePreviewImage}) => ({slug,collection,image,contextImage,brochurePreviewImage}))));
+console.log(JSON.stringify(catalogProducts.map(({slug,collection,image,contextImage,brochurePreviewImage,hideContextImage}) => ({slug,collection,image,contextImage,brochurePreviewImage,hideContextImage}))));
 """
     result = subprocess.run(
         [str(NODE), "--input-type=module", "-e", source],
@@ -57,6 +57,14 @@ def create_panel(primary_path: Path, context_path: Path, output_path: Path) -> N
     panel.save(output_path, "WEBP", quality=90, method=6)
 
 
+def create_single_panel(primary_path: Path, output_path: Path) -> None:
+    panel = Image.new("RGB", (1200, 800), "white")
+    primary = contain(primary_path, (1120, 760))
+    panel.paste(primary, (600 - primary.width // 2, 400 - primary.height // 2))
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    panel.save(output_path, "WEBP", quality=90, method=6)
+
+
 def main() -> None:
     folders = {
         "gas-cage": "gas",
@@ -69,7 +77,11 @@ def main() -> None:
         primary = ROOT / "public" / product["image"].lstrip("/")
         context = ROOT / "public" / product["contextImage"].lstrip("/")
         preview = product.get("brochurePreviewImage") or f"/images/catalog/brochures/{folders[product['collection']]}/{product['slug']}-brochure.webp"
-        create_panel(primary, context, ROOT / "public" / preview.lstrip("/"))
+        output = ROOT / "public" / preview.lstrip("/")
+        if product.get("hideContextImage"):
+            create_single_panel(primary, output)
+        else:
+            create_panel(primary, context, output)
     print(f"Regenerated {len(products)} clean brochure panels without printed headings or prices.")
 
 
