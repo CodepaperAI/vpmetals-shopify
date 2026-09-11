@@ -9,6 +9,7 @@ export type CatalogProduct = {
 	price?: number;
 	image: string;
 	contextImage: string;
+	additionalImages?: Array<{ src: string; alt: string; label: string }>;
 	brochurePreviewImage?: string;
 	alt: string;
 	description: string;
@@ -239,6 +240,7 @@ export const rackProducts: CatalogProduct[] = [
 	},
 	{
 		slug: 'multi-purpose-slab-rack', name: 'Multi-Purpose Slab Rack', model: 'PSE PS10', collection: 'material-rack', category: 'Slab Rack', price: 2850, image: '/images/catalog/racks/multi-purpose-slab-rack-corrected.png', contextImage: '/images/catalog/racks/multi-purpose-slab-rack-corrected-context.png', alt: 'Black multi-purpose slab rack with removable posts in multiple heights',
+		additionalImages: [{ src: '/images/catalog/racks/multi-purpose-slab-rack-loaded.webp', alt: 'Multi-purpose slab rack loaded with stone panels, showing the removable post configuration', label: 'Loaded configuration' }],
 		description: 'A configurable post-and-rail slab rack for flexible storage of heavy stone, glass, and panel materials.', application: 'Stone yards, glass facilities, warehouses, fabrication operations, and configurable slab storage.',
 		specs: [{ label: 'Work load limit', value: '6,481 lb / 2,940 kg' }, { label: 'Dimensions', value: '120 L x 8 W x 60 H in' }, { label: 'Net weight per post', value: '4,700 lb / 2,131 kg' }, { label: 'Poles / holes', value: '10 / 10' }, { label: 'Post options', value: '60, 48, or 36 in' }], features: ['Configurable removable post system', ...rackFeatures],
 	},
@@ -251,6 +253,7 @@ export const rackProducts: CatalogProduct[] = [
 	{
 		slug: 'one-side-frame-narrow-warehouse', name: 'One Side Frame for Narrow Warehouse', model: 'One Side Frame', collection: 'material-rack', category: 'Single-Sided Rack', price: 925,
 		image: '/images/catalog/racks/one-side-frame-narrow-warehouse-corrected.png', contextImage: '/images/catalog/racks/one-side-frame-narrow-warehouse-corrected-context.png', alt: 'Black one-side frame with two tall rear supports for narrow warehouse storage',
+		additionalImages: [{ src: '/images/catalog/racks/one-side-frame-narrow-warehouse-loaded.webp', alt: 'One-side narrow warehouse frame supporting a bundle of upright stone panels', label: 'Loaded configuration' }],
 		description: 'A compact one-side frame with tall rear supports for storing doors, slabs, glass, and panels in narrow warehouse areas.',
 		application: 'Narrow warehouses, stone and glass storage aisles, door storage, showrooms, and compact fabrication facilities.',
 		specs: [{ label: 'Capacity', value: '9,000 lb per side' }, { label: 'Dimensions', value: '72 L x 30 W x 60 H in' }, { label: 'Frame', value: '2 x 2 in square pipe' }, { label: 'Base', value: '3 in U-channel' }],
