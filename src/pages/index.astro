@@ -84,10 +84,9 @@ const solutionCards = [
 ];
 
 const valuePillars = [
-	{ label: 'Made in Canada', detail: 'Proudly Canadian', icon: BadgeCheck },
-	{ label: 'Built to Last', detail: 'Heavy-duty quality', icon: ShieldCheck },
-	{ label: 'Custom Solutions', detail: 'Made to order', icon: Wrench },
-	{ label: 'Fast & Reliable', detail: 'On-time delivery', icon: Truck },
+	{ label: 'Built to Last', detail: 'Heavy-duty. Reliable. Job-ready.', icon: ShieldCheck },
+	{ label: 'Custom Solutions', detail: 'From concept to completion.', icon: Wrench },
+	{ label: 'Trusted by Industry', detail: 'Supporting safer, stronger workplaces.', icon: HardHat },
 ];
 
 const strengths = [
@@ -130,32 +129,32 @@ const industries = [
 >
 	<main class="home-redesign">
 		<section class="home-hero" aria-labelledby="home-hero-title">
-			<div class="home-hero__grid" aria-hidden="true"></div>
 			<div class="home-hero__inner">
 				<div class="home-hero__copy">
-					<p class="eyebrow">Built strong. Made to perform.</p>
-					<h1 id="home-hero-title">Heavy-duty metal products. <span>Built for all your needs.</span></h1>
-					<p class="home-hero__lead">Industrial, commercial, and architectural metal products engineered for strength, functionality, and long-term performance.</p>
+					<p class="eyebrow">Metal solutions for a stronger tomorrow</p>
+					<h1 id="home-hero-title">Built for <span>Industrial Strength</span></h1>
+					<p class="home-hero__lead">Durable metal products and custom fabrication solutions for commercial and industrial applications.</p>
+					<div class="home-hero__trust" aria-label="ProSteel strengths">
+						{valuePillars.map((pillar) => {
+							const Icon = pillar.icon;
+							return (
+								<div>
+									<Icon size={34} strokeWidth={1.8} aria-hidden="true" />
+									<span>{pillar.label}</span>
+									<small>{pillar.detail}</small>
+								</div>
+							);
+						})}
+					</div>
 					<div class="home-hero__actions">
-						<a class="button button--primary" href="/products/">Explore products <ArrowRight size={19} strokeWidth={2} aria-hidden="true" /></a>
-						<a class="button button--ghost" href="/contact/">Request a quote <ClipboardCheck size={18} strokeWidth={2} aria-hidden="true" /></a>
+						<a class="button button--accent" href="/contact/">Request a quote <ArrowRight size={19} strokeWidth={2} aria-hidden="true" /></a>
+						<a class="button button--text" href="/products/">Explore our products <ArrowRight size={19} strokeWidth={2} aria-hidden="true" /></a>
 					</div>
 				</div>
 				<figure class="home-hero__visual">
-					<img src="/images/prosteel/home-hero-equipment-showcase-clean.png" alt="ProSteel A-frame rack, gas cage, work table, gas bottle carrier, and guard rail in a clean warehouse" loading="eager" />
+					<img src="/images/prosteel/category-curtain-wall.png" alt="Modern curtain wall building with ProSteel material handling racks and fabricated metal components" loading="eager" />
 				</figure>
-			</div>
-			<div class="home-hero__trust" aria-label="ProSteel strengths">
-				{valuePillars.map((pillar) => {
-					const Icon = pillar.icon;
-					return (
-						<div>
-							<Icon size={34} strokeWidth={1.8} aria-hidden="true" />
-							<span>{pillar.label}</span>
-							<small>{pillar.detail}</small>
-						</div>
-					);
-				})}
+				<p class="home-hero__motto">Strong solutions.<br />Real results.<span></span>From the ground up<br />to a stronger tomorrow.</p>
 			</div>
 		</section>
 
@@ -359,36 +358,52 @@ const industries = [
 		background: #eef4ff;
 	}
 
+	.button--accent {
+		border-color: #f4c400;
+		background: #ffd21c;
+		box-shadow: 0 12px 26px rgba(150, 111, 0, .2);
+		color: var(--navy);
+	}
+
+	.button--accent:hover,
+	.button--accent:focus-visible {
+		border-color: #e3b600;
+		background: #f4c400;
+		color: var(--navy);
+	}
+
+	.button--text {
+		min-height: 48px;
+		border: 0;
+		border-bottom: 2px solid #b8c7dd;
+		border-radius: 0;
+		padding-inline: 8px;
+		background: transparent;
+		box-shadow: none;
+		color: var(--navy);
+	}
+
 	.home-hero {
 		position: relative;
+		min-height: 650px;
 		border-bottom: 1px solid var(--line);
 		background-image:
-			linear-gradient(90deg, rgba(255, 255, 255, .99) 0%, rgba(255, 255, 255, .98) 32%, rgba(255, 255, 255, .5) 46%, rgba(255, 255, 255, .08) 58%, rgba(255, 255, 255, 0) 72%),
-			url('/images/prosteel/home-hero-equipment-showcase-clean.png');
+			linear-gradient(90deg, #fff 0%, rgba(255, 255, 255, .98) 32%, rgba(255, 255, 255, .78) 43%, rgba(255, 255, 255, .08) 61%, rgba(4, 33, 77, .12) 100%),
+			url('/images/prosteel/category-curtain-wall.png');
 		background-position:
 			left center,
 			right center;
 		background-size:
 			100% 100%,
-			min(92vw, 1540px) auto;
+			cover;
 		background-repeat: no-repeat;
-	}
-
-	.home-hero__grid {
-		position: absolute;
-		inset: 0;
-		background-image:
-			linear-gradient(rgba(8, 79, 180, .05) 1px, transparent 1px),
-			linear-gradient(90deg, rgba(8, 79, 180, .05) 1px, transparent 1px);
-		background-size: 78px 78px;
-		pointer-events: none;
 	}
 
 	.home-hero__inner {
 		position: relative;
 		display: grid;
 		width: min(calc(100% - 52px), 1400px);
-		min-height: 620px;
+		min-height: 650px;
 		margin: 0 auto;
 		grid-template-columns: minmax(360px, 585px) minmax(0, 1fr);
 		align-items: center;
@@ -398,18 +413,17 @@ const industries = [
 	.home-hero__copy {
 		position: relative;
 		z-index: 2;
-		padding: 52px 0 60px;
+		padding: 58px 0 62px;
 	}
 
 	.home-hero h1 {
 		max-width: 560px;
 		margin: 0;
 		color: var(--navy);
-		font-size: 62px;
+		font-size: clamp(3.5rem, 5vw, 5.4rem);
 		font-weight: 900;
 		letter-spacing: 0;
-		line-height: .95;
-		text-transform: uppercase;
+		line-height: .94;
 	}
 
 	.home-hero h1 span {
@@ -418,11 +432,11 @@ const industries = [
 	}
 
 	.home-hero__lead {
-		max-width: 520px;
-		margin: 26px 0 0;
+		max-width: 500px;
+		margin: 22px 0 0;
 		color: #26334a;
-		font-size: 16px;
-		line-height: 1.75;
+		font-size: 18px;
+		line-height: 1.55;
 	}
 
 	.home-hero__actions {
@@ -438,25 +452,20 @@ const industries = [
 	}
 
 	.home-hero__trust {
-		position: relative;
-		z-index: 2;
 		display: grid;
-		width: min(calc(100% - 52px), 1400px);
-		margin: -34px auto 0;
-		grid-template-columns: repeat(4, minmax(0, 1fr));
-		gap: 1px;
-		background: var(--line);
-		border: 1px solid var(--line);
+		max-width: 610px;
+		margin-top: 28px;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 14px;
 	}
 
 	.home-hero__trust div {
 		display: grid;
-		min-height: 92px;
-		grid-template-columns: 42px minmax(0, 1fr);
+		min-height: 72px;
+		grid-template-columns: 34px minmax(0, 1fr);
 		align-content: center;
-		column-gap: 14px;
-		background: #fff;
-		padding: 16px 22px;
+		column-gap: 10px;
+		padding-right: 8px;
 	}
 
 	.home-hero__trust svg {
@@ -466,7 +475,7 @@ const industries = [
 
 	.home-hero__trust span {
 		color: var(--navy);
-		font-size: 12px;
+		font-size: 11px;
 		font-weight: 900;
 		letter-spacing: 0;
 		text-transform: uppercase;
@@ -475,8 +484,32 @@ const industries = [
 	.home-hero__trust small {
 		margin-top: 4px;
 		color: var(--muted);
-		font-size: 11px;
+		font-size: 10px;
 		line-height: 1.3;
+	}
+
+	.home-hero__motto {
+		position: absolute;
+		right: 0;
+		top: 58px;
+		z-index: 2;
+		margin: 0;
+		color: #fff;
+		font-size: 14px;
+		font-weight: 900;
+		letter-spacing: .08em;
+		line-height: 1.28;
+		text-align: right;
+		text-transform: uppercase;
+		text-shadow: 0 2px 14px rgba(0, 31, 80, .72);
+	}
+
+	.home-hero__motto span {
+		display: block;
+		width: 32px;
+		height: 3px;
+		margin: 14px 0 90px auto;
+		background: #ffd21c;
 	}
 
 	.section-title {
@@ -920,6 +953,10 @@ const industries = [
 	}
 
 	@media (max-width: 930px) {
+		.home-hero__motto {
+			display: none;
+		}
+
 		.home-hero__inner {
 			min-height: 560px;
 			grid-template-columns: 1fr;
@@ -937,7 +974,7 @@ const industries = [
 		}
 
 		.home-hero__trust {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
+			grid-template-columns: repeat(3, minmax(0, 1fr));
 			margin-top: 0;
 		}
 
@@ -1027,20 +1064,27 @@ const industries = [
 		}
 
 		.home-hero__trust {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
+			grid-template-columns: repeat(3, minmax(0, 1fr));
 			margin-top: 18px;
+			gap: 8px;
 		}
 
 		.home-hero__trust div {
-			min-height: 92px;
-			grid-template-columns: 34px minmax(0, 1fr);
-			padding: 14px;
-			column-gap: 10px;
+			min-height: 0;
+			grid-template-columns: 1fr;
+			align-content: start;
+			padding: 0 6px 0 0;
+			row-gap: 4px;
 		}
 
 		.home-hero__trust svg {
-			width: 28px;
-			height: 28px;
+			width: 26px;
+			height: 26px;
+			grid-row: auto;
+		}
+
+		.home-hero__trust small {
+			font-size: 9px;
 		}
 
 		.custom__gallery,
@@ -1201,6 +1245,25 @@ const industries = [
 
 		.home-contact {
 			gap: 30px;
+		}
+	}
+
+	@media (max-width: 520px) {
+		.home-hero__trust {
+			grid-template-columns: 1fr;
+			gap: 10px;
+		}
+
+		.home-hero__trust div {
+			min-height: 48px;
+			grid-template-columns: 30px minmax(0, 1fr);
+			align-content: center;
+			column-gap: 10px;
+			row-gap: 2px;
+		}
+
+		.home-hero__trust svg {
+			grid-row: span 2;
 		}
 	}
 </style>
