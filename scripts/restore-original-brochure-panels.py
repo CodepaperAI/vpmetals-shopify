@@ -36,6 +36,43 @@ GAS_PAGES = {
     "model-420-1": 19,
 }
 
+RACK_SECTIONS = {
+    "economy-a-frame": (3, "top"),
+    "single-sided-a-frame": (3, "bottom"),
+    "heavy-duty-a-frame": (4, "top"),
+    "double-sided-transport-rack": (4, "bottom"),
+    "modular-transport-rack": (5, "top"),
+    "mobile-a-frame": (5, "bottom"),
+    "stone-fabrication-a-frame": (6, "top"),
+    "mobile-l-frame": (6, "bottom"),
+    "solo-shelf-rack": (7, "top"),
+    "one-side-l-frame": (7, "bottom"),
+    "one-side-frame-narrow-warehouse": (8, "top"),
+    "heavy-duty-double-sided-a-frame": (8, "bottom"),
+    "heavy-duty-bundle-slab-rack": (9, "top"),
+    "multi-purpose-slab-rack": (9, "bottom"),
+    "heavy-duty-bundle-slab-rack-standard": (10, "top"),
+}
+
+TABLE_SECTIONS = {
+    "heavy-duty-mobile-transport-frame": (3, "top"),
+    "three-tier-triple-stacker-table": (3, "bottom"),
+    "heavy-duty-industrial-platform-cart": (4, "top"),
+    "garment-production-utility-cart": (4, "bottom"),
+    "heavy-duty-six-wheel-work-table": (5, "top"),
+    "heavy-duty-steel-workbench": (5, "bottom"),
+    "industrial-mobile-workbench": (6, "top"),
+    "three-tier-heavy-duty-mobile-assembly-workbench": (6, "bottom"),
+    "large-heavy-duty-industrial-platform-cart": (7, "top"),
+    "mobile-glass-handling-table": (7, "bottom"),
+    "heavy-duty-industrial-metal-top-platform-cart": (8, "top"),
+    "mobile-electronics-workstation": (8, "bottom"),
+    "heavy-duty-two-tier-service-cart-stainless-steel": (9, "top"),
+    "butchers-meat-cutting-table-stainless-steel": (9, "bottom"),
+    "heavy-duty-16-ga-cutting-table": (10, "top"),
+    "commercial-pizza-prep-table": (10, "bottom"),
+}
+
 SAFETY_SECTIONS = {
     "heavy-duty-bollard-bolt-down": (3, "top"),
     "overhead-door-track-protector": (3, "bottom"),
@@ -65,8 +102,28 @@ def save_panel(image: Image.Image, output: Path) -> None:
     image.save(output, "WEBP", quality=92, method=6)
 
 
+def split_panel(artwork: Image.Image, half: str) -> Image.Image:
+    """Keep the complete artwork and feature strip, with a small safe margin."""
+    if half == "top":
+        return artwork.crop((0, 0, artwork.width, round(artwork.height * 0.468)))
+    return artwork.crop(
+        (0, round(artwork.height * 0.472), artwork.width, round(artwork.height * 0.914))
+    )
+
+
+def restore_split_family(
+    pdf: Path, sections: dict[str, tuple[int, str]], output_dir: Path, work: Path
+) -> None:
+    rendered: dict[int, Image.Image] = {}
+    for slug, (page, half) in sections.items():
+        artwork = rendered.setdefault(page, render_page(pdf, page, work))
+        save_panel(split_panel(artwork, half), output_dir / f"{slug}-brochure.webp")
+
+
 def main() -> None:
     gas_pdf = ROOT / "public/brochures/prosteel-gas-cage-brochure.pdf"
+    rack_pdf = ROOT / "public/brochures/prosteel-a-frame-brochure.pdf"
+    table_pdf = ROOT / "public/brochures/prosteel-industrial-table-brochure.pdf"
     safety_pdf = ROOT / "public/brochures/prosteel-bollard-guard-brochure.pdf"
 
     with tempfile.TemporaryDirectory(prefix="prosteel-brochures-") as temp:
@@ -74,21 +131,41 @@ def main() -> None:
 
         for slug, page in GAS_PAGES.items():
             artwork = render_page(gas_pdf, page, work)
-            # Keep the original logo, heading, product artwork, model, and callouts.
-            # Exclude the lower warranty copy because the approved website warranty is one year.
-            crop = artwork.crop((0, 0, artwork.width, round(artwork.height * 0.73)))
+            # Keep the complete specifications table. Remove only the conflicting legacy
+            # lifetime-warranty block at lower right; the approved site warranty is one year.
+            crop = artwork.crop((0, 0, artwork.width, round(artwork.height * 0.97)))
+            crop.paste(
+                (248, 248, 247),
+                (
+                    round(crop.width * 0.535),
+                    round(crop.height * 0.79),
+                    crop.width,
+                    crop.height,
+                ),
+            )
             save_panel(crop, ROOT / f"public/images/catalog/brochures/gas/{slug}-brochure.webp")
+
+        restore_split_family(
+            rack_pdf,
+            RACK_SECTIONS,
+            ROOT / "public/images/catalog/brochures/racks",
+            work,
+        )
+        restore_split_family(
+            table_pdf,
+            TABLE_SECTIONS,
+            ROOT / "public/images/catalog/brochures/tables",
+            work,
+        )
 
         rendered_safety: dict[int, Image.Image] = {}
         for group, (page, half) in SAFETY_SECTIONS.items():
             artwork = rendered_safety.setdefault(page, render_page(safety_pdf, page, work))
-            if half == "top":
-                crop = artwork.crop((0, 0, artwork.width, round(artwork.height * 0.455)))
-            else:
-                crop = artwork.crop((0, round(artwork.height * 0.465), artwork.width, round(artwork.height * 0.93)))
+            crop = split_panel(artwork, half)
             save_panel(crop, ROOT / f"public/images/catalog/brochures/safety/{group}-brochure.webp")
 
-    print(f"Restored {len(GAS_PAGES) + len(SAFETY_SECTIONS)} original brochure panels.")
+    count = len(GAS_PAGES) + len(RACK_SECTIONS) + len(TABLE_SECTIONS) + len(SAFETY_SECTIONS)
+    print(f"Restored {count} original brochure panels with text-safe crops.")
 
 
 if __name__ == "__main__":
