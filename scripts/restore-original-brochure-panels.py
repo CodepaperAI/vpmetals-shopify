@@ -49,9 +49,10 @@ RACK_SECTIONS = {
     "one-side-l-frame": (7, "bottom"),
     "one-side-frame-narrow-warehouse": (8, "top"),
     "heavy-duty-double-sided-a-frame": (8, "bottom"),
-    "heavy-duty-bundle-slab-rack": (9, "top"),
+    "heavy-duty-bundle-slab-rack-standard": (9, "top"),
     "multi-purpose-slab-rack": (9, "bottom"),
-    "heavy-duty-bundle-slab-rack-standard": (10, "top"),
+    # Page 10 is a single full-page panel, not one half of a two-product spread.
+    "heavy-duty-bundle-slab-rack": (10, "full"),
 }
 
 TABLE_SECTIONS = {
@@ -104,6 +105,8 @@ def save_panel(image: Image.Image, output: Path) -> None:
 
 def split_panel(artwork: Image.Image, half: str) -> Image.Image:
     """Keep the complete artwork and feature strip, with a small safe margin."""
+    if half == "full":
+        return artwork
     if half == "top":
         return artwork.crop((0, 0, artwork.width, round(artwork.height * 0.468)))
     return artwork.crop(
@@ -131,19 +134,9 @@ def main() -> None:
 
         for slug, page in GAS_PAGES.items():
             artwork = render_page(gas_pdf, page, work)
-            # Keep the complete specifications table. Remove only the conflicting legacy
-            # lifetime-warranty block at lower right; the approved site warranty is one year.
-            crop = artwork.crop((0, 0, artwork.width, round(artwork.height * 0.97)))
-            crop.paste(
-                (248, 248, 247),
-                (
-                    round(crop.width * 0.535),
-                    round(crop.height * 0.79),
-                    crop.width,
-                    crop.height,
-                ),
-            )
-            save_panel(crop, ROOT / f"public/images/catalog/brochures/gas/{slug}-brochure.webp")
+            # The September 12 brochure already contains the approved one-year warranty.
+            # Preserve the complete page so no image, specification, or warranty text is cut.
+            save_panel(artwork, ROOT / f"public/images/catalog/brochures/gas/{slug}-brochure.webp")
 
         restore_split_family(
             rack_pdf,
