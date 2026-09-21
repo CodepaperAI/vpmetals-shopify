@@ -17,7 +17,14 @@
     "checkout": "Checkout",
     "title": "Cart",
     "update": "Update",
-    "remove": "Remove"
+    "remove": "Remove",
+    "eyebrow": "Your order",
+    "empty": "Your cart is empty",
+    "empty_copy": "Browse the catalogue or contact ProSteel for a project-specific quotation.",
+    "continue": "Continue shopping",
+    "quantity": "Quantity",
+    "subtotal": "Subtotal",
+    "shipping_note": "Shipping, applicable taxes, lead time, and final configuration are confirmed during checkout or with your order."
   },
   "customers": {
     "login": {

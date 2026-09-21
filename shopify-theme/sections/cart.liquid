@@ -1,37 +1,45 @@
-{% comment %}
-  This section is used in the cart template to render /cart page with an
-  overview of the items in customer's cart.
+<section class="cart-page page-width">
+  <header class="cart-page__header"><p class="eyebrow">{{ 'cart.eyebrow' | t }}</p><h1>{{ 'cart.title' | t }}</h1></header>
+  {% if cart.item_count == 0 %}
+    <div class="cart-page__empty">
+      <h2>{{ 'cart.empty' | t }}</h2>
+      <p>{{ 'cart.empty_copy' | t }}</p>
+      <a class="ps-button" href="{{ routes.all_products_collection_url }}">{{ 'cart.continue' | t }}</a>
+    </div>
+  {% else %}
+    <form class="cart-form" action="{{ routes.cart_url }}" method="post">
+      <div class="cart-form__items">
+        {% for item in cart.items %}
+          <article class="cart-item">
+            <a class="cart-item__image" href="{{ item.url }}">
+              {% if item.image %}{{ item.image | image_url: width: 320 | image_tag: widths: '160,240,320', loading: 'lazy', alt: item.product.title }}{% endif %}
+            </a>
+            <div class="cart-item__details">
+              <p class="cart-item__vendor">{{ item.product.vendor }}</p>
+              <h2><a href="{{ item.url }}">{{ item.product.title }}</a></h2>
+              {% unless item.product.has_only_default_variant %}<p>{{ item.variant.title }}</p>{% endunless %}
+              <a class="cart-item__remove" href="{{ item.url_to_remove }}">{{ 'cart.remove' | t }}</a>
+            </div>
+            <label class="cart-item__quantity">{{ 'cart.quantity' | t }}<input type="number" name="updates[]" value="{{ item.quantity }}" min="0" inputmode="numeric"></label>
+            <strong class="cart-item__price">{{ item.final_line_price | money }}</strong>
+          </article>
+        {% endfor %}
+      </div>
+      <aside class="cart-summary">
+        <div><span>{{ 'cart.subtotal' | t }}</span><strong>{{ cart.total_price | money }}</strong></div>
+        <p>{{ 'cart.shipping_note' | t }}</p>
+        <button class="ps-button ps-button--outline" type="submit" name="update">{{ 'cart.update' | t }}</button>
+        <button class="ps-button" type="submit" name="checkout">{{ 'cart.checkout' | t }}</button>
+        <a href="{{ routes.all_products_collection_url }}">{{ 'cart.continue' | t }}</a>
+      </aside>
+    </form>
+  {% endif %}
+</section>
 
-  https://shopify.dev/docs/storefronts/themes/architecture/templates/cart
-{% endcomment %}
-
-<h1>{{ 'cart.title' | t }}</h1>
-
-<form action="{{ routes.cart_url }}" method="post">
-  <table>
-    {% for item in cart.items %}
-      <tr>
-        <td>
-          {% render 'image', image: item.image, url: item.url %}
-        </td>
-        <td>
-          <p>{{ item.product.title }}</p>
-          {{ 'cart.remove' | t | link_to: item.url_to_remove }}
-        </td>
-        <td>
-          <input type="text" name="updates[]" value="{{ item.quantity }}">
-          <input type="submit" value="{{ 'cart.update' | t }}">
-        </td>
-      </tr>
-    {% endfor %}
-  </table>
-
-  <input type="submit" name="checkout" value="{{ 'cart.checkout' | t }}">
-</form>
+{% stylesheet %}
+  .cart-page{padding-block:58px 100px}.cart-page__header{padding-bottom:28px;border-bottom:1px solid #dbe2eb}.cart-page__header h1{margin:6px 0 0;color:#071c44;font-size:clamp(2.8rem,6vw,5.5rem);line-height:1;text-transform:uppercase}.cart-page__empty{max-width:720px;padding:58px 0}.cart-page__empty h2{margin:0;color:#071c44;font-size:clamp(1.8rem,4vw,3rem);text-transform:uppercase}.cart-page__empty p{margin:12px 0 26px;color:#5e6b7a}.cart-form{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:55px;padding-top:36px}.cart-form__items{display:grid}.cart-item{display:grid;grid-template-columns:150px minmax(0,1fr) 90px 110px;align-items:center;gap:22px;padding:24px 0;border-bottom:1px solid #dbe2eb}.cart-item__image{display:grid;width:150px;height:130px;place-items:center;background:#f4f7fb}.cart-item__image img{width:100%;height:100%;object-fit:contain}.cart-item__vendor{margin:0;color:#0757b6;font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.cart-item h2{margin:5px 0;color:#071c44;font-size:1.15rem;line-height:1.25}.cart-item h2 a{text-decoration:none}.cart-item__details>p:not(.cart-item__vendor){margin:6px 0;color:#5e6b7a;font-size:.82rem}.cart-item__remove{color:#0757b6;font-size:.72rem;font-weight:800;text-transform:uppercase}.cart-item__quantity{display:grid;gap:6px;color:#5e6b7a;font-size:.7rem;font-weight:800;text-transform:uppercase}.cart-item__quantity input{width:76px;min-height:44px;padding:8px;border:1px solid #c9d4e2;font:inherit}.cart-item__price{color:#071c44;text-align:right}.cart-summary{align-self:start;display:grid;gap:15px;padding:26px;background:#f4f7fb}.cart-summary>div{display:flex;justify-content:space-between;gap:20px;color:#071c44;font-size:1.2rem}.cart-summary p{margin:0;color:#5e6b7a;font-size:.78rem}.cart-summary .ps-button{width:100%}.cart-summary>a{color:#0757b6;font-size:.75rem;font-weight:800;text-align:center;text-transform:uppercase}@media(max-width:900px){.cart-form{grid-template-columns:1fr}.cart-summary{width:100%}}@media(max-width:650px){.cart-item{grid-template-columns:90px minmax(0,1fr);gap:14px}.cart-item__image{width:90px;height:90px}.cart-item__quantity{grid-column:2}.cart-item__price{grid-column:2;text-align:left}}
+{% endstylesheet %}
 
 {% schema %}
-{
-  "name": "t:general.cart",
-  "settings": []
-}
+{"name":"ProSteel cart","settings":[]}
 {% endschema %}

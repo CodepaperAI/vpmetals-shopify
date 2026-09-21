@@ -16,6 +16,7 @@
 <label for="Quantity-{{ section.id }}">Quantity</label><input id="Quantity-{{ section.id }}" type="number" name="quantity" min="1" value="1">
 <button class="product-detail__cart" type="submit" data-add-to-cart{% unless current_variant.available %} disabled{% endunless %}>{% if current_variant.available %}Add to cart{% else %}Sold out{% endif %}</button>
 {% unless current_variant.available %}<a class="product-detail__cart" href="/pages/contact?product={{ product.handle | url_encode }}">Request a quote</a>{% endunless %}
+{% if current_variant.available %}<div class="product-form__payment">{{ form | payment_button }}</div>{% endif %}
 {% endform %}
 <p class="product-detail__note">Prices shown in CAD. Shipping, applicable taxes, lead time, and final configuration are confirmed with your order.</p>
 <p class="product-detail__warranty"><strong>1-Year Limited Warranty.</strong> This product is covered for defects in materials and workmanship, subject to the applicable written warranty terms.</p>
@@ -114,5 +115,6 @@
 
 
 .product-form label{display:block;margin-top:15px;font-size:12px}.product-form input,.product-form select{padding:10px;border:1px solid #d5d5d9;font:inherit;max-width:100%}.product-form input[type=number]{width:80px;margin-right:12px}.product-form button:disabled{opacity:.5;cursor:not-allowed}
+.product-form__payment{max-width:360px;margin-top:12px}.product-form__payment .shopify-payment-button__button{min-height:48px;border-radius:999px;font-weight:900;letter-spacing:.05em;text-transform:uppercase}.product-form__payment .shopify-payment-button__more-options{font-size:11px}
 {% endstylesheet %}
 {% schema %}{"name":"ProSteel product","settings":[],"disabled_on":{"groups":["header","footer"]}}{% endschema %}
