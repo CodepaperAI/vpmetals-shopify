@@ -1,0 +1,44 @@
+<section class="lumina-page">
+  <div class="lumina-hero">
+    <div class="lumina-hero__copy">
+      <p>{{ 'lumina.eyebrow' | t }}</p>
+      <h1>{{ 'lumina.title' | t }}</h1>
+      <span>{{ 'lumina.intro' | t }}</span>
+      <div><a href="#LuminaDesigns">{{ 'lumina.explore' | t }}</a><a href="/pages/contact">{{ 'lumina.quote' | t }}</a></div>
+    </div>
+    <img src="{{ 'lumina-bold-illumination-context.png' | asset_url }}" width="1773" height="887" alt="{{ 'lumina.hero_alt' | t | escape }}" loading="eager">
+  </div>
+
+  <div class="lumina-benefits">
+    <div><p>{{ 'lumina.custom_metalwork' | t }}</p><h2>{{ 'lumina.benefits_title' | t }}</h2></div>
+    <ul><li>{{ 'lumina.stainless' | t }}</li><li>{{ 'lumina.led' | t }}</li><li>{{ 'lumina.custom' | t }}</li><li>{{ 'lumina.applications' | t }}</li></ul>
+  </div>
+
+  <div class="lumina-designs" id="LuminaDesigns">
+    <div class="lumina-designs__heading"><div><p>{{ 'lumina.design_count' | t }}</p><h2>{{ 'lumina.choose' | t }}</h2></div><a href="{{ 'prosteel-lumina-series.pdf' | asset_url }}" target="_blank" rel="noopener">{{ 'lumina.brochure' | t }} →</a></div>
+    {% assign names = 'Floral Blossom|Natural Leaf|Modern Mosaic|Classic Arabesque|Peacock Feather|Geometric Mosaic|Honeycomb|Diamond Wave|Radiant Bloom|Flowing Wave|Modern Heritage|Timeless Design|Distinctive Spaces|Strength in Style|Bold Illumination' | split: '|' %}
+    {% assign slugs = 'floral-blossom|natural-leaf|modern-mosaic|classic-arabesque|peacock-feather|geometric-mosaic|honeycomb|diamond-wave|radiant-bloom|flowing-wave|modern-heritage|timeless-design|distinctive-spaces|strength-in-style|bold-illumination' | split: '|' %}
+    <div class="lumina-designs__grid">
+      {% for name in names %}
+        {% assign slug = slugs[forloop.index0] %}
+        <article class="lumina-card">
+          <a class="lumina-card__media" href="/pages/contact?product={{ slug | url_encode }}">
+            <img class="lumina-card__primary" src="{{ 'lumina-' | append: slug | append: '.png' | asset_url }}" width="724" height="1771" alt="{{ name | escape }} custom stainless-steel illuminated architectural column" loading="lazy">
+            <img class="lumina-card__context" src="{{ 'lumina-' | append: slug | append: '-context.png' | asset_url }}" width="1672" height="941" alt="" loading="lazy">
+          </a>
+          <div><p>{{ 'lumina.category' | t }}</p><h3>{{ name }}</h3><span>{{ 'lumina.card_copy' | t }}</span><a href="/pages/contact?product={{ slug | url_encode }}">{{ 'lumina.quote' | t }} →</a></div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="lumina-custom">
+    <div><p>{{ 'lumina.project_eyebrow' | t }}</p><h2>{{ 'lumina.project_title' | t }}</h2></div>
+    <p>{{ 'lumina.project_copy' | t }}</p><a href="/pages/contact">{{ 'lumina.discuss' | t }}</a>
+  </div>
+</section>
+
+{% stylesheet %}
+.lumina-page{background:#fff}.lumina-hero{display:grid;grid-template-columns:minmax(360px,.82fr) minmax(0,1.18fr);min-height:670px;background:#0b0d11;color:#fff}.lumina-hero__copy{display:flex;padding:86px max(28px,calc((100vw - 1200px)/2));padding-right:52px;justify-content:center;flex-direction:column}.lumina-hero__copy>p,.lumina-benefits p,.lumina-designs__heading p,.lumina-custom div p{margin:0 0 15px;color:#d5a73b;font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}.lumina-hero h1{max-width:620px;margin:0;font-size:clamp(43px,5.4vw,76px);letter-spacing:-.05em;line-height:.98;text-transform:uppercase}.lumina-hero__copy>span{max-width:600px;margin-top:28px;color:#c9cbd0;font-size:16px;line-height:1.7}.lumina-hero__copy>div{display:flex;margin-top:34px;flex-wrap:wrap;gap:10px}.lumina-hero__copy a,.lumina-custom>a{display:inline-flex;min-height:48px;padding:0 22px;align-items:center;border:1px solid #d5a73b;background:#d5a73b;color:#111;font-size:10px;font-weight:900;letter-spacing:.08em;text-decoration:none;text-transform:uppercase}.lumina-hero__copy a+a{background:transparent;color:#fff}.lumina-hero>img{width:100%;height:100%;object-fit:cover}.lumina-benefits{display:grid;grid-template-columns:1.1fr .9fr;padding:85px max(24px,calc((100vw - 1200px)/2));gap:90px;background:#f5f3ed}.lumina-benefits h2,.lumina-designs h2,.lumina-custom h2{margin:0;font-size:clamp(30px,4vw,48px);letter-spacing:-.04em;line-height:1.08;text-transform:uppercase}.lumina-benefits ul{display:grid;margin:0;padding:0;list-style:none}.lumina-benefits li{padding:17px 0;border-bottom:1px solid #d8d3c8;color:#333;font-size:14px;font-weight:800}.lumina-designs{padding:94px 24px 110px;scroll-margin-top:90px}.lumina-designs__heading,.lumina-designs__grid{width:min(100%,1200px);margin-inline:auto}.lumina-designs__heading{display:flex;margin-bottom:38px;align-items:flex-end;justify-content:space-between;gap:24px}.lumina-designs__heading a{color:#8c681d;font-size:11px;font-weight:900;text-decoration:none;text-transform:uppercase}.lumina-designs__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}.lumina-card{border:1px solid #e5e1d8;background:#fff}.lumina-card__media{position:relative;display:block;aspect-ratio:1/.86;overflow:hidden;background:#faf9f6}.lumina-card__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:22px;transition:opacity .3s ease,transform .4s ease}.lumina-card__media .lumina-card__context{padding:0;object-fit:cover;opacity:0;transform:scale(1.03)}.lumina-card:hover .lumina-card__primary{opacity:0}.lumina-card:hover .lumina-card__context{opacity:1;transform:scale(1)}.lumina-card>div{padding:22px}.lumina-card p{margin:0 0 7px;color:#9b7421;font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.lumina-card h3{margin:0;font-size:18px;text-transform:uppercase}.lumina-card span{display:block;min-height:40px;margin-top:11px;color:#6b6c73;font-size:12px;line-height:1.55}.lumina-card>div>a{display:inline-block;margin-top:18px;color:#765719;font-size:10px;font-weight:900;text-decoration:none;text-transform:uppercase}.lumina-custom{display:grid;grid-template-columns:1fr 1fr auto;padding:78px max(24px,calc((100vw - 1200px)/2));align-items:center;gap:52px;background:#101217;color:#fff}.lumina-custom>p{margin:0;color:#bfc1c8;font-size:14px;line-height:1.75}@media(max-width:900px){.lumina-hero{grid-template-columns:1fr}.lumina-hero__copy{padding:70px 28px}.lumina-hero>img{max-height:520px}.lumina-benefits,.lumina-custom{grid-template-columns:1fr;gap:38px}.lumina-designs__grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){.lumina-hero{min-height:0}.lumina-hero__copy{padding:58px 20px}.lumina-hero>img{height:350px}.lumina-benefits,.lumina-custom{padding:62px 20px}.lumina-designs{padding:70px 20px}.lumina-designs__heading{align-items:flex-start;flex-direction:column}.lumina-designs__grid{grid-template-columns:1fr}}@media(prefers-reduced-motion:reduce){.lumina-card__media img{transition:none}}
+{% endstylesheet %}
+{% schema %}{"name":"Lumina series","settings":[],"presets":[{"name":"Lumina series"}]}{% endschema %}

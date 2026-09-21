@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import CatalogCard from '../../components/CatalogCard.astro';
-import { catalogProducts, gasProducts, rackProducts, safetyProducts, tableProducts } from '../../data/catalog';
+import { catalogProducts, gasProducts, luminaProducts, rackProducts, safetyProducts, tableProducts } from '../../data/catalog';
 ---
 
 <BaseLayout title="Industrial Product Catalogue | ProSteel Equipment" description="Shop ProSteel gas cylinder cages, forklift carriers, welding cages, storage transport systems, industrial tables, workbenches, carts, and warehouse safety products.">
@@ -10,7 +10,7 @@ import { catalogProducts, gasProducts, rackProducts, safetyProducts, tableProduc
 		<PageHero
 			eyebrow="2026 product catalogue"
 			title="Built for industrial work"
-			copy={`${gasProducts.length} cage and carrier systems, ${rackProducts.length} material rack configurations, ${tableProducts.length} industrial tables and carts, and ${safetyProducts.length} warehouse safety guards engineered and fabricated in Canada.`}
+			copy={`${gasProducts.length} cage and carrier systems, ${rackProducts.length} material rack configurations, ${tableProducts.length} industrial tables and carts, ${safetyProducts.length} warehouse safety guards, and ${luminaProducts.length} architectural light-column designs.`}
 			image="/images/prosteel/hero-crane-carrier.webp"
 			alt="ProSteel crane-mounted gas bottle carrier at an industrial site"
 		/>
@@ -31,6 +31,7 @@ import { catalogProducts, gasProducts, rackProducts, safetyProducts, tableProduc
 					<button type="button" data-filter="material-rack" aria-pressed="false">Storage Transport Solutions</button>
 					<button type="button" data-filter="industrial-table" aria-pressed="false">Metal Table and Cart</button>
 					<button type="button" data-filter="warehouse-safety" aria-pressed="false">Warehouse Safety Equipment</button>
+					<button type="button" data-filter="lumina" aria-pressed="false">Lumina Light Columns</button>
 				</div>
 
 				<div class="catalogue__grid" data-catalogue-grid>
@@ -59,6 +60,7 @@ import { catalogProducts, gasProducts, rackProducts, safetyProducts, tableProduc
 		'material-rack': 'Storage Transport Solutions',
 		'industrial-table': 'Metal Table and Cart',
 		'warehouse-safety': 'Warehouse Safety Equipment',
+		lumina: 'Lumina Architectural Light Columns',
 	};
 	const applyFilter = (filter: string) => {
 		if (title) title.textContent = titles[filter] ?? titles.all;

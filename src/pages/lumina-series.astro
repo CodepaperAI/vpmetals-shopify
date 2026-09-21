@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CatalogCard from '../components/CatalogCard.astro';
+import { luminaProducts } from '../data/catalog';
+---
+
+<BaseLayout title="Lumina Architectural Light Columns | ProSteel Equipment" description="Explore custom stainless-steel architectural light columns and illuminated bollards from the ProSteel Lumina Series.">
+	<main>
+		<section class="lumina-hero">
+			<div class="lumina-hero__copy">
+				<p>Lumina Series · Art meets illumination</p>
+				<h1>Architectural light columns shaped around your space.</h1>
+				<span>Custom stainless-steel columns combine laser-cut pattern work and LED illumination for commercial and residential landscapes.</span>
+				<div><a href="#designs">Explore the designs</a><a href="/contact/">Request a quote</a></div>
+			</div>
+			<img src="/images/lumina/bold-illumination-context.png" alt="Lumina illuminated architectural columns visualized outside a commercial building" loading="eager" fetchpriority="high" />
+		</section>
+
+		<section class="lumina-intro" aria-labelledby="lumina-intro-title">
+			<div><p>Custom architectural metalwork</p><h2 id="lumina-intro-title">Beauty, visibility, and ambience in one fabricated feature.</h2></div>
+			<ul><li>Premium stainless steel</li><li>Energy-efficient LED illumination available</li><li>Custom sizes and designs</li><li>Commercial and residential applications</li></ul>
+		</section>
+
+		<section class="lumina-designs" id="designs" aria-labelledby="lumina-designs-title">
+			<div class="lumina-designs__heading"><div><p>Fifteen supplied concepts</p><h2 id="lumina-designs-title">Choose a Lumina pattern</h2></div><a href="/brochures/prosteel-lumina-series.pdf" target="_blank" rel="noreferrer">Download brochure →</a></div>
+			<div class="lumina-designs__grid">{luminaProducts.map((product) => <CatalogCard product={product} />)}</div>
+		</section>
+
+		<section class="lumina-custom">
+			<div><p>Made for the project</p><h2>Specify the form, scale, finish, lighting, and pattern.</h2></div>
+			<p>Reference sizes shown in the brochure range from 6 × 6 × 13 inches to 6 × 6 × 80 inches. Final dimensions, mounting, electrical configuration, finish, pricing, and lead time are confirmed for each quotation.</p>
+			<a href="/contact/">Discuss your project</a>
+		</section>
+	</main>
+</BaseLayout>
+
+<style>
+	.lumina-hero { display:grid; grid-template-columns:minmax(360px,.82fr) minmax(0,1.18fr); min-height:670px; background:#0b0d11; color:#fff; }
+	.lumina-hero__copy { display:flex; padding:86px max(28px,calc((100vw - 1200px)/2)); padding-right:52px; justify-content:center; flex-direction:column; }
+	.lumina-hero__copy > p,.lumina-intro p,.lumina-designs__heading p,.lumina-custom div p { margin:0 0 15px; color:#d5a73b; font-size:11px; font-weight:900; letter-spacing:.14em; text-transform:uppercase; }
+	.lumina-hero h1 { max-width:620px; margin:0; font-size:clamp(43px,5.4vw,76px); letter-spacing:-.05em; line-height:.98; text-transform:uppercase; }
+	.lumina-hero__copy > span { max-width:600px; margin-top:28px; color:#c9cbd0; font-size:16px; line-height:1.7; }
+	.lumina-hero__copy > div { display:flex; margin-top:34px; flex-wrap:wrap; gap:10px; }
+	.lumina-hero__copy a,.lumina-custom > a { display:inline-flex; min-height:48px; padding:0 22px; align-items:center; border:1px solid #d5a73b; background:#d5a73b; color:#111; font-size:10px; font-weight:900; letter-spacing:.08em; text-decoration:none; text-transform:uppercase; }
+	.lumina-hero__copy a + a { background:transparent; color:#fff; }
+	.lumina-hero > img { width:100%; height:100%; object-fit:cover; }
+	.lumina-intro { display:grid; grid-template-columns:1.1fr .9fr; padding:85px max(24px,calc((100vw - 1200px)/2)); gap:90px; background:#f5f3ed; }
+	.lumina-intro h2,.lumina-designs h2,.lumina-custom h2 { margin:0; font-size:clamp(30px,4vw,48px); letter-spacing:-.04em; line-height:1.08; text-transform:uppercase; }
+	.lumina-intro ul { display:grid; margin:0; padding:0; list-style:none; }
+	.lumina-intro li { padding:17px 0; border-bottom:1px solid #d8d3c8; color:#333; font-size:14px; font-weight:800; }
+	.lumina-designs { padding:94px 24px 110px; background:#fff; scroll-margin-top:90px; }
+	.lumina-designs__heading,.lumina-designs__grid { width:min(100%,1200px); margin-inline:auto; }
+	.lumina-designs__heading { display:flex; margin-bottom:38px; align-items:flex-end; justify-content:space-between; gap:24px; }
+	.lumina-designs__heading a { color:#8c681d; font-size:11px; font-weight:900; text-decoration:none; text-transform:uppercase; }
+	.lumina-designs__grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
+	.lumina-custom { display:grid; grid-template-columns:1fr 1fr auto; padding:78px max(24px,calc((100vw - 1200px)/2)); align-items:center; gap:52px; background:#101217; color:#fff; }
+	.lumina-custom > p { margin:0; color:#bfc1c8; font-size:14px; line-height:1.75; }
+	@media(max-width:900px){.lumina-hero{grid-template-columns:1fr}.lumina-hero__copy{padding:70px 28px}.lumina-hero>img{max-height:520px}.lumina-intro,.lumina-custom{grid-template-columns:1fr;gap:38px}.lumina-designs__grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+	@media(max-width:600px){.lumina-hero{min-height:0}.lumina-hero__copy{padding:58px 20px}.lumina-hero>img{height:350px}.lumina-intro,.lumina-custom{padding:62px 20px}.lumina-designs{padding:70px 20px}.lumina-designs__heading{align-items:flex-start;flex-direction:column}.lumina-designs__grid{grid-template-columns:1fr}}
+</style>

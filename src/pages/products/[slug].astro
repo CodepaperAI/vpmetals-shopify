@@ -54,6 +54,16 @@ const brochureConfig = product.collection === 'material-rack'
 					{ label: 'B2C price sheet', href: '/brochures/prosteel-bollard-guard-b2c-price.pdf' },
 				],
 			}
+	: product.collection === 'lumina'
+		? {
+				previewImage: product.model.startsWith('Lumina L')
+					? '/images/lumina/brochure-page-3.jpg'
+					: ['Geometric Mosaic', 'Honeycomb', 'Diamond Wave', 'Radiant Bloom', 'Flowing Wave'].some((name) => product.name.includes(name))
+						? '/images/lumina/brochure-page-2.jpg'
+						: '/images/lumina/brochure-page-1.jpg',
+				previewAlt: 'Lumina Series brochure page showing approved architectural light-column designs',
+				links: [{ label: 'Lumina Series brochure', href: '/brochures/prosteel-lumina-series.pdf' }],
+			}
 		: null;
 const galleryItems = [
 	{ label: 'Product photo', image: product.image, alt: product.alt, kind: 'photo' as const },
@@ -173,8 +183,8 @@ const galleryItems = [
 				) : (
 					<a class="product-detail__cart" href="/contact/">Request pricing</a>
 				)}
-				<p class="product-detail__note">Prices shown in CAD. Shipping, applicable taxes, lead time, and final configuration are confirmed with your order.</p>
-				<p class="product-detail__warranty"><strong>1-Year Limited Warranty</strong> Our metal products are covered by a 1-Year Limited Warranty, subject to the applicable written terms and conditions.</p>
+				<p class="product-detail__note">{product.collection === 'lumina' ? 'Pricing, dimensions, finish, mounting, electrical configuration, and lead time are confirmed with your quotation.' : 'Prices shown in CAD. Shipping, applicable taxes, lead time, and final configuration are confirmed with your order.'}</p>
+				{product.warranty !== false && <p class="product-detail__warranty"><strong>1-Year Limited Warranty</strong> {product.warranty ?? 'Our metal products are covered by a 1-Year Limited Warranty, subject to the applicable written terms and conditions.'}</p>}
 
 				<div class="product-detail__specs">
 					<h2>Specifications</h2>

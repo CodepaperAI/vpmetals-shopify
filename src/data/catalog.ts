@@ -4,7 +4,7 @@ export type CatalogProduct = {
 	slug: string;
 	name: string;
 	model: string;
-	collection: 'gas-cage' | 'material-rack' | 'industrial-table' | 'warehouse-safety';
+	collection: 'gas-cage' | 'material-rack' | 'industrial-table' | 'warehouse-safety' | 'lumina';
 	category: string;
 	price?: number;
 	image: string;
@@ -18,6 +18,7 @@ export type CatalogProduct = {
 	specs: ProductSpec[];
 	features: string[];
 	featured?: boolean;
+	warranty?: string | false;
 };
 
 const cageFeatures = [
@@ -58,6 +59,39 @@ const tableContext = (slug: string) => `/images/catalog/tables/${slug}-context.w
 const safetyImage = (slug: string) => `/images/catalog/safety/${slug}.webp`;
 const safetyContext = (slug: string) => `/images/catalog/safety/${slug}-context.webp`;
 const safetyBrochure = (group: string) => `/images/catalog/brochures/safety/${group}-brochure.webp`;
+const luminaImage = (slug: string) => `/images/lumina/${slug}.png`;
+const luminaContext = (slug: string) => `/images/lumina/${slug}-context.png`;
+
+const luminaFeatures = [
+	'Custom stainless-steel light-column construction',
+	'Energy-efficient LED illumination available',
+	'Custom sizes, shapes, and designs available',
+	'Suited to commercial and residential landscape projects',
+	'Final dimensions, mounting, electrical configuration, finish, and lead time confirmed with quotation',
+];
+
+const luminaProduct = (slug: string, name: string, model: string, shape: string, featured = false): CatalogProduct => ({
+	slug: `lumina-${slug}`,
+	name: `Lumina ${name}`,
+	model,
+	collection: 'lumina',
+	category: 'Architectural Light Columns',
+	image: luminaImage(slug),
+	contextImage: luminaContext(slug),
+	alt: `${name} custom stainless-steel illuminated architectural column`,
+	description: `A custom stainless-steel architectural light column in a ${shape.toLowerCase()} form, featuring the ${name} laser-cut pattern and integrated LED illumination.`,
+	application: 'Commercial and residential landscapes, hospitality entrances, retail environments, walkways, gardens, feature spaces, and custom architectural projects.',
+	specs: [
+		{ label: 'Series', value: 'Lumina' },
+		{ label: 'Column form', value: shape },
+		{ label: 'Material', value: 'Stainless steel' },
+		{ label: 'Lighting', value: 'LED illumination available' },
+		{ label: 'Configuration', value: 'Custom size, shape, design, and finish by quotation' },
+	],
+	features: luminaFeatures,
+	featured,
+	warranty: false,
+});
 
 export const gasProducts: CatalogProduct[] = [
 	{
@@ -596,7 +630,25 @@ export const safetyProducts: CatalogProduct[] = [
 	},
 ];
 
-export const catalogProducts = [...gasProducts, ...rackProducts, ...tableProducts, ...safetyProducts];
+export const luminaProducts: CatalogProduct[] = [
+	luminaProduct('floral-blossom', 'Floral Blossom', 'Lumina Floral Blossom', 'Rectangular column', true),
+	luminaProduct('natural-leaf', 'Natural Leaf', 'Lumina Natural Leaf', 'Rectangular column'),
+	luminaProduct('modern-mosaic', 'Modern Mosaic', 'Lumina Modern Mosaic', 'Rectangular column', true),
+	luminaProduct('classic-arabesque', 'Classic Arabesque', 'Lumina Classic Arabesque', 'Rectangular column'),
+	luminaProduct('peacock-feather', 'Peacock Feather', 'Lumina Peacock Feather', 'Rectangular column'),
+	luminaProduct('geometric-mosaic', 'Geometric Mosaic', 'Lumina Geometric Mosaic', 'Round column', true),
+	luminaProduct('honeycomb', 'Honeycomb', 'Lumina Honeycomb', 'Round column'),
+	luminaProduct('diamond-wave', 'Diamond Wave', 'Lumina Diamond Wave', 'Round column'),
+	luminaProduct('radiant-bloom', 'Radiant Bloom', 'Lumina Radiant Bloom', 'Round column'),
+	luminaProduct('flowing-wave', 'Flowing Wave', 'Lumina Flowing Wave', 'Round column', true),
+	luminaProduct('modern-heritage', 'Modern Heritage', 'Lumina L1', 'Square branded column'),
+	luminaProduct('timeless-design', 'Timeless Design', 'Lumina L2', 'Square branded column'),
+	luminaProduct('distinctive-spaces', 'Distinctive Spaces', 'Lumina L3', 'Square branded column'),
+	luminaProduct('strength-in-style', 'Strength in Style', 'Lumina L4', 'Square branded column'),
+	luminaProduct('bold-illumination', 'Bold Illumination', 'Lumina L5', 'Square branded column', true),
+];
+
+export const catalogProducts = [...gasProducts, ...rackProducts, ...tableProducts, ...safetyProducts, ...luminaProducts];
 export const featuredProducts = catalogProducts.filter((product) => product.featured);
 export const findProduct = (slug: string) => catalogProducts.find((product) => product.slug === slug);
 export const formatPrice = (price?: number) => price === undefined ? 'Request a quote' : new Intl.NumberFormat('en-CA', { style: 'currency', currency: 'CAD', maximumFractionDigits: 0 }).format(price);

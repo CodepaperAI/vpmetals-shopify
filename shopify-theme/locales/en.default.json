@@ -30,6 +30,29 @@
   "collections": {
     "title": "Collections"
   },
+  "lumina": {
+    "eyebrow": "Lumina Series · Art meets illumination",
+    "title": "Architectural light columns shaped around your space.",
+    "intro": "Custom stainless-steel columns combine laser-cut pattern work and LED illumination for commercial and residential landscapes.",
+    "explore": "Explore the designs",
+    "quote": "Request a quote",
+    "hero_alt": "Lumina illuminated architectural columns visualized outside a commercial building",
+    "custom_metalwork": "Custom architectural metalwork",
+    "benefits_title": "Beauty, visibility, and ambience in one fabricated feature.",
+    "stainless": "Premium stainless steel",
+    "led": "Energy-efficient LED illumination available",
+    "custom": "Custom sizes and designs",
+    "applications": "Commercial and residential applications",
+    "design_count": "Fifteen supplied concepts",
+    "choose": "Choose a Lumina pattern",
+    "brochure": "Download brochure",
+    "category": "Architectural light column",
+    "card_copy": "Custom stainless-steel illuminated column. Final configuration is confirmed by quotation.",
+    "project_eyebrow": "Made for the project",
+    "project_title": "Specify the form, scale, finish, lighting, and pattern.",
+    "project_copy": "Reference sizes shown in the brochure range from 6 × 6 × 13 inches to 6 × 6 × 80 inches. Final dimensions, mounting, electrical configuration, finish, pricing, and lead time are confirmed for each quotation.",
+    "discuss": "Discuss your project"
+  },
   "gift_card": {
     "add_to_apple_wallet": "Add to Apple Wallet",
     "card": "Gift card",
