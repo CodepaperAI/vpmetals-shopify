@@ -30,6 +30,27 @@
   "collections": {
     "title": "Collections"
   },
+  "contact": {
+    "eyebrow": "Contact ProSteel",
+    "title": "Tell us what you need to handle.",
+    "intro": "Share the product, load, dimensions, application, or project requirements. Our team will follow up with the right next step.",
+    "details_eyebrow": "Visit or contact us",
+    "details_title": "ProSteel Equipment",
+    "map_title": "Google Map showing ProSteel Equipment at 39 Selby Road, Brampton",
+    "form_eyebrow": "Request information",
+    "form_title": "Start your inquiry",
+    "success": "Thank you. Your request has been sent to ProSteel Equipment.",
+    "name": "Name",
+    "company": "Company",
+    "email": "Email",
+    "phone": "Phone",
+    "product": "Product or project reference",
+    "product_placeholder": "Product name, model, or project",
+    "interest": "Area of interest",
+    "select": "Select an option",
+    "message": "Message",
+    "submit": "Send request"
+  },
   "lumina": {
     "eyebrow": "Lumina Series · Art meets illumination",
     "title": "Architectural light columns shaped around your space.",

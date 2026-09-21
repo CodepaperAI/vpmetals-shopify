@@ -1,0 +1,56 @@
+{% liquid
+  assign page_key = page.handle
+  assign hero_image = 'home-custom-shop.webp'
+  case page_key
+    when 'about-us'
+      assign eyebrow = 'Built in Canada'
+      assign title = 'Metal products made for demanding work.'
+      assign intro = 'ProSteel Equipment designs and fabricates reliable industrial metal products for contractors, fabricators, warehouses, and commercial facilities.'
+    when 'custom-solutions'
+      assign eyebrow = 'Custom fabrication'
+      assign title = 'From a project requirement to a finished metal solution.'
+      assign intro = 'Our in-house capabilities support custom sizes, configurations, materials, finishes, prototypes, and production-ready equipment.'
+      assign hero_image = 'fabrication-welding.webp'
+    when 'gallery'
+      assign eyebrow = 'Project gallery'
+      assign title = 'ProSteel products at work.'
+      assign intro = 'Explore fabricated products, application examples, and industrial solutions built for real operating environments.'
+    when 'industries'
+      assign eyebrow = 'Industries served'
+      assign title = 'Built around the way your facility works.'
+      assign intro = 'Practical metal products and fabrication support for construction, manufacturing, warehousing, glazing, stone handling, food service, and commercial operations.'
+  endcase
+%}
+
+<article class="company-page company-page--{{ page_key }}">
+  <header class="company-page__hero">
+    <div class="company-page__copy"><p class="eyebrow">{{ eyebrow }}</p><h1>{{ title }}</h1><p>{{ intro }}</p></div>
+    <img src="{{ hero_image | asset_url }}" width="1200" height="850" alt="ProSteel Equipment fabrication and industrial products">
+  </header>
+
+  <div class="company-page__body page-width">
+    {% case page_key %}
+      {% when 'about-us' %}
+        <section><p class="eyebrow">Our company</p><h2>Strength, function, and long-term performance.</h2><p>From standard catalogue products to made-to-order fabrication, ProSteel focuses on durable construction, accurate workmanship, and responsive project support. Products are developed for daily use in demanding industrial and commercial settings.</p></section>
+        <div class="company-page__grid"><article><h3>Canadian manufacturing</h3><p>Fabrication and project support from our Brampton, Ontario facility.</p></article><article><h3>Durable construction</h3><p>Material selection, welding, forming, and finishing suited to the application.</p></article><article><h3>Project collaboration</h3><p>Clear communication from initial requirements through final configuration.</p></article><article><h3>1-Year Limited Warranty</h3><p>Eligible ProSteel metal products are covered subject to the published terms and conditions.</p></article></div>
+      {% when 'custom-solutions' %}
+        <section><p class="eyebrow">Capabilities</p><h2>Complete in-house metal fabrication support.</h2><p>Share your load, footprint, material, access, finish, and operating requirements. Our team can help translate them into a practical fabricated solution.</p></section>
+        <div class="company-page__grid"><article><h3>CNC laser cutting</h3><p>Sheet and tube-laser cutting for consistent parts, openings, and structural components.</p></article><article><h3>Forming &amp; machining</h3><p>CNC bending, rolling, lathe, and milling for formed and machined components.</p></article><article><h3>Welding &amp; assembly</h3><p>MIG, TIG, spot welding, and assembly for finished products and structures.</p></article><article><h3>Finishing</h3><p>Powder coating and multi-stage prime-and-paint systems for durable finishes.</p></article><article><h3>Design &amp; prototyping</h3><p>In-house development for project-specific equipment and metal structures.</p></article></div>
+      {% when 'gallery' %}
+        <section><p class="eyebrow">Selected work</p><h2>Products and fabrication in context.</h2><p>These images represent ProSteel product families and the industrial environments they are designed to support.</p></section>
+        <div class="company-page__gallery"><img src="{{ 'home-transport-rack.webp' | asset_url }}" width="900" height="675" alt="ProSteel transport rack in an industrial facility"><img src="{{ 'home-platform-cart.webp' | asset_url }}" width="900" height="675" alt="ProSteel industrial platform cart"><img src="{{ 'home-gas-cage.webp' | asset_url }}" width="900" height="675" alt="ProSteel gas cylinder storage cage"><img src="{{ 'home-bollard.webp' | asset_url }}" width="900" height="675" alt="ProSteel safety bollard"><img src="{{ 'home-curtain-wall.png' | asset_url }}" width="900" height="675" alt="Curtain wall building application"><img src="{{ 'fabrication-welding.webp' | asset_url }}" width="900" height="675" alt="ProSteel fabrication and welding capability"></div>
+      {% when 'industries' %}
+        <section><p class="eyebrow">Applications</p><h2>Solutions across commercial and industrial operations.</h2><p>Standard and custom-fabricated products are configured around the loads, handling methods, access, safety, and durability needs of each environment.</p></section>
+        <div class="company-page__grid"><article><h3>Construction &amp; glazing</h3><p>Curtain wall backpans, transport systems, and project-specific fabricated components.</p></article><article><h3>Manufacturing</h3><p>Work tables, carts, guards, racks, and production support equipment.</p></article><article><h3>Warehousing &amp; distribution</h3><p>Material storage, transport, and impact-protection products.</p></article><article><h3>Stone &amp; glass handling</h3><p>A-frames and slab racks engineered for stable storage and movement.</p></article><article><h3>Food service</h3><p>Stainless-steel work surfaces and mobile preparation equipment.</p></article><article><h3>Commercial facilities</h3><p>Safety, storage, architectural, and custom-fabrication solutions.</p></article></div>
+    {% endcase %}
+    <div class="company-page__cta"><div><p class="eyebrow">Start a project</p><h2>Tell us what you need.</h2></div><a class="ps-button" href="/pages/contact">Request a quote →</a></div>
+  </div>
+</article>
+
+{% stylesheet %}
+  .company-page__hero{display:grid;grid-template-columns:1fr 1fr;min-height:560px;background:#f4f7fb}.company-page__copy{display:flex;flex-direction:column;justify-content:center;padding:clamp(45px,7vw,110px) max(30px,calc((100vw - 1440px)/2));padding-right:clamp(30px,6vw,90px)}.company-page__copy h1{max-width:760px;margin:10px 0 22px;color:#071c44;font-size:clamp(2.8rem,5.7vw,6rem);line-height:.98;letter-spacing:-.045em;text-transform:uppercase}.company-page__copy>p:last-child{max-width:700px;color:#4f5d70;font-size:1.15rem}.company-page__hero>img{width:100%;height:100%;min-height:560px;object-fit:cover}.company-page__body{padding-block:75px 100px}.company-page__body>section{max-width:950px}.company-page__body h2{margin:8px 0 18px;color:#071c44;font-size:clamp(2rem,4vw,4rem);line-height:1;text-transform:uppercase}.company-page__body>section>p:last-child{color:#536176;font-size:1.12rem}.company-page__grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:48px;border-top:1px solid #dbe2eb;border-left:1px solid #dbe2eb}.company-page__grid article{min-height:190px;padding:30px;border-right:1px solid #dbe2eb;border-bottom:1px solid #dbe2eb}.company-page__grid h3{margin:0 0 12px;color:#071c44;text-transform:uppercase}.company-page__grid p{margin:0;color:#5e6b7a}.company-page__gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:45px}.company-page__gallery img{width:100%;aspect-ratio:4/3;object-fit:cover}.company-page__cta{display:flex;align-items:center;justify-content:space-between;gap:30px;margin-top:65px;padding:38px 42px;background:#eef4fb}.company-page__cta h2{margin-bottom:0;font-size:clamp(1.8rem,3vw,3rem)}@media(max-width:900px){.company-page__hero{grid-template-columns:1fr}.company-page__hero>img{min-height:360px}.company-page__grid,.company-page__gallery{grid-template-columns:repeat(2,1fr)}}@media(max-width:620px){.company-page__copy{padding-inline:24px}.company-page__hero>img{min-height:270px}.company-page__grid,.company-page__gallery{grid-template-columns:1fr}.company-page__cta{align-items:flex-start;flex-direction:column;padding:28px}}
+{% endstylesheet %}
+
+{% schema %}
+{"name":"ProSteel company page","settings":[]}
+{% endschema %}
